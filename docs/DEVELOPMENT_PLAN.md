@@ -43,6 +43,9 @@ A ausência de placa inferior exige que o piso seja rígido e plano. Superfície
   - CS → GPIO 5
   - DRDY → GPIO 4
 - [ ] Conectar bateria LiPo + módulo de carga TP4056
+- [ ] Conectar MT3608 boost converter (saída do TP4056 → MT3608 → 5V)
+- [ ] Ajustar trimpot do MT3608 para 5.0V de saída (medir com multímetro)
+- [ ] Barramento 5V alimenta: ESP32 (pino 5V) + ADS1256 (AVDD)
 - [ ] Montar em protoboard primeiro, PCB depois
 
 ### 1.4 Diagrama de Ligação
