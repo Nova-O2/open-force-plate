@@ -65,17 +65,28 @@ Valor total estimado: R$ 830,54 (com descontos, frete grátis)
 
 | Spec | Valor |
 |------|-------|
-| Processador | Dual-core Xtensa LX7, 240 MHz |
+| Processador | Dual-core Xtensa LX7, 240 MHz (CoreMark: 1181.60 dual) |
 | Flash | 16 MB |
 | PSRAM | 8 MB |
-| WiFi | 802.11 b/g/n |
-| Bluetooth | BLE 5.0 |
-| USB | USB-C nativo (CDC) |
+| SRAM | 512 KB + 16 KB RTC |
+| ROM | 384 KB |
+| Bus | 128-bit data bus, SIMD support |
+| WiFi | 802.11 b/g/n (2.4 GHz, up to 150 Mbps) |
+| Bluetooth | BLE 5.0 + Mesh (125 Kbps, 500 Kbps, 1 Mbps, 2 Mbps) |
+| USB | 1× full speed USB OTG (USB-C nativo) |
 | GPIO | 45 |
-| SPI | 4 interfaces |
+| SPI | 4× SPI (+ Dual SPI, Quad SPI, Octal SPI, QPI, OPI) |
+| I2C | 2× |
+| UART | 3× |
+| ADC interno | 2× 12-bit SAR, 20 canais (não usado — temos ADS1256 externo) |
+| Sensor temp. | 1× interno |
+| Timers | 4× 54-bit universal + 1× 52-bit system + 3× Watchdog |
+| DMA | Universal (5 RX + 5 TX channels) |
 | Alimentação | 5V via USB-C |
 
 **Por que N16R8:** Memória de sobra para buffer de dados a 1000 Hz, firmware complexo, e futuro (OTA updates, logging local, dual plate). Variante N8R2 funciona mas sem margem.
+
+**Verificado via spec sheet do vendedor (2026-04-01):** CPU, BLE e periféricos confirmados compatíveis com todos os requisitos do projeto.
 
 ---
 
