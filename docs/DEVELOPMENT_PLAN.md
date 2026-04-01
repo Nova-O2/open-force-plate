@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Plano de Desenvolvimento — Force Plate MVP
 
-Plataforma única, uniaxial (Fz), 1000 Hz, BLE, com software de análise em Python.
+Plataforma única, uniaxial (Fz), 1000 Hz, USB-C + BLE, com software de análise em Python.
 
 ---
 
@@ -17,13 +17,18 @@ Ver [SHOPPING_LIST.md](./SHOPPING_LIST.md) para lista completa com links e preç
 
 ### 1.2 Montagem Mecânica
 
-- [ ] Cortar/adquirir 2 placas de alumínio 60×40 cm (superior + inferior)
-- [ ] Fixar 4 células de carga nos cantos com parafusos M5
-- [ ] Garantir espaçamento de ~10 mm entre placas (deformação das células)
-- [ ] Adicionar pés de borracha antiderrapante na placa inferior
+- [ ] Cortar/adquirir 1 placa de alumínio 50×60 cm (apenas topo — dimensionada para cortar ao meio na Fase 2 dual: 2× 50×30 cm)
+- [ ] Fixar 4 células de carga tipo F shear beam 500 kg nos cantos da placa com parafusos M5
+- [ ] Os pézinhos das células apoiam diretamente no piso (sem placa inferior)
+- [ ] Verificar que a superfície do piso é rígida e plana (concreto, cerâmica, porcelanato)
 - [ ] Testar rigidez — a plataforma não pode fletir sob carga
+- [ ] Nivelar as células (ajustar pés se necessário) para garantir distribuição uniforme
 
 **Nota sobre materiais:** alumínio 6061-T6 (6 mm espessura) é ideal. Alternativa mais barata: MDF 18 mm para prototipagem rápida (não para uso final).
+
+:::warning
+A ausência de placa inferior exige que o piso seja rígido e plano. Superfícies irregulares, carpetes ou pisos flexíveis podem comprometer a leitura. Em caso de piso inadequado, considerar uma base de MDF ou compensado como apoio nivelador.
+:::
 
 ### 1.3 Montagem Eletrônica
 
@@ -43,9 +48,9 @@ Ver [SHOPPING_LIST.md](./SHOPPING_LIST.md) para lista completa com links e preç
 ### 1.4 Diagrama de Ligação
 
 ```
-Célula 1 (E+,E-,S+,S-)──┐
-Célula 2 (E+,E-,S+,S-)──┼──► ADS1256 ──SPI──► ESP32-S3 ──BLE──► PC/App
-Célula 3 (E+,E-,S+,S-)──┤     (24-bit)        (firmware)
+Célula 1 (E+,E-,S+,S-)──┐                                    ┌──► BLE ──► PC/App
+Célula 2 (E+,E-,S+,S-)──┼──► ADS1256 ──SPI──► ESP32-S3 ──────┤
+Célula 3 (E+,E-,S+,S-)──┤     (24-bit)        (firmware)      └──► USB-C ──► PC/App
 Célula 4 (E+,E-,S+,S-)──┘     1000 Hz
 ```
 
@@ -66,17 +71,23 @@ Célula 4 (E+,E-,S+,S-)──┘     1000 Hz
 - [ ] Implementar buffer circular para suavizar jitter
 - [ ] Adicionar timestamp (microssegundos) a cada amostra
 
-### 2.3 Comunicação BLE
+### 2.3 Comunicação USB-C + BLE
 
+- [ ] Implementar USB CDC (serial) no ESP32-S3 via USB-C nativo
+  - Modo primário: USB-C para máxima confiabilidade e throughput
+  - Protocolo serial: mesmos pacotes que BLE
 - [ ] Implementar BLE GATT server no ESP32
-- [ ] Definir characteristics:
-  - `force_data` (notify) — stream de dados em tempo real
+  - Modo secundário: BLE para uso sem fio (portabilidade)
+- [ ] Definir characteristics (BLE) / comandos (USB):
+  - `force_data` (notify/stream) — stream de dados em tempo real
   - `sample_rate` (read/write) — configurar taxa
   - `tare` (write) — zerar plataforma
   - `calibration` (read/write) — fator de calibração
   - `battery` (read) — nível de bateria
 - [ ] Protocolo de pacotes: [timestamp_us(4B) | force_raw(4B) | force_N(4B)]
+- [ ] Detecção automática: se USB-C conectado → usa USB; senão → BLE
 - [ ] Testar throughput BLE — 1000 Hz × 12 bytes = 12 KB/s (dentro do limite BLE)
+- [ ] Testar throughput USB-C — sem limitação prática a 1000 Hz
 
 ### 2.4 Calibração
 
@@ -167,7 +178,15 @@ Usar/adaptar o pacote `force-plate-jump-analyses` ou implementar:
 
 ---
 
-## Fase 5: Produto (Futuro)
+## Fase 5: Dual Force Plate (Futuro)
+
+- [ ] Cortar chapa 50×60 cm ao meio → 2 placas de 50×30 cm (dimensão similar ao VALD FDLite: 48.5×30 cm)
+- [ ] Adicionar +4 células de carga F shear beam 500 kg
+- [ ] Expandir leitura: usar os 8 canais do ADS1256 (4+4) ou adicionar segundo ADS1256
+- [ ] Adaptar firmware para 2 plataformas independentes (força L + força R)
+- [ ] Implementar métricas de assimetria bilateral no software
+
+## Fase 6: Produto (Futuro)
 
 - [ ] Design de PCB customizada (substituir protoboard)
 - [ ] Enclosure 3D-printed ou injetado
@@ -190,6 +209,19 @@ Usar/adaptar o pacote `force-plate-jump-analyses` ou implementar:
 | Disponibilidade BR | Fácil (AliExpress) | Difícil |
 
 Para plataforma única a 1000 Hz, o ESP32-S3 é mais que suficiente.
+
+### Por que células F shear beam e não tipo S?
+
+| Critério | F shear beam (com pézinho) | Tipo S |
+|----------|---------------------------|--------|
+| Montagem | Simples — pé no chão, placa em cima | Requer 2 placas (superior + inferior) |
+| Peso total | ~7 kg (1 placa 50×60) | ~13 kg (2 placas) |
+| Custo | Menor (~R$ 120-200 a menos) | Maior (segunda placa + espaçadores + pés) |
+| Uso comercial | Padrão em balanças de plataforma | Comum em sistemas de tração/compressão |
+| Precisão | Equivalente para aplicação uniaxial | Equivalente |
+| Requisito extra | Piso rígido e plano | Nenhum (placa inferior nivela) |
+
+A célula F shear beam com pézinho é o padrão da indústria de balanças de plataforma. Simplifica a montagem, reduz custo e peso, e é comprovada em milhões de dispositivos comerciais. A única desvantagem é a dependência de um piso adequado, facilmente contornável.
 
 ### Por que ADS1256 e não HX711?
 
