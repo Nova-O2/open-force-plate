@@ -90,6 +90,75 @@ Valor total estimado: R$ 830,54 (com descontos, frete grátis)
 
 ---
 
+## Bateria — LiPo 3.7V 3000mAh (×1)
+
+| Spec | Valor |
+|------|-------|
+| Tipo | Polímero de lítio (LiPo) |
+| Código | 505080 |
+| Tensão | 3.7V nominal |
+| Capacidade | 3000 mAh |
+| Dimensões | 5 × 50 × 80 mm |
+| Fios | 3 (positivo, negativo, NTC/termistor) |
+| Autonomia estimada | ~3-4h de uso contínuo a 1000 Hz |
+| Carregamento | Via TP4056 Type-C |
+| Fornecedor | Mercado Livre (Brasil) |
+
+**Nota:** 3º fio é NTC (termistor) — usar apenas + e - no TP4056. NTC pode ser conectado ao ESP32 para monitoramento de temperatura da bateria (futuro).
+
+---
+
+## Carregador — TP4056 Type-C com proteção (×5 kit, usar 1)
+
+| Spec | Valor |
+|------|-------|
+| Modelo | TP4056 com proteção contra descarga/sobrecorrente |
+| Entrada | 5V via USB Type-C |
+| Tensão de corte | 4.2V ± 1% |
+| Corrente máxima de carga | 1000 mA |
+| Proteção descarga | 2.5V |
+| Proteção sobrecorrente | 3A |
+| Dimensões | 2.6 × 1.7 cm |
+| Quantidade | Kit 5 unidades (1 uso + 4 spare) |
+| Fornecedor | AliExpress |
+
+**Conexão:** B+ e B- → bateria LiPo. OUT+ e OUT- → MT3608 boost (3.7V→5V) → ESP32 + ADS1256. USB Type-C → carregamento.
+**LED:** Vermelho = carregando. Verde = completo.
+
+---
+
+## Boost Converter — MT3608 Step-Up 3.7V→5V (×1)
+
+| Spec | Valor |
+|------|-------|
+| Modelo | MT3608 DC-DC Step-Up |
+| Entrada | 2-24V DC |
+| Saída | 5-28V DC (ajustável via trimpot) |
+| Corrente máx. | 2A |
+| Eficiência | ~93% |
+| Dimensões | ~36 × 17 × 14 mm |
+| Fornecedor | AliExpress |
+
+**Função:** Converte 3.7V da bateria LiPo para 5V estáveis. Necessário porque ADS1256 (AVDD) exige 4.75-5.25V e o regulador onboard do ESP32 DevKit precisa de ~4.5V mínimo de entrada.
+
+**Configuração:** Ajustar trimpot para saída de **5.0V** antes de conectar ao circuito. Medir com multímetro.
+
+**Arquitetura de alimentação:**
+```
+                          ┌──► ESP32 DevKit (5V pin → onboard reg → 3.3V)
+USB-C 5V ──► TP4056 ──┐  │
+              │        ├──┤
+         Bateria 3.7V ─┘  │
+              │            └──► ADS1256 (AVDD 5V)
+              ▼
+         MT3608 (3.7V→5V) ──► mesmo barramento 5V
+```
+
+**Modo USB-C:** 5V direto do USB alimenta tudo. MT3608 inativo (entrada > saída).
+**Modo bateria (BLE):** MT3608 converte 3.7V→5V. Tudo funciona sem cabo.
+
+---
+
 ## Resolução Teórica do Sistema Completo
 
 ```

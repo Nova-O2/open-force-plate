@@ -35,7 +35,7 @@ Atenção ao comprar células de carga: escolher tipo F shear beam com pézinho 
 |---|-----------|-----|-------------------|-------------|--------------|
 | 4 | **Bateria LiPo 3.7V 2000mAh** (conector JST) | 1 | R$ 25-40 | R$ 25-40 | AliExpress / Amazon BR |
 | 5 | **TP4056 módulo carregador** (com proteção) | 1 | R$ 5-10 | R$ 5-10 | AliExpress |
-| 6 | **Regulador de tensão 3.3V** (AMS1117-3.3) | 1 | R$ 3-5 | R$ 3-5 | AliExpress |
+| 6 | **Boost converter MT3608** (step-up 3.7V→5V, ajustável) | 1 | R$ 3-8 | R$ 3-8 | AliExpress: buscar "MT3608 step up module" |
 | 7 | **Chave liga/desliga** (slide switch) | 1 | R$ 2-5 | R$ 2-5 | AliExpress |
 
 **Subtotal alimentação: R$ 35-60**
@@ -167,7 +167,7 @@ Links pesquisados em 28/03/2026. Preços podem variar. Sempre verificar avaliaç
 | 4 | | [LiPo 103454 2000mAh](https://www.aliexpress.com/item/4001274116010.html) | ~US$ 4 | Alternativa |
 | 5 | **TP4056 carregador** | [TP4056 kit 5pcs](https://www.aliexpress.com/item/32797834680.html) | ~US$ 0.93 | Kit 5 un., ótimo custo — preferir **Type-C** |
 | 5 | | [TP4056 Type-C avulso](https://www.aliexpress.com/item/32467578996.html) | ~US$ 1 | Versão Type-C |
-| 6 | **Regulador AMS1117-3.3V** | [AMS1117 módulo 5V→3.3V](https://www.aliexpress.com/item/4000292966991.html) | ~US$ 0.27 | Preço imbatível |
+| 6 | **Boost converter MT3608** | Buscar "MT3608 step up boost converter module" | ~US$ 0.50-1.50 | Ajustar trimpot para 5.0V antes de usar |
 | 7 | **Chave liga/desliga** | [SS12D00 kit 20pcs](https://www.aliexpress.com/item/4001207529493.html) | ~US$ 0.58 | Kit 20 un., vários tamanhos |
 
 ### Eletrônica — Acessórios
