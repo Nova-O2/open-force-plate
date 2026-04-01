@@ -9,7 +9,7 @@ Plataforma de força uniaxial (vertical) open-source para ciência do esporte.
 
 ## Visão Geral
 
-Dispositivo de baixo custo (~R$ 500-800) capaz de medir força de reação do solo (GRF) a **1000 Hz** com resolução de **24 bits**, validável contra padrão-ouro (Kistler/AMTI/Bertec).
+Dispositivo de baixo custo (~R$ 360-700) capaz de medir força de reação do solo (GRF) a **1000 Hz** com resolução de **24 bits**, validável contra padrão-ouro (Kistler/AMTI/Bertec).
 
 ## Especificações-Alvo
 
@@ -17,12 +17,13 @@ Dispositivo de baixo custo (~R$ 500-800) capaz de medir força de reação do so
 |-----------|-------|
 | Eixos | 1 (vertical — Fz) |
 | Taxa de amostragem | 1000 Hz |
-| Resolução ADC | 24 bits |
-| Capacidade máxima | 800 kg (4 × 200 kg) |
-| Comunicação | BLE (Bluetooth Low Energy) |
-| Alimentação | Bateria LiPo recarregável |
-| Dimensões plataforma | ~60 × 40 cm |
-| Peso estimado | < 5 kg |
+| Resolução ADC | 24 bits (ADS1256) |
+| Resolução teórica | ~0.075–0.15 N |
+| Capacidade máxima | 2000 kg (4 × 500 kg) |
+| Comunicação | USB-C + BLE (Bluetooth Low Energy) |
+| Alimentação | Bateria LiPo recarregável + USB-C |
+| Dimensões plataforma | 50 × 60 cm (single) / 2× 50 × 30 cm (dual) |
+| Peso estimado | ~7 kg (1 chapa 6 mm + eletrônica) |
 
 ## Aplicações
 
@@ -36,13 +37,19 @@ Dispositivo de baixo custo (~R$ 500-800) capaz de medir força de reação do so
 ## Arquitetura
 
 ```
-[4× Células de Carga 200kg]
-         │
-    [ADS1256 24-bit ADC]  ← 1000 Hz SPI
-         │
-      [ESP32-S3]          ← processamento + BLE
-         │
-    [App Python/Web]      ← análise em tempo real
+       ┌─────────────────────────┐
+       │  Placa alumínio 50×60  │  ← superfície de apoio (topo)
+       └────┬────┬────┬────┬────┘
+            │    │    │    │
+       [4× Células F shear beam 500kg]  ← pézinhos apoiam no chão
+            │    │    │    │
+       ═══════════════════════════  ← piso rígido e plano
+                 │
+         [ADS1256 24-bit ADC]  ← 1000 Hz SPI
+                 │
+              [ESP32-S3]       ← processamento + BLE + USB-C
+                 │
+          [App Python/Web]     ← análise em tempo real
 ```
 
 ## Estrutura do Projeto
@@ -61,7 +68,7 @@ force-plate/
 | Fase | Escopo | Status |
 |------|--------|--------|
 | 1 | MVP — plataforma única, vertical, 1000 Hz, BLE | 🔄 Planejamento |
-| 2 | Segunda plataforma (dual) — assimetrias bilaterais | Futuro |
+| 2 | Dual — cortar chapa ao meio (2× 50×30 cm) + 4 sensores extras | Futuro |
 | 3 | Multiaxial (Fx, Fy, Fz) — forças horizontais | Futuro |
 
 ## Referências
