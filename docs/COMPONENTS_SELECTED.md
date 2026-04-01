@@ -157,6 +157,24 @@ USB-C 5V ──► TP4056 ──┐  │
 **Modo USB-C:** 5V direto do USB alimenta tudo. MT3608 inativo (entrada > saída).
 **Modo bateria (BLE):** MT3608 converte 3.7V→5V. Tudo funciona sem cabo.
 
+**⚠️ ANTES DO PRIMEIRO USO:** Girar o trimpot azul ~20 voltas no sentido anti-horário para iniciar com tensão de saída baixa. Depois, conectar multímetro nos pinos VOUT+/VOUT- e girar lentamente no sentido horário até ler **5.0V**. Só então conectar ao circuito. Se não fizer isso, a saída pode estar em tensão alta e danificar o ESP32 ou ADS1256.
+
+---
+
+## Botão Liga/Desliga — 12mm Metal LED (×1)
+
+| Spec | Valor |
+|------|-------|
+| Tipo | Push button metal, 12mm |
+| Modo | Fixed self-locking (latching — trava ligado/desligado) |
+| Tensão LED | 3-9V (compatível com 3.7-5V do circuito) |
+| Material | Metal |
+| LED | Integrado (acende quando ligado) |
+| Fornecedor | AliExpress |
+
+**Função:** Interruptor geral da plataforma. Corta alimentação entre TP4056/MT3608 e o restante do circuito.
+**Posição no circuito:** Entre saída do MT3608 (5V) e o barramento de alimentação (ESP32 + ADS1256).
+
 ---
 
 ## Resolução Teórica do Sistema Completo
