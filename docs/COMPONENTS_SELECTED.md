@@ -58,7 +58,9 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 | 3 | Juntas de aço 2mm (56×32mm, 2× Ø13mm) | 4 | ~20 |
 | 4 | Parafusos M12 cabeça chata + porcas + arruelas (8+8+8) | 1 | ~30 |
 | 5 | Broca Ø13mm para metal | 1 | ~15 |
-| | | **Subtotal** | **~R$ 275** |
+| 6 | Pézinhos torneados (peça única, torneiro) | 4 | ~160 |
+| 7 | Discos borracha neoprene Ø60mm × 1mm | 4 | ~10 |
+| | | **Subtotal** | **~R$ 445** |
 
 ---
 
@@ -68,8 +70,8 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 |-------|----------:|
 | AliExpress (produtos + impostos) | 2.009,03 |
 | Mercado Livre | 315,64 |
-| Local (placas + juntas + parafusos + broca) | ~275 |
-| **TOTAL PROJETO** | **~R$ 2.600** |
+| Local (placas + juntas + parafusos + broca + pézinhos + borracha) | ~445 |
+| **TOTAL PROJETO** | **~R$ 2.770** |
 
 ### Custo Unitário — 1 Plataforma (sem ferramentas, sem backups)
 

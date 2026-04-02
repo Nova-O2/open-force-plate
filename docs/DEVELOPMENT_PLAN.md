@@ -123,21 +123,39 @@ Células orientadas na diagonal da meia-placa (300×500mm), com pé no canto e c
 
 Todos os furos: **Ø13 mm passantes.** Mesmas posições na placa superior e inferior.
 
-**Desenho técnico:** regenerar via `python3 cad/plate_drawing.py` → PDF em `cad/force_plate_technical_drawing.pdf`
+**Desenhos de fabricação:** regenerar via `python3 cad/fabrication_drawings.py` → 3 PDFs em `cad/`
+
+#### Pézinho torneado (×4) — Peça única usinada
+
+| Parte | Dimensão |
+|-------|:--------:|
+| Rosca | M12×1.75, Ø12mm, 30mm comprimento (≤ altura célula 32mm) |
+| Chanfro | Ø12→Ø60, 6mm altura (~14°) |
+| Base | Ø60mm, 5mm espessura |
+| Borracha | Ø60mm, 1mm neoprene (colada após usinagem) |
+| Material | Aço carbono ou inox (barra Ø60mm) |
+| Altura total | 42mm (rosca + chanfro + base + borracha) |
+
+**Sem contra-porca.** Altura ajustada por rosqueamento. Peso da plataforma trava.
+
+**Fabricação:** encomendar em torneiro mecânico. Desenho: `cad/fab_pezinho.pdf`
 
 #### Checklist de montagem mecânica
 
 - [ ] Adquirir placa superior alumínio 600×500 mm, 6 mm
 - [ ] Adquirir placa inferior alumínio 527×396 mm, 3 mm
 - [ ] Adquirir/fabricar 4 juntas de aço 56×32 mm, 2 mm (2× Ø13, 25mm entre centros)
+- [ ] Encomendar 4 pézinhos torneados (ver specs acima + `cad/fab_pezinho.pdf`)
 - [ ] Adquirir parafusos M12 cabeça chata + porcas + arruelas (8+8+8)
 - [ ] Adquirir broca Ø13 mm para metal (se não tiver)
-- [ ] Furar 8 furos Ø13 mm na placa (2 por canto, espaçamento 25 mm)
+- [ ] Cortar/adquirir 4 discos borracha Ø60mm × 1mm (neoprene)
+- [ ] Furar 8 furos Ø13 mm nas placas (2 por canto, espaçamento 25 mm)
 - [ ] Rebarbar furos
-- [ ] Montar: parafuso → placa → junta → célula → porca + arruela
-- [ ] Rosquear pézinhos M12×1.75 nas células
+- [ ] Colar borracha nos pézinhos
+- [ ] Montar: parafuso → placa superior → junta → célula → placa inferior → porca + arruela
+- [ ] Rosquear pézinhos nas células
 - [ ] Apoiar no piso rígido e plano
-- [ ] Nivelar (ajustar pézinhos) — usar nível de bolha
+- [ ] Nivelar (ajustar pézinhos por rosqueamento) — usar nível de bolha
 - [ ] Testar rigidez — plataforma não pode fletir sob carga
 
 :::warning
