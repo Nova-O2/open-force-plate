@@ -33,13 +33,13 @@ Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
 
 ### Mercado Livre — Comprado 2026-04-01
 
-| # | Item | Qtd |
-|---|------|:---:|
-| 1 | Bateria LiPo 3.7V 3000mAh 505080 (3 fios) | 1 |
-| 2 | Ferro de solda Exbom 60W ajustável + 5 pontas + suporte 127V | 1 |
-| 3 | Estanho 60/40 com fluxo 0.8mm 80g Barcelona | 1 |
-| 4 | Kit alicate crimpar + descascador + 1200 terminais ilhós Cietec | 1 |
-| 5 | Alicate meia cana reto 6.1/2" Gedore Red | 1 |
+| # | Item | Loja | Qtd |
+|---|------|------|:---:|
+| 1 | Bateria LiPo 3.7V 3000mAh 505080 (3 fios) | Karina Mayumi | 1 |
+| 2 | Ferro de solda Exbom 60W ajustável + 5 pontas + suporte 127V | Monteiro | 1 |
+| 3 | Estanho 60/40 com fluxo 0.8mm 80g Barcelona | MAHDUFINDS | 1 |
+| 4 | Kit alicate crimpar + descascador + 1200 terminais ilhós Cietec | Cietec (oficial) | 1 |
+| 5 | Alicate meia cana reto 6.1/2" Gedore Red | Ferramentasbarth | 1 |
 
 | | Valor (R$) |
 |---|:---:|
