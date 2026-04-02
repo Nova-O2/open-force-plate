@@ -1,8 +1,39 @@
 # Componentes Selecionados — Force Plate MVP
 
 Data de compra: 2026-04-01
-Fornecedor: AliExpress
-Valor total estimado: R$ 830,54 (com descontos, frete grátis)
+Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
+
+## Resumo de Compras
+
+### AliExpress
+
+| # | Item | Qtd | Status |
+|---|------|:---:|:------:|
+| 1 | Células de carga Decent DYX-301 500kg | 4 | Comprado |
+| 2 | Módulo ADS1256 24-bit (ADS1256IDB + ADR03) | 2 | Comprado |
+| 3 | ESP32-S3-DevKitC-1 N16R8 (com pin headers) | 2 | Comprado |
+| 4 | TP4056 Type-C com proteção (kit 5) | 1 | Comprado |
+| 5 | MT3608 boost converter (regular) | 1 | Comprado |
+| 6 | Botão 12mm metal self-locking LED 3-9V | 1 | Comprado |
+| 7 | Protoboard 830pts (kit 3) | 1 | Comprado |
+| 8 | Jumper wires Dupont 20cm flexible 24AWG cobre | 1 | Comprado |
+| 9 | Conectores XH 2.54mm 4pin 20cm (F5+M5) | 1 | Comprado |
+| 10 | Kit resistores 1/4W 1% | 1 | Comprado |
+
+### Mercado Livre
+
+| # | Item | Qtd | Status |
+|---|------|:---:|:------:|
+| 1 | Bateria LiPo 3.7V 3000mAh 505080 (3 fios) | 1 | Comprado |
+| 2 | Ferro de solda Exbom 60W ajustável + 5 pontas + suporte | 1 | Comprado |
+| 3 | Estanho 60/40 com fluxo 0.8mm 80g | 1 | Comprado |
+
+### Comprar local (quando AliExpress chegar)
+
+| # | Item | Qtd | Status |
+|---|------|:---:|:------:|
+| 1 | Placa alumínio 6061 50×60cm 6mm | 1 | Pendente |
+| 2 | Parafusos M5×20mm inox + porcas + arruelas (8+8+8) | 1 | Pendente |
 
 ---
 
@@ -196,3 +227,26 @@ Combinado (2000 kg / 19,620 N):
 Comparativo VALD FDLite: ~0.15 N
 → Igualamos ou superamos a resolução VALD
 ```
+
+---
+
+## Ferramentas — Solda e Medição
+
+| Item | Spec | Fornecedor |
+|------|------|-----------|
+| Ferro de solda | Exbom 60W, ajustável, 5 pontas, com suporte | Mercado Livre |
+| Estanho | 60/40 (Sn/Pb) com fluxo interno, 0.8mm, 80g | Mercado Livre |
+| Multímetro | Existente (mede tensão DC) | Já possui |
+
+**Temperatura de solda:** 300-350°C para componentes eletrônicos.
+
+---
+
+## Acessórios de Prototipagem
+
+| Item | Spec | Fornecedor |
+|------|------|-----------|
+| Protoboard | 830 pontos, kit 3 unidades | AliExpress |
+| Jumper wires | Dupont 20cm, flexible, 24AWG cobre, M-M/M-F/F-F | AliExpress |
+| Conectores | XH 2.54mm, 4 pinos, 20cm, Female 5 + Male 5 | AliExpress |
+| Kit resistores | 1/4W 1%, valores sortidos | AliExpress |
