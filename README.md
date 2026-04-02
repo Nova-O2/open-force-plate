@@ -60,16 +60,22 @@ force-plate/
 ├── firmware/       # Código ESP32 (Arduino/PlatformIO)
 ├── software/       # App Python para aquisição e análise
 ├── cad/            # Modelos 3D e desenhos da plataforma
-└── docs/           # Documentação, calibração, validação
+└── docs/
+    ├── DEVELOPMENT_PLAN.md    # Como montar e desenvolver (fases, specs, checklists)
+    ├── COMPONENTS_SELECTED.md # Registro de compras (itens, lojas, valores)
+    └── *.png/pdf              # Datasheets e imagens de referência
 ```
 
 ## Roadmap
 
 | Fase | Escopo | Status |
 |------|--------|--------|
-| 1 | MVP — plataforma única, vertical, 1000 Hz, BLE | 🔄 Planejamento |
-| 2 | Dual — cortar chapa ao meio (2× 50×30 cm) + 4 sensores extras | Futuro |
-| 3 | Multiaxial (Fx, Fy, Fz) — forças horizontais | Futuro |
+| 1 | Hardware — montagem mecânica e eletrônica | Componentes comprados (01/04), aguardando chegada |
+| 2 | Firmware — ESP32 + ADS1256 @ 1000 Hz + USB-C/BLE | Aguardando hardware |
+| 3 | Software — app Python, visualização, análise de saltos | Pode iniciar (não depende de hardware) |
+| 4 | Validação — técnica + científica (N≥20, comparação VALD) | Após montagem |
+| 5 | Dual — cortar chapa ao meio (2× 50×30 cm) + 4 sensores extras | Futuro |
+| 6 | Produto — PCB, enclosure, app mobile, open-source | Futuro |
 
 ## Referências
 
