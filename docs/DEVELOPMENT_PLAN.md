@@ -17,16 +17,23 @@ Ver [COMPONENTS_SELECTED.md](./COMPONENTS_SELECTED.md) para registro completo da
 
 ### 1.2 Montagem Mecânica
 
-#### Placa superior
+#### Placa superior — 600 × 500 mm, alumínio 6061-T6, 6mm
 
-- [ ] Adquirir 1 placa de alumínio 6061-T6, 50×60 cm, 6 mm espessura (metalúrgica local)
-- [ ] Marcar posição das 4 células nos cantos (manter ~5 cm das bordas)
-- [ ] Furar 8 furos de **Ø13 mm** (2 por célula, espaçados **25 mm** entre centros)
+- [ ] Adquirir na metalúrgica local
+- [ ] Marcar posição dos 8 furos conforme tabela de coordenadas (ver abaixo)
+- [ ] Furar 8 furos de **Ø13 mm**
 - [ ] Rebarbar furos com lima metal
-- [ ] Alternativa para prototipagem: MDF 18 mm (~R$ 30) — não para uso final
+
+#### Placa inferior — 527 × 396 mm, alumínio 3mm
+
+Peça única que cobre os furos de fixação das 4 células. Não toca o chão — fica suspensa entre as células e as porcas. Os pézinhos ficam fora da área da placa inferior.
+
+- [ ] Adquirir na metalúrgica local (junto com a superior)
+- [ ] Furar 8 furos de **Ø13 mm** nas mesmas posições relativas da placa superior
+- [ ] A placa inferior é centralizada sob a superior
 
 :::tip Estratégia dual (Fase 5)
-A chapa de 50×60 cm foi dimensionada para corte ao meio → 2 placas de 50×30 cm (dimensão similar ao VALD FDLite: 48.5×30 cm).
+A placa superior (50×60 cm) foi dimensionada para corte ao meio → 2 placas de 50×30 cm (dimensão similar ao VALD FDLite: 48.5×30 cm). Os furos da Fase 1 já estão no ângulo correto (~62°) para o layout final da Fase 2.
 :::
 
 #### Célula de carga — Dimensões (Decent DYX-301 500 kg)
@@ -48,40 +55,82 @@ Faixa 300kg–1000kg–2ton da tabela do fabricante:
 
 #### Juntas de aço (4 unidades — 1 por célula)
 
-Plaquinha espaçadora entre a célula e a placa de alumínio:
+Espaçadora entre a célula e a placa superior. Tamanho exato da base da célula.
 
 | Parâmetro | Valor |
 |-----------|-------|
 | Material | Aço carbono ou inox |
 | Espessura | 2 mm |
-| Dimensões | ~60 × 35 mm (cobrir a base de 56 × 30 mm) |
-| Furos | 2× Ø13 mm, espaçados 25 mm entre centros |
+| Dimensões | **56 × 32 mm** (= base da célula, cotas I × W) |
+| Furos | 2× Ø13 mm, espaçados 25 mm entre centros (horizontal — rotação na montagem) |
 
 **Função:** Distribuir carga e evitar que a célula cave o alumínio (aço > alumínio em dureza). Não usar borracha — amortece o sinal a 1000 Hz.
 
 #### Fixação — Montagem por célula
 
 ```
-Parafuso M12 (cabeça)
+Parafuso M12 (cabeça chata)
         ↓
-[Placa alumínio 50×60cm 6mm]  ← furo Ø13mm
+[Placa SUPERIOR — alumínio 6mm, 600×500mm]  ← furo Ø13mm
         ↓
-[Junta de aço 2mm]            ← furo Ø13mm
+[Junta — aço 2mm, 56×32mm]                  ← furo Ø13mm
         ↓
-[Célula DYX-301]              ← furo Ø13mm (passante)
+[Célula DYX-301 — a ~62°]                   ← furo Ø13mm (passante)
+        ↓
+[Placa INFERIOR — alumínio 3mm, 527×396mm]  ← furo Ø13mm
         ↓
 Porca M12 + arruela
         ↓
-[Pézinho M12×1.75]            ← rosca na própria célula, apoia no chão
+[Pézinho M12×1.75]  ← rosca na célula, fora da placa inferior, apoia no chão
 ```
 
 **Parafusos necessários:** 8× M12 + 8× porcas M12 + 8× arruelas (2 por célula)
 
+#### Layout das células — ~62° (ângulo da diagonal Fase 2)
+
+Células orientadas na diagonal da meia-placa (300×500mm), com pé no canto e cabo para o centro. Angulação já posicionada para Fase 2 (corte ao meio).
+
+```
+    ←──────────── 600 mm ────────────→
+    ┌────────────────┬────────────────┐ ↑
+    │  pé            │           pé   │ │
+    │    ╲C1         │        C2╱     │ │
+    │      ╲         │        ╱       │ │
+    │                │                │ 500mm
+    │      ╱         │        ╲       │ │
+    │    ╱C3         │        C4╲     │ │
+    │  pé            │           pé   │ │
+    └────────────────┴────────────────┘ ↓
+                   CORTE
+```
+
+#### Coordenadas dos furos (origem: canto inferior esquerdo)
+
+| Célula | Ponto | X (mm) | Y (mm) |
+|:------:|:-----:|:------:|:------:|
+| C1 | Pé | 40.0 | 460.0 |
+| C1 | Furo 1 | 56.7 | 428.1 |
+| C1 | Furo 2 | 68.3 | 406.0 |
+| C2 | Pé | 560.0 | 460.0 |
+| C2 | Furo 1 | 543.3 | 428.1 |
+| C2 | Furo 2 | 531.7 | 406.0 |
+| C3 | Pé | 40.0 | 40.0 |
+| C3 | Furo 1 | 56.7 | 71.9 |
+| C3 | Furo 2 | 68.3 | 94.0 |
+| C4 | Pé | 560.0 | 40.0 |
+| C4 | Furo 1 | 543.3 | 71.9 |
+| C4 | Furo 2 | 531.7 | 94.0 |
+
+Todos os furos: **Ø13 mm passantes.** Mesmas posições na placa superior e inferior.
+
+**Desenho técnico:** regenerar via `python3 cad/plate_drawing.py` → PDF em `cad/force_plate_technical_drawing.pdf`
+
 #### Checklist de montagem mecânica
 
-- [ ] Adquirir placa de alumínio 50×60 cm, 6 mm
-- [ ] Adquirir/fabricar 4 juntas de aço 2 mm (~60×35 mm, 2× Ø13)
-- [ ] Adquirir parafusos M12 + porcas + arruelas (8+8+8)
+- [ ] Adquirir placa superior alumínio 600×500 mm, 6 mm
+- [ ] Adquirir placa inferior alumínio 527×396 mm, 3 mm
+- [ ] Adquirir/fabricar 4 juntas de aço 56×32 mm, 2 mm (2× Ø13, 25mm entre centros)
+- [ ] Adquirir parafusos M12 cabeça chata + porcas + arruelas (8+8+8)
 - [ ] Adquirir broca Ø13 mm para metal (se não tiver)
 - [ ] Furar 8 furos Ø13 mm na placa (2 por canto, espaçamento 25 mm)
 - [ ] Rebarbar furos
