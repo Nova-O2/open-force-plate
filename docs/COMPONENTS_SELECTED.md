@@ -7,35 +7,46 @@ Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
 
 ### AliExpress — Comprado 2026-04-01
 
-| # | Item | Loja | Qtd | Unit. (R$) | Total (R$) |
-|---|------|------|:---:|:----------:|:----------:|
-| 1 | Células de carga Decent DYX-301 500kg | DECENT Load Cell | 4 | 208.99 | 835.96 |
-| 2 | Módulo ADS1256 24-bit (ADS1256IDB + ADR03) | Shop1105006670 | 2 | 48.29 | 96.58 |
-| 3 | ESP32-S3-DevKitC-1 N16R8 (com pin headers) | Gangda Tong | 2 | 38.19 | 76.38 |
-| 4 | TP4056 Type-C com proteção (kit 5) | Shop1105163493 | 1 | 10.10 | 10.10 |
-| 5 | MT3608 boost converter (regular) | TianShiKai | 2 | 10.89 | 21.78 |
-| 6 | Botão 12mm metal self-locking LED 3-9V | TechEss Electric | 1 | 11.89 | 11.89 |
-| 7 | Protoboard 830pts (kit 3) | Aokin Wholesale | 1 | 21.44 | 21.44 |
-| 8 | Jumper wires Dupont 20cm flexible 24AWG cobre | CHANZON Official | 1 | 38.59 | 38.59 |
-| 9 | Conectores XH 2.54mm 4pin 20cm (F5+M5) | Electrical Wire | 1 | 26.60 | 26.60 |
-| 10 | Conectores PH 2.0mm (bateria→TP4056) | Electrical Wire | 1 | 36.69 | 36.69 |
-| 11 | Kit resistores 300pcs 1/4W 1% metal film (30 valores) | Shop1103844365 | 1 | 12.69 | 12.69 |
-| | | | | **Subtotal produtos** | **R$ 1.188,70** |
-| | | | | **Descontos** | **-R$ 599,78** |
-| | | | | **Frete** | **Grátis** |
-| | | | | **Total AliExpress** | **R$ 1.183,15** |
+| # | Item | Loja | Qtd | Unit. (R$) |
+|---|------|------|:---:|:----------:|
+| 1 | Células de carga Decent DYX-301 500kg | DECENT Load Cell | 4 | 208.99 |
+| 2 | Módulo ADS1256 24-bit (ADS1256IDB + ADR03) | Shop1105006670 | 2 | 48.29 |
+| 3 | ESP32-S3-DevKitC-1 N16R8 (com pin headers) | Gangda Tong | 2 | 38.19 |
+| 4 | TP4056 Type-C com proteção (kit 5) | Shop1105163493 | 1 | 10.10 |
+| 5 | MT3608 boost converter (regular) | TianShiKai | 2 | 10.89 |
+| 6 | Botão 12mm metal self-locking LED 3-9V | TechEss Electric | 1 | 11.89 |
+| 7 | Protoboard 830pts (kit 3) | Aokin Wholesale | 1 | 21.44 |
+| 8 | Jumper wires Dupont 20cm flexible 24AWG cobre | CHANZON Official | 1 | 38.59 |
+| 9 | Conectores XH 2.54mm 4pin 20cm (F5+M5) | Electrical Wire | 1 | 26.60 |
+| 10 | Conectores PH 2.0mm (bateria→TP4056) | Electrical Wire | 1 | 36.69 |
+| 11 | Kit resistores 300pcs 1/4W 1% metal film (30 valores) | Shop1103844365 | 1 | 12.69 |
+| 12 | Kit LED 5mm pré-fiado 12V (30pcs, 6 cores) | CHANZON Global | 1 | 21.32 |
 
-**Nota:** Impostos de importação serão cobrados na entrega (estimativa ~60% sobre o valor = ~R$ 710). Total estimado com impostos: **~R$ 1.893**.
+| | Valor (R$) |
+|---|:---:|
+| Total dos itens | 1.805,14 |
+| Descontos | -600,67 |
+| Frete | Grátis |
+| **Total pago AliExpress** | **1.204,47** |
+
+**Nota:** Impostos de importação serão cobrados na entrega (estimativa ~60% = ~R$ 723).
 
 ### Mercado Livre — Comprado 2026-04-01
 
-| # | Item | Loja | Qtd | Total (R$) |
-|---|------|------|:---:|:----------:|
-| 1 | Bateria LiPo 3.7V 3000mAh 505080 (3 fios) | Karina Mayumi | 1 | 59.40 |
-| 2 | Ferro de solda Exbom 60W ajustável + 5 pontas + suporte 127V | FULL | 1 | 43.92 |
-| 3 | Estanho 60/40 com fluxo 0.8mm 80g Barcelona | MAHDUFINDS | 1 | 19.90 |
-| | | | **Subtotal** | **R$ 123.22** |
-| | | | **Frete** | **Grátis** |
+| # | Item | Qtd |
+|---|------|:---:|
+| 1 | Bateria LiPo 3.7V 3000mAh 505080 (3 fios) | 1 |
+| 2 | Ferro de solda Exbom 60W ajustável + 5 pontas + suporte 127V | 1 |
+| 3 | Estanho 60/40 com fluxo 0.8mm 80g Barcelona | 1 |
+| 4 | Kit alicate crimpar + descascador + 1200 terminais ilhós Cietec | 1 |
+| 5 | Alicate meia cana reto 6.1/2" Gedore Red | 1 |
+
+| | Valor (R$) |
+|---|:---:|
+| Produtos (5) | 293,26 |
+| Descontos | -40,36 |
+| Frete | Grátis |
+| **Total pago Mercado Livre** | **252,90** |
 
 ### Comprar local (quando AliExpress chegar)
 
@@ -49,11 +60,11 @@ Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
 
 | Fonte | Valor est. (R$) |
 |-------|:---------------:|
-| AliExpress (produtos) | 1.183,15 |
-| AliExpress (impostos estimados ~60%) | ~710 |
-| Mercado Livre | 123,22 |
+| AliExpress (produtos) | 1.204,47 |
+| AliExpress (impostos est. ~60%) | ~723 |
+| Mercado Livre | 252,90 |
 | Local (alumínio + parafusos) | ~175 |
-| **TOTAL PROTÓTIPO** | **~R$ 2.191** |
+| **TOTAL PROJETO** | **~R$ 2.355** |
 
 :::info
 Valor unitário de célula de carga (R$ 209) é o maior custo. Para dual plate (Fase 2), adicionar +4 células + 1 ADS1256 ≈ +R$ 900.
