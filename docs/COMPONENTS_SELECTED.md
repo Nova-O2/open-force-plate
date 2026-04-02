@@ -24,12 +24,10 @@ Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
 
 | | Valor (R$) |
 |---|:---:|
-| Total dos itens | 1.805,14 |
-| Descontos | -600,67 |
+| **Total pago AliExpress (produtos + impostos)** | **R$ 2.009,03** |
 | Frete | Grátis |
-| **Total pago AliExpress** | **1.204,47** |
 
-**Nota:** Impostos de importação serão cobrados na entrega (estimativa ~60% = ~R$ 723).
+Impostos já inclusos no valor pago (cobrados no checkout do AliExpress).
 
 ### Mercado Livre — Comprado 2026-04-01
 
@@ -60,11 +58,10 @@ Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
 
 | Fonte | Valor est. (R$) |
 |-------|:---------------:|
-| AliExpress (produtos) | 1.204,47 |
-| AliExpress (impostos est. ~60%) | ~723 |
+| AliExpress (produtos + impostos) | 2.009,03 |
 | Mercado Livre | 252,90 |
 | Local (alumínio + parafusos) | ~175 |
-| **TOTAL PROJETO** | **~R$ 2.355** |
+| **TOTAL PROJETO** | **~R$ 2.437** |
 
 :::info
 Valor unitário de célula de carga (R$ 209) é o maior custo. Para dual plate (Fase 2), adicionar +4 células + 1 ADS1256 ≈ +R$ 900.
