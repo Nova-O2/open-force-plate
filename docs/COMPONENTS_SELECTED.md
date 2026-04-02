@@ -53,11 +53,12 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 
 | # | Item | Qtd | Est. (R$) |
 |---|------|:---:|----------:|
-| 1 | Placa alumínio 6061 50×60cm 6mm | 1 | ~150 |
-| 2 | Juntas de aço 2mm (~60×35mm, 2× Ø13mm) | 4 | ~20 |
-| 3 | Parafusos M12 + porcas + arruelas (8+8+8) | 1 | ~30 |
-| 4 | Broca Ø13mm para metal | 1 | ~15 |
-| | | **Subtotal** | **~R$ 215** |
+| 1 | Placa superior alumínio 6061, 600×500mm, 6mm | 1 | ~150 |
+| 2 | Placa inferior alumínio, 527×396mm, 3mm | 1 | ~60 |
+| 3 | Juntas de aço 2mm (56×32mm, 2× Ø13mm) | 4 | ~20 |
+| 4 | Parafusos M12 cabeça chata + porcas + arruelas (8+8+8) | 1 | ~30 |
+| 5 | Broca Ø13mm para metal | 1 | ~15 |
+| | | **Subtotal** | **~R$ 275** |
 
 ---
 
@@ -67,8 +68,8 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 |-------|----------:|
 | AliExpress (produtos + impostos) | 2.009,03 |
 | Mercado Livre | 315,64 |
-| Local (alumínio + juntas + parafusos + broca) | ~215 |
-| **TOTAL PROJETO** | **~R$ 2.540** |
+| Local (placas + juntas + parafusos + broca) | ~275 |
+| **TOTAL PROJETO** | **~R$ 2.600** |
 
 ### Custo Unitário — 1 Plataforma (sem ferramentas, sem backups)
 
