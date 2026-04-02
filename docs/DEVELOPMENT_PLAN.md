@@ -13,48 +13,161 @@ Plataforma única, uniaxial (Fz), 1000 Hz, USB-C + BLE, com software de análise
 
 ### 1.1 Compra de Componentes
 
-Ver [SHOPPING_LIST.md](./SHOPPING_LIST.md) para lista completa com links e preços.
+Ver [COMPONENTS_SELECTED.md](./COMPONENTS_SELECTED.md) para registro completo das compras (itens, lojas, valores).
 
 ### 1.2 Montagem Mecânica
 
-- [ ] Cortar/adquirir 1 placa de alumínio 50×60 cm (apenas topo — dimensionada para cortar ao meio na Fase 2 dual: 2× 50×30 cm)
-- [ ] Fixar 4 células de carga tipo F shear beam 500 kg nos cantos da placa com parafusos M5
-- [ ] Os pézinhos das células apoiam diretamente no piso (sem placa inferior)
-- [ ] Verificar que a superfície do piso é rígida e plana (concreto, cerâmica, porcelanato)
-- [ ] Testar rigidez — a plataforma não pode fletir sob carga
-- [ ] Nivelar as células (ajustar pés se necessário) para garantir distribuição uniforme
+#### Placa superior
 
-**Nota sobre materiais:** alumínio 6061-T6 (6 mm espessura) é ideal. Alternativa mais barata: MDF 18 mm para prototipagem rápida (não para uso final).
+- [ ] Adquirir 1 placa de alumínio 6061-T6, 50×60 cm, 6 mm espessura (metalúrgica local)
+- [ ] Marcar posição das 4 células nos cantos (manter ~5 cm das bordas)
+- [ ] Furar 8 furos de **Ø13 mm** (2 por célula, espaçados **25 mm** entre centros)
+- [ ] Rebarbar furos com lima metal
+- [ ] Alternativa para prototipagem: MDF 18 mm (~R$ 30) — não para uso final
+
+:::tip Estratégia dual (Fase 5)
+A chapa de 50×60 cm foi dimensionada para corte ao meio → 2 placas de 50×30 cm (dimensão similar ao VALD FDLite: 48.5×30 cm).
+:::
+
+#### Célula de carga — Dimensões (Decent DYX-301 500 kg)
+
+Faixa 300kg–1000kg–2ton da tabela do fabricante:
+
+| Cota | Dimensão | Descrição |
+|:----:|:--------:|-----------|
+| A | 30 mm | Comprimento total |
+| B | 15 mm | Saída do cabo |
+| C | **25 mm** | **Distância entre furos de fixação** |
+| D | 76 mm | Corpo total |
+| E | 30 mm | Largura |
+| W | 32 mm | Largura base |
+| H | 32 mm | Altura |
+| M | **M12 × 1.75** | **Rosca do pézinho** |
+| 2-Ø | **Ø13 mm** | **Diâmetro dos furos de fixação** |
+| I | 56 mm | Comprimento da base (apoio) |
+
+#### Juntas de aço (4 unidades — 1 por célula)
+
+Plaquinha espaçadora entre a célula e a placa de alumínio:
+
+| Parâmetro | Valor |
+|-----------|-------|
+| Material | Aço carbono ou inox |
+| Espessura | 2 mm |
+| Dimensões | ~60 × 35 mm (cobrir a base de 56 × 30 mm) |
+| Furos | 2× Ø13 mm, espaçados 25 mm entre centros |
+
+**Função:** Distribuir carga e evitar que a célula cave o alumínio (aço > alumínio em dureza). Não usar borracha — amortece o sinal a 1000 Hz.
+
+#### Fixação — Montagem por célula
+
+```
+Parafuso M12 (cabeça)
+        ↓
+[Placa alumínio 50×60cm 6mm]  ← furo Ø13mm
+        ↓
+[Junta de aço 2mm]            ← furo Ø13mm
+        ↓
+[Célula DYX-301]              ← furo Ø13mm (passante)
+        ↓
+Porca M12 + arruela
+        ↓
+[Pézinho M12×1.75]            ← rosca na própria célula, apoia no chão
+```
+
+**Parafusos necessários:** 8× M12 + 8× porcas M12 + 8× arruelas (2 por célula)
+
+#### Checklist de montagem mecânica
+
+- [ ] Adquirir placa de alumínio 50×60 cm, 6 mm
+- [ ] Adquirir/fabricar 4 juntas de aço 2 mm (~60×35 mm, 2× Ø13)
+- [ ] Adquirir parafusos M12 + porcas + arruelas (8+8+8)
+- [ ] Adquirir broca Ø13 mm para metal (se não tiver)
+- [ ] Furar 8 furos Ø13 mm na placa (2 por canto, espaçamento 25 mm)
+- [ ] Rebarbar furos
+- [ ] Montar: parafuso → placa → junta → célula → porca + arruela
+- [ ] Rosquear pézinhos M12×1.75 nas células
+- [ ] Apoiar no piso rígido e plano
+- [ ] Nivelar (ajustar pézinhos) — usar nível de bolha
+- [ ] Testar rigidez — plataforma não pode fletir sob carga
 
 :::warning
-A ausência de placa inferior exige que o piso seja rígido e plano. Superfícies irregulares, carpetes ou pisos flexíveis podem comprometer a leitura. Em caso de piso inadequado, considerar uma base de MDF ou compensado como apoio nivelador.
+A ausência de placa inferior exige piso rígido e plano. Superfícies irregulares, carpetes ou pisos flexíveis comprometem a leitura. Em caso de piso inadequado, usar base de MDF ou compensado como apoio nivelador.
 :::
 
 ### 1.3 Montagem Eletrônica
 
-- [ ] Soldar/conectar 4 células de carga ao ADS1256
-  - Cada célula: E+ (excitação), E- (GND), S+ (sinal+), S- (sinal-)
-  - Configuração: 4 células em paralelo como ponte de Wheatstone completa
-  - Alternativa: 4 canais individuais no ADS1256 (permite COP)
-- [ ] Conectar ADS1256 ao ESP32-S3 via SPI
-  - SCLK → GPIO 18
-  - MOSI (DIN) → GPIO 23
-  - MISO (DOUT) → GPIO 19
-  - CS → GPIO 5
-  - DRDY → GPIO 4
-- [ ] Conectar bateria LiPo + módulo de carga TP4056
-- [ ] Conectar MT3608 boost converter (saída do TP4056 → MT3608 → 5V)
-- [ ] Ajustar trimpot do MT3608 para 5.0V de saída (medir com multímetro)
-- [ ] Barramento 5V alimenta: ESP32 (pino 5V) + ADS1256 (AVDD)
-- [ ] Montar em protoboard primeiro, PCB depois
+#### Arquitetura de alimentação
 
-### 1.4 Diagrama de Ligação
+```
+                          ┌──► ESP32 DevKit (5V pin → onboard reg → 3.3V)
+USB-C 5V ──► TP4056 ──┐  │
+              │        ├──┤
+         Bateria 3.7V ─┘  │
+              │            └──► ADS1256 (AVDD 5V)
+              ▼
+         MT3608 (3.7V→5V) ──► mesmo barramento 5V
+                                    │
+                               [Botão on/off] ──► barramento
+```
+
+**Modo USB-C (primário):** 5V direto do USB alimenta tudo. MT3608 inativo.
+**Modo bateria (BLE):** MT3608 converte 3.7V→5V. Tudo funciona sem cabo.
+
+**⚠️ MT3608 — ANTES DO PRIMEIRO USO:** Girar o trimpot azul ~20 voltas no sentido anti-horário para iniciar com tensão baixa. Conectar multímetro em VOUT+/VOUT- e girar lentamente no sentido horário até ler **5.0V**. Só então conectar ao circuito. Saída alta pode danificar ESP32 ou ADS1256.
+
+#### Diagrama de sinal
 
 ```
 Célula 1 (E+,E-,S+,S-)──┐                                    ┌──► BLE ──► PC/App
 Célula 2 (E+,E-,S+,S-)──┼──► ADS1256 ──SPI──► ESP32-S3 ──────┤
 Célula 3 (E+,E-,S+,S-)──┤     (24-bit)        (firmware)      └──► USB-C ──► PC/App
 Célula 4 (E+,E-,S+,S-)──┘     1000 Hz
+```
+
+**Configuração:** 4 canais diferenciais (1 por célula). PGA=64 (range ±78 mV).
+
+#### Conexões SPI (ADS1256 → ESP32-S3)
+
+| ADS1256 | ESP32 GPIO |
+|---------|:----------:|
+| SCLK | 18 |
+| MOSI (DIN) | 23 |
+| MISO (DOUT) | 19 |
+| CS | 5 |
+| DRDY | 4 |
+
+#### Checklist de montagem eletrônica
+
+- [ ] Montar circuito de alimentação no protoboard (TP4056 → MT3608 → barramento 5V)
+- [ ] Ajustar MT3608 para 5.0V (multímetro!)
+- [ ] Conectar botão on/off entre MT3608 e barramento
+- [ ] Conectar ESP32-S3 ao protoboard (5V pin + GND)
+- [ ] Conectar ADS1256 ao protoboard (AVDD 5V + GND)
+- [ ] Ligar ADS1256 ao ESP32-S3 via SPI (5 fios — ver tabela acima)
+- [ ] Soldar/conectar 4 células de carga ao ADS1256 (E+, E-, S+, S- por célula)
+- [ ] Conectar bateria LiPo ao TP4056 (B+, B-, ignorar fio NTC)
+- [ ] Conectar LEDs indicadores (status, alimentação)
+- [ ] Testar alimentação em ambos os modos (USB-C e bateria)
+- [ ] Validar leitura de todas as 4 células (valor bruto no serial monitor)
+
+### 1.4 Resolução Teórica do Sistema
+
+```
+4× DYX-301 500 kg = 2000 kg total = 19.620 N full scale
+Sensibilidade: 2.0 mV/V × 5V = 10 mV full scale por célula
+ADS1256 PGA=64: range ±78 mV
+Effective bits at 1000 Hz: ~17-18 bits
+
+Por canal (500 kg / 4.905 N):
+  17 eff bits: 4.905 / 131.072 = 0.037 N
+  18 eff bits: 4.905 / 262.144 = 0.019 N
+
+Combinado (2000 kg / 19.620 N):
+  17 eff bits: ~0.15 N
+  18 eff bits: ~0.075 N
+
+Comparativo VALD FDLite: ~0.15 N → igualamos ou superamos
 ```
 
 ---
