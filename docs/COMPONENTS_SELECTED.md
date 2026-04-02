@@ -38,13 +38,14 @@ Impostos já inclusos no valor pago (cobrados no checkout do AliExpress).
 | 3 | Estanho 60/40 com fluxo 0.8mm 80g Barcelona | MAHDUFINDS | 1 |
 | 4 | Kit alicate crimpar + descascador + 1200 terminais ilhós Cietec | Cietec (oficial) | 1 |
 | 5 | Alicate meia cana reto 6.1/2" Gedore Red | Ferramentasbarth | 1 |
+| 6 | Kit multímetro digital + caneta tensão + alicate amperímetro | Meli Shopp (oficial) | 1 |
 
 | | Valor (R$) |
 |---|:---:|
-| Produtos (5) | 293,26 |
-| Descontos | -40,36 |
+| Produtos (6) | 355,98 |
+| Descontos | — |
 | Frete | Grátis |
-| **Total pago Mercado Livre** | **252,90** |
+| **Total pago Mercado Livre** | **315,64** |
 
 ### Comprar local (quando AliExpress chegar)
 
@@ -59,9 +60,14 @@ Impostos já inclusos no valor pago (cobrados no checkout do AliExpress).
 | Fonte | Valor est. (R$) |
 |-------|:---------------:|
 | AliExpress (produtos + impostos) | 2.009,03 |
-| Mercado Livre | 252,90 |
+| Mercado Livre | 315,64 |
 | Local (alumínio + parafusos) | ~175 |
-| **TOTAL PROJETO** | **~R$ 2.437** |
+| **TOTAL PROJETO** | **~R$ 2.500** |
+
+### Custo Unitário — 1 Plataforma (sem ferramentas, sem backups)
+
+**~R$ 1.858** — ver detalhamento no cálculo de custo unitário.
+Comparativo: VALD FDMini ~R$ 30.000 (16×) | VALD FDLite ~R$ 60.000 (32×)
 
 :::info
 Valor unitário de célula de carga (R$ 209) é o maior custo. Para dual plate (Fase 2), adicionar +4 células + 1 ADS1256 ≈ +R$ 900.
@@ -268,7 +274,7 @@ Comparativo VALD FDLite: ~0.15 N
 |------|------|-----------|
 | Ferro de solda | Exbom 60W, ajustável, 5 pontas, com suporte | Mercado Livre |
 | Estanho | 60/40 (Sn/Pb) com fluxo interno, 0.8mm, 80g | Mercado Livre |
-| Multímetro | Existente (mede tensão DC) | Já possui |
+| Kit multímetro + caneta tensão + alicate amperímetro | Meli Shopp (oficial) | Mercado Livre |
 
 **Temperatura de solda:** 300-350°C para componentes eletrônicos.
 
