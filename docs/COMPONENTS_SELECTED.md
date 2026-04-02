@@ -19,19 +19,23 @@ Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
 | 8 | Jumper wires Dupont 20cm flexible 24AWG cobre | CHANZON Official | 1 | 38.59 | 38.59 |
 | 9 | Conectores XH 2.54mm 4pin 20cm (F5+M5) | Electrical Wire | 1 | 26.60 | 26.60 |
 | 10 | Conectores PH 2.0mm (bateria→TP4056) | Electrical Wire | 1 | 36.69 | 36.69 |
-| 11 | Kit resistores 1/4W 1% | — | 1 | — | **FALTA ADICIONAR** |
-| | | | | **Subtotal** | **~R$ 1.176** |
-| | | | | **Impostos est.** | **~R$ 870** |
-| | | | | **Total est.** | **~R$ 2.046** |
+| 11 | Kit resistores 300pcs 1/4W 1% metal film (30 valores) | Shop1103844365 | 1 | 12.69 | 12.69 |
+| | | | | **Subtotal produtos** | **R$ 1.188,70** |
+| | | | | **Descontos** | **-R$ 599,78** |
+| | | | | **Frete** | **Grátis** |
+| | | | | **Total AliExpress** | **R$ 1.183,15** |
+
+**Nota:** Impostos de importação serão cobrados na entrega (estimativa ~60% sobre o valor = ~R$ 710). Total estimado com impostos: **~R$ 1.893**.
 
 ### Mercado Livre — Comprado 2026-04-01
 
-| # | Item | Qtd | Total est. (R$) |
-|---|------|:---:|:---------------:|
-| 1 | Bateria LiPo 3.7V 3000mAh 505080 (3 fios) | 1 | ~35 |
-| 2 | Ferro de solda Exbom 60W ajustável + 5 pontas + suporte | 1 | ~70 |
-| 3 | Estanho 60/40 com fluxo 0.8mm 80g | 1 | ~20 |
-| | | **Subtotal** | **~R$ 125** |
+| # | Item | Loja | Qtd | Total (R$) |
+|---|------|------|:---:|:----------:|
+| 1 | Bateria LiPo 3.7V 3000mAh 505080 (3 fios) | Karina Mayumi | 1 | 59.40 |
+| 2 | Ferro de solda Exbom 60W ajustável + 5 pontas + suporte 127V | FULL | 1 | 43.92 |
+| 3 | Estanho 60/40 com fluxo 0.8mm 80g Barcelona | MAHDUFINDS | 1 | 19.90 |
+| | | | **Subtotal** | **R$ 123.22** |
+| | | | **Frete** | **Grátis** |
 
 ### Comprar local (quando AliExpress chegar)
 
@@ -45,10 +49,11 @@ Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
 
 | Fonte | Valor est. (R$) |
 |-------|:---------------:|
-| AliExpress (produtos + impostos) | ~2.046 |
-| Mercado Livre | ~125 |
+| AliExpress (produtos) | 1.183,15 |
+| AliExpress (impostos estimados ~60%) | ~710 |
+| Mercado Livre | 123,22 |
 | Local (alumínio + parafusos) | ~175 |
-| **TOTAL PROTÓTIPO** | **~R$ 2.346** |
+| **TOTAL PROTÓTIPO** | **~R$ 2.191** |
 
 :::info
 Valor unitário de célula de carga (R$ 209) é o maior custo. Para dual plate (Fase 2), adicionar +4 células + 1 ADS1256 ≈ +R$ 900.
