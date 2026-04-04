@@ -53,14 +53,16 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 
 | # | Item | Qtd | Est. (R$) |
 |---|------|:---:|----------:|
-| 1 | Placa superior alumínio 6061, 600×500mm, 6mm | 1 | ~150 |
-| 2 | Placa inferior alumínio, 527×396mm, 3mm | 1 | ~60 |
-| 3 | Juntas de aço 2mm (56×32mm, 2× Ø13mm) | 4 | ~20 |
-| 4 | Parafusos M12 cabeça chata + porcas + arruelas (8+8+8) | 1 | ~30 |
-| 5 | Broca Ø13mm para metal | 1 | ~15 |
-| 6 | Pézinhos torneados (peça única, torneiro) | 4 | ~160 |
+| 1 | Placa superior alumínio 6061-T6, 600×500mm, 6mm, cantos R30 | 1 | ~150 |
+| 2 | Placa inferior alumínio, 527×396mm, 3mm, cantos chanfrados 15×15 | 1 | ~60 |
+| 3 | Juntas de aço 2mm (56×32mm, 2× Ø11mm, 25mm entre centros) | 4 | ~20 |
+| 4 | Parafusos Allen M10×45 DIN 7991 + porcas M10 + arruelas (8+8+8) | 1 | ~30 |
+| 5 | Broca Ø11mm + escareador 90° M10 (Ø20) | 1 | ~20 |
+| 6 | Pézinhos torneados com colar Ø20×5mm (peça única, torneiro) | 4 | ~160 |
 | 7 | Discos borracha neoprene Ø60mm × 1mm | 4 | ~10 |
-| | | **Subtotal** | **~R$ 445** |
+| 8 | Tubo quadrado alumínio 30×30 ou 35×35×2mm, ~527mm | 2 | ~30 |
+| 9 | Cola epóxi estrutural (Araldite Professional 24ml ou equiv.) | 1 | ~25 |
+| | | **Subtotal** | **~R$ 505** |
 
 ---
 
@@ -70,8 +72,8 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 |-------|----------:|
 | AliExpress (produtos + impostos) | 2.009,03 |
 | Mercado Livre | 315,64 |
-| Local (placas + juntas + parafusos + broca + pézinhos + borracha) | ~445 |
-| **TOTAL PROJETO** | **~R$ 2.770** |
+| Local (placas + juntas + parafusos + broca + escareador + pézinhos + borracha + tubos + cola) | ~505 |
+| **TOTAL PROJETO** | **~R$ 2.830** |
 
 ### Custo Unitário — 1 Plataforma (sem ferramentas, sem backups)
 

@@ -17,19 +17,20 @@ Ver [COMPONENTS_SELECTED.md](./COMPONENTS_SELECTED.md) para registro completo da
 
 ### 1.2 Montagem Mecânica
 
-#### Placa superior — 600 × 500 mm, alumínio 6061-T6, 6mm
+#### Placa superior — 600 × 500 mm, alumínio 6061-T6, 6mm, cantos arredondados R30
 
-- [ ] Adquirir na metalúrgica local
+- [ ] Adquirir na metalúrgica local (com cantos arredondados R30)
 - [ ] Marcar posição dos 8 furos conforme tabela de coordenadas (ver abaixo)
-- [ ] Furar 8 furos de **Ø13 mm**
+- [ ] Furar 8 furos de **Ø11 mm** (passagem M10)
+- [ ] Escarear furos a 90° para **Ø20 mm** (DIN 7991 M10, profundidade ~5,5 mm)
 - [ ] Rebarbar furos com lima metal
 
-#### Placa inferior — 527 × 396 mm, alumínio 3mm
+#### Placa inferior — 527 × 396 mm, alumínio 3mm, cantos chanfrados 15×15 a 45°
 
-Peça única que cobre os furos de fixação das 4 células. Não toca o chão — fica suspensa entre as células e as porcas. Os pézinhos ficam fora da área da placa inferior.
+Peça única que cobre os furos de fixação das 4 células. Não toca o chão — fica suspensa entre as células e as porcas. Os pézinhos ficam fora da área da placa inferior. Cantos chanfrados para garantir que não obstruam a rosca da célula.
 
-- [ ] Adquirir na metalúrgica local (junto com a superior)
-- [ ] Furar 8 furos de **Ø13 mm** nas mesmas posições relativas da placa superior
+- [ ] Adquirir na metalúrgica local (junto com a superior, com chanfro 15×15 nos 4 cantos)
+- [ ] Furar 8 furos de **Ø11 mm** nas mesmas posições relativas da placa superior
 - [ ] A placa inferior é centralizada sob a superior
 
 :::tip Estratégia dual (Fase 5)
@@ -50,7 +51,7 @@ Faixa 300kg–1000kg–2ton da tabela do fabricante:
 | W | 32 mm | Largura base |
 | H | 32 mm | Altura |
 | M | **M12 × 1.75** | **Rosca do pézinho** |
-| 2-Ø | **Ø13 mm** | **Diâmetro dos furos de fixação** |
+| 2-Ø | **Ø13 mm** | **Diâmetro dos furos da célula** (furos nas chapas: Ø11 mm para M10) |
 | I | 56 mm | Comprimento da base (apoio) |
 
 #### Juntas de aço (4 unidades — 1 por célula)
@@ -62,29 +63,29 @@ Espaçadora entre a célula e a placa superior. Tamanho exato da base da célula
 | Material | Aço carbono ou inox |
 | Espessura | 2 mm |
 | Dimensões | **56 × 32 mm** (= base da célula, cotas I × W) |
-| Furos | 2× Ø13 mm, espaçados 25 mm entre centros (horizontal — rotação na montagem) |
+| Furos | 2× Ø11 mm, espaçados 25 mm entre centros |
 
 **Função:** Distribuir carga e evitar que a célula cave o alumínio (aço > alumínio em dureza). Não usar borracha — amortece o sinal a 1000 Hz.
 
 #### Fixação — Montagem por célula
 
 ```
-Parafuso M12 (cabeça chata)
+Parafuso Allen M10×45 DIN 7991 (cabeça chata escareada)
         ↓
-[Placa SUPERIOR — alumínio 6mm, 600×500mm]  ← furo Ø13mm
+[Placa SUPERIOR — alumínio 6mm, 600×500mm, R30]  ← furo Ø11mm escareado Ø20 (5,5mm prof.)
         ↓
-[Junta — aço 2mm, 56×32mm]                  ← furo Ø13mm
+[Junta — aço 2mm, 56×32mm]                       ← furo Ø11mm
         ↓
-[Célula DYX-301 — a ~62°]                   ← furo Ø13mm (passante)
+[Célula DYX-301 — a ~62°]                        ← furo Ø13mm (da célula)
         ↓
-[Placa INFERIOR — alumínio 3mm, 527×396mm]  ← furo Ø13mm
+[Placa INFERIOR — alumínio 3mm, 527×396mm]       ← furo Ø11mm
         ↓
-Porca M12 + arruela
+Porca M10 + arruela
         ↓
-[Pézinho M12×1.75]  ← rosca na célula, fora da placa inferior, apoia no chão
+[Pézinho M12×1.75 com colar]  ← rosca na célula, fora da placa inferior, apoia no chão
 ```
 
-**Parafusos necessários:** 8× M12 + 8× porcas M12 + 8× arruelas (2 por célula)
+**Parafusos necessários:** 8× M10×45 DIN 7991 + 8× porcas M10 + 8× arruelas (2 por célula)
 
 #### Layout das células — ~62° (ângulo da diagonal Fase 2)
 
@@ -121,45 +122,87 @@ Células orientadas na diagonal da meia-placa (300×500mm), com pé no canto e c
 | C4 | Furo 1 | 543.3 | 71.9 |
 | C4 | Furo 2 | 531.7 | 94.0 |
 
-Todos os furos: **Ø13 mm passantes.** Mesmas posições na placa superior e inferior.
+Todos os furos nas chapas: **Ø11 mm** (passagem M10). Na placa superior: escareados a 90° para Ø20 mm (DIN 7991). Mesmas posições relativas na placa inferior.
 
-**Desenhos de fabricação:** regenerar via `python3 cad/fabrication_drawings.py` → 3 PDFs em `cad/`
+**Desenhos de fabricação:** regenerar via `python3 cad/fabrication_drawings.py` → 5 PDFs em `cad/` (chapas, pézinho, junta, montagem)
 
-#### Pézinho torneado (×4) — Peça única usinada
+#### Pézinho torneado com colar (×4) — Peça única usinada
 
 | Parte | Dimensão |
 |-------|:--------:|
-| Rosca | M12×1.75, Ø12mm, 30mm comprimento (≤ altura célula 32mm) |
-| Chanfro | Ø12→Ø60, 6mm altura (~14°) |
-| Base | Ø60mm, 5mm espessura |
+| Rosca | M12×1.75, Ø12mm, **32mm** comprimento (= altura célula) |
+| Colar | **Ø20mm, 5mm** altura (batente — encosta na célula) |
+| Chanfro | Ø20→Ø60, 6mm altura (~17°) |
+| Base | Ø60mm, **8mm** espessura |
 | Borracha | Ø60mm, 1mm neoprene (colada após usinagem) |
 | Material | Aço carbono ou inox (barra Ø60mm) |
-| Altura total | 42mm (rosca + chanfro + base + borracha) |
+| Altura total | **52mm** (rosca + colar + chanfro + base + borracha) |
 
-**Sem contra-porca.** Altura ajustada por rosqueamento. Peso da plataforma trava.
+**Sem contra-porca.** O colar funciona como batente mecânico — impede que o pé rosqueie além da altura da célula e reforça a transição rosca/chanfro. Altura ajustada por rosqueamento. Peso da plataforma trava.
 
 **Fabricação:** encomendar em torneiro mecânico. Desenho: `cad/fab_pezinho.pdf`
 
 #### Checklist de montagem mecânica
 
-- [ ] Adquirir placa superior alumínio 600×500 mm, 6 mm
-- [ ] Adquirir placa inferior alumínio 527×396 mm, 3 mm
-- [ ] Adquirir/fabricar 4 juntas de aço 56×32 mm, 2 mm (2× Ø13, 25mm entre centros)
-- [ ] Encomendar 4 pézinhos torneados (ver specs acima + `cad/fab_pezinho.pdf`)
-- [ ] Adquirir parafusos M12 cabeça chata + porcas + arruelas (8+8+8)
-- [ ] Adquirir broca Ø13 mm para metal (se não tiver)
+- [ ] Adquirir placa superior alumínio 6061-T6, 600×500 mm, 6 mm, cantos R30
+- [ ] Adquirir placa inferior alumínio, 527×396 mm, 3 mm, cantos chanfrados 15×15
+- [ ] Adquirir/fabricar 4 juntas de aço 56×32 mm, 2 mm (2× Ø11, 25mm entre centros)
+- [ ] Encomendar 4 pézinhos torneados com colar (ver specs acima + `cad/fab_pezinho.pdf`)
+- [ ] Adquirir parafusos Allen M10×45 DIN 7991 (cabeça chata) + porcas M10 + arruelas (8+8+8)
+- [ ] Adquirir broca Ø11 mm + escareador 90° para M10 (Ø20)
 - [ ] Cortar/adquirir 4 discos borracha Ø60mm × 1mm (neoprene)
-- [ ] Furar 8 furos Ø13 mm nas placas (2 por canto, espaçamento 25 mm)
+- [ ] Furar 8 furos Ø11 mm nas placas (2 por canto, espaçamento 25 mm)
+- [ ] Escarear os 8 furos da placa superior (Ø20, 90°, profundidade 5,5 mm)
 - [ ] Rebarbar furos
 - [ ] Colar borracha nos pézinhos
-- [ ] Montar: parafuso → placa superior → junta → célula → placa inferior → porca + arruela
-- [ ] Rosquear pézinhos nas células
+- [ ] Montar: parafuso DIN 7991 → placa superior (escareado) → junta → célula → placa inferior → porca M10 + arruela
+- [ ] Rosquear pézinhos nas células (até o colar encostar)
 - [ ] Apoiar no piso rígido e plano
 - [ ] Nivelar (ajustar pézinhos por rosqueamento) — usar nível de bolha
 - [ ] Testar rigidez — plataforma não pode fletir sob carga
 
+#### Reforço estrutural — Seção caixão (2 tubos quadrados)
+
+A chapa superior de 6mm sozinha deflecte ~21mm sob carga de DJ (120kg, 5×BW) — inaceitável para plataforma de força. A solução é criar uma **seção caixão**: as duas chapas (superior e inferior) funcionam como flanges de uma viga, conectadas por 2 tubos quadrados de alumínio colados com epóxi estrutural.
+
+| Parâmetro | Valor |
+|-----------|-------|
+| Tubo | Alumínio quadrado 30×30 ou 35×35×2mm (conforme disponibilidade) |
+| Quantidade | 2 tubos, ~527mm cada (comprimento da chapa inferior) |
+| Posição | Longitudinal (eixo X), a Y=194mm e Y=306mm da chapa superior |
+| Fixação | Cola epóxi estrutural (Araldite Professional ou equivalente) |
+| Calços | Se tubo < gap entre chapas, usar calços de alumínio para igualar altura |
+
+**Resultado:** I aumenta de 9.000 mm⁴ (chapa sozinha) para ~1.060.000 mm⁴ (118× mais rígido). Deflexão cai de 21mm para **<0.2mm** em todos os cenários.
+
+```
+Vista em corte (seção caixão):
+╔══════════════════════════╗  ← chapa superior 6mm (flange)
+║    ┌────┐        ┌────┐  ║
+║    │tubo│        │tubo│  ║  ← 2 tubos colados (alma)
+║    │ 1  │        │ 2  │  ║     ~35mm altura
+║    └────┘        └────┘  ║
+╚══════════════════════════╝  ← chapa inferior 3mm (flange)
+```
+
+**Montagem dos tubos:**
+
+- [ ] Montar um canto (1 célula + parafusos + chapas) para medir o gap real entre chapas
+- [ ] Adquirir 2 tubos quadrados de alumínio (~527mm cada). Tamanho ideal: gap medido ±1mm
+- [ ] Se tubo menor que gap: fabricar calços (chapas finas de alumínio cortadas a 35×527mm)
+- [ ] Lixar faces de colagem (lixa 80, superfícies foscas)
+- [ ] Desengordurar com álcool isopropílico
+- [ ] Aplicar epóxi estrutural nas 4 faces de colagem (topo e base de cada tubo)
+- [ ] Posicionar tubos a Y=194mm e Y=306mm (ref. chapa superior), paralelos ao eixo longo
+- [ ] Prensar com grampos/sargentos por 24h (cura do epóxi)
+- [ ] Verificar alinhamento e planicidade após cura
+
+:::info Análise estrutural completa
+Scripts de cálculo em `cad/structural_analysis.py`, `cad/material_comparison.py`, `cad/reinforcement_analysis.py` e `cad/box_section_analysis.py`. Deflexão e tensão verificadas para cenários até DJ 7×BW (120kg), com FS > 10 em todos os casos.
+:::
+
 :::warning
-A ausência de placa inferior exige piso rígido e plano. Superfícies irregulares, carpetes ou pisos flexíveis comprometem a leitura. Em caso de piso inadequado, usar base de MDF ou compensado como apoio nivelador.
+Piso rígido e plano obrigatório. Superfícies irregulares, carpetes ou pisos flexíveis comprometem a leitura. Em caso de piso inadequado, usar base de MDF ou compensado como apoio nivelador.
 :::
 
 ### 1.3 Montagem Eletrônica

@@ -23,7 +23,7 @@ Dispositivo de baixo custo (~R$ 360-700) capaz de medir força de reação do so
 | Comunicação | USB-C + BLE (Bluetooth Low Energy) |
 | Alimentação | Bateria LiPo recarregável + USB-C |
 | Dimensões plataforma | 50 × 60 cm (single) / 2× 50 × 30 cm (dual) |
-| Peso estimado | ~7 kg (1 chapa 6 mm + eletrônica) |
+| Peso estimado | ~13 kg (chapas + reforço estrutural + eletrônica) |
 
 ## Aplicações
 
@@ -37,12 +37,16 @@ Dispositivo de baixo custo (~R$ 360-700) capaz de medir força de reação do so
 ## Arquitetura
 
 ```
-       ┌─────────────────────────┐
-       │  Placa alumínio 50×60  │  ← superfície de apoio (topo)
-       └────┬────┬────┬────┬────┘
-            │    │    │    │
-       [4× Células F shear beam 500kg]  ← pézinhos apoiam no chão
-            │    │    │    │
+       ┌──────────────────────────────┐
+       │   Chapa superior Al 6mm R30  │  ← superfície de pisada
+       ├══════════════════════════════┤
+       ║  2× tubo quadrado Al 35×35  ║  ← reforço estrutural (seção caixão)
+       ├══════════════════════════════┤
+       │   Chapa inferior Al 3mm      │
+       └────┬────┬────────┬────┬─────┘
+            │    │        │    │
+       [4× Células DYX-301 500kg]  ← pézinhos com colar apoiam no chão
+            │    │        │    │
        ═══════════════════════════  ← piso rígido e plano
                  │
          [ADS1256 24-bit ADC]  ← 1000 Hz SPI
