@@ -4,7 +4,7 @@ Nova O2 Ciencia do Esporte
 
 Gera 5 PDFs de fabricacao:
 1. fab_chapa_superior.pdf — Chapa superior 600x500mm, 6mm aluminio, cantos R30, furos escareados M10
-2. fab_chapa_inferior.pdf — Chapa inferior 527x396mm, 3mm aluminio, cantos chanfrados 30x30
+2. fab_chapa_inferior.pdf — Chapa inferior 527x396mm, 3mm aluminio, cantos chanfrados 15x15
 3. fab_pezinho.pdf — Pezinho torneado com colar (x4)
 4. fab_junta.pdf — Junta de aco (x4)
 5. fab_montagem.pdf — Vista explodida de montagem
@@ -860,7 +860,7 @@ def draw_montagem():
     ax.plot([cx - 2, cx + 2], [y_bolt + bolt_shank_h + bolt_head_h - 1.5,
             y_bolt + bolt_shank_h + bolt_head_h - 1.5], color='#666', lw=1.5)
     ax.text(cx - bolt_head_w / 2 - 3, y_bolt + bolt_shank_h,
-            u'Parafuso Allen\nM10\u00d745\nDIN 7991',
+            u'Parafuso Allen\nM10\u00d750\nDIN 7991',
             fontsize=5.5, va='center', fontweight='bold', color=DARK, ha='right')
 
     # 2. Chapa superior (com escareamento)

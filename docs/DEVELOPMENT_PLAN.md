@@ -70,7 +70,7 @@ Espaçadora entre a célula e a placa superior. Tamanho exato da base da célula
 #### Fixação — Montagem por célula
 
 ```
-Parafuso Allen M10×45 DIN 7991 (cabeça chata escareada)
+Parafuso Allen M10×50 DIN 7991 (cabeça chata escareada)
         ↓
 [Placa SUPERIOR — alumínio 6mm, 600×500mm, R30]  ← furo Ø11mm escareado Ø20 (5,5mm prof.)
         ↓
@@ -85,7 +85,7 @@ Porca M10 + arruela
 [Pézinho M12×1.75 com colar]  ← rosca na célula, fora da placa inferior, apoia no chão
 ```
 
-**Parafusos necessários:** 8× M10×45 DIN 7991 + 8× porcas M10 + 8× arruelas (2 por célula)
+**Parafusos necessários:** 8× M10×50 DIN 7991 + 8× porcas M10 + 8× arruelas (2 por célula)
 
 #### Layout das células — ~62° (ângulo da diagonal Fase 2)
 
@@ -148,7 +148,7 @@ Todos os furos nas chapas: **Ø11 mm** (passagem M10). Na placa superior: escare
 - [ ] Adquirir placa inferior alumínio, 527×396 mm, 3 mm, cantos chanfrados 15×15
 - [ ] Adquirir/fabricar 4 juntas de aço 56×32 mm, 2 mm (2× Ø11, 25mm entre centros)
 - [ ] Encomendar 4 pézinhos torneados com colar (ver specs acima + `cad/fab_pezinho.pdf`)
-- [ ] Adquirir parafusos Allen M10×45 DIN 7991 (cabeça chata) + porcas M10 + arruelas (8+8+8)
+- [ ] Adquirir parafusos Allen M10×50 DIN 7991 (cabeça chata) + porcas M10 + arruelas (8+8+8)
 - [ ] Adquirir broca Ø11 mm + escareador 90° para M10 (Ø20)
 - [ ] Cortar/adquirir 4 discos borracha Ø60mm × 1mm (neoprene)
 - [ ] Furar 8 furos Ø11 mm nas placas (2 por canto, espaçamento 25 mm)
