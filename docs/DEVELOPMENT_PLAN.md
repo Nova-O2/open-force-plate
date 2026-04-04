@@ -256,10 +256,74 @@ Célula 4 (E+,E-,S+,S-)──┘     1000 Hz
 - [ ] Conectar ADS1256 ao protoboard (AVDD 5V + GND)
 - [ ] Ligar ADS1256 ao ESP32-S3 via SPI (5 fios — ver tabela acima)
 - [ ] Soldar/conectar 4 células de carga ao ADS1256 (E+, E-, S+, S- por célula)
-- [ ] Conectar bateria LiPo ao TP4056 (B+, B-, ignorar fio NTC)
-- [ ] Conectar LEDs indicadores (status, alimentação)
+- [ ] Conectar bateria EPB 1S2P ao TP4056 (B+, B−) — **adaptar conector JST-XH-2P → JST-PH 2.0mm** (usar kit PH já comprado)
+- [ ] Conectar divisor resistivo (2× 100kΩ) do B+ da bateria ao GPIO34 do ESP32 (monitoramento de tensão)
+- [ ] Conectar 3 LEDs indicadores de bateria (verde/amarelo/vermelho) aos GPIOs 21/22/25
+- [ ] Conectar botão on/off com LED integrado (já indica "power on")
 - [ ] Testar alimentação em ambos os modos (USB-C e bateria)
+- [ ] **Medir capacidade real da bateria** (EPB 1S2P 5200 mAh, densidade honesta 432 Wh/L) — descarga controlada 4,2V→3,0V com logger/coulomb counter
 - [ ] Validar leitura de todas as 4 células (valor bruto no serial monitor)
+- [ ] Validar leitura de tensão da bateria (comparar ADC vs multímetro)
+
+#### Battery Management — carregamento e monitoramento
+
+**Carregamento:**
+
+| Parâmetro | Valor |
+|---|:---:|
+| Entrada | USB-C 5V (TP4056) |
+| Corrente de carga | 1000 mA |
+| Tempo de carga 0→100% | ~5,2 h (5200 mAh / 1000 mA) |
+| Corte automático | 4,2 V ± 1% |
+| Taxa de carga | C/5 (segura) |
+| Proteção BMS | dupla (TP4056 + BMS interna do pack) |
+
+**LEDs do TP4056 (on-board, visíveis pela abertura do case):**
+- 🔴 Vermelho: carregando
+- 🟢 Verde: carga completa
+
+**Monitoramento em 4 camadas:**
+
+**1. Leitura de tensão via ESP32 ADC (GPIO34)**
+
+```
+Battery B+ (até 4,2V)
+      │
+      ├─[ R1 = 100kΩ ]──┬──► ESP32 GPIO34 (ADC)
+      │                 │
+      ├─[ R2 = 100kΩ ]──┤
+      │                 │
+     GND ──────────────┘
+```
+
+Divisor 2:1 protege ADC (3,3V máx). Software multiplica leitura por 2.
+
+**2. Tensão → SoC (State of Charge) — lookup table Li-ion 1S**
+
+| Tensão | SoC | Status |
+|:---:|:---:|---|
+| 4,20 V | 100% | Full |
+| 4,00 V | ~85% | — |
+| 3,80 V | ~60% | — |
+| 3,70 V | ~40% | Médio |
+| 3,60 V | ~20% | Aviso |
+| 3,40 V | ~10% | Crítico |
+| 3,00 V | 0% | BMS desliga |
+
+**3. LEDs indicadores no case (drive via GPIO)**
+
+| LED | GPIO | Comportamento |
+|---|:---:|---|
+| 🟢 Verde | 21 | SoC > 50% — aceso fixo |
+| 🟡 Amarelo | 22 | SoC 20–50% — aceso fixo |
+| 🔴 Vermelho | 25 | SoC < 20% — piscando lento (1 Hz) |
+| 🔴 Vermelho | 25 | SoC < 10% — piscando rápido (4 Hz) |
+
+**4. Exposição via BLE/USB-C**
+
+- BLE: Battery Service (UUID 0x180F) + Battery Level Characteristic (UUID 0x2A19) — valor 0-100%
+- USB-C: campo `battery` incluído no stream de dados para o app
+- App mostra ícone + porcentagem na interface
 
 ### 1.4 Resolução Teórica do Sistema
 
@@ -309,7 +373,7 @@ Comparativo VALD FDLite: ~0.15 N → igualamos ou superamos
   - `sample_rate` (read/write) — configurar taxa
   - `tare` (write) — zerar plataforma
   - `calibration` (read/write) — fator de calibração
-  - `battery` (read) — nível de bateria
+  - `battery` (read, notify) — nível de bateria 0-100% (BLE: Battery Service 0x180F, Battery Level Char 0x2A19)
 - [ ] Protocolo de pacotes: [timestamp_us(4B) | force_raw(4B) | force_N(4B)]
 - [ ] Detecção automática: se USB-C conectado → usa USB; senão → BLE
 - [ ] Testar throughput BLE — 1000 Hz × 12 bytes = 12 KB/s (dentro do limite BLE)
