@@ -1,0 +1,33 @@
+# Arquivos privados (fornecedores, preços, credenciais)
+*_private.md
+suppliers_private.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+venv/
+.venv/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Firmware builds
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# CAD intermediate files
+*.FCStd1
+*.bak
