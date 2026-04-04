@@ -1,9 +1,10 @@
 # Componentes Selecionados — Force Plate MVP
 
-Data de compra: 2026-04-01
+Datas de compra: 2026-04-01 (principal), 2026-04-04 (substituição bateria)
 Prazo estimado AliExpress: 20-40 dias (chegada ~21/04–11/05)
 
-Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montagem: ver [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md).
+**Specs técnicas completas de cada componente:** ver [COMPONENT_SPECS.md](./COMPONENT_SPECS.md).
+**Arquitetura de alimentação e dimensões de montagem:** ver [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md).
 
 ---
 
@@ -35,7 +36,7 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 
 | # | Item | Loja | Qtd |
 |---|------|------|:---:|
-| 1 | Bateria LiPo 3.7V 3000mAh 505080 (3 fios) | Karina Mayumi | 1 |
+| 1 | ~~Bateria BGB Energy LiPo 3.7V (rotulada 3000mAh)~~ — **DEVOLVIDA** (overclaim, substituída) | Karina Mayumi | 1 |
 | 2 | Ferro de solda Exbom 60W ajustável + 5 pontas + suporte 127V | Monteiro | 1 |
 | 3 | Estanho 60/40 com fluxo 0.8mm 80g | MAHDUFINDS | 1 |
 | 4 | Kit alicate crimpar + descascador + 1200 terminais ilhós | Cietec (oficial) | 1 |
@@ -44,8 +45,23 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 
 | | Valor (R$) |
 |---|----------:|
-| **Total pago Mercado Livre** | **315,64** |
+| **Total pago Mercado Livre (01/04)** | **315,64** |
 | Frete | Grátis |
+
+---
+
+## Mercado Livre — Comprado 2026-04-04 (substituição bateria)
+
+| # | Item | Loja | Qtd | Unit. (R$) |
+|---|------|------|:---:|----------:|
+| 1 | Pack bateria Li-ion 1S2P 3.7V 5200mAh c/ BMS + JST-XH-2P (36×19×65mm) | EPB Energia Portátil Brasil (loja oficial — ENERGIAPORTATILBRASIL) | 2 | 26,71 |
+
+| | Valor (R$) |
+|---|----------:|
+| **Total pago Mercado Livre (04/04)** | **53,42** |
+| Frete | Grátis |
+
+**Motivo:** substituição da bateria BGB Energy 3000mAh (01/04), que foi identificada como overclaim de capacidade (densidade energética reivindicada de 720 Wh/L, acima do limite teórico Li-ion). Os packs EPB 1S2P têm densidade realista (432 Wh/L), 2× células 18650 de 2.600 mAh cada, BMS integrada, geometria e peso consistentes com specs.
 
 ---
 
@@ -71,9 +87,11 @@ Specs técnicas detalhadas, arquitetura de alimentação e dimensões de montage
 | Fonte | Valor (R$) |
 |-------|----------:|
 | AliExpress (produtos + impostos) | 2.009,03 |
-| Mercado Livre | 315,64 |
+| Mercado Livre (01/04) | 315,64 |
+| Mercado Livre (04/04 — baterias EPB) | 53,42 |
+| Estorno esperado bateria BGB (devolução ML) | (a deduzir após estorno) |
 | Local (placas + juntas + parafusos + broca + escareador + pézinhos + borracha + tubos + cola) | ~505 |
-| **TOTAL PROJETO** | **~R$ 2.830** |
+| **TOTAL PROJETO (bruto)** | **~R$ 2.883** |
 
 ### Custo Unitário — 1 Plataforma (sem ferramentas, sem backups)
 

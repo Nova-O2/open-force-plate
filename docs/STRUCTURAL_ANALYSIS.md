@@ -237,6 +237,74 @@ Diferença desprezível — ambos os tamanhos atendem com folga.
 
 ---
 
+## 8.3 Verificação de Bearing Stress nos Apoios
+
+Verificação de esmagamento localizado nos pontos de contato entre as chapas, calços de aço e células de carga — modo de falha distinto da flexão global.
+
+### 8.3.1 Caminho de carga
+
+```
+Pé do atleta
+    ↓
+Chapa superior Al 6 mm
+    ↓ (contato face-a-face)
+Calço de aço 56×32×2 mm
+    ↓ (contato face-a-face)
+Topo da célula de carga (boss M10)
+    ↓
+Corpo da célula DYX-301
+    ↓
+Calço inferior + chapa inferior
+```
+
+A carga vertical de compressão é transferida por **contato direto face-a-face** entre chapa→calço→célula. O parafuso M10 DIN 7991 **não carrega a força do salto** — apenas mantém o sanduíche unido e resiste a componentes laterais (GRF horizontal).
+
+### 8.3.2 Tensão de esmagamento no alumínio (sob o calço)
+
+| Parâmetro | Valor |
+|-----------|-------|
+| Força por célula (DJ 5×BW, 120 kg) | 1.472 N |
+| Área do calço (56 × 32 mm) | 1.792 mm² |
+| **Pressão de contato no Al** | **0,82 MPa** |
+| Tensão de escoamento Al 6061-T6 (σ_y) | 276 MPa |
+| Bearing yield Al 6061-T6 (~1,5× σ_y) | ~400 MPa |
+| **Fator de segurança** | **488×** |
+
+**Cenário extremo (DJ 7×BW, 120 kg):** 2.060 N/célula → 1,15 MPa → FS = 348×.
+
+### 8.3.3 Função dos calços de aço
+
+Os calços de aço 56×32×2 mm foram dimensionados especificamente para este modo de falha:
+
+1. **Espalhamento de carga** — distribuem a força do boss da célula (~Ø25-30 mm, ~600 mm²) sobre 1.792 mm², reduzindo pressão 3×
+2. **Proteção do alumínio** — interface aço↔alumínio evita marca/fluência ao longo de milhares de ciclos de salto
+3. **Coplanaridade** — absorvem pequenas imperfeições de planicidade, evitando contato pontual
+
+### 8.3.4 Cisalhamento lateral no parafuso (GRF horizontal)
+
+| Parâmetro | Valor |
+|-----------|-------|
+| GRF horizontal (~10-15% vertical) | ~220 N/célula |
+| Parafusos por célula | 2 |
+| Cisalhamento por parafuso | 110 N |
+| Capacidade M10 cl. 8.8 (A_s × 0,6 × σ_ut) | ~27.800 N |
+| **Fator de segurança** | **> 250** |
+
+### 8.3.5 Fadiga
+
+Tensão cíclica no calço de aço: 0,82 MPa, muito abaixo do limite de fadiga do aço carbono (150-200 MPa) → **vida infinita** (> 10⁶ ciclos).
+
+### 8.3.6 Critérios de aceitação (bearing)
+
+| Critério | Limite | Resultado | Status |
+|----------|:------:|:---------:|:------:|
+| Pressão Al sob calço (DJ 5×) | < 100 MPa | 0,82 MPa | ✅ |
+| FS esmagamento Al (DJ 7×) | ≥ 3,0 | 348× | ✅ |
+| FS cisalhamento parafuso | ≥ 3,0 | > 250 | ✅ |
+| Fadiga calço (10⁶ ciclos) | < 150 MPa | 0,82 MPa | ✅ |
+
+---
+
 ## 9. Critérios de Aceitação
 
 | Critério | Limite | Resultado | Status |
@@ -296,3 +364,4 @@ A chapa superior de 6 mm de alumínio sem reforço deflecte 12,7 mm sob carga de
 | Rev. | Data | Descrição |
 |:----:|:----:|-----------|
 | 1.0 | 2026-04-04 | Análise completa: chapa sem reforço, comparativo de materiais, solução seção caixão |
+| 1.1 | 2026-04-04 | Adicionada Seção 8.3 — verificação de bearing stress nos apoios (chapa↔calço↔célula) |

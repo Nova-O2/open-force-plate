@@ -65,8 +65,10 @@ force-plate/
 ├── software/       # App Python para aquisição e análise
 ├── cad/            # Modelos 3D e desenhos da plataforma
 └── docs/
-    ├── DEVELOPMENT_PLAN.md    # Como montar e desenvolver (fases, specs, checklists)
+    ├── DEVELOPMENT_PLAN.md    # Como montar e desenvolver (fases, montagem, checklists)
+    ├── COMPONENT_SPECS.md     # Specs técnicas de todos os componentes (datasheets)
     ├── COMPONENTS_SELECTED.md # Registro de compras (itens, lojas, valores)
+    ├── STRUCTURAL_ANALYSIS.md # Memória de cálculo estrutural
     └── *.png/pdf              # Datasheets e imagens de referência
 ```
 
