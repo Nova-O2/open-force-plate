@@ -5,19 +5,30 @@ sidebar_position: 4
 
 # Shopping List — Montagem Mecânica
 
-**Data:** 2026-04-04
-**Status:** Aguardar chegada dos componentes AliExpress (~21/04–11/05) antes de comprar.
-**Orçamento total:** ~R$ 515
+**Data:** 2026-04-06
+**Status:** Chapas de alumínio orçadas (Casa dos Metais). Aguardar AliExpress (~21/04–11/05) antes de fechar compras locais.
+**Orçamento total:** ~R$ 845
 
 ---
 
-## Metalúrgica / Corte de Chapas (~R$ 240)
+## Metalúrgica / Corte de Chapas (~R$ 230)
 
-| # | Item | Especificação | Qtd | Est. (R$) |
+| # | Item | Especificação | Qtd | Orçamento (R$) |
 |---|------|--------------|:---:|----------:|
-| 1 | Chapa superior | Al 6061-T6, 600×500mm, 6mm, cantos arredondados R30 | 1 | ~150 |
-| 2 | Chapa inferior | Al, 527×396mm, 3mm, cantos chanfrados 15×15 a 45° | 1 | ~60 |
-| 3 | Tubo quadrado | Al, 35×35×2mm (ou 30×30×2mm), 2 peças de 527mm | 2 | ~30 |
+| 1 | Chapa superior | Al 5052-F, 603×503mm, 6,35mm (1/4"), cantos arredondados R30 | 1 | **410,00** |
+| 2 | Chapa inferior | Al 5052-F, 530×399mm, 3mm, cantos chanfrados 15×15 a 45° | 1 | **140,00** |
+| 3 | Tubo quadrado | Aço carbono 1020, 35×35×2mm, 2 peças de 527mm | 2 | ~20 |
+
+:::tip Orçamento recebido (2026-04-06)
+**Fornecedor:** Casa dos Metais Ltda — CNPJ 65.916.320/0001-31
+Chapas 1 e 2 orçadas com dimensões comerciais (+3mm de folga). Total chapas: **R$ 550,00**.
+Falta orçar corte dos cantos (R30 e chanfro 45°) e tubos de aço — possivelmente outro fornecedor.
+:::
+
+:::info Mudança de materiais (2026-04-06)
+**Liga alumínio:** 6061-T6 não disponível localmente → 5052-F. Rigidez idêntica (E ~70 GPa), escoamento menor (90 vs 276 MPa) mas FS > 4 com a seção caixão.
+**Tubos:** Alumínio quadrado difícil de encontrar → aço carbono padrão. Mais rígido (+23%), mais barato, produto de prateleira. Acréscimo de +1,4 kg no peso total.
+:::
 
 **Levar PDFs:** `cad/fab_chapa_superior.pdf`, `cad/fab_chapa_inferior.pdf`
 
@@ -83,20 +94,22 @@ Pedir corte e arredondamento/chanfro na metalúrgica. Furação e escareamento f
 
 ## Resumo por Fornecedor
 
-| Fornecedor | Itens | Subtotal |
-|------------|:-----:|----------:|
-| Metalúrgica | 1–3 | ~R$ 240 |
-| Torneiro | 4 | ~R$ 160 |
-| Serralheria | 5 | ~R$ 20 |
-| Parafusaria | 6–10 | ~R$ 50 |
-| Materiais | 11–14 | ~R$ 45 |
-| **Total** | **14 itens** | **~R$ 515** |
+| Fornecedor | Itens | Subtotal | Status |
+|------------|:-----:|----------:|--------|
+| Casa dos Metais (chapas Al) | 1–2 | **R$ 550** | Orçado |
+| Metalúrgica (corte + tubos) | 3 + acabamento 1–2 | ~R$ 50 | Estimar |
+| Torneiro | 4 | ~R$ 160 | Estimar |
+| Serralheria | 5 | ~R$ 20 | Estimar |
+| Parafusaria | 6–10 | ~R$ 50 | Estimar |
+| Materiais | 11–14 | ~R$ 45 | Estimar |
+| **Total** | **14 itens** | **~R$ 875** | |
 
 ---
 
 ## Checklist de Compras
 
-- [ ] Metalúrgica — chapas + tubos (levar 3 PDFs)
+- [ ] Casa dos Metais — fechar compra das 2 chapas Al (R$ 550)
+- [ ] Metalúrgica — corte cantos (R30 + chanfro), furação se possível, tubos aço (levar 3 PDFs)
 - [ ] Torneiro — 4 pézinhos (levar 1 PDF)
 - [ ] Serralheria — 4 juntas de aço (levar 1 PDF)
 - [ ] Parafusaria — parafusos M10×50 DIN 7991 + porcas + arruelas + broca + escareador
@@ -105,6 +118,6 @@ Pedir corte e arredondamento/chanfro na metalúrgica. Furação e escareamento f
 :::warning Antes de comprar
 1. Aguardar chegada das células de carga (AliExpress)
 2. Montar 1 canto de teste para confirmar o gap entre chapas
-3. Escolher tubo (35×35 ou 30×30) com base no gap medido
+3. Tubo de aço: 35×35×2mm (preferencial) ou 30×30×2mm com base no gap medido
 4. Confirmar comprimento do parafuso M10×50 no empilhamento real
 :::
