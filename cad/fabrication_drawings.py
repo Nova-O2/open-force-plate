@@ -33,7 +33,7 @@ TODAY = date.today().strftime('%d/%m/%Y')
 
 # Chapa superior
 TOP_W, TOP_H = 600, 500
-TOP_THICK = 6
+TOP_THICK = 6.35
 CORNER_R = 30
 
 # Chapa inferior
@@ -350,8 +350,8 @@ def draw_chapa_superior():
     ax3.set_aspect('equal')
     clean_axes(ax3)
 
-    add_title_block(fig, 'Chapa superior', u'Alum\u00ednio 6061-T6',
-                    f'{TOP_THICK}mm', '1 unidade',
+    add_title_block(fig, 'Chapa superior', u'Alum\u00ednio 5052-F',
+                    f'{TOP_THICK}mm (1/4")', '1 unidade',
                     f'Cantos R{CORNER_R}, furos escareados M10')
 
     fig.savefig(f'{OUT_DIR}/fab_chapa_superior.pdf', bbox_inches='tight', facecolor='white')
@@ -478,7 +478,7 @@ def draw_chapa_inferior():
     ax3.set_aspect('equal')
     clean_axes(ax3)
 
-    add_title_block(fig, 'Chapa inferior', u'Alum\u00ednio',
+    add_title_block(fig, 'Chapa inferior', u'Alum\u00ednio 5052-F',
                     f'{BOT_THICK}mm', '1 unidade',
                     f'Cantos chanfrados {BOT_CHAMFER}\u00d7{BOT_CHAMFER} a 45\u00b0')
 
@@ -948,18 +948,18 @@ def draw_montagem():
     ax.text(cx2, y_top + top_h / 2, 'chapa sup.',
             ha='center', va='center', fontsize=5, color='#666')
 
-    # Tubo quadrado (entre as chapas)
+    # Tubo quadrado de aço (entre as chapas)
     # Exterior
-    draw_rect(cx2, y_tube, tube_h, tube_w, fc='#C8D8E8')
+    draw_rect(cx2, y_tube, tube_h, tube_w, fc='#B0B8C0')
     # Interior (oco)
     inner = patches.Rectangle(
         (cx2 - tube_w / 2 + tube_wall_v, y_tube + tube_wall_v),
         tube_w - 2 * tube_wall_v, tube_h - 2 * tube_wall_v,
-        lw=0.8, ec=pe_c, fc='#E8F0F8', zorder=3)
+        lw=0.8, ec=pe_c, fc='#D0D4D8', zorder=3)
     ax.add_patch(inner)
 
     ax.text(cx2 + tube_w / 2 + 5, y_tube + tube_h / 2,
-            u'TUBO QUADRADO Al\n30\u00d730 ou 35\u00d735\u00d72mm\n527mm compr.\ncolado com ep\u00f3xi',
+            u'TUBO QUADRADO A\u00c7O\n35\u00d735\u00d72mm\n527mm compr.\ncolado com ep\u00f3xi',
             fontsize=5.5, va='center', fontweight='bold', color='#2266AA')
 
     # Indicacao de cola
@@ -1002,11 +1002,11 @@ def draw_montagem():
     ax2.axis('off')
 
     steps = [
-        ('1', u'Colar 2 tubos quadrados na face interna\nda chapa superior (Y=194 e Y=306mm)\nLixar + ep\u00f3xi + prensar 24h'),
+        ('1', u'Colar 2 tubos de a\u00e7o na face interna\nda chapa superior (Y=194 e Y=306mm)\nLixar + ep\u00f3xi + prensar 24h'),
         ('2', u'Inserir parafusos Allen M10 DIN 7991\npelo lado escareado da chapa superior'),
         ('3', u'Posicionar juntas de a\u00e7o sobre as\nc\u00e9lulas de carga'),
         ('4', u'Encaixar c\u00e9lulas nos parafusos\n(2 parafusos por c\u00e9lula, 4 cantos)'),
-        ('5', u'Colar tubos na chapa inferior (ep\u00f3xi)\ne posicionar sobre os parafusos'),
+        ('5', u'Colar tubos de a\u00e7o na chapa inferior (ep\u00f3xi)\ne posicionar sobre os parafusos'),
         ('6', u'Fixar com porca M10 + arruela\n(n\u00e3o apertar totalmente ainda)'),
         ('7', u'Rosquear p\u00e9s (M12\u00d71,75)\nat\u00e9 o colar encostar na c\u00e9lula'),
         ('8', u'Nivelar (n\u00edvel de bolha) e apertar\nporcas. Testar rigidez sob carga'),
@@ -1023,8 +1023,8 @@ def draw_montagem():
 
     ax2.text(0.02, 0.02,
              u'NOTA: 4 cantos \u00d7 (2 paraf. + 1 junta + 1 c\u00e9lula + 1 p\u00e9)\n'
-             u'+ 2 tubos quadrados colados (refor\u00e7o central)\n'
-             u'Total: 8 paraf. M10, 4 juntas, 4 c\u00e9lulas, 4 p\u00e9s, 2 tubos',
+             u'+ 2 tubos quadrados de a\u00e7o colados (refor\u00e7o central)\n'
+             u'Total: 8 paraf. M10, 4 juntas, 4 c\u00e9lulas, 4 p\u00e9s, 2 tubos a\u00e7o',
              fontsize=6, color=MID_GRAY, transform=ax2.transAxes,
              va='bottom', style='italic')
 
