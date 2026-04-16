@@ -1,123 +1,118 @@
----
-title: Shopping List — Montagem Mecânica
-sidebar_position: 4
----
+# Shopping List — Mechanical Assembly
 
-# Shopping List — Montagem Mecânica
-
-**Data:** 2026-04-06
-**Status:** Chapas de alumínio orçadas (Casa dos Metais). Aguardar AliExpress (~21/04–11/05) antes de fechar compras locais.
-**Orçamento total:** ~R$ 845
+**Date:** 2026-04-06
+**Status:** Aluminum plates quoted (Casa dos Metais). Wait for AliExpress (~Apr 21–May 11) before closing local purchases.
+**Total budget:** ~R$ 845
 
 ---
 
-## Metalúrgica / Corte de Chapas (~R$ 230)
+## Metal Supplier / Plate Cutting (~R$ 230)
 
-| # | Item | Especificação | Qtd | Orçamento (R$) |
+| # | Item | Specification | Qty | Budget (R$) |
 |---|------|--------------|:---:|----------:|
-| 1 | Chapa superior | Al 5052-F, 603×503mm, 6,35mm (1/4"), cantos arredondados R30 | 1 | **410,00** |
-| 2 | Chapa inferior | Al 5052-F, 530×399mm, 3mm, cantos chanfrados 15×15 a 45° | 1 | **140,00** |
-| 3 | Tubo quadrado | Aço carbono 1020, 35×35×2mm, 2 peças de 527mm | 2 | ~20 |
+| 1 | Top plate | Al 5052-F, 603×503 mm, 6.35 mm (1/4"), rounded corners R30 | 1 | **410.00** |
+| 2 | Bottom plate | Al 5052-F, 530×399 mm, 3 mm, chamfered corners 15×15 at 45° | 1 | **140.00** |
+| 3 | Square tube | 1020 carbon steel, 35×35×2 mm, 2 pieces of 527 mm | 2 | ~20 |
 
-:::tip Orçamento recebido (2026-04-06)
-**Fornecedor:** Casa dos Metais Ltda — CNPJ 65.916.320/0001-31
-Chapas 1 e 2 orçadas com dimensões comerciais (+3mm de folga). Total chapas: **R$ 550,00**.
-Falta orçar corte dos cantos (R30 e chanfro 45°) e tubos de aço — possivelmente outro fornecedor.
+:::tip Quote received (2026-04-06)
+**Supplier:** Casa dos Metais Ltda — CNPJ 65.916.320/0001-31
+Items 1 and 2 quoted with commercial dimensions (+3 mm allowance). Total plates: **R$ 550.00**.
+Corner cutting (R30 and 45° chamfer) and steel tubes still to be quoted — possibly a different supplier.
 :::
 
-:::info Mudança de materiais (2026-04-06)
-**Liga alumínio:** 6061-T6 não disponível localmente → 5052-F. Rigidez idêntica (E ~70 GPa), escoamento menor (90 vs 276 MPa) mas FS > 4 com a seção caixão.
-**Tubos:** Alumínio quadrado difícil de encontrar → aço carbono padrão. Mais rígido (+23%), mais barato, produto de prateleira. Acréscimo de +1,4 kg no peso total.
+:::info Material changes (2026-04-06)
+**Aluminum alloy:** 6061-T6 not available locally → 5052-F. Identical stiffness (E ~70 GPa), lower yield strength (90 vs 276 MPa) but FS > 4 with the box section.
+**Tubes:** Square aluminum tubes hard to source → standard carbon steel. Stiffer (+23%), cheaper, off-the-shelf product. Adds +1.4 kg to total weight.
 :::
 
-**Levar PDFs:** `cad/fab_chapa_superior.pdf`, `cad/fab_chapa_inferior.pdf`
+**Bring PDFs:** `cad/fab_chapa_superior.pdf`, `cad/fab_chapa_inferior.pdf`
 
 :::note
-Pedir corte e arredondamento/chanfro na metalúrgica. Furação e escareamento fazer em casa com gabarito para maior precisão.
+Request cutting and rounding/chamfering at the metal supplier. Drilling and countersinking to be done at home with a jig for higher precision.
 :::
 
 ---
 
-## Torneiro Mecânico (~R$ 160)
+## Machine Shop / Turner (~R$ 160)
 
-| # | Item | Especificação | Qtd | Est. (R$) |
+| # | Item | Specification | Qty | Est. (R$) |
 |---|------|--------------|:---:|----------:|
-| 4 | Pézinho torneado com colar | Aço carbono ou inox, barra Ø60mm | 4 | ~160 |
+| 4 | Turned foot piece with collar | Carbon steel or stainless, Ø60 mm bar stock | 4 | ~160 |
 
-**Dimensões da peça (de baixo para cima):**
+**Part dimensions (bottom to top):**
 
-| Parte | Dimensão |
-|-------|----------|
-| Borracha | Ø60mm × 1mm neoprene (colada após usinagem) |
-| Base | Ø60mm × 8mm |
-| Chanfro | Ø60→Ø20, 6mm altura (~17°) |
-| Colar | Ø20mm × 5mm (batente mecânico) |
-| Rosca | M12×1,75, Ø12mm, 32mm comprimento |
-| **Altura total** | **52mm** |
+| Section | Dimension |
+|---------|-----------|
+| Rubber | Ø60 mm × 1 mm neoprene (glued after machining) |
+| Base | Ø60 mm × 8 mm |
+| Chamfer | Ø60→Ø20, 6 mm height (~17°) |
+| Collar | Ø20 mm × 5 mm (mechanical stop) |
+| Thread | M12×1.75, Ø12 mm, 32 mm length |
+| **Total height** | **52 mm** |
 
-**Levar PDF:** `cad/fab_pezinho.pdf`
+**Bring PDF:** `cad/fab_pezinho.pdf`
 
 ---
 
-## Serralheria / Usinagem (~R$ 20)
+## Metalwork / Machining (~R$ 20)
 
-| # | Item | Especificação | Qtd | Est. (R$) |
+| # | Item | Specification | Qty | Est. (R$) |
 |---|------|--------------|:---:|----------:|
-| 5 | Junta de aço | Aço carbono, 56×32mm, 2mm espessura, 2 furos Ø11mm passante, 25mm entre centros | 4 | ~20 |
+| 5 | Steel shim | Carbon steel, 56×32 mm, 2 mm thick, 2 through holes Ø11 mm, 25 mm center-to-center | 4 | ~20 |
 
-**Levar PDF:** `cad/fab_junta.pdf`
+**Bring PDF:** `cad/fab_junta.pdf`
 
 ---
 
-## Parafusaria / Ferragens (~R$ 50)
+## Fasteners / Hardware (~R$ 50)
 
-| # | Item | Especificação | Qtd | Est. (R$) |
+| # | Item | Specification | Qty | Est. (R$) |
 |---|------|--------------|:---:|----------:|
-| 6 | Parafuso Allen cabeça chata | M10×50, DIN 7991 (escareado/cônico) | 8 | ~20 |
-| 7 | Porca sextavada M10 | DIN 934 (padrão) ou DIN 439 (baixa) | 8 | ~5 |
-| 8 | Arruela lisa M10 | DIN 125 | 8 | ~5 |
-| 9 | Broca HSS para metal | Ø11mm | 1 | ~10 |
-| 10 | Escareador cônico 90° | Para M10, diâmetro Ø20mm | 1 | ~10 |
+| 6 | Flat-head Allen bolt | M10×50, DIN 7991 (countersunk/conical) | 8 | ~20 |
+| 7 | M10 hex nut | DIN 934 (standard) or DIN 439 (thin) | 8 | ~5 |
+| 8 | M10 flat washer | DIN 125 | 8 | ~5 |
+| 9 | HSS metal drill bit | Ø11 mm | 1 | ~10 |
+| 10 | 90° conical countersink | For M10, diameter Ø20 mm | 1 | ~10 |
 
 ---
 
-## Materiais e Consumíveis (~R$ 45)
+## Materials and Consumables (~R$ 45)
 
-| # | Item | Especificação | Qtd | Est. (R$) |
+| # | Item | Specification | Qty | Est. (R$) |
 |---|------|--------------|:---:|----------:|
-| 11 | Cola epóxi estrutural | Araldite Professional 24ml (ou Loctite EA, Devcon equiv.) | 1 | ~25 |
-| 12 | Borracha neoprene | Disco Ø60mm × 1mm (cortar de manta se necessário) | 4 | ~10 |
-| 13 | Lixa para metal | Grão 80 (preparação de superfície para colagem) | 2 | ~5 |
-| 14 | Álcool isopropílico | Desengordurar superfícies antes da colagem | 1 | ~5 |
+| 11 | Structural epoxy adhesive | Araldite Professional 24 ml (or Loctite EA, Devcon equiv.) | 1 | ~25 |
+| 12 | Neoprene rubber | Ø60 mm × 1 mm disc (cut from sheet if needed) | 4 | ~10 |
+| 13 | Metal sandpaper | 80 grit (surface preparation for bonding) | 2 | ~5 |
+| 14 | Isopropyl alcohol | Degrease surfaces before bonding | 1 | ~5 |
 
 ---
 
-## Resumo por Fornecedor
+## Summary by Supplier
 
-| Fornecedor | Itens | Subtotal | Status |
-|------------|:-----:|----------:|--------|
-| Casa dos Metais (chapas Al) | 1–2 | **R$ 550** | Orçado |
-| Metalúrgica (corte + tubos) | 3 + acabamento 1–2 | ~R$ 50 | Estimar |
-| Torneiro | 4 | ~R$ 160 | Estimar |
-| Serralheria | 5 | ~R$ 20 | Estimar |
-| Parafusaria | 6–10 | ~R$ 50 | Estimar |
-| Materiais | 11–14 | ~R$ 45 | Estimar |
-| **Total** | **14 itens** | **~R$ 875** | |
+| Supplier | Items | Subtotal | Status |
+|----------|:-----:|----------:|--------|
+| Casa dos Metais (Al plates) | 1–2 | **R$ 550** | Quoted |
+| Metal supplier (cutting + tubes) | 3 + finishing 1–2 | ~R$ 50 | To estimate |
+| Turner | 4 | ~R$ 160 | To estimate |
+| Metalwork shop | 5 | ~R$ 20 | To estimate |
+| Fastener shop | 6–10 | ~R$ 50 | To estimate |
+| Materials | 11–14 | ~R$ 45 | To estimate |
+| **Total** | **14 items** | **~R$ 875** | |
 
 ---
 
-## Checklist de Compras
+## Purchase Checklist
 
-- [ ] Casa dos Metais — fechar compra das 2 chapas Al (R$ 550)
-- [ ] Metalúrgica — corte cantos (R30 + chanfro), furação se possível, tubos aço (levar 3 PDFs)
-- [ ] Torneiro — 4 pézinhos (levar 1 PDF)
-- [ ] Serralheria — 4 juntas de aço (levar 1 PDF)
-- [ ] Parafusaria — parafusos M10×50 DIN 7991 + porcas + arruelas + broca + escareador
-- [ ] Materiais — epóxi + borracha + lixa + álcool
+- [ ] Casa dos Metais — close purchase of 2 Al plates (R$ 550)
+- [ ] Metal supplier — corner cutting (R30 + chamfer), drilling if possible, steel tubes (bring 3 PDFs)
+- [ ] Turner — 4 foot pieces (bring 1 PDF)
+- [ ] Metalwork shop — 4 steel shims (bring 1 PDF)
+- [ ] Fastener shop — M10×50 DIN 7991 bolts + nuts + washers + drill bit + countersink
+- [ ] Materials — epoxy + rubber + sandpaper + alcohol
 
-:::warning Antes de comprar
-1. Aguardar chegada das células de carga (AliExpress)
-2. Montar 1 canto de teste para confirmar o gap entre chapas
-3. Tubo de aço: 35×35×2mm (preferencial) ou 30×30×2mm com base no gap medido
-4. Confirmar comprimento do parafuso M10×50 no empilhamento real
+:::warning Before purchasing
+1. Wait for load cells to arrive (AliExpress)
+2. Assemble 1 test corner to confirm the gap between plates
+3. Steel tube: 35×35×2 mm (preferred) or 30×30×2 mm based on measured gap
+4. Confirm M10×50 bolt length in actual stack assembly
 :::
