@@ -803,8 +803,8 @@ def draw_montagem():
     top_h = 12
     top_w = 80
 
-    gasket_h = 5
-    gasket_w = 36
+    shim_h = 5
+    shim_w = 36
 
     cell_h = 24
     cell_w = 42
@@ -824,8 +824,8 @@ def draw_montagem():
     y_bolt = y_bolt_top - bolt_head_h - bolt_shank_h
 
     y_top = y_bolt - gap
-    y_gasket = y_top - top_h - gap
-    y_cell = y_gasket - gasket_h - gap
+    y_shim = y_top - top_h - gap
+    y_cell = y_shim - shim_h - gap
     y_bot = y_cell - cell_h - gap
     y_nut = y_bot - bot_h - gap
 
@@ -886,11 +886,11 @@ def draw_montagem():
             fontsize=5, va='center', fontweight='bold', color=ORANGE)
 
     # 3. Junta
-    draw_rect(cx, y_gasket, gasket_h, gasket_w, fc='#B8B8B8')
-    for hy in np.arange(y_gasket + 1, y_gasket + gasket_h, 1.5):
-        ax.plot([cx - gasket_w / 2 + 2, cx + gasket_w / 2 - 2], [hy, hy],
+    draw_rect(cx, y_shim, shim_h, shim_w, fc='#B8B8B8')
+    for hy in np.arange(y_shim + 1, y_shim + shim_h, 1.5):
+        ax.plot([cx - shim_w / 2 + 2, cx + shim_w / 2 - 2], [hy, hy],
                 color='#888', lw=0.3, zorder=3)
-    ax.text(cx + gasket_w / 2 + 3, y_gasket + gasket_h / 2,
+    ax.text(cx + shim_w / 2 + 3, y_shim + shim_h / 2,
             f'JUNTA A\u00c7O\n{SHIM_L}\u00d7{SHIM_W}\u00d7{SHIM_T}mm',
             fontsize=5, va='center', fontweight='bold', color=DARK)
 
@@ -935,8 +935,8 @@ def draw_montagem():
 
     # Linhas de ligacao (coluna canto)
     for y_from, y_to in [
-        (y_bolt, y_top + top_h), (y_top, y_gasket + gasket_h),
-        (y_gasket, y_cell + cell_h), (y_cell, y_bot + bot_h),
+        (y_bolt, y_top + top_h), (y_top, y_shim + shim_h),
+        (y_shim, y_cell + cell_h), (y_cell, y_bot + bot_h),
         (y_bot, y_nut + nut_h), (y_nut, y_ft),
     ]:
         ax.plot([cx, cx], [y_to, y_from], color='#BBB', lw=0.8, ls=':', zorder=1)

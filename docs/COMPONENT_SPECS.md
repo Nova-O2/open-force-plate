@@ -307,14 +307,14 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 
 | Parameter | Value |
 |-----------|-------|
-| Material | Extruded aluminum |
-| Section | 30×30×2 mm or 35×35×2 mm (subject to availability) |
+| Material | 1020 carbon steel |
+| Section | 35×35×2 mm |
 | Length | ~527 mm each |
 | Quantity | 2 tubes |
 | Position | Longitudinal (X-axis), at Y=194 mm and Y=306 mm from top plate |
 | Bonding | Structural epoxy |
 
-**Function:** Creates box section with both plates (flanges). I_total = 1,062,162 mm⁴ (118× the rigidity of the plate alone).
+**Function:** Creates box section with both plates (flanges). I_total ≈ 1,305,342 mm⁴ (~150× the rigidity of the plate alone).
 
 ---
 

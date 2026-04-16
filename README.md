@@ -77,8 +77,10 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 | Category | Cost (BRL) | Cost (USD) |
 |----------|-----------|-----------|
 | Imported components (AliExpress) | R$2,009 | ~$400 |
-| Local components (aluminum, steel, hardware) | ~R$505 | ~$100 |
+| Local components (aluminum, steel, hardware) | ~R$500 | ~$100 |
 | **Total (single platform)** | **~R$2,500** | **~$500** |
+
+*Unit cost excludes tools and backup components. See [Components Selected](docs/COMPONENTS_SELECTED.md) for the detailed breakdown.*
 
 Commercial force plates range from R$30,000–R$100,000 ($6,000–$20,000 USD).
 
@@ -225,12 +227,12 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 | Categoria | Custo (BRL) | Custo (USD) |
 |----------|-----------|-----------|
 | Componentes importados (AliExpress) | R$2.009 | ~$400 |
-| Componentes locais (alumínio, aço, fixadores) | ~R$505 | ~$100 |
+| Componentes locais (alumínio, aço, fixadores) | ~R$500 | ~$100 |
 | **Total (plataforma única)** | **~R$2.500** | **~$500** |
 
-Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20.000 USD).
+*Custo unitário exclui ferramentas e componentes de backup. Veja os [Componentes Selecionados](docs/COMPONENTS_SELECTED.md) para o detalhamento completo.*
 
-Veja os [Componentes Selecionados](docs/COMPONENTS_SELECTED.md) para o bill of materials completo.
+Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20.000 USD).
 
 ## Roadmap
 
