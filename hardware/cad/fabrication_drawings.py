@@ -5,12 +5,12 @@
 Plataforma de Forca MVP — Desenhos de Fabricacao
 Nova O2 Ciencia do Esporte
 
-Gera 5 PDFs de fabricacao:
-1. fab_chapa_superior.pdf — Chapa superior 600x500mm, 6mm aluminio, cantos R30, furos escareados M10
-2. fab_chapa_inferior.pdf — Chapa inferior 527x396mm, 3mm aluminio, cantos chanfrados 15x15
-3. fab_pezinho.pdf — Pezinho torneado com colar (x4)
-4. fab_junta.pdf — Junta de aco (x4)
-5. fab_montagem.pdf — Vista explodida de montagem
+Generates 5 fabrication PDFs:
+1. fab_top_plate.pdf — Top plate 600x500mm, 6.35mm aluminum, R30 corners, countersunk M10 holes
+2. fab_bottom_plate.pdf — Bottom plate 527x396mm, 3mm aluminum, 15x15 chamfered corners
+3. fab_foot_piece.pdf — Turned foot piece with collar (x4)
+4. fab_shim.pdf — Steel shim (x4)
+5. fab_assembly.pdf — Exploded assembly view
 """
 
 import matplotlib.pyplot as plt
@@ -357,9 +357,9 @@ def draw_chapa_superior():
                     f'{TOP_THICK}mm (1/4")', '1 unidade',
                     f'Cantos R{CORNER_R}, furos escareados M10')
 
-    fig.savefig(f'{OUT_DIR}/fab_chapa_superior.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(f'{OUT_DIR}/fab_top_plate.pdf', bbox_inches='tight', facecolor='white')
     plt.close(fig)
-    print("  -> fab_chapa_superior.pdf")
+    print("  -> fab_top_plate.pdf")
 
 
 # =============================================================================
@@ -485,9 +485,9 @@ def draw_chapa_inferior():
                     f'{BOT_THICK}mm', '1 unidade',
                     f'Cantos chanfrados {BOT_CHAMFER}\u00d7{BOT_CHAMFER} a 45\u00b0')
 
-    fig.savefig(f'{OUT_DIR}/fab_chapa_inferior.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(f'{OUT_DIR}/fab_bottom_plate.pdf', bbox_inches='tight', facecolor='white')
     plt.close(fig)
-    print("  -> fab_chapa_inferior.pdf")
+    print("  -> fab_bottom_plate.pdf")
 
 
 # =============================================================================
@@ -672,9 +672,9 @@ def draw_pezinho():
                     'Ver cotas', '4 unidades',
                     u'Borracha colada ap\u00f3s usinagem')
 
-    fig.savefig(f'{OUT_DIR}/fab_pezinho.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(f'{OUT_DIR}/fab_foot_piece.pdf', bbox_inches='tight', facecolor='white')
     plt.close(fig)
-    print("  -> fab_pezinho.pdf")
+    print("  -> fab_foot_piece.pdf")
 
 
 # =============================================================================
@@ -770,9 +770,9 @@ def draw_junta():
                     f'{GASKET_T}mm', '4 unidades',
                     u'Impede esmagamento do alum\u00ednio')
 
-    fig.savefig(f'{OUT_DIR}/fab_junta.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(f'{OUT_DIR}/fab_shim.pdf', bbox_inches='tight', facecolor='white')
     plt.close(fig)
-    print("  -> fab_junta.pdf")
+    print("  -> fab_shim.pdf")
 
 
 # =============================================================================
@@ -1035,9 +1035,9 @@ def draw_montagem():
                     'N/A', u'Refer\u00eancia',
                     u'Parafusos DIN 7991 M10 escareados')
 
-    fig.savefig(f'{OUT_DIR}/fab_montagem.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(f'{OUT_DIR}/fab_assembly.pdf', bbox_inches='tight', facecolor='white')
     plt.close(fig)
-    print("  -> fab_montagem.pdf")
+    print("  -> fab_assembly.pdf")
 
 
 # =============================================================================
@@ -1055,8 +1055,8 @@ if __name__ == '__main__':
     draw_montagem()
 
     print(f"\n\u2713 5 PDFs gerados em {OUT_DIR}/")
-    print(f"  fab_chapa_superior.pdf  \u2014 cantos R{CORNER_R}, furos escareados M10")
-    print(f"  fab_chapa_inferior.pdf  \u2014 chanfro {BOT_CHAMFER}\u00d7{BOT_CHAMFER}, furos \u00d8{HOLE_DIA}")
-    print(f"  fab_pezinho.pdf         \u2014 com colar \u00d8{COLLAR_DIA}\u00d7{COLLAR_H}mm")
-    print(f"  fab_junta.pdf           \u2014 furos \u00d8{HOLE_DIA}")
-    print(f"  fab_montagem.pdf        \u2014 vista explodida + sequencia")
+    print(f"  fab_top_plate.pdf  \u2014 cantos R{CORNER_R}, furos escareados M10")
+    print(f"  fab_bottom_plate.pdf  \u2014 chanfro {BOT_CHAMFER}\u00d7{BOT_CHAMFER}, furos \u00d8{HOLE_DIA}")
+    print(f"  fab_foot_piece.pdf         \u2014 com colar \u00d8{COLLAR_DIA}\u00d7{COLLAR_H}mm")
+    print(f"  fab_shim.pdf           \u2014 furos \u00d8{HOLE_DIA}")
+    print(f"  fab_assembly.pdf        \u2014 vista explodida + sequencia")

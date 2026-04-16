@@ -25,7 +25,7 @@ Corner cutting (R30 and 45° chamfer) and steel tubes still to be quoted — pos
 **Tubes:** Square aluminum tubes hard to source → standard carbon steel. Stiffer (+23%), cheaper, off-the-shelf product. Adds +1.4 kg to total weight.
 :::
 
-**Bring PDFs:** `cad/fab_chapa_superior.pdf`, `cad/fab_chapa_inferior.pdf`
+**Bring PDFs:** `hardware/cad/fab_top_plate.pdf`, `hardware/cad/fab_bottom_plate.pdf`
 
 :::note
 Request cutting and rounding/chamfering at the metal supplier. Drilling and countersinking to be done at home with a jig for higher precision.
@@ -50,7 +50,7 @@ Request cutting and rounding/chamfering at the metal supplier. Drilling and coun
 | Thread | M12×1.75, Ø12 mm, 32 mm length |
 | **Total height** | **52 mm** |
 
-**Bring PDF:** `cad/fab_pezinho.pdf`
+**Bring PDF:** `hardware/cad/fab_foot_piece.pdf`
 
 ---
 
@@ -60,7 +60,7 @@ Request cutting and rounding/chamfering at the metal supplier. Drilling and coun
 |---|------|--------------|:---:|----------:|
 | 5 | Steel shim | Carbon steel, 56×32 mm, 2 mm thick, 2 through holes Ø11 mm, 25 mm center-to-center | 4 | ~20 |
 
-**Bring PDF:** `cad/fab_junta.pdf`
+**Bring PDF:** `hardware/cad/fab_shim.pdf`
 
 ---
 

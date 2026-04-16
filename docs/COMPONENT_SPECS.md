@@ -246,7 +246,7 @@ Turn the blue trimpot ~20 turns counterclockwise to start with low output voltag
 | Corners | R30 rounded |
 | Holes | 8× Ø11 mm, countersunk Ø20 mm × 5.5 mm depth (90°) |
 | Weight | ~4.86 kg |
-| Technical drawing | `cad/fab_chapa_superior.pdf` |
+| Technical drawing | `hardware/cad/fab_top_plate.pdf` |
 
 #### Al 5052-F properties
 
@@ -268,7 +268,7 @@ Turn the blue trimpot ~20 turns counterclockwise to start with low output voltag
 | Corners | 15 × 15 mm chamfers at 45° |
 | Holes | 8× Ø11 mm |
 | Weight | ~1.67 kg |
-| Technical drawing | `cad/fab_chapa_inferior.pdf` |
+| Technical drawing | `hardware/cad/fab_bottom_plate.pdf` |
 
 ---
 
@@ -280,7 +280,7 @@ Turn the blue trimpot ~20 turns counterclockwise to start with low output voltag
 | Dimensions | 56 × 32 × 2 mm |
 | Holes | 2× Ø11 mm, 25 mm center-to-center |
 | Function | Spacer between cell and top plate (distributes load, prevents aluminum crushing) |
-| Technical drawing | `cad/fab_junta.pdf` |
+| Technical drawing | `hardware/cad/fab_shim.pdf` |
 
 **Note:** do not use rubber — it dampens the dynamic signal at 1000 Hz.
 
@@ -297,7 +297,7 @@ Turn the blue trimpot ~20 turns counterclockwise to start with low output voltag
 | Rubber pad | Ø60 mm × 1 mm neoprene (glued after machining) |
 | Total height | 52 mm |
 | Material | Carbon steel or stainless steel (Ø60 mm bar stock) |
-| Technical drawing | `cad/fab_pezinho.pdf` |
+| Technical drawing | `hardware/cad/fab_foot_piece.pdf` |
 
 **Function:** Support/leveling. No lock nut — collar acts as mechanical stop; platform weight locks position.
 
