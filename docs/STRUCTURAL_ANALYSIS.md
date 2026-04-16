@@ -25,9 +25,9 @@ Verify the structural integrity of the force platform's top plate under operatin
 | Poisson's ratio (ν) | 0.33 |
 | Density (ρ) | 2,680 kg/m³ |
 
-:::info Material change (Rev. 2.0)
-Original alloy: 6061-T6 (σ_y = 276 MPa). Replaced by 5052-F due to local availability. The modulus of elasticity is practically the same (~70 GPa), so **deflection does not change**. The reduction in yield strength is offset by the structural margin of the box section (FS > 4 in all scenarios).
-:::
+> **ℹ️ Material change (Rev. 2.0)**
+>
+> Original alloy: 6061-T6 (σ_y = 276 MPa). Replaced by 5052-F due to local availability. The modulus of elasticity is practically the same (~70 GPa), so **deflection does not change**. The reduction in yield strength is offset by the structural margin of the box section (FS > 4 in all scenarios).
 
 #### Reinforcement tubes — 1020 carbon steel
 
@@ -38,9 +38,9 @@ Original alloy: 6061-T6 (σ_y = 276 MPa). Replaced by 5052-F due to local availa
 | Density (ρ) | 7,850 kg/m³ |
 | Modular ratio (n = E_steel/E_al) | 2.845 |
 
-:::info Material change (Rev. 2.0)
-Original tubes: aluminum 35×35×2 mm. Replaced by carbon steel due to local availability. Square aluminum tubes are difficult to find in the regional market; steel is standard in any metal supply shop. The substitution adds +1.4 kg to the total weight but **increases box section stiffness by ~23%**.
-:::
+> **ℹ️ Material change (Rev. 2.0)**
+>
+> Original tubes: aluminum 35×35×2 mm. Replaced by carbon steel due to local availability. Square aluminum tubes are difficult to find in the regional market; steel is standard in any metal supply shop. The substitution adds +1.4 kg to the total weight but **increases box section stiffness by ~23%**.
 
 ### 2.2 Geometry
 
@@ -96,9 +96,9 @@ For t = 6.35 mm (Al 5052-F):
 
 $$D = \frac{70,300 \times 6.35^3}{12 \times (1 - 0.33^2)} = \frac{70,300 \times 256.0}{12 \times 0.8911} = \frac{17,997,000}{10.693} = 1,683,000 \text{ N·mm}$$
 
-:::note
-D increased ~21% vs. original design (1,392,000 N·mm with 6061-T6 6 mm) — combined effect of slightly higher E and 6.35 mm thickness.
-:::
+> **📝 Note**
+>
+> D increased ~21% vs. original design (1,392,000 N·mm with 6061-T6 6 mm) — combined effect of slightly higher E and 6.35 mm thickness.
 
 ### 3.3 Deflection — Navier Series (plate center)
 
@@ -118,9 +118,9 @@ Point support correction factor: **×1.8** (conservative).
 | 85 kg CMJ 3× | 2,502 | 4.48 | 357.0 | 0.3 |
 | 120 kg DJ 5× | 5,886 | 10.52 | 840.0 | 0.1 |
 
-:::danger FAILURE
-The 6.35 mm plate without reinforcement shows **10.5 mm** deflection and stress **9.3× above yield** in the DJ scenario. Even worse than 6061-T6 in terms of FS, since the reduction in σ_y (90 MPa) outweighs the thickness gain. Structural reinforcement is mandatory.
-:::
+> **🔴 FAILURE**
+>
+> The 6.35 mm plate without reinforcement shows **10.5 mm** deflection and stress **9.3× above yield** in the DJ scenario. Even worse than 6061-T6 in terms of FS, since the reduction in σ_y (90 MPa) outweighs the thickness gain. Structural reinforcement is mandatory.
 
 ---
 
@@ -153,9 +153,9 @@ Comparative evaluation for the critical scenario (DJ 5×BW, 120 kg):
 | Box section 2 Al tubes | Al plates + Al tubes bonded | +0.75 kg | ~R$ 50 | 0.18 mm |
 | **Box section 2 steel tubes** | **Al plates + steel tubes bonded** | **+2.18 kg** | **~R$ 25** | **0.14 mm** |
 
-:::info Design evolution (Rev. 2.0)
-The original design used 35×35×2 mm aluminum tubes — the lightest solution (+0.75 kg). In practice, square aluminum tubes are difficult to find in the Brazilian regional market. Steel tubes are an off-the-shelf product at any metal supply shop. The substitution adds 1.4 kg but **increases stiffness by 23%** and **reduces cost** (steel is cheaper than aluminum per meter).
-:::
+> **ℹ️ Design evolution (Rev. 2.0)**
+>
+> The original design used 35×35×2 mm aluminum tubes — the lightest solution (+0.75 kg). In practice, square aluminum tubes are difficult to find in the Brazilian regional market. Steel tubes are an off-the-shelf product at any metal supply shop. The substitution adds 1.4 kg but **increases stiffness by 23%** and **reduces cost** (steel is cheaper than aluminum per meter).
 
 ### 6.2 Adopted solution — Box section (steel tubes)
 
@@ -184,9 +184,9 @@ The two 5052-F aluminum plates (top 6.35 mm + bottom 3 mm) act as flanges of a b
 
 Since the box section combines two materials (aluminum plates + steel tubes), the **transformed section method** is used: steel areas are converted to equivalent aluminum areas using the modular ratio n = E_steel / E_al = 200,000 / 70,300 = **2.845**.
 
-:::info Calculation evolution (Rev. 2.0)
-In Rev. 1.0 (all-aluminum section), the calculation was straightforward with a single material. The transformed section is required when mixing materials — standard technique in composite structures (e.g., reinforced concrete, steel-timber composite beams).
-:::
+> **ℹ️ Calculation evolution (Rev. 2.0)**
+>
+> In Rev. 1.0 (all-aluminum section), the calculation was straightforward with a single material. The transformed section is required when mixing materials — standard technique in composite structures (e.g., reinforced concrete, steel-timber composite beams).
 
 ### 7.2 Composite section geometry (transformed to aluminum)
 
@@ -238,9 +238,9 @@ $$\bar{y} = \frac{\sum A_{tr,i} \cdot y_i}{\sum A_{tr,i}} = \frac{900 \times 1.5
 | **120 kg DJ 5×** | **5,886** | **0.143** | **15.3** | **5.9** |
 | 120 kg DJ 7× (extreme) | 8,240 | 0.200 | 21.4 | 4.2 |
 
-:::info
-Maximum deflection < 0.2 mm in all scenarios, including extreme DJ. FS > 4 in all conditions — even with the 5052-F alloy (σ_y = 90 MPa), the box section provides ample safety margin.
-:::
+> **ℹ️ Info**
+>
+> Maximum deflection < 0.2 mm in all scenarios, including extreme DJ. FS > 4 in all conditions — even with the 5052-F alloy (σ_y = 90 MPa), the box section provides ample safety margin.
 
 **Comparison Rev. 1.0 → Rev. 2.0 (critical scenario DJ 5×, 120 kg):**
 
@@ -276,9 +276,9 @@ Negligible difference — both sizes comply with comfortable margin. Prefer 35×
 | Structural epoxy strength | 20–30 MPa |
 | **Bond safety factor** | **> 21** |
 
-:::note
-The steel↔aluminum interface via epoxy is well established in engineering practice. Steel has natural roughness that promotes mechanical adhesion. Preparation: sand both surfaces (80 grit), degrease with isopropyl alcohol, apply epoxy, and cure 24 h under clamp pressure.
-:::
+> **📝 Note**
+>
+> The steel↔aluminum interface via epoxy is well established in engineering practice. Steel has natural roughness that promotes mechanical adhesion. Preparation: sand both surfaces (80 grit), degrease with isopropyl alcohol, apply epoxy, and cure 24 h under clamp pressure.
 
 ### 8.2 Adhesive specification
 
@@ -382,10 +382,10 @@ The 6 mm aluminum top plate without reinforcement deflects 12.7 mm under DJ load
 ### Adopted solution (Rev. 2.0)
 2 square **1020 carbon steel** tubes (35×35×2 mm) bonded with structural epoxy between the two 5052-F aluminum plates, creating a box section with I_transformed = 1,305,342 mm⁴ (~150× the plate alone).
 
-:::info Design evolution
-Rev. 1.0: aluminum tubes (I = 1,062,000 mm⁴, +0.75 kg, ~R$50).
-Rev. 2.0: steel tubes (I_tr = 1,305,000 mm⁴, +2.18 kg, ~R$25). Driven by local availability — aluminum tubes are difficult to find in the regional market, while steel is an off-the-shelf product.
-:::
+> **ℹ️ Design evolution**
+>
+> Rev. 1.0: aluminum tubes (I = 1,062,000 mm⁴, +0.75 kg, ~R$50).
+> Rev. 2.0: steel tubes (I_tr = 1,305,000 mm⁴, +2.18 kg, ~R$25). Driven by local availability — aluminum tubes are difficult to find in the regional market, while steel is an off-the-shelf product.
 
 ### Impact (Rev. 2.0)
 
@@ -413,7 +413,7 @@ Rev. 2.0: steel tubes (I_tr = 1,305,000 mm⁴, +2.18 kg, ~R$25). Driven by local
 
 - Timoshenko, S. P., Woinowsky-Krieger, S. (1959). *Theory of Plates and Shells*, 2nd Ed. McGraw-Hill.
 - Young, W. C., Budynas, R. G. (2002). *Roark's Formulas for Stress and Strain*, 7th Ed. McGraw-Hill.
-- Calculation scripts: `cad/structural_analysis.py`, `cad/material_comparison.py`, `cad/reinforcement_analysis.py`, `cad/box_section_analysis.py`
+- Calculation scripts: `hardware/cad/structural_analysis.py`, `hardware/cad/material_comparison.py`, `hardware/cad/reinforcement_analysis.py`, `hardware/cad/box_section_analysis.py`
 
 ---
 

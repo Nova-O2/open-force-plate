@@ -1,9 +1,9 @@
-# SPDX-License-Identifier: CERN-OHL-S-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (c) 2026 Nova O2
 
 """
-Plataforma de Forca MVP — Comparativo de Materiais
-Nova O2 Ciencia do Esporte
+Force Plate MVP — Material Comparison
+Nova O2 Sport Science
 
 Compara deflexao, tensao, peso e custo estimado para diferentes
 materiais e espessuras na chapa superior.

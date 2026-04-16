@@ -215,9 +215,9 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 
 **Function:** Converts 3.7V from the LiPo battery to stable 5V. Required because the ADS1256 (AVDD) needs 4.75–5.25 V and the ESP32 DevKit onboard regulator needs ~4.5V minimum input.
 
-:::danger BEFORE FIRST USE
-Turn the blue trimpot ~20 turns counterclockwise to start with low output voltage. Connect a multimeter to VOUT+/VOUT− pins and turn slowly clockwise until reading **5.0 V**. Only then connect to the circuit. High output can damage the ESP32 or ADS1256.
-:::
+> **🔴 BEFORE FIRST USE**
+>
+> Turn the blue trimpot ~20 turns counterclockwise to start with low output voltage. Connect a multimeter to VOUT+/VOUT− pins and turn slowly clockwise until reading **5.0 V**. Only then connect to the circuit. High output can damage the ESP32 or ADS1256.
 
 ---
 
@@ -252,8 +252,8 @@ Turn the blue trimpot ~20 turns counterclockwise to start with low output voltag
 
 | Property | Value |
 |----------|-------|
-| Elastic modulus (E) | 68,900 MPa |
-| Yield strength (σ_y) | 276 MPa |
+| Elastic modulus (E) | 70,300 MPa |
+| Yield strength (σ_y) | 90 MPa |
 | Poisson's ratio (ν) | 0.33 |
 | Density (ρ) | 2,700 kg/m³ |
 

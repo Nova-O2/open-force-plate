@@ -1,9 +1,9 @@
-# SPDX-License-Identifier: CERN-OHL-S-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (c) 2026 Nova O2
 
 """
-Plataforma de Forca MVP — Analise de Reforcos Estruturais
-Nova O2 Ciencia do Esporte
+Force Plate MVP — Reinforcement Analysis
+Nova O2 Sport Science
 
 Compara 3 estrategias para rigidificar a chapa de 6mm sem aumentar espessura.
 """

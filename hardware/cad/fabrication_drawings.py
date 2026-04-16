@@ -1,9 +1,9 @@
-# SPDX-License-Identifier: CERN-OHL-S-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (c) 2026 Nova O2
 
 """
-Plataforma de Forca MVP — Desenhos de Fabricacao
-Nova O2 Ciencia do Esporte
+Force Plate MVP — Fabrication Drawings
+Nova O2 Sport Science
 
 Generates 5 fabrication PDFs:
 1. fab_top_plate.pdf — Top plate 600x500mm, 6.35mm aluminum, R30 corners, countersunk M10 holes
@@ -21,13 +21,15 @@ from matplotlib.path import Path
 import matplotlib.image as mpimg
 import numpy as np
 from datetime import date
+from pathlib import Path as PathlibPath
 
 # =============================================================================
 # CONSTANTES
 # =============================================================================
 
-ICON_PATH = '/workspace/03-engineering/nova-o2/force-plate/hardware/cad/nova_o2_icon.png'
-OUT_DIR = '/workspace/03-engineering/nova-o2/force-plate/hardware/cad'
+_SCRIPT_DIR = PathlibPath(__file__).resolve().parent
+ICON_PATH = _SCRIPT_DIR / "nova_o2_icon.png"
+OUT_DIR = _SCRIPT_DIR
 ORANGE = '#E8820C'
 DARK = '#333333'
 LIGHT_GRAY = '#F0F0F0'
@@ -357,7 +359,7 @@ def draw_chapa_superior():
                     f'{TOP_THICK}mm (1/4")', '1 unidade',
                     f'Cantos R{CORNER_R}, furos escareados M10')
 
-    fig.savefig(f'{OUT_DIR}/fab_top_plate.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(str(OUT_DIR / 'fab_top_plate.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
     print("  -> fab_top_plate.pdf")
 
@@ -485,7 +487,7 @@ def draw_chapa_inferior():
                     f'{BOT_THICK}mm', '1 unidade',
                     f'Cantos chanfrados {BOT_CHAMFER}\u00d7{BOT_CHAMFER} a 45\u00b0')
 
-    fig.savefig(f'{OUT_DIR}/fab_bottom_plate.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(str(OUT_DIR / 'fab_bottom_plate.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
     print("  -> fab_bottom_plate.pdf")
 
@@ -672,7 +674,7 @@ def draw_pezinho():
                     'Ver cotas', '4 unidades',
                     u'Borracha colada ap\u00f3s usinagem')
 
-    fig.savefig(f'{OUT_DIR}/fab_foot_piece.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(str(OUT_DIR / 'fab_foot_piece.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
     print("  -> fab_foot_piece.pdf")
 
@@ -770,7 +772,7 @@ def draw_junta():
                     f'{GASKET_T}mm', '4 unidades',
                     u'Impede esmagamento do alum\u00ednio')
 
-    fig.savefig(f'{OUT_DIR}/fab_shim.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(str(OUT_DIR / 'fab_shim.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
     print("  -> fab_shim.pdf")
 
@@ -1035,7 +1037,7 @@ def draw_montagem():
                     'N/A', u'Refer\u00eancia',
                     u'Parafusos DIN 7991 M10 escareados')
 
-    fig.savefig(f'{OUT_DIR}/fab_assembly.pdf', bbox_inches='tight', facecolor='white')
+    fig.savefig(str(OUT_DIR / 'fab_assembly.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
     print("  -> fab_assembly.pdf")
 
@@ -1054,7 +1056,7 @@ if __name__ == '__main__':
     draw_junta()
     draw_montagem()
 
-    print(f"\n\u2713 5 PDFs gerados em {OUT_DIR}/")
+    print(f"\n\u2713 5 PDFs gerados em {str(OUT_DIR)}/")
     print(f"  fab_top_plate.pdf  \u2014 cantos R{CORNER_R}, furos escareados M10")
     print(f"  fab_bottom_plate.pdf  \u2014 chanfro {BOT_CHAMFER}\u00d7{BOT_CHAMFER}, furos \u00d8{HOLE_DIA}")
     print(f"  fab_foot_piece.pdf         \u2014 com colar \u00d8{COLLAR_DIA}\u00d7{COLLAR_H}mm")

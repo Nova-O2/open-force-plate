@@ -1,9 +1,9 @@
-# SPDX-License-Identifier: CERN-OHL-S-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (c) 2026 Nova O2
 
 """
-Plataforma de Forca MVP — Analise Secao Caixao com Tubo Quadrado 35x35x2mm
-Nova O2 Ciencia do Esporte
+Force Plate MVP — Box Section Analysis with 35x35x2mm Square Tube
+Nova O2 Sport Science
 """
 
 import numpy as np

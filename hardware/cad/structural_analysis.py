@@ -1,9 +1,9 @@
-# SPDX-License-Identifier: CERN-OHL-S-2.0
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (c) 2026 Nova O2
 
 """
-Plataforma de Forca MVP — Analise Estrutural
-Nova O2 Ciencia do Esporte
+Force Plate MVP — Structural Analysis
+Nova O2 Sport Science
 
 Calcula deflexao e tensao na chapa superior sob diferentes cenarios de carga.
 Modelo: placa retangular sobre 4 apoios pontuais (celulas de carga).
