@@ -506,7 +506,9 @@ For a single platform at 1000 Hz, the ESP32-S3 is more than sufficient.
 | Precision | Equivalent for uniaxial application | Equivalent |
 | Extra requirement | Rigid, flat floor | None (bottom plate levels itself) |
 
-The F shear beam cell with foot bolt is the industry standard for platform scales. It simplifies assembly, reduces cost and weight, and is proven in millions of commercial devices. The only drawback is dependence on an adequate floor, easily addressed.
+The F shear beam cell with foot bolt is the industry standard for platform scales. It simplifies assembly, reduces cost, and is proven in millions of commercial devices. The only drawback is dependence on an adequate floor, easily addressed.
+
+> **📝 Note:** The weight comparison above reflects the minimum configuration for each cell type. The current design (Rev. 2.0) adds a bottom plate and box-section reinforcement for structural rigidity, bringing the total to ~13 kg. This weight penalty is a design choice for deflection control, not a consequence of cell type.
 
 ### Why ADS1256 and not HX711?
 
