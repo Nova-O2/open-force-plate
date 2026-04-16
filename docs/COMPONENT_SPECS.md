@@ -1,129 +1,124 @@
----
-title: Especificações Técnicas dos Componentes
-sidebar_position: 2
----
+# Technical Component Specifications — Force Plate MVP
 
-# Especificações Técnicas — Force Plate MVP
+Consolidated reference sheet for all project components. Original manufacturer specs (preserve for calibration, validation, and methods paper).
 
-Ficha de referência consolidada para todos os componentes do projeto. Specs originais dos fabricantes (preservar para calibração, validação e paper metodológico).
-
-**Registro de compra:** ver [COMPONENTS_SELECTED.md](./COMPONENTS_SELECTED.md)
-**Montagem e integração:** ver [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md)
-**Análise estrutural:** ver [STRUCTURAL_ANALYSIS.md](./STRUCTURAL_ANALYSIS.md)
+**Purchase log:** see [COMPONENTS_SELECTED.md](./COMPONENTS_SELECTED.md)
+**Assembly and integration:** see [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md)
+**Structural analysis:** see [STRUCTURAL_ANALYSIS.md](./STRUCTURAL_ANALYSIS.md)
 
 ---
 
-## 1. Eletrônica
+## 1. Electronics
 
-### 1.1 Células de Carga — Decent DYX-301 500 kg (×4)
+### 1.1 Load Cells — Decent DYX-301 500 kg (×4)
 
-**Tipo:** F shear beam com pézinho (foot bolt). Material alloy steel.
-**Capacidade:** 500 kg por célula → 2.000 kg (19.620 N) total com 4 unidades.
+**Type:** F shear beam with foot bolt. Material: alloy steel.
+**Capacity:** 500 kg per cell → 2,000 kg (19,620 N) total with 4 units.
 
-#### Specs metrológicos
+#### Metrological specs
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Output sensitivity | 2,0 ± 0,05 mV/V |
+| Output sensitivity | 2.0 ± 0.05 mV/V |
 | Zero point output | ±1 % F.S. |
-| Non-linearity | 0,03 % F.S. |
-| Hysteresis | 0,03 % F.S. |
-| Repeatability | 0,03 % F.S. |
-| Creep (30 min) | 0,03 % F.S. |
-| Temperature sensitivity drift | 0,03 % F.S. / 10°C |
-| Zero temperature drift | 0,05 % F.S. / 10°C |
+| Non-linearity | 0.03 % F.S. |
+| Hysteresis | 0.03 % F.S. |
+| Repeatability | 0.03 % F.S. |
+| Creep (30 min) | 0.03 % F.S. |
+| Temperature sensitivity drift | 0.03 % F.S. / 10°C |
+| Zero temperature drift | 0.05 % F.S. / 10°C |
 | Response frequency | 1 kHz |
 
-#### Specs elétricos
+#### Electrical specs
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
 | Impedance | 350 Ω |
 | Insulation resistance | ≥ 5000 MΩ @ 100V DC |
 | Working power | DC 5–15 V |
-| Cable | Ø5 mm × 3 m blindado (4 fios: E+, E−, S+, S−) |
+| Cable | Ø5 mm × 3 m shielded (4 wires: E+, E−, S+, S−) |
 
-#### Specs mecânicos/ambientais
+#### Mechanical/environmental specs
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
 | Material | Alloy steel |
-| Operating temperature | −20 a 80 °C |
-| Safety overload | 150% R.C. (750 kg = 7.355 N) |
-| Extreme overload | 200% R.C. (1.000 kg = 9.807 N) |
+| Operating temperature | −20 to 80 °C |
+| Safety overload | 150% R.C. (750 kg = 7,355 N) |
+| Extreme overload | 200% R.C. (1,000 kg = 9,807 N) |
 
-#### Dimensões (cota do fabricante)
+#### Dimensions (manufacturer drawing)
 
-| Cota | Valor | Descrição |
-|:----:|:-----:|-----------|
-| A | 30 mm | Comprimento total |
-| B | 15 mm | Saída do cabo |
-| C | 25 mm | Distância entre furos de fixação |
-| D | 76 mm | Corpo total |
-| E | 30 mm | Largura |
-| W | 32 mm | Largura da base |
-| H | 32 mm | Altura |
-| M | M12 × 1,75 | Rosca do pézinho |
-| 2-Ø | Ø13 mm | Diâmetro dos furos da célula |
-| I | 56 mm | Comprimento da base (apoio) |
+| Dim | Value | Description |
+|:---:|:-----:|-------------|
+| A | 30 mm | Total length |
+| B | 15 mm | Cable exit |
+| C | 25 mm | Distance between mounting holes |
+| D | 76 mm | Total body |
+| E | 30 mm | Width |
+| W | 32 mm | Base width |
+| H | 32 mm | Height |
+| M | M12 × 1.75 | Foot bolt thread |
+| 2-Ø | Ø13 mm | Cell hole diameter |
+| I | 56 mm | Base length (bearing surface) |
 
-**Avaliação:** Specs de nível profissional. Não-linearidade/histerese de 0,03% superam requisito (<0,05%). Impedância 350 Ω é match perfeito para ADS1256. Tolerância da sensibilidade (±0,05 mV/V) é mais apertada que o padrão (±0,1).
+**Assessment:** Professional-grade specs. Non-linearity/hysteresis of 0.03% exceed the requirement (<0.05%). Impedance of 350 Ω is a perfect match for the ADS1256. Sensitivity tolerance (±0.05 mV/V) is tighter than the standard (±0.1).
 
 ---
 
-### 1.2 ADC — Módulo ADS1256 24-bit (×2: 1 uso + 1 backup/dual)
+### 1.2 ADC — ADS1256 24-bit Module (×2: 1 active + 1 backup/dual)
 
-**Chips integrados:**
-- ADC: **ADS1256IDB** (Texas Instruments) — ultra-baixo consumo, alta precisão
-- Referência de tensão: **ADR03** 2,5V (Analog Devices) — referência de precisão
+**Integrated chips:**
+- ADC: **ADS1256IDB** (Texas Instruments) — ultra-low noise, high precision
+- Voltage reference: **ADR03** 2.5V (Analog Devices) — precision reference
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Resolução | 24 bits |
-| Data output rate | até 30 ksps |
-| Non-linearity | ±0,0010 % |
-| Input modes | 8 single-ended ou 4 diferenciais |
-| Analog input range | até 3 V |
+| Resolution | 24 bits |
+| Data output rate | up to 30 ksps |
+| Non-linearity | ±0.0010 % |
+| Input modes | 8 single-ended or 4 differential |
+| Analog input range | up to 3 V |
 | Communication | SPI |
 | Operating voltage | 5 V |
 | PGA | 1, 2, 4, 8, 16, 32, 64 |
 
-#### Configuração planejada
+#### Planned configuration
 
-- Modo: 4 canais diferenciais (1 por célula de carga)
-- Taxa efetiva: 1000 Hz por canal (4 ksps multiplexado, dentro dos 30 ksps)
-- PGA: 64 (range ±78 mV, ideal para sinal de ~10 mV das células)
+- Mode: 4 differential channels (1 per load cell)
+- Effective rate: 1000 Hz per channel (4 ksps multiplexed, within the 30 ksps limit)
+- PGA: 64 (range ±78 mV, ideal for the ~10 mV cell signal)
 
-**Avaliação:** Módulo com ADR03 na referência é diferencial — referência de precisão reduz ruído comparado a módulos genéricos. Non-linearity de ±0,0010% é 30× melhor que as células (0,03%), portanto o ADC nunca será o gargalo de precisão.
+**Assessment:** Module with ADR03 reference is a differentiator — precision reference reduces noise compared to generic modules. Non-linearity of ±0.0010% is 30× better than the cells (0.03%), so the ADC will never be the precision bottleneck.
 
 ---
 
-### 1.3 Microcontrolador — ESP32-S3-DevKitC-1 N16R8 (×2: 1 uso + 1 backup)
+### 1.3 Microcontroller — ESP32-S3-DevKitC-1 N16R8 (×2: 1 active + 1 backup)
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Processador | Dual-core Xtensa LX7, 240 MHz (CoreMark: 1181,60 dual) |
+| Processor | Dual-core Xtensa LX7, 240 MHz (CoreMark: 1181.60 dual) |
 | Flash | 16 MB |
 | PSRAM | 8 MB |
 | SRAM | 512 KB + 16 KB RTC |
 | ROM | 384 KB |
 | Bus | 128-bit data bus, SIMD support |
-| WiFi | 802.11 b/g/n (2.4 GHz, até 150 Mbps) |
+| WiFi | 802.11 b/g/n (2.4 GHz, up to 150 Mbps) |
 | Bluetooth | BLE 5.0 + Mesh (125 Kbps, 500 Kbps, 1 Mbps, 2 Mbps) |
-| USB | 1× full speed USB OTG (USB-C nativo) |
+| USB | 1× full speed USB OTG (native USB-C) |
 | GPIO | 45 |
 | SPI | 4× SPI (+ Dual SPI, Quad SPI, Octal SPI, QPI, OPI) |
 | I2C | 2× |
 | UART | 3× |
-| ADC interno | 2× 12-bit SAR, 20 canais (não usado — temos ADS1256 externo) |
-| Sensor temp. interno | 1× |
+| Internal ADC | 2× 12-bit SAR, 20 channels (not used — we have external ADS1256) |
+| Internal temp sensor | 1× |
 | Timers | 4× 54-bit universal + 1× 52-bit system + 3× Watchdog |
 | DMA | Universal (5 RX + 5 TX channels) |
-| Alimentação | 5V via USB-C |
+| Power supply | 5V via USB-C |
 
-**Por que N16R8:** Memória de sobra para buffer de dados a 1000 Hz, firmware complexo e futuro (OTA updates, logging local, dual plate). Variante N8R2 funciona mas sem margem.
+**Why N16R8:** Ample memory for 1000 Hz data buffer, complex firmware, and future expansion (OTA updates, local logging, dual plate). The N8R2 variant works but leaves no margin.
 
-#### Conexões SPI (ADS1256 ↔ ESP32-S3)
+#### SPI connections (ADS1256 ↔ ESP32-S3)
 
 | ADS1256 | ESP32 GPIO |
 |---------|:----------:|
@@ -133,284 +128,284 @@ Ficha de referência consolidada para todos os componentes do projeto. Specs ori
 | CS | 5 |
 | DRDY | 4 |
 
-**Verificado via spec sheet do vendedor (2026-04-01):** CPU, BLE e periféricos confirmados compatíveis com todos os requisitos do projeto.
+**Verified via vendor spec sheet (2026-04-01):** CPU, BLE, and peripherals confirmed compatible with all project requirements.
 
 ---
 
-### 1.4 Bateria — Pack Li-ion 1S2P 3,7V 5200 mAh (×2)
+### 1.4 Battery — Li-ion Pack 1S2P 3.7V 5200 mAh (×2)
 
-**Modelo:** Pack retangular Li-ion 1S2P (2× células 18650 em paralelo) com BMS integrada
-**Fornecedor:** EPB Energia Portátil Brasil (loja oficial — ENERGIAPORTATILBRASIL, Mercado Livre)
-**Compra:** 2026-04-04 — 2 unidades × R$ 26,71 = R$ 53,42
-**Status:** aguardando chegada
+**Model:** Rectangular Li-ion 1S2P pack (2× 18650 cells in parallel) with integrated BMS
+**Vendor:** EPB Energia Portátil Brasil (official store — ENERGIAPORTATILBRASIL, Mercado Livre)
+**Purchase:** 2026-04-04 — 2 units × R$ 26.71 = R$ 53.42
+**Status:** awaiting delivery
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Tipo | Íon de lítio (Li-ion) |
-| Arquitetura | 1S2P (2 células 18650 em paralelo) |
-| Capacidade nominal | 5200 mAh |
-| Capacidade por célula | 2600 mAh (18650 padrão) |
-| Tensão nominal | 3,7 V |
-| Tensão totalmente carregada | 4,2 V |
-| Tensão de corte (BMS) | tipicamente 2,5–3,0 V |
-| BMS integrada | Sim (proteção sobrecarga/descarga/curto-circuito) |
-| Conector | JST-XH-2P (2,54 mm) — vermelho=+, preto=− |
-| Dimensões | 36 × 19 × 65 mm (rectangular) |
-| Peso | ~90 g |
-| Energia | 19,24 Wh |
-| **Densidade energética** | **432 Wh/L** ✅ realista |
-| Garantia | 3 meses (vendedor) |
+| Type | Lithium-ion (Li-ion) |
+| Architecture | 1S2P (2× 18650 cells in parallel) |
+| Nominal capacity | 5200 mAh |
+| Capacity per cell | 2600 mAh (standard 18650) |
+| Nominal voltage | 3.7 V |
+| Fully charged voltage | 4.2 V |
+| Cutoff voltage (BMS) | typically 2.5–3.0 V |
+| Integrated BMS | Yes (overcharge/overdischarge/short-circuit protection) |
+| Connector | JST-XH-2P (2.54 mm) — red=+, black=− |
+| Dimensions | 36 × 19 × 65 mm (rectangular) |
+| Weight | ~90 g |
+| Energy | 19.24 Wh |
+| **Energy density** | **432 Wh/L** ✅ realistic |
+| Warranty | 3 months (vendor) |
 
-#### Verificação de honestidade das specs
+#### Spec honesty verification
 
-| Check | Resultado |
-|---|:---:|
-| Densidade < 700 Wh/L (limite teórico Li-ion) | ✅ 432 Wh/L |
-| Geometria consistente com 2× 18650 (36×18×65 mm esperado) | ✅ bate |
-| Peso consistente com 2× 18650 (~90g esperado) | ✅ bate exato |
-| Capacidade/célula coerente com mercado (2000–3500 mAh) | ✅ 2600 mAh típico |
+| Check | Result |
+|-------|:------:|
+| Density < 700 Wh/L (Li-ion theoretical limit) | ✅ 432 Wh/L |
+| Geometry consistent with 2× 18650 (36×18×65 mm expected) | ✅ matches |
+| Weight consistent with 2× 18650 (~90g expected) | ✅ exact match |
+| Capacity/cell consistent with market (2000–3500 mAh) | ✅ 2600 mAh typical |
 
-**Autonomia estimada** (draw real ~215 mA @ 3,7V):
-- Capacidade 5.200 mAh (rotulada) → **~24 h**
-- Capacidade pessimista 4.000 mAh → ~18,6 h
-- Meta do projeto: 3-4 h → **6-8× de folga**
+**Estimated runtime** (actual draw ~215 mA @ 3.7V):
+- Capacity 5,200 mAh (labeled) → **~24 h**
+- Pessimistic capacity 4,000 mAh → ~18.6 h
+- Project target: 3–4 h → **6–8× headroom**
 
-#### Adaptação do conector
+#### Connector adaptation
 
-Pack sai com **JST-XH-2P (2,54 mm)**; TP4056 usa **JST-PH (2,0 mm)**. Duas opções:
-1. Trocar conector: dessoldar JST-XH do pack, soldar JST-PH (kit PH 2.0mm já comprado no AliExpress, item #10)
-2. Soldar fios direto nos pads B+/B− do TP4056 (mais robusto)
+Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two options:
+1. Swap connector: desolder JST-XH from pack, solder JST-PH (PH 2.0mm kit already purchased on AliExpress, item #10)
+2. Solder wires directly to B+/B− pads on TP4056 (more robust)
 
-#### Histórico
+#### History
 
-- **01/04:** comprada bateria BGB Energy 3.7V rotulada 3000 mAh (Karina Mayumi, ML) — identificada overclaim de capacidade (densidade implícita 720 Wh/L, acima do limite teórico). Capacidade real estimada: 1.000-1.500 mAh.
-- **04/04:** iniciada devolução BGB + compra de 2 packs EPB 1S2P 5200 mAh com specs honestas verificadas.
+- **01/04:** purchased BGB Energy 3.7V battery labeled 3000 mAh (Karina Mayumi, ML) — identified capacity overclaim (implied density 720 Wh/L, above theoretical limit). Estimated actual capacity: 1,000–1,500 mAh.
+- **04/04:** initiated BGB return + purchased 2 EPB 1S2P 5200 mAh packs with verified honest specs.
 
-**Lesson learned:** para baterias Li-ion/LiPo, sempre calcular densidade energética antes de comprar (capacidade × tensão / volume). Pack com >400 Wh/L em LiPo pouch ou >700 Wh/L em Li-ion cilíndrica é muito provavelmente overclaim.
+**Lesson learned:** for Li-ion/LiPo batteries, always calculate energy density before buying (capacity × voltage / volume). A pack with >400 Wh/L in LiPo pouch or >700 Wh/L in cylindrical Li-ion is very likely an overclaim.
 
 ---
 
-### 1.5 Carregador — TP4056 Type-C com proteção (×5 kit)
+### 1.5 Charger — TP4056 Type-C with protection (×5 kit)
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Modelo | TP4056 com proteção contra descarga/sobrecorrente |
-| Entrada | 5V via USB Type-C |
-| Tensão de corte | 4,2V ± 1% |
-| Corrente máxima de carga | 1000 mA |
-| Proteção descarga | 2,5V |
-| Proteção sobrecorrente | 3A |
-| Dimensões | 2,6 × 1,7 cm |
+| Model | TP4056 with overdischarge/overcurrent protection |
+| Input | 5V via USB Type-C |
+| Cutoff voltage | 4.2V ± 1% |
+| Maximum charge current | 1000 mA |
+| Overdischarge protection | 2.5V |
+| Overcurrent protection | 3A |
+| Dimensions | 2.6 × 1.7 cm |
 
-**Conexão:** B+ e B− → bateria LiPo. OUT+ e OUT− → MT3608 boost (3,7V→5V) → ESP32 + ADS1256. USB Type-C → carregamento.
-**LED:** Vermelho = carregando. Verde = completo.
+**Connection:** B+ and B− → LiPo battery. OUT+ and OUT− → MT3608 boost (3.7V→5V) → ESP32 + ADS1256. USB Type-C → charging.
+**LED:** Red = charging. Green = complete.
 
 ---
 
-### 1.6 Boost Converter — MT3608 Step-Up 3,7V→5V (×2)
+### 1.6 Boost Converter — MT3608 Step-Up 3.7V→5V (×2)
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Modelo | MT3608 DC-DC Step-Up |
-| Entrada | 2–24 V DC |
-| Saída | 5–28 V DC (ajustável via trimpot) |
-| Corrente máx. | 2 A |
-| Eficiência | ~93% |
-| Dimensões | ~36 × 17 × 14 mm |
+| Model | MT3608 DC-DC Step-Up |
+| Input | 2–24 V DC |
+| Output | 5–28 V DC (adjustable via trimpot) |
+| Max current | 2 A |
+| Efficiency | ~93% |
+| Dimensions | ~36 × 17 × 14 mm |
 
-**Função:** Converte 3,7V da bateria LiPo para 5V estáveis. Necessário porque ADS1256 (AVDD) exige 4,75–5,25 V e o regulador onboard do ESP32 DevKit precisa de ~4,5V mínimo de entrada.
+**Function:** Converts 3.7V from the LiPo battery to stable 5V. Required because the ADS1256 (AVDD) needs 4.75–5.25 V and the ESP32 DevKit onboard regulator needs ~4.5V minimum input.
 
-:::danger ANTES DO PRIMEIRO USO
-Girar o trimpot azul ~20 voltas no sentido anti-horário para iniciar com tensão de saída baixa. Conectar multímetro nos pinos VOUT+/VOUT− e girar lentamente no sentido horário até ler **5,0 V**. Só então conectar ao circuito. Saída alta pode danificar ESP32 ou ADS1256.
+:::danger BEFORE FIRST USE
+Turn the blue trimpot ~20 turns counterclockwise to start with low output voltage. Connect a multimeter to VOUT+/VOUT− pins and turn slowly clockwise until reading **5.0 V**. Only then connect to the circuit. High output can damage the ESP32 or ADS1256.
 :::
 
 ---
 
-### 1.7 Botão Liga/Desliga — 12 mm Metal LED (×1)
+### 1.7 Power Button — 12 mm Metal LED (×1)
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Tipo | Push button metal, 12 mm |
-| Modo | Fixed self-locking (latching — trava ligado/desligado) |
-| Tensão LED | 3–9 V (compatível com 3,7–5V do circuito) |
+| Type | Metal push button, 12 mm |
+| Mode | Fixed self-locking (latching — stays on/off) |
+| LED voltage | 3–9 V (compatible with circuit 3.7–5V) |
 | Material | Metal |
-| LED | Integrado (acende quando ligado) |
+| LED | Integrated (lights when on) |
 
-**Função:** Interruptor geral da plataforma. Corta alimentação entre MT3608 e o restante do circuito.
+**Function:** Main platform switch. Cuts power between MT3608 and the rest of the circuit.
 
 ---
 
-## 2. Mecânica — Estrutura
+## 2. Mechanics — Structure
 
-### 2.1 Chapa superior — Alumínio 6061-T6
+### 2.1 Top plate — Aluminum 5052-F
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Dimensões | 600 × 500 × 6 mm |
-| Material | Al 6061-T6 |
-| Cantos | R30 arredondados |
-| Furos | 8× Ø11 mm, escareados Ø20 mm × 5,5 mm profundidade (90°) |
-| Peso | ~4,86 kg |
-| Desenho técnico | `cad/fab_chapa_superior.pdf` |
+| Dimensions | 600 × 500 × 6.35 mm (1/4 in) |
+| Material | Al 5052-F |
+| Corners | R30 rounded |
+| Holes | 8× Ø11 mm, countersunk Ø20 mm × 5.5 mm depth (90°) |
+| Weight | ~4.86 kg |
+| Technical drawing | `cad/fab_chapa_superior.pdf` |
 
-#### Propriedades do Al 6061-T6
+#### Al 5052-F properties
 
-| Propriedade | Valor |
-|-------------|-------|
-| Módulo de elasticidade (E) | 68.900 MPa |
-| Tensão de escoamento (σ_y) | 276 MPa |
-| Coeficiente de Poisson (ν) | 0,33 |
-| Densidade (ρ) | 2.700 kg/m³ |
+| Property | Value |
+|----------|-------|
+| Elastic modulus (E) | 68,900 MPa |
+| Yield strength (σ_y) | 276 MPa |
+| Poisson's ratio (ν) | 0.33 |
+| Density (ρ) | 2,700 kg/m³ |
 
 ---
 
-### 2.2 Chapa inferior — Alumínio 3 mm
+### 2.2 Bottom plate — Aluminum 3 mm
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Dimensões | 527 × 396 × 3 mm |
-| Material | Al (6061 ou 5052) |
-| Cantos | Chanfrados 15 × 15 mm a 45° |
-| Furos | 8× Ø11 mm |
-| Peso | ~1,67 kg |
-| Desenho técnico | `cad/fab_chapa_inferior.pdf` |
+| Dimensions | 527 × 396 × 3 mm |
+| Material | Al (6061 or 5052) |
+| Corners | 15 × 15 mm chamfers at 45° |
+| Holes | 8× Ø11 mm |
+| Weight | ~1.67 kg |
+| Technical drawing | `cad/fab_chapa_inferior.pdf` |
 
 ---
 
-### 2.3 Juntas de aço (×4)
+### 2.3 Steel shims (×4)
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Material | Aço carbono ou inox |
-| Dimensões | 56 × 32 × 2 mm |
-| Furos | 2× Ø11 mm, entre-centros 25 mm |
-| Função | Espaçadora entre célula e chapa superior (distribui carga, evita esmagamento do Al) |
-| Desenho técnico | `cad/fab_junta.pdf` |
+| Material | Carbon steel or stainless steel |
+| Dimensions | 56 × 32 × 2 mm |
+| Holes | 2× Ø11 mm, 25 mm center-to-center |
+| Function | Spacer between cell and top plate (distributes load, prevents aluminum crushing) |
+| Technical drawing | `cad/fab_junta.pdf` |
 
-**Nota:** não usar borracha — amortece o sinal dinâmico a 1000 Hz.
-
----
-
-### 2.4 Pézinhos torneados com colar (×4) — peça única usinada
-
-| Parte | Dimensão |
-|-------|:--------:|
-| Rosca | M12 × 1,75, Ø12 mm, 32 mm comprimento (= altura célula) |
-| Colar | Ø20 mm, 5 mm altura (batente — encosta na célula) |
-| Chanfro | Ø20 → Ø60 mm, 6 mm altura (~17°) |
-| Base | Ø60 mm, 8 mm espessura |
-| Borracha | Ø60 mm × 1 mm neoprene (colada após usinagem) |
-| Altura total | 52 mm |
-| Material | Aço carbono ou inox (barra Ø60 mm) |
-| Desenho técnico | `cad/fab_pezinho.pdf` |
-
-**Função:** Apoio/nivelamento. Sem contra-porca — colar funciona como batente mecânico, peso da plataforma trava a posição.
+**Note:** do not use rubber — it dampens the dynamic signal at 1000 Hz.
 
 ---
 
-### 2.5 Reforço estrutural — Tubos quadrados (×2)
+### 2.4 Turned foot bolts with collar (×4) — single machined part
 
-| Parâmetro | Valor |
+| Part | Dimension |
+|------|:---------:|
+| Thread | M12 × 1.75, Ø12 mm, 32 mm length (= cell height) |
+| Collar | Ø20 mm, 5 mm height (stop — rests against cell) |
+| Chamfer | Ø20 → Ø60 mm, 6 mm height (~17°) |
+| Base | Ø60 mm, 8 mm thickness |
+| Rubber pad | Ø60 mm × 1 mm neoprene (glued after machining) |
+| Total height | 52 mm |
+| Material | Carbon steel or stainless steel (Ø60 mm bar stock) |
+| Technical drawing | `cad/fab_pezinho.pdf` |
+
+**Function:** Support/leveling. No lock nut — collar acts as mechanical stop; platform weight locks position.
+
+---
+
+### 2.5 Structural reinforcement — Square tubes (×2)
+
+| Parameter | Value |
 |-----------|-------|
-| Material | Alumínio extrudado |
-| Seção | 30×30×2 mm ou 35×35×2 mm (conforme disponibilidade) |
-| Comprimento | ~527 mm cada |
-| Quantidade | 2 tubos |
-| Posição | Longitudinal (eixo X), a Y=194 mm e Y=306 mm da chapa superior |
-| Fixação | Cola epóxi estrutural |
+| Material | Extruded aluminum |
+| Section | 30×30×2 mm or 35×35×2 mm (subject to availability) |
+| Length | ~527 mm each |
+| Quantity | 2 tubes |
+| Position | Longitudinal (X-axis), at Y=194 mm and Y=306 mm from top plate |
+| Bonding | Structural epoxy |
 
-**Função:** Cria seção caixão com as duas chapas (flanges). I_total = 1.062.162 mm⁴ (118× rigidez da chapa sozinha).
+**Function:** Creates box section with both plates (flanges). I_total = 1,062,162 mm⁴ (118× the rigidity of the plate alone).
 
 ---
 
-### 2.6 Parafusos — M10 × 50 DIN 7991 (×8)
+### 2.6 Bolts — M10 × 50 DIN 7991 (×8)
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Norma | DIN 7991 (cabeça chata escareada Allen) |
-| Dimensão | M10 × 50 mm |
-| Classe | 8.8 (mínimo) |
-| Cabeça | Ø20 mm (coincide com escareamento da chapa superior) |
-| Acompanha | Porca M10 + arruela (×8 cada) |
+| Standard | DIN 7991 (flat countersunk Allen head) |
+| Dimension | M10 × 50 mm |
+| Class | 8.8 (minimum) |
+| Head | Ø20 mm (matches top plate countersink) |
+| Includes | M10 nut + washer (×8 each) |
 
 ---
 
-### 2.7 Epóxi estrutural
+### 2.7 Structural epoxy
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Tipo | Epóxi bicomponente estrutural |
-| Marcas compatíveis | Araldite Professional, Loctite EA 9461 ou equivalente |
-| Resistência ao cisalhamento | ≥ 20 MPa (tipicamente 20-30 MPa) |
-| Cura | 24 h sob pressão (grampos/sargentos) |
-| Preparação | Lixar superfícies (lixa 80), desengordurar (álcool isopropílico) |
+| Type | Two-part structural epoxy |
+| Compatible brands | Araldite Professional, Loctite EA 9461, or equivalent |
+| Shear strength | ≥ 20 MPa (typically 20–30 MPa) |
+| Cure | 24 h under pressure (clamps) |
+| Preparation | Sand surfaces (80-grit), degrease (isopropyl alcohol) |
 
 ---
 
-## 3. Sistema Completo — Resolução Teórica
+## 3. Complete System — Theoretical Resolution
 
 ```
-4× DYX-301 500 kg = 2000 kg total = 19.620 N full scale
-Sensibilidade: 2,0 mV/V × 5V = 10 mV full scale por célula
+4× DYX-301 500 kg = 2000 kg total = 19,620 N full scale
+Sensitivity: 2.0 mV/V × 5V = 10 mV full scale per cell
 ADS1256 PGA=64: range ±78 mV
 Effective bits at 1000 Hz: ~17-18 bits
 
-Por canal (500 kg / 4.905 N):
-  17 eff bits: 4.905 / 131.072 = 0,037 N
-  18 eff bits: 4.905 / 262.144 = 0,019 N
+Per channel (500 kg / 4,905 N):
+  17 eff bits: 4,905 / 131,072 = 0.037 N
+  18 eff bits: 4,905 / 262,144 = 0.019 N
 
-Combinado (2000 kg / 19.620 N):
-  17 eff bits: ~0,15 N
-  18 eff bits: ~0,075 N
+Combined (2000 kg / 19,620 N):
+  17 eff bits: ~0.15 N
+  18 eff bits: ~0.075 N
 ```
 
-**Comparativo VALD FDLite:** ~0,15 N → **igualamos ou superamos**.
+**VALD FDLite comparison:** ~0.15 N → **we match or exceed**.
 
 ---
 
-## 4. Arquitetura de Alimentação
+## 4. Power Architecture
 
 ```
                           ┌──► ESP32 DevKit (5V pin → onboard reg → 3.3V)
 USB-C 5V ──► TP4056 ──┐  │
               │        ├──┤
-         Bateria 3.7V ─┘  │
+         Battery 3.7V ─┘  │
               │            └──► ADS1256 (AVDD 5V)
               ▼
-         MT3608 (3.7V→5V) ──► mesmo barramento 5V
+         MT3608 (3.7V→5V) ──► same 5V bus
                                     │
-                               [Botão on/off] ──► barramento
+                               [On/off button] ──► bus
 ```
 
-- **Modo USB-C (primário):** 5V direto do USB alimenta tudo. MT3608 inativo.
-- **Modo bateria (BLE):** MT3608 converte 3,7V→5V. Tudo funciona sem cabo.
+- **USB-C mode (primary):** 5V direct from USB powers everything. MT3608 inactive.
+- **Battery mode (BLE):** MT3608 converts 3.7V→5V. Everything works without a cable.
 
 ---
 
-## 5. Ferramentas e Acessórios de Prototipagem
+## 5. Prototyping Tools and Accessories
 
-### Solda e medição
-
-| Item | Spec |
-|------|------|
-| Ferro de solda | Exbom 60W, ajustável, 5 pontas, com suporte |
-| Estanho | 60/40 (Sn/Pb) com fluxo interno, 0,8 mm, 80 g |
-| Multímetro | Kit multímetro + caneta tensão + alicate amperímetro |
-| Temperatura de solda | 300–350 °C para componentes eletrônicos |
-
-### Prototipagem
+### Soldering and measurement
 
 | Item | Spec |
 |------|------|
-| Protoboard | 830 pontos |
-| Jumper wires | Dupont 20 cm, flexible, 24 AWG cobre, M-M/M-F/F-F |
-| Conectores | XH 2,54 mm, 4 pinos, 20 cm, F5 + M5 |
-| Kit resistores | 1/4 W 1%, valores sortidos (300 pcs) |
+| Soldering iron | Exbom 60W, adjustable, 5 tips, with stand |
+| Solder | 60/40 (Sn/Pb) with flux core, 0.8 mm, 80 g |
+| Multimeter | Multimeter kit + voltage pen + clamp ammeter |
+| Soldering temperature | 300–350 °C for electronic components |
+
+### Prototyping
+
+| Item | Spec |
+|------|------|
+| Breadboard | 830 tie points |
+| Jumper wires | Dupont 20 cm, flexible, 24 AWG copper, M-M/M-F/F-F |
+| Connectors | XH 2.54 mm, 4-pin, 20 cm, F5 + M5 |
+| Resistor kit | 1/4 W 1%, assorted values (300 pcs) |
 
 ---
 
-## 6. Histórico de Revisões
+## 6. Revision History
 
-| Rev. | Data | Descrição |
-|:----:|:----:|-----------|
-| 1.0 | 2026-04-04 | Consolidação inicial de todos os specs — recuperação do git (commit 3f66aa7^) + integração de dimensões mecânicas do DEVELOPMENT_PLAN e propriedades estruturais do STRUCTURAL_ANALYSIS |
+| Rev. | Date | Description |
+|:----:|:----:|-------------|
+| 1.0 | 2026-04-04 | Initial consolidation of all specs — recovered from git (commit 3f66aa7^) + integration of mechanical dimensions from DEVELOPMENT_PLAN and structural properties from STRUCTURAL_ANALYSIS |

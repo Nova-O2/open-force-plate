@@ -1,243 +1,238 @@
----
-title: Plano de Desenvolvimento — Force Plate MVP
-sidebar_position: 1
----
+# Development Plan — Force Plate MVP
 
-# Plano de Desenvolvimento — Force Plate MVP
-
-Plataforma única, uniaxial (Fz), 1000 Hz, USB-C + BLE, com software de análise em Python.
+Single platform, uniaxial (Fz), 1000 Hz, USB-C + BLE, with Python analysis software.
 
 ---
 
-## Fase 1: Hardware (Semanas 1-3)
+## Phase 1: Hardware (Weeks 1–3)
 
-### 1.1 Compra de Componentes
+### 1.1 Component Procurement
 
-Ver [COMPONENTS_SELECTED.md](./COMPONENTS_SELECTED.md) para registro completo das compras (itens, lojas, valores).
+See [COMPONENTS_SELECTED.md](./COMPONENTS_SELECTED.md) for the complete purchase log (items, vendors, prices).
 
-### 1.2 Montagem Mecânica
+### 1.2 Mechanical Assembly
 
-#### Placa superior — 600 × 500 mm, alumínio 6061-T6, 6mm, cantos arredondados R30
+#### Top plate — 600 × 500 mm, aluminum 5052-F, 6.35mm (1/4in), rounded corners R30
 
-- [ ] Adquirir na metalúrgica local (com cantos arredondados R30)
-- [ ] Marcar posição dos 8 furos conforme tabela de coordenadas (ver abaixo)
-- [ ] Furar 8 furos de **Ø11 mm** (passagem M10)
-- [ ] Escarear furos a 90° para **Ø20 mm** (DIN 7991 M10, profundidade ~5,5 mm)
-- [ ] Rebarbar furos com lima metal
+- [ ] Source from local metal shop (with R30 rounded corners)
+- [ ] Mark the positions of the 8 holes per the coordinate table (see below)
+- [ ] Drill 8 holes of **Ø11 mm** (M10 clearance)
+- [ ] Countersink holes at 90° to **Ø20 mm** (DIN 7991 M10, depth ~5.5 mm)
+- [ ] Deburr holes with a metal file
 
-#### Placa inferior — 527 × 396 mm, alumínio 3mm, cantos chanfrados 15×15 a 45°
+#### Bottom plate — 527 × 396 mm, aluminum 3 mm, 15×15 chamfers at 45°
 
-Peça única que cobre os furos de fixação das 4 células. Não toca o chão — fica suspensa entre as células e as porcas. Os pézinhos ficam fora da área da placa inferior. Cantos chanfrados para garantir que não obstruam a rosca da célula.
+Single piece that covers the load cell mounting holes. Does not touch the floor — it is suspended between the cells and the nuts. The foot bolts sit outside the bottom plate area. Corners are chamfered to ensure they do not obstruct the cell threads.
 
-- [ ] Adquirir na metalúrgica local (junto com a superior, com chanfro 15×15 nos 4 cantos)
-- [ ] Furar 8 furos de **Ø11 mm** nas mesmas posições relativas da placa superior
-- [ ] A placa inferior é centralizada sob a superior
+- [ ] Source from local metal shop (together with the top plate, with 15×15 chamfers at all 4 corners)
+- [ ] Drill 8 holes of **Ø11 mm** at the same relative positions as the top plate
+- [ ] The bottom plate is centered under the top plate
 
-:::tip Estratégia dual (Fase 5)
-A placa superior (50×60 cm) foi dimensionada para corte ao meio → 2 placas de 50×30 cm (dimensão similar ao VALD FDLite: 48.5×30 cm). Os furos da Fase 1 já estão no ângulo correto (~62°) para o layout final da Fase 2.
+:::tip Dual-plate strategy (Phase 5)
+The top plate (50×60 cm) is sized to be cut in half → 2 plates of 50×30 cm (similar dimension to VALD FDLite: 48.5×30 cm). The Phase 1 holes are already at the correct angle (~62°) for the final Phase 2 layout.
 :::
 
-#### Célula de carga — Dimensões (Decent DYX-301 500 kg)
+#### Load cell — Dimensions (Decent DYX-301 500 kg)
 
-Faixa 300kg–1000kg–2ton da tabela do fabricante:
+300 kg–1000 kg–2 ton range from the manufacturer's table:
 
-| Cota | Dimensão | Descrição |
-|:----:|:--------:|-----------|
-| A | 30 mm | Comprimento total |
-| B | 15 mm | Saída do cabo |
-| C | **25 mm** | **Distância entre furos de fixação** |
-| D | 76 mm | Corpo total |
-| E | 30 mm | Largura |
-| W | 32 mm | Largura base |
-| H | 32 mm | Altura |
-| M | **M12 × 1.75** | **Rosca do pézinho** |
-| 2-Ø | **Ø13 mm** | **Diâmetro dos furos da célula** (furos nas chapas: Ø11 mm para M10) |
-| I | 56 mm | Comprimento da base (apoio) |
+| Dim | Value | Description |
+|:---:|:-----:|-------------|
+| A | 30 mm | Total length |
+| B | 15 mm | Cable exit |
+| C | **25 mm** | **Distance between mounting holes** |
+| D | 76 mm | Total body |
+| E | 30 mm | Width |
+| W | 32 mm | Base width |
+| H | 32 mm | Height |
+| M | **M12 × 1.75** | **Foot bolt thread** |
+| 2-Ø | **Ø13 mm** | **Cell hole diameter** (plate holes: Ø11 mm for M10) |
+| I | 56 mm | Base length (bearing surface) |
 
-#### Juntas de aço (4 unidades — 1 por célula)
+#### Steel shims (4 units — 1 per cell)
 
-Espaçadora entre a célula e a placa superior. Tamanho exato da base da célula.
+Spacer between the cell and the top plate. Exact size of the cell base.
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Material | Aço carbono ou inox |
-| Espessura | 2 mm |
-| Dimensões | **56 × 32 mm** (= base da célula, cotas I × W) |
-| Furos | 2× Ø11 mm, espaçados 25 mm entre centros |
+| Material | Carbon steel or stainless steel |
+| Thickness | 2 mm |
+| Dimensions | **56 × 32 mm** (= cell base, dims I × W) |
+| Holes | 2× Ø11 mm, 25 mm center-to-center |
 
-**Função:** Distribuir carga e evitar que a célula cave o alumínio (aço > alumínio em dureza). Não usar borracha — amortece o sinal a 1000 Hz.
+**Function:** Distribute load and prevent the cell from digging into the aluminum (steel > aluminum in hardness). Do not use rubber — it dampens the signal at 1000 Hz.
 
-#### Fixação — Montagem por célula
+#### Fastening — Assembly per cell
 
 ```
-Parafuso Allen M10×50 DIN 7991 (cabeça chata escareada)
+Allen bolt M10×50 DIN 7991 (flat countersunk head)
         ↓
-[Placa SUPERIOR — alumínio 6mm, 600×500mm, R30]  ← furo Ø11mm escareado Ø20 (5,5mm prof.)
+[TOP plate — aluminum 6.35mm (1/4in), 600×500mm, R30]  ← Ø11mm hole countersunk Ø20 (5.5mm depth)
         ↓
-[Junta — aço 2mm, 56×32mm]                       ← furo Ø11mm
+[Shim — steel 2mm, 56×32mm]                             ← Ø11mm hole
         ↓
-[Célula DYX-301 — a ~62°]                        ← furo Ø13mm (da célula)
+[DYX-301 cell — at ~62°]                                ← Ø13mm hole (cell)
         ↓
-[Placa INFERIOR — alumínio 3mm, 527×396mm]       ← furo Ø11mm
+[BOTTOM plate — aluminum 3mm, 527×396mm]                ← Ø11mm hole
         ↓
-Porca M10 + arruela
+M10 nut + washer
         ↓
-[Pézinho M12×1.75 com colar]  ← rosca na célula, fora da placa inferior, apoia no chão
+[Foot bolt M12×1.75 with collar]  ← threaded into cell, outside bottom plate, rests on floor
 ```
 
-**Parafusos necessários:** 8× M10×50 DIN 7991 + 8× porcas M10 + 8× arruelas (2 por célula)
+**Fasteners required:** 8× M10×50 DIN 7991 + 8× M10 nuts + 8× washers (2 per cell)
 
-#### Layout das células — ~62° (ângulo da diagonal Fase 2)
+#### Cell layout — ~62° (Phase 2 diagonal angle)
 
-Células orientadas na diagonal da meia-placa (300×500mm), com pé no canto e cabo para o centro. Angulação já posicionada para Fase 2 (corte ao meio).
+Cells oriented along the diagonal of the half-plate (300×500 mm), foot at the corner, cable toward the center. Angle already set for Phase 2 (cut in half).
 
 ```
     ←──────────── 600 mm ────────────→
     ┌────────────────┬────────────────┐ ↑
-    │  pé            │           pé   │ │
+    │  foot          │          foot  │ │
     │    ╲C1         │        C2╱     │ │
     │      ╲         │        ╱       │ │
     │                │                │ 500mm
     │      ╱         │        ╲       │ │
     │    ╱C3         │        C4╲     │ │
-    │  pé            │           pé   │ │
+    │  foot          │          foot  │ │
     └────────────────┴────────────────┘ ↓
-                   CORTE
+                   CUT
 ```
 
-#### Coordenadas dos furos (origem: canto inferior esquerdo)
+#### Hole coordinates (origin: bottom-left corner)
 
-| Célula | Ponto | X (mm) | Y (mm) |
-|:------:|:-----:|:------:|:------:|
-| C1 | Pé | 40.0 | 460.0 |
-| C1 | Furo 1 | 56.7 | 428.1 |
-| C1 | Furo 2 | 68.3 | 406.0 |
-| C2 | Pé | 560.0 | 460.0 |
-| C2 | Furo 1 | 543.3 | 428.1 |
-| C2 | Furo 2 | 531.7 | 406.0 |
-| C3 | Pé | 40.0 | 40.0 |
-| C3 | Furo 1 | 56.7 | 71.9 |
-| C3 | Furo 2 | 68.3 | 94.0 |
-| C4 | Pé | 560.0 | 40.0 |
-| C4 | Furo 1 | 543.3 | 71.9 |
-| C4 | Furo 2 | 531.7 | 94.0 |
+| Cell | Point | X (mm) | Y (mm) |
+|:----:|:-----:|:------:|:------:|
+| C1 | Foot | 40.0 | 460.0 |
+| C1 | Hole 1 | 56.7 | 428.1 |
+| C1 | Hole 2 | 68.3 | 406.0 |
+| C2 | Foot | 560.0 | 460.0 |
+| C2 | Hole 1 | 543.3 | 428.1 |
+| C2 | Hole 2 | 531.7 | 406.0 |
+| C3 | Foot | 40.0 | 40.0 |
+| C3 | Hole 1 | 56.7 | 71.9 |
+| C3 | Hole 2 | 68.3 | 94.0 |
+| C4 | Foot | 560.0 | 40.0 |
+| C4 | Hole 1 | 543.3 | 71.9 |
+| C4 | Hole 2 | 531.7 | 94.0 |
 
-Todos os furos nas chapas: **Ø11 mm** (passagem M10). Na placa superior: escareados a 90° para Ø20 mm (DIN 7991). Mesmas posições relativas na placa inferior.
+All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to Ø20 mm (DIN 7991). Same relative positions on bottom plate.
 
-**Desenhos de fabricação:** regenerar via `python3 cad/fabrication_drawings.py` → 5 PDFs em `cad/` (chapas, pézinho, junta, montagem)
+**Fabrication drawings:** regenerate via `python3 cad/fabrication_drawings.py` → 5 PDFs in `cad/` (plates, foot bolt, shim, assembly)
 
-#### Pézinho torneado com colar (×4) — Peça única usinada
+#### Turned foot bolt with collar (×4) — single machined part
 
-| Parte | Dimensão |
-|-------|:--------:|
-| Rosca | M12×1.75, Ø12mm, **32mm** comprimento (= altura célula) |
-| Colar | **Ø20mm, 5mm** altura (batente — encosta na célula) |
-| Chanfro | Ø20→Ø60, 6mm altura (~17°) |
-| Base | Ø60mm, **8mm** espessura |
-| Borracha | Ø60mm, 1mm neoprene (colada após usinagem) |
-| Material | Aço carbono ou inox (barra Ø60mm) |
-| Altura total | **52mm** (rosca + colar + chanfro + base + borracha) |
+| Part | Dimension |
+|------|:---------:|
+| Thread | M12×1.75, Ø12mm, **32 mm** length (= cell height) |
+| Collar | **Ø20mm, 5 mm** height (stop — rests against cell) |
+| Chamfer | Ø20→Ø60, 6 mm height (~17°) |
+| Base | Ø60mm, **8 mm** thickness |
+| Rubber pad | Ø60mm, 1 mm neoprene (glued after machining) |
+| Material | Carbon steel or stainless steel (Ø60mm bar stock) |
+| Total height | **52 mm** (thread + collar + chamfer + base + rubber) |
 
-**Sem contra-porca.** O colar funciona como batente mecânico — impede que o pé rosqueie além da altura da célula e reforça a transição rosca/chanfro. Altura ajustada por rosqueamento. Peso da plataforma trava.
+**No lock nut.** The collar acts as a mechanical stop — prevents the foot from threading beyond the cell height and reinforces the thread/chamfer transition. Height adjusted by threading. Platform weight locks position.
 
-**Fabricação:** encomendar em torneiro mecânico. Desenho: `cad/fab_pezinho.pdf`
+**Fabrication:** order from a machinist. Drawing: `cad/fab_pezinho.pdf`
 
-#### Checklist de montagem mecânica
+#### Mechanical assembly checklist
 
-- [ ] Adquirir placa superior alumínio 6061-T6, 600×500 mm, 6 mm, cantos R30
-- [ ] Adquirir placa inferior alumínio, 527×396 mm, 3 mm, cantos chanfrados 15×15
-- [ ] Adquirir/fabricar 4 juntas de aço 56×32 mm, 2 mm (2× Ø11, 25mm entre centros)
-- [ ] Encomendar 4 pézinhos torneados com colar (ver specs acima + `cad/fab_pezinho.pdf`)
-- [ ] Adquirir parafusos Allen M10×50 DIN 7991 (cabeça chata) + porcas M10 + arruelas (8+8+8)
-- [ ] Adquirir broca Ø11 mm + escareador 90° para M10 (Ø20)
-- [ ] Cortar/adquirir 4 discos borracha Ø60mm × 1mm (neoprene)
-- [ ] Furar 8 furos Ø11 mm nas placas (2 por canto, espaçamento 25 mm)
-- [ ] Escarear os 8 furos da placa superior (Ø20, 90°, profundidade 5,5 mm)
-- [ ] Rebarbar furos
-- [ ] Colar borracha nos pézinhos
-- [ ] Montar: parafuso DIN 7991 → placa superior (escareado) → junta → célula → placa inferior → porca M10 + arruela
-- [ ] Rosquear pézinhos nas células (até o colar encostar)
-- [ ] Apoiar no piso rígido e plano
-- [ ] Nivelar (ajustar pézinhos por rosqueamento) — usar nível de bolha
-- [ ] Testar rigidez — plataforma não pode fletir sob carga
+- [ ] Source top plate aluminum 5052-F, 600×500 mm, 6.35mm (1/4in), R30 corners
+- [ ] Source bottom plate aluminum, 527×396 mm, 3 mm, 15×15 chamfers
+- [ ] Source/fabricate 4 steel shims 56×32 mm, 2 mm (2× Ø11, 25 mm center-to-center)
+- [ ] Order 4 turned foot bolts with collar (see specs above + `cad/fab_pezinho.pdf`)
+- [ ] Source Allen bolts M10×50 DIN 7991 (flat head) + M10 nuts + washers (8+8+8)
+- [ ] Source Ø11 mm drill bit + 90° countersink for M10 (Ø20)
+- [ ] Cut/source 4 rubber discs Ø60mm × 1mm (neoprene)
+- [ ] Drill 8 holes Ø11 mm in plates (2 per corner, 25 mm spacing)
+- [ ] Countersink the 8 holes in the top plate (Ø20, 90°, 5.5 mm depth)
+- [ ] Deburr holes
+- [ ] Glue rubber to foot bolts
+- [ ] Assemble: DIN 7991 bolt → top plate (countersunk) → shim → cell → bottom plate → M10 nut + washer
+- [ ] Thread foot bolts into cells (until collar contacts)
+- [ ] Set on rigid, flat floor
+- [ ] Level (adjust foot bolts by threading) — use bubble level
+- [ ] Test rigidity — platform must not deflect under load
 
-#### Reforço estrutural — Seção caixão (2 tubos quadrados)
+#### Structural reinforcement — Box section (2 square tubes)
 
-A chapa superior de 6mm sozinha deflecte ~21mm sob carga de DJ (120kg, 5×BW) — inaceitável para plataforma de força. A solução é criar uma **seção caixão**: as duas chapas (superior e inferior) funcionam como flanges de uma viga, conectadas por 2 tubos quadrados de alumínio colados com epóxi estrutural.
+The 6.35mm (1/4in) top plate alone deflects ~21 mm under drop jump load (120 kg, 5×BW) — unacceptable for a force platform. The solution is a **box section**: the two plates (top and bottom) act as flanges of a beam, connected by 2 aluminum square tubes bonded with structural epoxy.
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |-----------|-------|
-| Tubo | Alumínio quadrado 30×30 ou 35×35×2mm (conforme disponibilidade) |
-| Quantidade | 2 tubos, ~527mm cada (comprimento da chapa inferior) |
-| Posição | Longitudinal (eixo X), a Y=194mm e Y=306mm da chapa superior |
-| Fixação | Cola epóxi estrutural (Araldite Professional ou equivalente) |
-| Calços | Se tubo < gap entre chapas, usar calços de alumínio para igualar altura |
+| Tube | Aluminum square 30×30 or 35×35×2 mm (subject to availability) |
+| Quantity | 2 tubes, ~527 mm each (= bottom plate length) |
+| Position | Longitudinal (X-axis), at Y=194 mm and Y=306 mm from top plate |
+| Bonding | Structural epoxy (Araldite Professional or equivalent) |
+| Shims | If tube < gap between plates, use aluminum shims to match height |
 
-**Resultado:** I aumenta de 9.000 mm⁴ (chapa sozinha) para ~1.060.000 mm⁴ (118× mais rígido). Deflexão cai de 21mm para **<0.2mm** em todos os cenários.
+**Result:** I increases from 9,000 mm⁴ (plate alone) to ~1,060,000 mm⁴ (118× stiffer). Deflection drops from 21 mm to **<0.2 mm** across all scenarios.
 
 ```
-Vista em corte (seção caixão):
-╔══════════════════════════╗  ← chapa superior 6mm (flange)
+Cross-section view (box section):
+╔══════════════════════════╗  ← top plate 6.35mm (1/4in) (flange)
 ║    ┌────┐        ┌────┐  ║
-║    │tubo│        │tubo│  ║  ← 2 tubos colados (alma)
-║    │ 1  │        │ 2  │  ║     ~35mm altura
+║    │tube│        │tube│  ║  ← 2 bonded tubes (web)
+║    │ 1  │        │ 2  │  ║     ~35mm height
 ║    └────┘        └────┘  ║
-╚══════════════════════════╝  ← chapa inferior 3mm (flange)
+╚══════════════════════════╝  ← bottom plate 3mm (flange)
 ```
 
-**Montagem dos tubos:**
+**Tube assembly:**
 
-- [ ] Montar um canto (1 célula + parafusos + chapas) para medir o gap real entre chapas
-- [ ] Adquirir 2 tubos quadrados de alumínio (~527mm cada). Tamanho ideal: gap medido ±1mm
-- [ ] Se tubo menor que gap: fabricar calços (chapas finas de alumínio cortadas a 35×527mm)
-- [ ] Lixar faces de colagem (lixa 80, superfícies foscas)
-- [ ] Desengordurar com álcool isopropílico
-- [ ] Aplicar epóxi estrutural nas 4 faces de colagem (topo e base de cada tubo)
-- [ ] Posicionar tubos a Y=194mm e Y=306mm (ref. chapa superior), paralelos ao eixo longo
-- [ ] Prensar com grampos/sargentos por 24h (cura do epóxi)
-- [ ] Verificar alinhamento e planicidade após cura
+- [ ] Assemble one corner (1 cell + bolts + plates) to measure the actual gap between plates
+- [ ] Source 2 aluminum square tubes (~527 mm each). Ideal size: measured gap ±1 mm
+- [ ] If tube is smaller than gap: fabricate shims (thin aluminum strips cut to 35×527 mm)
+- [ ] Sand bonding faces (80-grit, matte surfaces)
+- [ ] Degrease with isopropyl alcohol
+- [ ] Apply structural epoxy to all 4 bonding faces (top and bottom of each tube)
+- [ ] Position tubes at Y=194 mm and Y=306 mm (ref. top plate), parallel to long axis
+- [ ] Clamp for 24 h (epoxy cure)
+- [ ] Verify alignment and flatness after cure
 
-:::info Análise estrutural completa
-Scripts de cálculo em `cad/structural_analysis.py`, `cad/material_comparison.py`, `cad/reinforcement_analysis.py` e `cad/box_section_analysis.py`. Deflexão e tensão verificadas para cenários até DJ 7×BW (120kg), com FS > 10 em todos os casos.
+:::info Complete structural analysis
+Calculation scripts in `cad/structural_analysis.py`, `cad/material_comparison.py`, `cad/reinforcement_analysis.py`, and `cad/box_section_analysis.py`. Deflection and stress verified for scenarios up to DJ 7×BW (120 kg), with FS > 10 in all cases.
 :::
 
 :::warning
-Piso rígido e plano obrigatório. Superfícies irregulares, carpetes ou pisos flexíveis comprometem a leitura. Em caso de piso inadequado, usar base de MDF ou compensado como apoio nivelador.
+Rigid, flat floor required. Uneven surfaces, carpet, or flexible floors compromise readings. If the floor is inadequate, use an MDF or plywood base as a leveling surface.
 :::
 
-### 1.3 Montagem Eletrônica
+### 1.3 Electronics Assembly
 
-#### Arquitetura de alimentação
+#### Power architecture
 
 ```
                           ┌──► ESP32 DevKit (5V pin → onboard reg → 3.3V)
 USB-C 5V ──► TP4056 ──┐  │
               │        ├──┤
-         Bateria 3.7V ─┘  │
+         Battery 3.7V ─┘  │
               │            └──► ADS1256 (AVDD 5V)
               ▼
-         MT3608 (3.7V→5V) ──► mesmo barramento 5V
+         MT3608 (3.7V→5V) ──► same 5V bus
                                     │
-                               [Botão on/off] ──► barramento
+                               [On/off button] ──► bus
 ```
 
-**Modo USB-C (primário):** 5V direto do USB alimenta tudo. MT3608 inativo.
-**Modo bateria (BLE):** MT3608 converte 3.7V→5V. Tudo funciona sem cabo.
+**USB-C mode (primary):** 5V direct from USB powers everything. MT3608 inactive.
+**Battery mode (BLE):** MT3608 converts 3.7V→5V. Everything works without a cable.
 
-**⚠️ MT3608 — ANTES DO PRIMEIRO USO:** Girar o trimpot azul ~20 voltas no sentido anti-horário para iniciar com tensão baixa. Conectar multímetro em VOUT+/VOUT- e girar lentamente no sentido horário até ler **5.0V**. Só então conectar ao circuito. Saída alta pode danificar ESP32 ou ADS1256.
+**⚠️ MT3608 — BEFORE FIRST USE:** Turn the blue trimpot ~20 turns counterclockwise to start at low output voltage. Connect a multimeter to VOUT+/VOUT− and turn slowly clockwise until reading **5.0V**. Only then connect to the circuit. High output can damage the ESP32 or ADS1256.
 
-#### Diagrama de sinal
+#### Signal diagram
 
 ```
-Célula 1 (E+,E-,S+,S-)──┐                                    ┌──► BLE ──► PC/App
-Célula 2 (E+,E-,S+,S-)──┼──► ADS1256 ──SPI──► ESP32-S3 ──────┤
-Célula 3 (E+,E-,S+,S-)──┤     (24-bit)        (firmware)      └──► USB-C ──► PC/App
-Célula 4 (E+,E-,S+,S-)──┘     1000 Hz
+Cell 1 (E+,E-,S+,S-)──┐                                    ┌──► BLE ──► PC/App
+Cell 2 (E+,E-,S+,S-)──┼──► ADS1256 ──SPI──► ESP32-S3 ──────┤
+Cell 3 (E+,E-,S+,S-)──┤     (24-bit)        (firmware)      └──► USB-C ──► PC/App
+Cell 4 (E+,E-,S+,S-)──┘     1000 Hz
 ```
 
-**Configuração:** 4 canais diferenciais (1 por célula). PGA=64 (range ±78 mV).
+**Configuration:** 4 differential channels (1 per cell). PGA=64 (range ±78 mV).
 
-#### Conexões SPI (ADS1256 → ESP32-S3)
+#### SPI connections (ADS1256 → ESP32-S3)
 
 | ADS1256 | ESP32 GPIO |
 |---------|:----------:|
@@ -247,47 +242,47 @@ Célula 4 (E+,E-,S+,S-)──┘     1000 Hz
 | CS | 5 |
 | DRDY | 4 |
 
-#### Checklist de montagem eletrônica
+#### Electronics assembly checklist
 
-- [ ] Montar circuito de alimentação no protoboard (TP4056 → MT3608 → barramento 5V)
-- [ ] Ajustar MT3608 para 5.0V (multímetro!)
-- [ ] Conectar botão on/off entre MT3608 e barramento
-- [ ] Conectar ESP32-S3 ao protoboard (5V pin + GND)
-- [ ] Conectar ADS1256 ao protoboard (AVDD 5V + GND)
-- [ ] Ligar ADS1256 ao ESP32-S3 via SPI (5 fios — ver tabela acima)
-- [ ] Soldar/conectar 4 células de carga ao ADS1256 (E+, E-, S+, S- por célula)
-- [ ] Conectar bateria EPB 1S2P ao TP4056 (B+, B−) — **adaptar conector JST-XH-2P → JST-PH 2.0mm** (usar kit PH já comprado)
-- [ ] Conectar divisor resistivo (2× 100kΩ) do B+ da bateria ao GPIO34 do ESP32 (monitoramento de tensão)
-- [ ] Conectar 3 LEDs indicadores de bateria (verde/amarelo/vermelho) aos GPIOs 21/22/25
-- [ ] Conectar botão on/off com LED integrado (já indica "power on")
-- [ ] Testar alimentação em ambos os modos (USB-C e bateria)
-- [ ] **Medir capacidade real da bateria** (EPB 1S2P 5200 mAh, densidade honesta 432 Wh/L) — descarga controlada 4,2V→3,0V com logger/coulomb counter
-- [ ] Validar leitura de todas as 4 células (valor bruto no serial monitor)
-- [ ] Validar leitura de tensão da bateria (comparar ADC vs multímetro)
+- [ ] Assemble power circuit on breadboard (TP4056 → MT3608 → 5V bus)
+- [ ] Adjust MT3608 to 5.0V (use multimeter!)
+- [ ] Connect on/off button between MT3608 and bus
+- [ ] Connect ESP32-S3 to breadboard (5V pin + GND)
+- [ ] Connect ADS1256 to breadboard (AVDD 5V + GND)
+- [ ] Connect ADS1256 to ESP32-S3 via SPI (5 wires — see table above)
+- [ ] Solder/connect 4 load cells to ADS1256 (E+, E−, S+, S− per cell)
+- [ ] Connect EPB 1S2P battery to TP4056 (B+, B−) — **adapt connector JST-XH-2P → JST-PH 2.0mm** (use PH kit already purchased)
+- [ ] Connect resistor voltage divider (2× 100kΩ) from battery B+ to ESP32 GPIO34 (voltage monitoring)
+- [ ] Connect 3 battery indicator LEDs (green/yellow/red) to GPIOs 21/22/25
+- [ ] Connect on/off button with integrated LED (already indicates "power on")
+- [ ] Test power in both modes (USB-C and battery)
+- [ ] **Measure actual battery capacity** (EPB 1S2P 5200 mAh, honest density 432 Wh/L) — controlled discharge 4.2V→3.0V with logger/coulomb counter
+- [ ] Validate readings from all 4 cells (raw value on serial monitor)
+- [ ] Validate battery voltage reading (compare ADC vs multimeter)
 
-#### Battery Management — carregamento e monitoramento
+#### Battery Management — charging and monitoring
 
-**Carregamento:**
+**Charging:**
 
-| Parâmetro | Valor |
-|---|:---:|
-| Entrada | USB-C 5V (TP4056) |
-| Corrente de carga | 1000 mA |
-| Tempo de carga 0→100% | ~5,2 h (5200 mAh / 1000 mA) |
-| Corte automático | 4,2 V ± 1% |
-| Taxa de carga | C/5 (segura) |
-| Proteção BMS | dupla (TP4056 + BMS interna do pack) |
+| Parameter | Value |
+|-----------|:-----:|
+| Input | USB-C 5V (TP4056) |
+| Charge current | 1000 mA |
+| Charge time 0→100% | ~5.2 h (5200 mAh / 1000 mA) |
+| Auto cutoff | 4.2 V ± 1% |
+| Charge rate | C/5 (safe) |
+| BMS protection | dual (TP4056 + internal pack BMS) |
 
-**LEDs do TP4056 (on-board, visíveis pela abertura do case):**
-- 🔴 Vermelho: carregando
-- 🟢 Verde: carga completa
+**TP4056 LEDs (on-board, visible through case opening):**
+- Red: charging
+- Green: charge complete
 
-**Monitoramento em 4 camadas:**
+**4-layer monitoring:**
 
-**1. Leitura de tensão via ESP32 ADC (GPIO34)**
+**1. Voltage reading via ESP32 ADC (GPIO34)**
 
 ```
-Battery B+ (até 4,2V)
+Battery B+ (up to 4.2V)
       │
       ├─[ R1 = 100kΩ ]──┬──► ESP32 GPIO34 (ADC)
       │                 │
@@ -296,246 +291,246 @@ Battery B+ (até 4,2V)
      GND ──────────────┘
 ```
 
-Divisor 2:1 protege ADC (3,3V máx). Software multiplica leitura por 2.
+2:1 divider protects ADC (3.3V max). Software multiplies reading by 2.
 
-**2. Tensão → SoC (State of Charge) — lookup table Li-ion 1S**
+**2. Voltage → SoC (State of Charge) — Li-ion 1S lookup table**
 
-| Tensão | SoC | Status |
-|:---:|:---:|---|
-| 4,20 V | 100% | Full |
-| 4,00 V | ~85% | — |
-| 3,80 V | ~60% | — |
-| 3,70 V | ~40% | Médio |
-| 3,60 V | ~20% | Aviso |
-| 3,40 V | ~10% | Crítico |
-| 3,00 V | 0% | BMS desliga |
+| Voltage | SoC | Status |
+|:-------:|:---:|--------|
+| 4.20 V | 100% | Full |
+| 4.00 V | ~85% | — |
+| 3.80 V | ~60% | — |
+| 3.70 V | ~40% | Medium |
+| 3.60 V | ~20% | Warning |
+| 3.40 V | ~10% | Critical |
+| 3.00 V | 0% | BMS cuts off |
 
-**3. LEDs indicadores no case (drive via GPIO)**
+**3. Indicator LEDs on case (GPIO driven)**
 
-| LED | GPIO | Comportamento |
-|---|:---:|---|
-| 🟢 Verde | 21 | SoC > 50% — aceso fixo |
-| 🟡 Amarelo | 22 | SoC 20–50% — aceso fixo |
-| 🔴 Vermelho | 25 | SoC < 20% — piscando lento (1 Hz) |
-| 🔴 Vermelho | 25 | SoC < 10% — piscando rápido (4 Hz) |
+| LED | GPIO | Behavior |
+|-----|:----:|---------|
+| Green | 21 | SoC > 50% — solid on |
+| Yellow | 22 | SoC 20–50% — solid on |
+| Red | 25 | SoC < 20% — slow blink (1 Hz) |
+| Red | 25 | SoC < 10% — fast blink (4 Hz) |
 
-**4. Exposição via BLE/USB-C**
+**4. Exposed via BLE/USB-C**
 
-- BLE: Battery Service (UUID 0x180F) + Battery Level Characteristic (UUID 0x2A19) — valor 0-100%
-- USB-C: campo `battery` incluído no stream de dados para o app
-- App mostra ícone + porcentagem na interface
+- BLE: Battery Service (UUID 0x180F) + Battery Level Characteristic (UUID 0x2A19) — value 0–100%
+- USB-C: `battery` field included in the data stream to the app
+- App shows icon + percentage in the interface
 
-### 1.4 Resolução Teórica do Sistema
+### 1.4 Theoretical System Resolution
 
 ```
-4× DYX-301 500 kg = 2000 kg total = 19.620 N full scale
-Sensibilidade: 2.0 mV/V × 5V = 10 mV full scale por célula
+4× DYX-301 500 kg = 2000 kg total = 19,620 N full scale
+Sensitivity: 2.0 mV/V × 5V = 10 mV full scale per cell
 ADS1256 PGA=64: range ±78 mV
 Effective bits at 1000 Hz: ~17-18 bits
 
-Por canal (500 kg / 4.905 N):
-  17 eff bits: 4.905 / 131.072 = 0.037 N
-  18 eff bits: 4.905 / 262.144 = 0.019 N
+Per channel (500 kg / 4,905 N):
+  17 eff bits: 4,905 / 131,072 = 0.037 N
+  18 eff bits: 4,905 / 262,144 = 0.019 N
 
-Combinado (2000 kg / 19.620 N):
+Combined (2000 kg / 19,620 N):
   17 eff bits: ~0.15 N
   18 eff bits: ~0.075 N
 
-Comparativo VALD FDLite: ~0.15 N → igualamos ou superamos
+VALD FDLite comparison: ~0.15 N → we match or exceed
 ```
 
 ---
 
-## Fase 2: Firmware (Semanas 2-4)
+## Phase 2: Firmware (Weeks 2–4)
 
-### 2.1 Setup do Ambiente
+### 2.1 Environment Setup
 
-- [ ] Instalar PlatformIO (VS Code ou CLI)
-- [ ] Criar projeto ESP32-S3 com framework Arduino
-- [ ] Adicionar biblioteca ADS1256 (ou implementar driver SPI)
+- [ ] Install PlatformIO (VS Code or CLI)
+- [ ] Create ESP32-S3 project with Arduino framework
+- [ ] Add ADS1256 library (or implement SPI driver)
 
-### 2.2 Aquisição de Dados
+### 2.2 Data Acquisition
 
-- [ ] Implementar leitura contínua do ADS1256 a 1000 Hz
-- [ ] Validar taxa real com osciloscópio ou contador de amostras
-- [ ] Implementar buffer circular para suavizar jitter
-- [ ] Adicionar timestamp (microssegundos) a cada amostra
+- [ ] Implement continuous ADS1256 reading at 1000 Hz
+- [ ] Validate actual rate with oscilloscope or sample counter
+- [ ] Implement circular buffer to smooth jitter
+- [ ] Add timestamp (microseconds) to each sample
 
-### 2.3 Comunicação USB-C + BLE
+### 2.3 USB-C + BLE Communication
 
-- [ ] Implementar USB CDC (serial) no ESP32-S3 via USB-C nativo
-  - Modo primário: USB-C para máxima confiabilidade e throughput
-  - Protocolo serial: mesmos pacotes que BLE
-- [ ] Implementar BLE GATT server no ESP32
-  - Modo secundário: BLE para uso sem fio (portabilidade)
-- [ ] Definir characteristics (BLE) / comandos (USB):
-  - `force_data` (notify/stream) — stream de dados em tempo real
-  - `sample_rate` (read/write) — configurar taxa
-  - `tare` (write) — zerar plataforma
-  - `calibration` (read/write) — fator de calibração
-  - `battery` (read, notify) — nível de bateria 0-100% (BLE: Battery Service 0x180F, Battery Level Char 0x2A19)
-- [ ] Protocolo de pacotes: [timestamp_us(4B) | force_raw(4B) | force_N(4B)]
-- [ ] Detecção automática: se USB-C conectado → usa USB; senão → BLE
-- [ ] Testar throughput BLE — 1000 Hz × 12 bytes = 12 KB/s (dentro do limite BLE)
-- [ ] Testar throughput USB-C — sem limitação prática a 1000 Hz
+- [ ] Implement USB CDC (serial) on ESP32-S3 via native USB-C
+  - Primary mode: USB-C for maximum reliability and throughput
+  - Serial protocol: same packets as BLE
+- [ ] Implement BLE GATT server on ESP32
+  - Secondary mode: BLE for wireless use (portability)
+- [ ] Define characteristics (BLE) / commands (USB):
+  - `force_data` (notify/stream) — real-time data stream
+  - `sample_rate` (read/write) — configure rate
+  - `tare` (write) — zero the platform
+  - `calibration` (read/write) — calibration factor
+  - `battery` (read, notify) — battery level 0–100% (BLE: Battery Service 0x180F, Battery Level Char 0x2A19)
+- [ ] Packet protocol: [timestamp_us(4B) | force_raw(4B) | force_N(4B)]
+- [ ] Auto-detection: if USB-C connected → use USB; else → BLE
+- [ ] Test BLE throughput — 1000 Hz × 12 bytes = 12 KB/s (within BLE limit)
+- [ ] Test USB-C throughput — no practical limitation at 1000 Hz
 
-### 2.4 Calibração
+### 2.4 Calibration
 
-- [ ] Implementar rotina de tare (zero com plataforma vazia)
-- [ ] Implementar calibração com peso conhecido:
-  1. Plataforma vazia → registrar zero
-  2. Peso conhecido (ex: 20 kg) → registrar leitura
-  3. Calcular fator: `force_N = (raw - zero) × (peso_kg × 9.81) / (raw_peso - zero)`
-- [ ] Salvar calibração na EEPROM/NVS do ESP32
-- [ ] Implementar multi-point calibration (0, 20, 40, 60, 80 kg) para linearidade
+- [ ] Implement tare routine (zero with empty platform)
+- [ ] Implement calibration with known weight:
+  1. Empty platform → record zero
+  2. Known weight (e.g. 20 kg) → record reading
+  3. Calculate factor: `force_N = (raw - zero) × (weight_kg × 9.81) / (raw_weight - zero)`
+- [ ] Save calibration to ESP32 EEPROM/NVS
+- [ ] Implement multi-point calibration (0, 20, 40, 60, 80 kg) for linearity
 
 ---
 
-## Fase 3: Software — App Python (Semanas 3-6)
+## Phase 3: Software — Python App (Weeks 3–6)
 
-### 3.1 Aquisição via BLE
+### 3.1 BLE Acquisition
 
-- [ ] Usar `bleak` (Python) para conectar ao ESP32
-- [ ] Implementar recepção de stream BLE em thread separada
-- [ ] Buffer de dados com timestamps
-- [ ] Logging em CSV: `timestamp_us, force_raw, force_N`
+- [ ] Use `bleak` (Python) to connect to ESP32
+- [ ] Implement BLE stream reception in a separate thread
+- [ ] Data buffer with timestamps
+- [ ] CSV logging: `timestamp_us, force_raw, force_N`
 
-### 3.2 Visualização em Tempo Real
+### 3.2 Real-Time Visualization
 
-- [ ] Dashboard com `matplotlib` ou `pyqtgraph` (mais rápido):
-  - Gráfico força × tempo (rolling window)
-  - Força atual (N e kg)
-  - Indicador de pico
-  - Status de conexão BLE
-- [ ] Alternativa web: Streamlit ou FastAPI + WebSocket + Chart.js
+- [ ] Dashboard with `matplotlib` or `pyqtgraph` (faster):
+  - Force × time plot (rolling window)
+  - Current force (N and kg)
+  - Peak indicator
+  - BLE connection status
+- [ ] Web alternative: Streamlit or FastAPI + WebSocket + Chart.js
 
-### 3.3 Análise de Saltos
+### 3.3 Jump Analysis
 
-Usar/adaptar o pacote `force-plate-jump-analyses` ou implementar:
+Use/adapt the `force-plate-jump-analyses` package or implement:
 
-- [ ] **Detecção automática de fases:**
-  1. Quieto (quiet standing)
-  2. Fase excêntrica (unweighting)
-  3. Fase concêntrica (propulsão)
-  4. Voo (flight)
-  5. Aterrissagem (landing)
+- [ ] **Automatic phase detection:**
+  1. Quiet standing
+  2. Eccentric phase (unweighting)
+  3. Concentric phase (propulsion)
+  4. Flight
+  5. Landing
 
-- [ ] **Métricas CMJ/SJ:**
-  - Jump height (impulso-momento e tempo de voo)
-  - Peak force (N e N/kg)
-  - Rate of force development (RFD) — pico e média
+- [ ] **CMJ/SJ metrics:**
+  - Jump height (impulse-momentum and flight time methods)
+  - Peak force (N and N/kg)
+  - Rate of force development (RFD) — peak and mean
   - Net impulse (N·s)
   - Time to peak force (ms)
-  - Mean power (W e W/kg)
-  - Velocidade de decolagem (m/s)
+  - Mean power (W and W/kg)
+  - Takeoff velocity (m/s)
 
-- [ ] **Métricas DJ:**
+- [ ] **DJ metrics:**
   - RSI (reactive strength index) = jump height / contact time
-  - RSI modificado = jump height / total contraction time
+  - Modified RSI = jump height / total contraction time
   - Contact time (ms)
   - Flight time (ms)
 
-- [ ] **Relatório automático:**
-  - Gerar PDF/HTML com gráficos e métricas
-  - Comparação com normativas (se disponíveis)
-  - Histórico do atleta
+- [ ] **Automatic report:**
+  - Generate PDF/HTML with charts and metrics
+  - Comparison with normative data (if available)
+  - Athlete history
 
-### 3.4 Exportação de Dados
+### 3.4 Data Export
 
-- [ ] CSV com dados brutos (timestamp, force_N)
-- [ ] JSON com métricas calculadas
-- [ ] Formato compatível com Pyomeca/c3d (opcional)
-
----
-
-## Fase 4: Validação (Semanas 5-8)
-
-### 4.1 Validação Técnica
-
-- [ ] Verificar linearidade com pesos conhecidos (0-100 kg em incrementos de 10 kg)
-- [ ] Verificar drift temporal (medir 10 min contínuos com peso fixo)
-- [ ] Verificar taxa de amostragem real (contar amostras em janela de tempo)
-- [ ] Verificar ruído (desvio padrão em repouso)
-- [ ] Teste de histerese (carga/descarga)
-
-### 4.2 Validação Científica (paper)
-
-- [ ] Protocolo: N ≥ 20 participantes
-- [ ] Comparar com plataforma comercial (Kistler, AMTI, ou similar disponível)
-- [ ] Testes: CMJ, SJ, DJ em ambas as plataformas (ordem randomizada)
-- [ ] Análise: ICC, Bland-Altman, CV%, SEM
-- [ ] Alvo: ICC ≥ 0.95, CV% < 5%
+- [ ] CSV with raw data (timestamp, force_N)
+- [ ] JSON with calculated metrics
+- [ ] Pyomeca/c3d-compatible format (optional)
 
 ---
 
-## Fase 5: Dual Force Plate (Futuro)
+## Phase 4: Validation (Weeks 5–8)
 
-- [ ] Cortar chapa 50×60 cm ao meio → 2 placas de 50×30 cm (dimensão similar ao VALD FDLite: 48.5×30 cm)
-- [ ] Adicionar +4 células de carga F shear beam 500 kg
-- [ ] Expandir leitura: usar os 8 canais do ADS1256 (4+4) ou adicionar segundo ADS1256
-- [ ] Adaptar firmware para 2 plataformas independentes (força L + força R)
-- [ ] Implementar métricas de assimetria bilateral no software
+### 4.1 Technical Validation
 
-## Fase 6: Produto (Futuro)
+- [ ] Verify linearity with known weights (0–100 kg in 10 kg increments)
+- [ ] Verify temporal drift (measure 10 continuous minutes with fixed weight)
+- [ ] Verify actual sampling rate (count samples in a time window)
+- [ ] Verify noise (standard deviation at rest)
+- [ ] Hysteresis test (loading/unloading)
 
-- [ ] Design de PCB customizada (substituir protoboard)
-- [ ] Enclosure 3D-printed ou injetado
-- [ ] App mobile (Flutter/React Native)
-- [ ] Documentação para reprodução (open-source hardware)
-- [ ] Página no site Nova O2
+### 4.2 Scientific Validation (paper)
 
----
-
-## Decisões de Arquitetura
-
-### Por que ESP32-S3 e não Teensy 4.1?
-
-| Critério | ESP32-S3 | Teensy 4.1 |
-|----------|----------|------------|
-| Custo | R$ 30-50 | R$ 150-200 |
-| WiFi/BLE integrado | ✅ | ❌ (precisa de módulo extra) |
-| Performance SPI | Suficiente para 1000 Hz | Melhor (600 MHz) |
-| Ecossistema Arduino | ✅ | ✅ |
-| Disponibilidade BR | Fácil (AliExpress) | Difícil |
-
-Para plataforma única a 1000 Hz, o ESP32-S3 é mais que suficiente.
-
-### Por que células F shear beam e não tipo S?
-
-| Critério | F shear beam (com pézinho) | Tipo S |
-|----------|---------------------------|--------|
-| Montagem | Simples — pé no chão, placa em cima | Requer 2 placas (superior + inferior) |
-| Peso total | ~7 kg (1 placa 50×60) | ~13 kg (2 placas) |
-| Custo | Menor (~R$ 120-200 a menos) | Maior (segunda placa + espaçadores + pés) |
-| Uso comercial | Padrão em balanças de plataforma | Comum em sistemas de tração/compressão |
-| Precisão | Equivalente para aplicação uniaxial | Equivalente |
-| Requisito extra | Piso rígido e plano | Nenhum (placa inferior nivela) |
-
-A célula F shear beam com pézinho é o padrão da indústria de balanças de plataforma. Simplifica a montagem, reduz custo e peso, e é comprovada em milhões de dispositivos comerciais. A única desvantagem é a dependência de um piso adequado, facilmente contornável.
-
-### Por que ADS1256 e não HX711?
-
-- HX711: máximo 80 Hz — **insuficiente** para análise de saltos
-- ADS1256: até 30.000 Hz, 24-bit — padrão em force plates de pesquisa
-
-### Configuração das células de carga
-
-**Opção A — Bridge único (4 em paralelo):**
-- Mais simples, 1 canal no ADC
-- Dá apenas força total vertical
-- Suficiente para MVP
-
-**Opção B — 4 canais independentes:**
-- Cada célula em canal separado do ADS1256
-- Permite calcular COP (Center of Pressure) via momentos
-- Mais complexo, mas mais informação
-- **Recomendado** — o ADS1256 tem 8 canais, usar 4 não adiciona custo
-
-**Decisão: Opção B** — ler 4 canais independentes (250 Hz cada no modo multiplexado, ou 1000 Hz com configuração adequada).
+- [ ] Protocol: N ≥ 20 participants
+- [ ] Compare with commercial platform (Kistler, AMTI, or similar available)
+- [ ] Tests: CMJ, SJ, DJ on both platforms (randomized order)
+- [ ] Analysis: ICC, Bland-Altman, CV%, SEM
+- [ ] Target: ICC ≥ 0.95, CV% < 5%
 
 ---
 
-## Referências Técnicas
+## Phase 5: Dual Force Plate (Future)
+
+- [ ] Cut 50×60 cm plate in half → 2 plates of 50×30 cm (similar dimension to VALD FDLite: 48.5×30 cm)
+- [ ] Add +4 F shear beam load cells 500 kg
+- [ ] Expand reading: use all 8 ADS1256 channels (4+4) or add a second ADS1256
+- [ ] Adapt firmware for 2 independent platforms (left force + right force)
+- [ ] Implement bilateral asymmetry metrics in software
+
+## Phase 6: Product (Future)
+
+- [ ] Custom PCB design (replace breadboard)
+- [ ] 3D-printed or injection-molded enclosure
+- [ ] Mobile app (Flutter/React Native)
+- [ ] Reproduction documentation (open-source hardware)
+- [ ] Nova O2 website page
+
+---
+
+## Architecture Decisions
+
+### Why ESP32-S3 and not Teensy 4.1?
+
+| Criterion | ESP32-S3 | Teensy 4.1 |
+|-----------|----------|------------|
+| Cost | R$ 30–50 | R$ 150–200 |
+| Integrated WiFi/BLE | ✅ | ❌ (requires extra module) |
+| SPI performance | Sufficient for 1000 Hz | Better (600 MHz) |
+| Arduino ecosystem | ✅ | ✅ |
+| Availability in Brazil | Easy (AliExpress) | Difficult |
+
+For a single platform at 1000 Hz, the ESP32-S3 is more than sufficient.
+
+### Why F shear beam cells and not S-type?
+
+| Criterion | F shear beam (with foot bolt) | S-type |
+|-----------|-------------------------------|--------|
+| Assembly | Simple — foot on floor, plate on top | Requires 2 plates (top + bottom) |
+| Total weight | ~7 kg (1 plate 50×60) | ~13 kg (2 plates) |
+| Cost | Lower (~R$ 120–200 less) | Higher (second plate + spacers + feet) |
+| Commercial use | Standard in platform scales | Common in tension/compression systems |
+| Precision | Equivalent for uniaxial application | Equivalent |
+| Extra requirement | Rigid, flat floor | None (bottom plate levels itself) |
+
+The F shear beam cell with foot bolt is the industry standard for platform scales. It simplifies assembly, reduces cost and weight, and is proven in millions of commercial devices. The only drawback is dependence on an adequate floor, easily addressed.
+
+### Why ADS1256 and not HX711?
+
+- HX711: 80 Hz maximum — **insufficient** for jump analysis
+- ADS1256: up to 30,000 Hz, 24-bit — standard in research force plates
+
+### Load cell configuration
+
+**Option A — Single bridge (4 in parallel):**
+- Simpler, 1 ADC channel
+- Gives only total vertical force
+- Sufficient for MVP
+
+**Option B — 4 independent channels:**
+- Each cell on a separate ADS1256 channel
+- Allows COP (Center of Pressure) calculation via moments
+- More complex, but more information
+- **Recommended** — the ADS1256 has 8 channels; using 4 adds no cost
+
+**Decision: Option B** — read 4 independent channels (250 Hz each in multiplexed mode, or 1000 Hz with appropriate configuration).
+
+---
+
+## Technical References
 
 - [ADS1256 Datasheet](https://www.ti.com/lit/ds/symlink/ads1256.pdf)
 - [ESP32-S3 Technical Reference](https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf)
