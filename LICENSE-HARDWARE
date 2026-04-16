@@ -1,0 +1,119 @@
+CERN Open Hardware Licence Version 2 - Strongly Reciprocal
+==========================================================
+
+Preamble
+
+CERN has declared its intention to license the hardware designs it produces
+under an open licence. This document defines that licence.
+
+"Hardware" includes, but is not limited to, printed circuit boards ("PCBs"),
+and mask works (layout designs) for integrated circuits at all levels of
+design abstraction, provided that, at the point where this Licence is applied,
+the licensed hardware has not reached Final Product stage.
+
+"Final Product" means any machinery, equipment, tool, or physical object,
+whether finished or unfinished, containing or derived from the licensed
+hardware, where the original hardware has been modified, integrated, built
+into, or combined with other elements to provide functionality or production
+usefulness not contemplated in the original design file.
+
+"Product" means either a single instantiation of the hardware or a series of
+the same instantiations of the hardware, in the latter case referring to
+multiple instantiations collectively as one product.
+
+"Licensee" means the natural or legal person exercising rights under this
+Licence.
+
+"Licensor" means any natural or legal person that creates or modifies
+hardware covered by this Licence and subsequently makes Conveyance of such
+hardware under the Licence.
+
+"Person" means any natural or legal person. A legal person includes any entity
+other than natural persons, such as corporate bodies and partnerships.
+
+"Make" means to create or configure something, whether by manufacture, copy,
+repair, or integration of previously existing components.
+
+"Source" means, the preferred form for Making modifications, including but
+not limited to: schematics, Board layouts, mechanical drawings, flow charts
+and textual descriptions of the logic used.
+
+"Derived Hardware" means hardware derived from, created from, or based on the
+licensed hardware.
+
+"Conveyance" means the act of communicating or making available in any manner
+or by any means.
+
+To the extent this Licence can be licensed, the Licensor hereby conveys the
+licensed hardware under the terms of the Licence.
+
+1. Rights granted
+
+The Licence grants You the right to make and have made the Licensed Hardware,
+use it, distribute it, and carry out any other act restricted by copyright or
+database right that applies to the Licensed Hardware.
+
+If the Licensed Hardware includes or is based upon design files, documentation,
+code, firmware or other copyrightable subject matter, the Licence grants You
+the right to edit, modify, copy and otherwise change such subject matter.
+
+If the Licensed Hardware is based upon, derived from, created from, or
+integrated with Derived Hardware or third party hardware, intellectual property
+or technology, the Licence does not extend to, and You remain responsible for
+obtaining any necessary permissions for, any such third party material.
+
+2. Conditions
+
+2.1 If You distribute the Licensed Hardware, You must ensure that the
+following are conveyed to any recipient:
+
+  (a) A copy of the Licence in the form of this document or (if applicable)
+      as amended and integrated in part 3 of this Licence;
+
+  (b) A list of all files in the Licensed Hardware which contain design
+      information;
+
+  (c) Prominent notices on each of the Licensed Hardware files stating that
+      they have been modified and an indication of what modifications have been
+      made;
+
+  (d) The Source of the Licensed Hardware or, if this is not possible, a
+      notice that the Source is not available, with instructions on how to
+      obtain it.
+
+  (e) Any additional conditions, restrictions and rights applying to the
+      Licensed Hardware, or parts thereof, imposed by the Licensor including
+      (but not limited to) export restrictions or other intellectual property
+      restrictions.
+
+2.2 If You wish to distribute Derived Hardware based on the Licensed Hardware,
+You must ensure that, in addition to the requirements of section 2.1:
+
+  (a) The Derived Hardware is licensed under the terms of this Licence or, at
+      Your option, any later version of this Licence as may be issued by CERN;
+
+  (b) You provide recipients of the Derived Hardware with the Source of the
+      Derived Hardware in the form of design files and documentation.
+
+2.3 The Licence is not limited to Your personal, non-commercial use of the
+Licensed Hardware. You may use it for any commercial purpose, including the
+making and distribution of Derived Hardware which incorporates the Licensed
+Hardware or is based upon it.
+
+2.4 You may not revoke the Licence, or impose any conditions upon it, other
+than those contained in the Licence itself.
+
+3. Interpretation and governance
+
+3.1 The Licence is governed by and shall be construed in accordance with the
+laws of Switzerland, with the exception of its rules on conflict of laws.
+
+3.2 The competent courts of Switzerland shall have exclusive jurisdiction over
+any matters arising out of or relating to this Licence.
+
+3.3 If any provision of this Licence is held to be invalid or unenforceable,
+it shall be modified to the minimum extent necessary to make it valid and
+enforceable. All other provisions of this Licence shall continue in full force
+and effect.
+
+END OF CERN OPEN HARDWARE LICENCE VERSION 2 - STRONGLY RECIPROCAL
