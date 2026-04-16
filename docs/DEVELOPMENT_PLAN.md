@@ -30,7 +30,7 @@ Single piece that covers the load cell mounting holes. Does not touch the floor 
 
 > **💡 Dual-plate strategy (Phase 5)**
 >
-> The top plate (50×60 cm) is sized to be cut in half → 2 plates of 50×30 cm (similar dimension to VALD FDLite: 48.5×30 cm). The Phase 1 holes are already at the correct angle (~62°) for the final Phase 2 layout.
+> The top plate (50×60 cm) is sized to be cut in half → 2 plates of 50×30 cm (similar dimension to VALD FDLite: 48.5×30 cm). The Phase 1 holes are already at the correct angle (~62°) for the final Phase 5 layout.
 
 #### Load cell — Dimensions (Decent DYX-301 500 kg)
 
