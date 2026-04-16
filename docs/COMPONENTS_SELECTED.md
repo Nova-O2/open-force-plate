@@ -63,7 +63,7 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 | 7 | Neoprene rubber discs Ø60mm × 1mm | 4 | ~10 |
 | 8 | 1020 carbon steel square tube, 35×35×2mm, ~527mm | 2 | ~25 |
 | 9 | Structural epoxy adhesive (Araldite Professional 24ml or equiv.) | 1 | ~25 |
-| | | **Subtotal** | **~R$ 505** |
+| | | **Subtotal** | **~R$ 500** |
 
 ---
 

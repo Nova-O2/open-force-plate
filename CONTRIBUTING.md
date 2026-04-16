@@ -73,6 +73,28 @@ Commit messages in English.
 
 ---
 
+## Analysis Script Versioning
+
+The `hardware/cad/` directory contains Python scripts that compute structural analysis, material comparisons, and fabrication drawings. These scripts may reference specific design revisions.
+
+**Rules:**
+
+1. **Scripts must declare their design revision** — each analysis script must include a comment at the top indicating which design revision it targets (e.g., Rev 1.0, Rev 2.0)
+2. **When design parameters change** (materials, dimensions, load cases), existing scripts should be updated to match the current revision. If the old analysis is historically relevant, note the change in `docs/PROJECT_LOG.md`
+3. **Calculated values in scripts must match documentation** — if a script computes a safety factor, deflection, or weight, the same value must appear in the corresponding `.md` doc. Cross-reference discrepancies are bugs
+4. **The source of truth for current design parameters** is `docs/STRUCTURAL_ANALYSIS.md` and `docs/COMPONENT_SPECS.md`. Scripts derive from these, not the other way around
+
+**Current revisions:**
+
+| Revision | Materials | Top plate | Reinforcement |
+|----------|-----------|-----------|---------------|
+| Rev 1.0 (2026-04-01) | Al 6061-T6 | 6 mm | Aluminum tubes |
+| Rev 2.0 (2026-04-06) | Al 5052-F | 6.35 mm (1/4 in) | 1020 carbon steel tubes 35×35×2 mm |
+
+Scripts targeting Rev 1.0 are marked with a disclaimer comment. Updated Rev 2.0 scripts are planned.
+
+---
+
 ## Reporting Issues
 
 Use the provided issue templates. For hardware issues, include photos whenever possible. For firmware/software, include your environment details (OS, Python version, ESP32 variant).

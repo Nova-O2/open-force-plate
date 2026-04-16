@@ -158,17 +158,17 @@ All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to 
 
 #### Structural reinforcement — Box section (2 square tubes)
 
-The 6.35mm (1/4in) top plate alone deflects ~21 mm under drop jump load (120 kg, 5×BW) — unacceptable for a force platform. The solution is a **box section**: the two plates (top and bottom) act as flanges of a beam, connected by 2 aluminum square tubes bonded with structural epoxy.
+The 6.35mm (1/4in) top plate alone deflects ~21 mm under drop jump load (120 kg, 5×BW) — unacceptable for a force platform. The solution is a **box section**: the two plates (top and bottom) act as flanges of a beam, connected by 2 carbon steel 1020 square tubes bonded with structural epoxy.
 
 | Parameter | Value |
 |-----------|-------|
-| Tube | Aluminum square 30×30 or 35×35×2 mm (subject to availability) |
+| Tube | 1020 carbon steel square 35×35×2 mm |
 | Quantity | 2 tubes, ~527 mm each (= bottom plate length) |
 | Position | Longitudinal (X-axis), at Y=194 mm and Y=306 mm from top plate |
 | Bonding | Structural epoxy (Araldite Professional or equivalent) |
 | Shims | If tube < gap between plates, use aluminum shims to match height |
 
-**Result:** I increases from 9,000 mm⁴ (plate alone) to ~1,060,000 mm⁴ (118× stiffer). Deflection drops from 21 mm to **<0.2 mm** across all scenarios.
+**Result:** I increases from ~9,000 mm⁴ (plate alone) to ~1,305,000 mm⁴ (~150× stiffer). Deflection drops from 21 mm to **<0.2 mm** across all scenarios.
 
 ```
 Cross-section view (box section):
@@ -183,7 +183,7 @@ Cross-section view (box section):
 **Tube assembly:**
 
 - [ ] Assemble one corner (1 cell + bolts + plates) to measure the actual gap between plates
-- [ ] Source 2 aluminum square tubes (~527 mm each). Ideal size: measured gap ±1 mm
+- [ ] Source 2 carbon steel 1020 square tubes (~527 mm each). Ideal size: measured gap ±1 mm
 - [ ] If tube is smaller than gap: fabricate shims (thin aluminum strips cut to 35×527 mm)
 - [ ] Sand bonding faces (80-grit, matte surfaces)
 - [ ] Degrease with isopropyl alcohol
