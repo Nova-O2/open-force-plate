@@ -135,14 +135,14 @@ All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to 
 
 **No lock nut.** The collar acts as a mechanical stop — prevents the foot from threading beyond the cell height and reinforces the thread/chamfer transition. Height adjusted by threading. Platform weight locks position.
 
-**Fabrication:** order from a machinist. Drawing: `cad/fab_pezinho.pdf`
+**Fabrication:** order from a machinist. Drawing: `hardware/cad/fab_foot_piece.pdf`
 
 #### Mechanical assembly checklist
 
 - [ ] Source top plate aluminum 5052-F, 600×500 mm, 6.35mm (1/4in), R30 corners
 - [ ] Source bottom plate aluminum, 527×396 mm, 3 mm, 15×15 chamfers
 - [ ] Source/fabricate 4 steel shims 56×32 mm, 2 mm (2× Ø11, 25 mm center-to-center)
-- [ ] Order 4 turned foot bolts with collar (see specs above + `cad/fab_pezinho.pdf`)
+- [ ] Order 4 turned foot bolts with collar (see specs above + `hardware/cad/fab_foot_piece.pdf`)
 - [ ] Source Allen bolts M10×50 DIN 7991 (flat head) + M10 nuts + washers (8+8+8)
 - [ ] Source Ø11 mm drill bit + 90° countersink for M10 (Ø20)
 - [ ] Cut/source 4 rubber discs Ø60mm × 1mm (neoprene)

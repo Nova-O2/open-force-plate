@@ -60,6 +60,19 @@ Commit messages in English.
 
 ---
 
+## Naming Conventions
+
+| Scope | Convention | Example |
+|-------|-----------|---------|
+| Root governance files | UPPERCASE (OSS standard) | `README.md`, `CONTRIBUTING.md`, `LICENSE-*` |
+| Documentation | UPPER_SNAKE_CASE | `DEVELOPMENT_PLAN.md`, `PROJECT_LOG.md` |
+| Code (scripts, firmware, software) | snake_case | `structural_analysis.py` |
+| Generated artifacts (PDFs, images) | snake_case, English | `fab_top_plate.pdf` |
+| GitHub templates | snake_case (GitHub default) | `bug_report.md` |
+| Directories | snake_case | `hardware/cad/` |
+
+---
+
 ## Reporting Issues
 
 Use the provided issue templates. For hardware issues, include photos whenever possible. For firmware/software, include your environment details (OS, Python version, ESP32 variant).
