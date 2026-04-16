@@ -91,7 +91,7 @@
 
 | Supplier | Items | Subtotal | Status |
 |----------|:-----:|----------:|--------|
-| Casa dos Metais (Al plates) | 1–2 | **R$ 550** | Quoted |
+| Casa dos Metais (Al plates) | 1–2 | **R$ 550** | Purchased |
 | Metal supplier (cutting + tubes) | 3 + finishing 1–2 | ~R$ 50 | To estimate |
 | Turner | 4 | ~R$ 160 | To estimate |
 | Metalwork shop | 5 | ~R$ 20 | To estimate |

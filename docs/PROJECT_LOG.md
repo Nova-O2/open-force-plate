@@ -31,7 +31,7 @@ Complete overhaul of mechanical design with structural analysis:
 - Box section (2× 35×35mm steel tubes) reduces deflection from 21mm to <0.2mm
 - Correction: M10×45 screws → M10×50, 30mm chamfer → 15mm
 - Structural analysis recalculated with transformed section (n = 2.845) — FS >4 in all scenarios
-- Local components shopping list created (~R$505)
+- Local components shopping list created (~R$500)
 - BGB Energy 3000mAh battery identified as overclaim (720 Wh/L, above theoretical Li-ion limit) — returned
 - Privacy cleanup: supplier data moved to gitignored file
 
