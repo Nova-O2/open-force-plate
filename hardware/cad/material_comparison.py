@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: CERN-OHL-S-2.0
+# Copyright (c) 2026 Nova O2
+
 """
 Plataforma de Forca MVP — Comparativo de Materiais
 Nova O2 Ciencia do Esporte
