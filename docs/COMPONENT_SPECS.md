@@ -245,7 +245,7 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 | Material | Al 5052-F |
 | Corners | R30 rounded |
 | Holes | 8× Ø11 mm, countersunk Ø20 mm × 5.5 mm depth (90°) |
-| Weight | ~4.86 kg |
+| Weight | ~5.11 kg |
 | Technical drawing | `hardware/cad/fab_top_plate.pdf` |
 
 #### Al 5052-F properties
@@ -255,7 +255,7 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 | Elastic modulus (E) | 70,300 MPa |
 | Yield strength (σ_y) | 90 MPa |
 | Poisson's ratio (ν) | 0.33 |
-| Density (ρ) | 2,700 kg/m³ |
+| Density (ρ) | 2,680 kg/m³ |
 
 ---
 
@@ -264,7 +264,7 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 | Parameter | Value |
 |-----------|-------|
 | Dimensions | 527 × 396 × 3 mm |
-| Material | Al (6061 or 5052) |
+| Material | Al 5052-F |
 | Corners | 15 × 15 mm chamfers at 45° |
 | Holes | 8× Ø11 mm |
 | Weight | ~1.67 kg |

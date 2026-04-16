@@ -60,7 +60,7 @@ HOLE_SPACING = 25.0
 COUNTERSINK_DIA = 20  # escareamento DIN 7991 M10
 
 # Junta
-GASKET_L, GASKET_W, GASKET_T = 56, 32, 2
+SHIM_L, SHIM_W, SHIM_T = 56, 32, 2
 
 # Pezinho (com colar)
 ROD_DIA = 12
@@ -690,12 +690,12 @@ def draw_junta():
     ax1 = fig.add_axes([0.05, 0.25, 0.45, 0.68])
     ax1.set_title('VISTA SUPERIOR', fontsize=10, fontweight='bold', pad=8, color=DARK)
 
-    junta = patches.Rectangle((0, 0), GASKET_L, GASKET_W, lw=2,
+    junta = patches.Rectangle((0, 0), SHIM_L, SHIM_W, lw=2,
                                 ec='black', fc=LIGHT_GRAY)
     ax1.add_patch(junta)
 
-    cx_j = GASKET_L / 2
-    cy_j = GASKET_W / 2
+    cx_j = SHIM_L / 2
+    cy_j = SHIM_W / 2
     hole_offset = HOLE_SPACING / 2
     h1 = (cx_j - hole_offset, cy_j)
     h2 = (cx_j + hole_offset, cy_j)
@@ -703,11 +703,11 @@ def draw_junta():
     draw_hole(ax1, h1[0], h1[1], HOLE_DIA)
     draw_hole(ax1, h2[0], h2[1], HOLE_DIA)
 
-    ax1.plot([cx_j, cx_j], [-3, GASKET_W + 3], color='#CCC', lw=0.5, ls='-.')
-    ax1.plot([-3, GASKET_L + 3], [cy_j, cy_j], color='#CCC', lw=0.5, ls='-.')
+    ax1.plot([cx_j, cx_j], [-3, SHIM_W + 3], color='#CCC', lw=0.5, ls='-.')
+    ax1.plot([-3, SHIM_L + 3], [cy_j, cy_j], color='#CCC', lw=0.5, ls='-.')
 
-    dim_h(ax1, 0, GASKET_L, 0, -10, f'{GASKET_L}', fs=9)
-    dim_v(ax1, 0, GASKET_W, 0, -12, f'{GASKET_W}', fs=9)
+    dim_h(ax1, 0, SHIM_L, 0, -10, f'{SHIM_L}', fs=9)
+    dim_v(ax1, 0, SHIM_W, 0, -12, f'{SHIM_W}', fs=9)
     dim_h(ax1, 0, h1[0], h1[1], 12, f'{h1[0]:.1f}', fs=7)
     dim_h(ax1, h1[0], h2[0], h1[1], -10, f'{HOLE_SPACING}', fs=8, color=ORANGE)
     dim_v(ax1, 0, h1[1], h2[0], 8, f'{cy_j:.0f}', fs=7)
@@ -716,8 +716,8 @@ def draw_junta():
              fontsize=7, color=DARK, va='center',
              bbox=dict(fc='white', ec='#DDD', pad=1.5, boxstyle='round,pad=0.3'))
 
-    ax1.set_xlim(-18, GASKET_L + 20)
-    ax1.set_ylim(-18, GASKET_W + 18)
+    ax1.set_xlim(-18, SHIM_L + 20)
+    ax1.set_ylim(-18, SHIM_W + 18)
     ax1.set_aspect('equal')
     clean_axes(ax1)
 
@@ -725,17 +725,17 @@ def draw_junta():
     ax2 = fig.add_axes([0.55, 0.55, 0.40, 0.35])
     ax2.set_title('VISTA FRONTAL', fontsize=9, fontweight='bold', pad=5, color=DARK)
 
-    profile = patches.Rectangle((0, 0), GASKET_L, GASKET_T, lw=2,
+    profile = patches.Rectangle((0, 0), SHIM_L, SHIM_T, lw=2,
                                  ec='black', fc=LIGHT_GRAY)
     ax2.add_patch(profile)
-    dim_v(ax2, 0, GASKET_T, 0, -8, f'{GASKET_T}', fs=9)
-    dim_h(ax2, 0, GASKET_L, 0, -4, f'{GASKET_L}', fs=8)
+    dim_v(ax2, 0, SHIM_T, 0, -8, f'{SHIM_T}', fs=9)
+    dim_h(ax2, 0, SHIM_L, 0, -4, f'{SHIM_L}', fs=8)
     for hx in [h1[0], h2[0]]:
-        ax2.plot([hx - 3, hx + 3], [GASKET_T, GASKET_T], color='black', lw=1.5)
-        ax2.plot([hx, hx], [0, GASKET_T], color='#CCC', lw=0.3, ls=':')
+        ax2.plot([hx - 3, hx + 3], [SHIM_T, SHIM_T], color='black', lw=1.5)
+        ax2.plot([hx, hx], [0, SHIM_T], color='#CCC', lw=0.3, ls=':')
 
-    ax2.set_xlim(-12, GASKET_L + 8)
-    ax2.set_ylim(-8, GASKET_T + 8)
+    ax2.set_xlim(-12, SHIM_L + 8)
+    ax2.set_ylim(-8, SHIM_T + 8)
     ax2.set_aspect('equal')
     clean_axes(ax2)
 
@@ -769,7 +769,7 @@ def draw_junta():
             table[i, j].set_facecolor(color)
 
     add_title_block(fig, u'Junta de a\u00e7o', u'A\u00e7o carbono',
-                    f'{GASKET_T}mm', '4 unidades',
+                    f'{SHIM_T}mm', '4 unidades',
                     u'Impede esmagamento do alum\u00ednio')
 
     fig.savefig(str(OUT_DIR / 'fab_shim.pdf'), bbox_inches='tight', facecolor='white')
@@ -891,7 +891,7 @@ def draw_montagem():
         ax.plot([cx - gasket_w / 2 + 2, cx + gasket_w / 2 - 2], [hy, hy],
                 color='#888', lw=0.3, zorder=3)
     ax.text(cx + gasket_w / 2 + 3, y_gasket + gasket_h / 2,
-            f'JUNTA A\u00c7O\n{GASKET_L}\u00d7{GASKET_W}\u00d7{GASKET_T}mm',
+            f'JUNTA A\u00c7O\n{SHIM_L}\u00d7{SHIM_W}\u00d7{SHIM_T}mm',
             fontsize=5, va='center', fontweight='bold', color=DARK)
 
     # 4. Celula de carga

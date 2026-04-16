@@ -47,7 +47,7 @@ Complete overhaul of mechanical design with structural analysis:
 **Mechanical design (01–02/04):**
 - Design finalized: 62° angle (half-plate diagonal), single bottom plate, 56×32mm shims
 - Fabrication drawings generated (3 PDFs with Nova O2 branding): top plate, bottom plate, turned foot
-- Turned foot specs: M12×1.75 shaft, 14° chamfer, Ø60×5mm base, 1mm rubber pad
+- Turned foot specs: M12×1.75 shaft, ~17° chamfer, Ø60×8mm base, Ø20×5mm collar, 1mm rubber pad
 
 ## 2026-03-28 — Project start
 

@@ -298,7 +298,7 @@ Verification of localized bearing at contact points between plates, steel shims,
 ```
 Athlete's foot
     ↓
-Top plate Al 6 mm
+Top plate Al 6.35 mm
     ↓ (face-to-face contact)
 Steel shim 56×32×2 mm
     ↓ (face-to-face contact)

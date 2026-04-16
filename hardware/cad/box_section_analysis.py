@@ -6,6 +6,11 @@ Force Plate MVP — Box Section Analysis with 35x35x2mm Square Tube
 Nova O2 Sport Science
 """
 
+# NOTE: This script reflects the Rev 1.0 analysis (Al 6061-T6, 6mm top plate,
+# aluminum tubes). The current design (Rev 2.0) uses Al 5052-F, 6.35mm top plate,
+# and 1020 carbon steel tubes. Updated calculations are documented in
+# docs/STRUCTURAL_ANALYSIS.md. Script update to Rev 2.0 values is planned.
+
 import numpy as np
 
 g = 9.81
