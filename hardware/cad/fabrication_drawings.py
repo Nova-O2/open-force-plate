@@ -23,8 +23,8 @@ from datetime import date
 # CONSTANTES
 # =============================================================================
 
-ICON_PATH = '/workspace/03-engineering/nova-o2/force-plate/cad/nova_o2_icon.png'
-OUT_DIR = '/workspace/03-engineering/nova-o2/force-plate/cad'
+ICON_PATH = '/workspace/03-engineering/nova-o2/force-plate/hardware/cad/nova_o2_icon.png'
+OUT_DIR = '/workspace/03-engineering/nova-o2/force-plate/hardware/cad'
 ORANGE = '#E8820C'
 DARK = '#333333'
 LIGHT_GRAY = '#F0F0F0'
