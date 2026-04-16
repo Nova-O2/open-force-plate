@@ -1,8 +1,8 @@
 # Shopping List — Mechanical Assembly
 
 **Date:** 2026-04-06
-**Status:** Aluminum plates quoted (Casa dos Metais). Wait for AliExpress (~Apr 21–May 11) before closing local purchases.
-**Total budget:** ~R$ 845
+**Status:** Aluminum plates purchased and picked up (Casa dos Metais). AliExpress received (except DYX-301 load cells). Pending: load cells + turned feet + local fasteners/materials.
+**Total budget:** ~R$ 875
 
 ---
 
@@ -14,22 +14,22 @@
 | 2 | Bottom plate | Al 5052-F, 530×399 mm, 3 mm, chamfered corners 15×15 at 45° | 1 | **140.00** |
 | 3 | Square tube | 1020 carbon steel, 35×35×2 mm, 2 pieces of 527 mm | 2 | ~20 |
 
-:::tip Quote received (2026-04-06)
-**Supplier:** Casa dos Metais Ltda — CNPJ 65.916.320/0001-31
-Items 1 and 2 quoted with commercial dimensions (+3 mm allowance). Total plates: **R$ 550.00**.
-Corner cutting (R30 and 45° chamfer) and steel tubes still to be quoted — possibly a different supplier.
-:::
+> **💡 Quote received (2026-04-06)**
+>
+> **Supplier:** Casa dos Metais Ltda
+> Items 1 and 2 quoted with commercial dimensions (+3 mm allowance). Total plates: **R$ 550.00**.
+> Corner cutting (R30 and 45° chamfer) and steel tubes still to be quoted — possibly a different supplier.
 
-:::info Material changes (2026-04-06)
-**Aluminum alloy:** 6061-T6 not available locally → 5052-F. Identical stiffness (E ~70 GPa), lower yield strength (90 vs 276 MPa) but FS > 4 with the box section.
-**Tubes:** Square aluminum tubes hard to source → standard carbon steel. Stiffer (+23%), cheaper, off-the-shelf product. Adds +1.4 kg to total weight.
-:::
+> **ℹ️ Material changes (2026-04-06)**
+>
+> **Aluminum alloy:** 6061-T6 not available locally → 5052-F. Identical stiffness (E ~70 GPa), lower yield strength (90 vs 276 MPa) but FS > 4 with the box section.
+> **Tubes:** Square aluminum tubes hard to source → standard carbon steel. Stiffer (+23%), cheaper, off-the-shelf product. Adds +1.4 kg to total weight.
 
 **Bring PDFs:** `hardware/cad/fab_top_plate.pdf`, `hardware/cad/fab_bottom_plate.pdf`
 
-:::note
-Request cutting and rounding/chamfering at the metal supplier. Drilling and countersinking to be done at home with a jig for higher precision.
-:::
+> **📝 Note**
+>
+> Request cutting and rounding/chamfering at the metal supplier. Drilling and countersinking to be done at home with a jig for higher precision.
 
 ---
 
@@ -110,9 +110,9 @@ Request cutting and rounding/chamfering at the metal supplier. Drilling and coun
 - [ ] Fastener shop — M10×50 DIN 7991 bolts + nuts + washers + drill bit + countersink
 - [ ] Materials — epoxy + rubber + sandpaper + alcohol
 
-:::warning Before purchasing
-1. Wait for load cells to arrive (AliExpress)
-2. Assemble 1 test corner to confirm the gap between plates
-3. Steel tube: 35×35×2 mm (preferred) or 30×30×2 mm based on measured gap
-4. Confirm M10×50 bolt length in actual stack assembly
-:::
+> **⚠️ Before purchasing**
+>
+> 1. Wait for load cells to arrive (AliExpress)
+> 2. Assemble 1 test corner to confirm the gap between plates
+> 3. Steel tube: 35×35×2 mm (preferred) or 30×30×2 mm based on measured gap
+> 4. Confirm M10×50 bolt length in actual stack assembly

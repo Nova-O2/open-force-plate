@@ -56,7 +56,7 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 |---|------|:---:|----------:|
 | 1 | 5052-F aluminum top plate, 600×500mm, 6.35mm (1/4"), R30 corners | 1 | ~150 |
 | 2 | 5052-F aluminum bottom plate, 527×396mm, 3mm, 15×15 chamfered corners | 1 | ~60 |
-| 3 | 2mm steel gussets (56×32mm, 2× Ø11mm holes, 25mm center-to-center) | 4 | ~20 |
+| 3 | 2mm steel shims (56×32mm, 2× Ø11mm holes, 25mm center-to-center) | 4 | ~20 |
 | 4 | M10×50 Allen countersunk screws DIN 7991 + M10 nuts + washers (8+8+8) | 1 | ~30 |
 | 5 | Ø11mm drill bit + 90° countersink M10 (Ø20) | 1 | ~20 |
 | 6 | Turned feet with collar Ø20×5mm (single piece, machinist) | 4 | ~160 |

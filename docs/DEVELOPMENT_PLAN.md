@@ -28,9 +28,9 @@ Single piece that covers the load cell mounting holes. Does not touch the floor 
 - [ ] Drill 8 holes of **Ø11 mm** at the same relative positions as the top plate
 - [ ] The bottom plate is centered under the top plate
 
-:::tip Dual-plate strategy (Phase 5)
-The top plate (50×60 cm) is sized to be cut in half → 2 plates of 50×30 cm (similar dimension to VALD FDLite: 48.5×30 cm). The Phase 1 holes are already at the correct angle (~62°) for the final Phase 2 layout.
-:::
+> **💡 Dual-plate strategy (Phase 5)**
+>
+> The top plate (50×60 cm) is sized to be cut in half → 2 plates of 50×30 cm (similar dimension to VALD FDLite: 48.5×30 cm). The Phase 1 holes are already at the correct angle (~62°) for the final Phase 2 layout.
 
 #### Load cell — Dimensions (Decent DYX-301 500 kg)
 
@@ -119,7 +119,7 @@ Cells oriented along the diagonal of the half-plate (300×500 mm), foot at the c
 
 All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to Ø20 mm (DIN 7991). Same relative positions on bottom plate.
 
-**Fabrication drawings:** regenerate via `python3 cad/fabrication_drawings.py` → 5 PDFs in `cad/` (plates, foot bolt, shim, assembly)
+**Fabrication drawings:** regenerate via `python3 hardware/cad/fabrication_drawings.py` → 5 PDFs in `hardware/cad/` (plates, foot bolt, shim, assembly)
 
 #### Turned foot bolt with collar (×4) — single machined part
 
@@ -192,13 +192,13 @@ Cross-section view (box section):
 - [ ] Clamp for 24 h (epoxy cure)
 - [ ] Verify alignment and flatness after cure
 
-:::info Complete structural analysis
-Calculation scripts in `cad/structural_analysis.py`, `cad/material_comparison.py`, `cad/reinforcement_analysis.py`, and `cad/box_section_analysis.py`. Deflection and stress verified for scenarios up to DJ 7×BW (120 kg), with FS > 10 in all cases.
-:::
+> **ℹ️ Complete structural analysis**
+>
+> Calculation scripts in `hardware/cad/structural_analysis.py`, `hardware/cad/material_comparison.py`, `hardware/cad/reinforcement_analysis.py`, and `hardware/cad/box_section_analysis.py`. Deflection and stress verified for scenarios up to DJ 7×BW (120 kg), with FS > 4 in all scenarios.
 
-:::warning
-Rigid, flat floor required. Uneven surfaces, carpet, or flexible floors compromise readings. If the floor is inadequate, use an MDF or plywood base as a leveling surface.
-:::
+> **⚠️ Warning**
+>
+> Rigid, flat floor required. Uneven surfaces, carpet, or flexible floors compromise readings. If the floor is inadequate, use an MDF or plywood base as a leveling surface.
 
 ### 1.3 Electronics Assembly
 
