@@ -82,9 +82,9 @@ M10 nut + washer
 
 **Fasteners required:** 8× M10×50 DIN 7991 + 8× M10 nuts + 8× washers (2 per cell)
 
-#### Cell layout — ~62° (Phase 2 diagonal angle)
+#### Cell layout — ~62° (Phase 5 diagonal angle)
 
-Cells oriented along the diagonal of the half-plate (300×500 mm), foot at the corner, cable toward the center. Angle already set for Phase 2 (cut in half).
+Cells oriented along the diagonal of the half-plate (300×500 mm), foot at the corner, cable toward the center. Angle already set for Phase 5 (cut in half).
 
 ```
     ←──────────── 600 mm ────────────→
