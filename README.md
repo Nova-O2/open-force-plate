@@ -66,8 +66,8 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 - ✅ Component selection and procurement
 - ✅ Structural analysis and fabrication drawings
 - ✅ Electronics received (ADC, MCU, power, connectors)
-- ⏳ Load cells in transit
-- ⏳ Aluminum plates acquired, awaiting assembly
+- ✅ Load cells received (4× DYX-301, 2026-04-23)
+- 🔄 Aluminum plates acquired; machining of plates and turned feet in progress (AL Usinagem, started 2026-04-25)
 - 🔲 Firmware development
 - 🔲 Software development
 - 🔲 Scientific validation
@@ -216,8 +216,8 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 - ✅ Seleção e compra dos componentes
 - ✅ Análise estrutural e desenhos de fabricação
 - ✅ Eletrônica recebida (ADC, MCU, alimentação, conectores)
-- ⏳ Células de carga em trânsito
-- ⏳ Chapas de alumínio adquiridas, aguardando montagem
+- ✅ Células de carga recebidas (4× DYX-301, 2026-04-23)
+- 🔄 Chapas de alumínio adquiridas; usinagem das chapas e pés torneados em andamento (AL Usinagem, iniciada 2026-04-25)
 - 🔲 Desenvolvimento de firmware
 - 🔲 Desenvolvimento de software
 - 🔲 Validação científica

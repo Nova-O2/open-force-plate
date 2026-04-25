@@ -1,7 +1,7 @@
 # Shopping List — Mechanical Assembly
 
-**Date:** 2026-04-06
-**Status:** Aluminum plates purchased and picked up (Casa dos Metais). AliExpress received (except DYX-301 load cells). Pending: load cells + turned feet + local fasteners/materials.
+**Date:** 2026-04-06 (last updated 2026-04-25)
+**Status:** Aluminum plates purchased (Casa dos Metais). AL Usinagem started machining plates (corner finishing + drilling + countersinking) and 4× turned feet on 2026-04-25. AliExpress received except DYX-301 load cells. Pending: load cells + steel shims + steel tubes + local fasteners/materials.
 **Total budget:** ~R$ 875
 
 ---
@@ -92,8 +92,8 @@
 | Supplier | Items | Subtotal | Status |
 |----------|:-----:|----------:|--------|
 | Casa dos Metais (Al plates) | 1–2 | **R$ 550** | Purchased |
-| Metal supplier (cutting + tubes) | 3 + finishing 1–2 | ~R$ 50 | To estimate |
-| Turner | 4 | ~R$ 160 | To estimate |
+| AL Usinagem (plate finishing + turned feet) | 1–2 finishing + 4 | TBD | Machining started 2026-04-25 |
+| Metal supplier (steel tubes) | 3 | ~R$ 20 | Pending gap measurement |
 | Metalwork shop | 5 | ~R$ 20 | To estimate |
 | Fastener shop | 6–10 | ~R$ 50 | To estimate |
 | Materials | 11–14 | ~R$ 45 | To estimate |
@@ -103,16 +103,16 @@
 
 ## Purchase Checklist
 
-- [ ] Casa dos Metais — close purchase of 2 Al plates (R$ 550)
-- [ ] Metal supplier — corner cutting (R30 + chamfer), drilling if possible, steel tubes (bring 3 PDFs)
-- [ ] Turner — 4 foot pieces (bring 1 PDF)
-- [ ] Metalwork shop — 4 steel shims (bring 1 PDF)
+- [x] Casa dos Metais — close purchase of 2 Al plates (R$ 550) — picked up 2026-04-16
+- [x] AL Usinagem — measurement check + plates finishing (R30/chamfer + drilling + countersinking) + 4 foot pieces — started 2026-04-25
+- [ ] Metal supplier — steel tubes (after gap measurement)
+- [ ] Metalwork shop — 4 steel shims (bring `fab_shim.pdf`)
 - [ ] Fastener shop — M10×50 DIN 7991 bolts + nuts + washers + drill bit + countersink
 - [ ] Materials — epoxy + rubber + sandpaper + alcohol
 
-> **⚠️ Before purchasing**
+> **⚠️ Before purchasing steel tubes**
 >
-> 1. Wait for load cells to arrive (AliExpress)
-> 2. Assemble 1 test corner to confirm the gap between plates
+> 1. ~~Wait for load cells to arrive (AliExpress)~~ ✅ Received 2026-04-23 (4 units, no damage)
+> 2. Assemble 1 test corner to confirm the gap between plates (after AL Usinagem returns plates + feet)
 > 3. Steel tube: 35×35×2 mm (preferred) or 30×30×2 mm based on measured gap
 > 4. Confirm M10×50 bolt length in actual stack assembly

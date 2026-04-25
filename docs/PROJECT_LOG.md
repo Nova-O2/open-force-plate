@@ -6,6 +6,19 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-04-25 — AL Usinagem kickoff: measurements verified, machining started
+
+- Meeting with AL Usinagem (machine shop) — measurement check on aluminum plates and discussion of fabrication scope
+- Measurements confirmed against fabrication PDFs (`hardware/cad/fab_top_plate.pdf`, `fab_bottom_plate.pdf`, `fab_foot_piece.pdf`)
+- Machining started: top + bottom plates (corner cutting R30 / 15×15 chamfer + Ø11 mm drilling + Ø20 countersinking) and 4× turned foot bolts with collar
+- Steel shims (4×) and steel tubes (35×35×2 mm box section) still to be sourced — pending gap measurement after first corner assembled
+
+## 2026-04-23 — Load cells received
+
+- 4× DYX-301 500 kg shear-beam load cells received, all units intact (no damage)
+- Last AliExpress shipment closed — all components now in hand
+- Unblocks: turned foot machining (measurements can be verified against actual cell threads/dimensions)
+
 ## 2026-04-16 — Components in hand, mechanical assembly begins
 
 - 5052-F aluminum plates picked up at Casa dos Metais (R$550 — 6.35mm top + 3mm bottom)
