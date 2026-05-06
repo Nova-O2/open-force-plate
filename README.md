@@ -8,6 +8,19 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 
 > **[🇧🇷 Leia em Português](#português)**
 
+## Status
+
+- **Status:** 🚧
+- **Próximo passo:** Aguardando AL Usinagem retornar peças (chapas + 4 pézinhos); montar canto teste; encomendar tubos aço + shims
+- **Trigger:** AL Usinagem entregar peças
+- **Aguardando:** AL Usinagem (fornecedor)
+- **Updated:** 2026-05-06
+
+### Engenharia
+- **Sprint:** hardware MVP — montagem mecânica V1
+- **Version:** v0 (pré-MVP)
+- **Deploy:** N/A (hardware physical)
+
 ## Specifications
 
 | Parameter | Value |
