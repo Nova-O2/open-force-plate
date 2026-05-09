@@ -86,12 +86,13 @@ The `hardware/cad/` directory contains Python scripts that compute structural an
 
 **Current revisions:**
 
-| Revision | Materials | Top plate | Reinforcement |
-|----------|-----------|-----------|---------------|
-| Rev 1.0 (2026-04-01) | Al 6061-T6 | 6 mm | Aluminum tubes |
-| Rev 2.0 (2026-04-06) | Al 5052-F | 6.35 mm (1/4 in) | 1020 carbon steel tubes 35×35×2 mm |
+| Revision | Materials | Top plate | Reinforcement | Fastening / Notes |
+|----------|-----------|-----------|---------------|-------------------|
+| Rev 1.0 (2026-04-01) | Al 6061-T6 | 6 mm | Aluminum tubes | M10 class 8.8, single shim per cell |
+| Rev 2.0 (2026-04-06) | Al 5052-F | 6.35 mm (1/4 in) | 1020 carbon steel tubes 35×35×2 mm | M10×50 class 8.8, 4 shims (top only, 2mm) |
+| Rev 3.0 (2026-05-08) | Al 5052-F | 6.35 mm (1/4 in) | 1020 carbon steel tubes 35×35×2 mm | Inox 304 throughout (M10×60 DIN 7991 + Parlock + DIN 125), mirror shims (8 units, 1.5mm nominal), perimeter chamfer top plate (45°×2.12mm both faces) + bottom plate (45°×1.5mm bottom face) |
 
-Scripts targeting Rev 1.0 are marked with a disclaimer comment. Updated Rev 2.0 scripts are planned.
+Scripts targeting Rev 1.0 or Rev 2.0 are marked with a disclaimer comment. Rev 3.0 scripts are the current default.
 
 ---
 
