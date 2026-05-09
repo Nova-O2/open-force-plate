@@ -7,10 +7,29 @@ Nova O2 Sport Science
 
 Generates 5 fabrication PDFs:
 1. fab_top_plate.pdf — Top plate 600x500mm, 6.35mm aluminum, R30 corners, countersunk M10 holes
+                        Rev 3.0: perimeter chamfer 2.12mm × 45° on BOTH faces
 2. fab_bottom_plate.pdf — Bottom plate 527x396mm, 3mm aluminum, 15x15 chamfered corners
+                           Rev 3.0: perimeter chamfer 1.5mm × 45° on BOTTOM face only
 3. fab_foot_piece.pdf — Turned foot piece with collar (x4)
-4. fab_shim.pdf — Steel shim (x4)
-5. fab_assembly.pdf — Exploded assembly view
+                         Rev 3.0: Ø55mm base disc (was Ø60), knurled vertical wall (BASE_H=8mm)
+4. fab_shim.pdf — Stainless steel shim (x8, 4 top + 4 bottom mirror), 1.5mm nominal
+5. fab_assembly.pdf — Exploded assembly view, 5-layer stack, mirror shim configuration
+
+Revision history:
+  Rev 2.0 (2026) — Initial MVP release: Ø60 base, 2mm carbon/stainless shims (×4), M10×50 cl 8.8
+  Rev 3.0 (2026-05-08) — Fastening redesign:
+    - BASE_DIA: Ø60 → Ø55mm (bar stock + base disc + rubber pad cascade)
+    - Foot piece base vertical wall: knurled (Ø55 × 8mm tall cylindrical surface)
+    - Top plate: perimeter chamfer 2.12mm × 45°, both faces (handling safety)
+    - Bottom plate: perimeter chamfer 1.5mm × 45°, bottom face only
+    - Shim qty: 4 → 8 (mirror config: 4 top + 4 bottom)
+    - Shim thickness: 2mm → 1.5mm nominal (empirical TBD per COMPONENT_SPECS §2.3.1)
+    - Shim material: carbon/stainless → Stainless steel 304 (mandatory)
+    - Bolt: M10×50 cl 8.8 → M10×60 inox 304 A2-70
+    - Nut: Parlock all-metal locknut inox 304
+    - Washer: DIN 125-A plain inox 304
+    - Torque: 20–25 N·m
+    - Stack height: 6.35 + 1.5 + 32 + 1.5 + 3 = 44.35mm total
 """
 
 import matplotlib.pyplot as plt
@@ -60,7 +79,7 @@ HOLE_SPACING = 25.0
 COUNTERSINK_DIA = 20  # escareamento DIN 7991 M10
 
 # Junta
-SHIM_L, SHIM_W, SHIM_T = 56, 32, 2
+SHIM_L, SHIM_W, SHIM_T = 56, 32, 1.5
 
 # Pezinho (com colar)
 ROD_DIA = 12
@@ -68,10 +87,26 @@ ROD_LENGTH = 32
 COLLAR_DIA = 20
 COLLAR_H = 5
 CHAMFER_H = 6
-BASE_DIA = 60
+BASE_DIA = 55  # Rev 3.0: Ø60 → Ø55 (cascades to chamfer end + rubber pad)
 BASE_H = 8
 RUBBER_H = 1
 TOTAL_FOOT = ROD_LENGTH + COLLAR_H + CHAMFER_H + BASE_H + RUBBER_H  # 52mm
+
+# --- Rev 3.0 — Fastening redesign constants ---
+DESIGN_REV = "3.0"
+TOP_PLATE_PERIM_CHAMFER = 2.12   # mm at 45°, BOTH faces (perimeter edge, handling safety)
+BOT_PLATE_PERIM_CHAMFER = 1.5    # mm at 45°, BOTTOM face only (top face stays sharp)
+BASE_KNURLED = True              # knurl on base vertical wall (Ø55 × BASE_H=8mm cylindrical surface)
+SHIM_QTY = 8                     # 4 top + 4 bottom mirror (was implicit 4)
+SHIM_MATERIAL = "Stainless steel 304"   # mandatory (was "carbon or stainless")
+BOLT_LENGTH = 60                 # mm (was 50)
+BOLT_MATERIAL = "Stainless steel 304 A2-70"
+NUT_TYPE = "Parlock all-metal locknut inox 304"
+WASHER_TYPE = "DIN 125-A plain inox 304"
+TORQUE_TARGET_MIN = 20           # N·m
+TORQUE_TARGET_MAX = 25           # N·m
+# Stack height Rev 3.0: 6.35 + 1.5 + 32 + 1.5 + 3 = 44.35mm
+STACK_HEIGHT = TOP_THICK + SHIM_T + ROD_LENGTH + SHIM_T + BOT_THICK  # 44.35mm
 
 
 # =============================================================================
@@ -355,9 +390,15 @@ def draw_chapa_superior():
     ax3.set_aspect('equal')
     clean_axes(ax3)
 
+    # Perimeter chamfer annotation (both faces)
+    ax1.text(TOP_W / 2, -55,
+             f'CHANFRO PERIMETRAL {TOP_PLATE_PERIM_CHAMFER}\u00d745\u00b0 EM AMBAS AS FACES',
+             ha='center', fontsize=7, color=ORANGE, fontweight='bold',
+             style='italic')
+
     add_title_block(fig, 'Chapa superior', u'Alum\u00ednio 5052-F',
                     f'{TOP_THICK}mm (1/4")', '1 unidade',
-                    f'Cantos R{CORNER_R}, furos escareados M10')
+                    f'Cantos R{CORNER_R}; chanfro perimetral {TOP_PLATE_PERIM_CHAMFER}\u00d745\u00b0 (ambas as faces)')
 
     fig.savefig(str(OUT_DIR / 'fab_top_plate.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
@@ -409,7 +450,7 @@ def draw_chapa_inferior():
     ch_y = BOT_H - BOT_CHAMFER
     dim_h(ax1, ch_x, BOT_W, BOT_H, 12, f'{BOT_CHAMFER}', fs=7, color=ORANGE)
     dim_v(ax1, ch_y, BOT_H, BOT_W, 15, f'{BOT_CHAMFER}', fs=7, color=ORANGE)
-    ax1.text(BOT_W - BOT_CHAMFER / 2 - 15, BOT_H - BOT_CHAMFER / 2 + 5,
+    ax1.text(BOT_W - BOT_CHAMFER / 2 + 18, BOT_H - BOT_CHAMFER / 2 + 5,
              u'chanfro 45\u00b0', fontsize=6.5, color=ORANGE, fontweight='bold')
 
     ax1.text(BOT_W / 2, BOT_H + 12, u'SIM\u00c9TRICO EM AMBOS OS EIXOS',
@@ -483,9 +524,15 @@ def draw_chapa_inferior():
     ax3.set_aspect('equal')
     clean_axes(ax3)
 
+    # Perimeter chamfer annotation (bottom face only)
+    ax1.text(BOT_W / 2, -55,
+             f'CHANFRO PERIMETRAL {BOT_PLATE_PERIM_CHAMFER}\u00d745\u00b0 NA FACE INFERIOR APENAS',
+             ha='center', fontsize=7, color=ORANGE, fontweight='bold',
+             style='italic')
+
     add_title_block(fig, 'Chapa inferior', u'Alum\u00ednio 5052-F',
                     f'{BOT_THICK}mm', '1 unidade',
-                    f'Cantos chanfrados {BOT_CHAMFER}\u00d7{BOT_CHAMFER} a 45\u00b0')
+                    f'Cantos chanf. {BOT_CHAMFER}\u00d7{BOT_CHAMFER}; chanfro perimetral {BOT_PLATE_PERIM_CHAMFER}\u00d745\u00b0 face inf. apenas')
 
     fig.savefig(str(OUT_DIR / 'fab_bottom_plate.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
@@ -583,9 +630,17 @@ def draw_pezinho():
              u'COLAR (batente)', fontsize=6.5, color=ORANGE,
              fontweight='bold', va='center')
 
-    ax1.text(cx, rub_bottom - 15,
-             u'Borracha neoprene \u00d860mm\u00d71mm\n(colada ap\u00f3s usinagem)',
+    ax1.text(cx, rub_bottom - 28,
+             'Borracha',
              ha='center', fontsize=6, color='#666')
+
+    # Knurled annotation on base vertical wall
+    knurl_y = (base_bottom + chamfer_bottom) / 2
+    ax1.annotate('SERRILHADO',
+                 xy=(cx + BASE_R, knurl_y),
+                 xytext=(cx + BASE_R + 28, knurl_y + 5),
+                 fontsize=6, color=ORANGE, fontweight='bold',
+                 arrowprops=dict(arrowstyle='->', color=ORANGE, lw=0.8))
 
     ax1.set_xlim(cx - 75, cx + 85)
     ax1.set_ylim(rub_bottom - 22, y_top + 18)
@@ -650,8 +705,9 @@ def draw_pezinho():
         ['Colar', f'\u00d8{COLLAR_DIA}mm, {COLLAR_H}mm altura (batente)'],
         ['Chanfro', f'\u00d8{COLLAR_DIA}\u2192\u00d8{BASE_DIA}, {CHAMFER_H}mm (~{angle_ch:.0f}\u00b0)'],
         ['Base', f'\u00d8{BASE_DIA}mm, {BASE_H}mm espessura'],
-        ['Borracha', f'\u00d8{BASE_DIA}mm, {RUBBER_H:.0f}mm neoprene (colar ap\u00f3s usinagem)'],
-        ['Material', u'A\u00e7o carbono ou inox (barra \u00d860mm)'],
+        ['Serrilhado', f'Face cil\u00edndrica da base (\u00d8{BASE_DIA}\u00d7{BASE_H}mm)'],
+        ['Borracha', f'\u00d8{BASE_DIA}mm, {RUBBER_H:.0f}mm (colar ap\u00f3s usinagem)'],
+        ['Material', f'A\u00e7o carbono ou inox (barra \u00d8{BASE_DIA}mm)'],
         ['Altura total', f'{TOTAL_FOOT}mm (rosca+colar+chanfro+base+borracha)'],
     ]
 
@@ -670,9 +726,9 @@ def draw_pezinho():
             table[i, j].set_facecolor(color)
 
     add_title_block(fig, 'P\u00e9 torneado com colar',
-                    u'A\u00e7o carbono/inox (barra \u00d860mm)',
+                    f'A\u00e7o carbono/inox (barra \u00d8{BASE_DIA}mm)',
                     'Ver cotas', '4 unidades',
-                    u'Borracha colada ap\u00f3s usinagem')
+                    u'Borracha colada ap\u00f3s usinagem; base com serrilhado')
 
     fig.savefig(str(OUT_DIR / 'fab_foot_piece.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
@@ -748,8 +804,9 @@ def draw_junta():
     specs = [
         [u'Par\u00e2metro', 'Valor'],
         [u'Fun\u00e7\u00e3o', u'Distribuir carga entre c\u00e9lula e chapa'],
-        ['Material', u'A\u00e7o (mais duro que alum\u00ednio)'],
-        [u'Posi\u00e7\u00e3o', u'Entre chapa superior e c\u00e9lula de carga'],
+        ['Material', f'{SHIM_MATERIAL} (mais duro que alum\u00ednio)'],
+        [u'Posi\u00e7\u00e3o', u'4 superiores + 4 inferiores'],
+        ['Espessura', f'{SHIM_T}mm nominal (final emp\u00edrica)'],
         ['Furos', f'2\u00d7 \u00d8{HOLE_DIA}mm passante, {HOLE_SPACING}mm entre centros'],
         ['Acabamento', u'Superf\u00edcies planas, sem rebarbas'],
     ]
@@ -768,9 +825,9 @@ def draw_junta():
         for j in range(2):
             table[i, j].set_facecolor(color)
 
-    add_title_block(fig, u'Junta de a\u00e7o', u'A\u00e7o carbono',
-                    f'{SHIM_T}mm', '4 unidades',
-                    u'Impede esmagamento do alum\u00ednio')
+    add_title_block(fig, u'Junta de a\u00e7o', SHIM_MATERIAL,
+                    f'{SHIM_T}mm nominal', f'{SHIM_QTY} unidades (4 sup + 4 inf)',
+                    u'Impede esmagamento do alum\u00ednio; configura\u00e7\u00e3o espelho')
 
     fig.savefig(str(OUT_DIR / 'fab_shim.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
@@ -820,13 +877,15 @@ def draw_montagem():
     nut_w = 20
 
     # Posicoes Y (de cima pra baixo)
+    # Rev 3.0: 5-layer stack — top plate / top shim / cell / bottom shim / bottom plate
     y_bolt_top = 270
     y_bolt = y_bolt_top - bolt_head_h - bolt_shank_h
 
     y_top = y_bolt - gap
-    y_shim = y_top - top_h - gap
+    y_shim = y_top - top_h - gap          # top shim
     y_cell = y_shim - shim_h - gap
-    y_bot = y_cell - cell_h - gap
+    y_bot_shim = y_cell - cell_h - gap    # bottom shim (Rev 3.0)
+    y_bot = y_bot_shim - shim_h - gap
     y_nut = y_bot - bot_h - gap
 
     # Tubo — mesma altura que celula+junta, entre as chapas
@@ -865,7 +924,7 @@ def draw_montagem():
     ax.plot([cx - 2, cx + 2], [y_bolt + bolt_shank_h + bolt_head_h - 1.5,
             y_bolt + bolt_shank_h + bolt_head_h - 1.5], color='#666', lw=1.5)
     ax.text(cx - bolt_head_w / 2 - 3, y_bolt + bolt_shank_h,
-            u'Parafuso Allen\nM10\u00d750\nDIN 7991',
+            f'Parafuso Allen\nM10\u00d7{BOLT_LENGTH}\nDIN 7991\n{BOLT_MATERIAL}',
             fontsize=5.5, va='center', fontweight='bold', color=DARK, ha='right')
 
     # 2. Chapa superior (com escareamento)
@@ -904,6 +963,15 @@ def draw_montagem():
             fontsize=5, va='center', fontweight='bold', color=DARK)
     ax.plot([cx - 3, cx + 3], [y_cell + 2, y_cell + 2], color='#666', lw=1)
 
+    # 4b. Junta inferior (Rev 3.0 \u2014 mirror shim)
+    draw_rect(cx, y_bot_shim, shim_h, shim_w, fc='#B8B8B8')
+    for hy in np.arange(y_bot_shim + 1, y_bot_shim + shim_h, 1.5):
+        ax.plot([cx - shim_w / 2 + 2, cx + shim_w / 2 - 2], [hy, hy],
+                color='#888', lw=0.3, zorder=3)
+    ax.text(cx - shim_w / 2 - 3, y_bot_shim + shim_h / 2,
+            'JUNTA INF.',
+            fontsize=5, va='center', fontweight='bold', color=ORANGE, ha='right')
+
     # 5. Chapa inferior
     draw_rect(cx, y_bot, bot_h, bot_w)
     ax.text(cx + bot_w / 2 + 3, y_bot + bot_h / 2,
@@ -933,10 +1001,11 @@ def draw_montagem():
             f'P\u00c9 TORNEADO\ncom colar\n\u00d8{BASE_DIA}mm',
             fontsize=5, va='center', fontweight='bold', color=DARK, ha='right')
 
-    # Linhas de ligacao (coluna canto)
+    # Linhas de ligacao (coluna canto) — Rev 3.0: 5-layer stack
     for y_from, y_to in [
         (y_bolt, y_top + top_h), (y_top, y_shim + shim_h),
-        (y_shim, y_cell + cell_h), (y_cell, y_bot + bot_h),
+        (y_shim, y_cell + cell_h), (y_cell, y_bot_shim + shim_h),
+        (y_bot_shim, y_bot + bot_h),
         (y_bot, y_nut + nut_h), (y_nut, y_ft),
     ]:
         ax.plot([cx, cx], [y_to, y_from], color='#BBB', lw=0.8, ls=':', zorder=1)
@@ -1008,18 +1077,19 @@ def draw_montagem():
 
     steps = [
         ('1', u'Colar 2 tubos de a\u00e7o na face interna\nda chapa superior (Y=194 e Y=306mm)\nLixar + ep\u00f3xi + prensar 24h'),
-        ('2', u'Inserir parafusos Allen M10 DIN 7991\npelo lado escareado da chapa superior'),
-        ('3', u'Posicionar juntas de a\u00e7o sobre as\nc\u00e9lulas de carga'),
+        ('2', f'Inserir parafusos Allen M10\u00d7{BOLT_LENGTH} DIN 7991\npelo lado escareado da chapa superior\n({BOLT_MATERIAL})'),
+        ('3', u'Posicionar juntas de a\u00e7o SUPERIORES\n(4\u00d7) sobre as c\u00e9lulas de carga'),
         ('4', u'Encaixar c\u00e9lulas nos parafusos\n(2 parafusos por c\u00e9lula, 4 cantos)'),
-        ('5', u'Colar tubos de a\u00e7o na chapa inferior (ep\u00f3xi)\ne posicionar sobre os parafusos'),
-        ('6', u'Fixar com porca M10 + arruela\n(n\u00e3o apertar totalmente ainda)'),
-        ('7', u'Rosquear p\u00e9s (M12\u00d71,75)\nat\u00e9 o colar encostar na c\u00e9lula'),
-        ('8', u'Nivelar (n\u00edvel de bolha) e apertar\nporcas. Testar rigidez sob carga'),
+        ('5', u'Posicionar juntas de a\u00e7o INFERIORES\n(4\u00d7) sob as c\u00e9lulas de carga'),
+        ('6', u'Colar tubos de a\u00e7o na chapa inferior (ep\u00f3xi)\ne posicionar sobre os parafusos'),
+        ('7', f'Fixar com {NUT_TYPE}\n+ {WASHER_TYPE}\n(n\u00e3o apertar totalmente ainda)'),
+        ('8', u'Rosquear p\u00e9s (M12\u00d71,75)\nat\u00e9 o colar encostar na chapa inferior'),
+        ('9', f'Nivelar (n\u00edvel de bolha) e apertar porcas\n{TORQUE_TARGET_MIN}\u2013{TORQUE_TARGET_MAX} N\u00b7m. Testar rigidez sob carga'),
     ]
 
     y_start = 0.95
     for i, (num, text) in enumerate(steps):
-        y_pos = y_start - i * 0.112
+        y_pos = y_start - i * 0.10
         ax2.text(0.02, y_pos, num, fontsize=11, fontweight='bold', color='white',
                  va='top', transform=ax2.transAxes,
                  bbox=dict(fc=ORANGE, ec='none', pad=3, boxstyle='circle,pad=0.3'))
@@ -1027,15 +1097,17 @@ def draw_montagem():
                  transform=ax2.transAxes)
 
     ax2.text(0.02, 0.02,
-             u'NOTA: 4 cantos \u00d7 (2 paraf. + 1 junta + 1 c\u00e9lula + 1 p\u00e9)\n'
-             u'+ 2 tubos quadrados de a\u00e7o colados (refor\u00e7o central)\n'
-             u'Total: 8 paraf. M10, 4 juntas, 4 c\u00e9lulas, 4 p\u00e9s, 2 tubos a\u00e7o',
-             fontsize=6, color=MID_GRAY, transform=ax2.transAxes,
+             f'NOTA \u2014 Configura\u00e7\u00e3o espelho: 4 cantos \u00d7 (2 paraf. + 1 junta sup. + 1 c\u00e9lula + 1 junta inf. + 1 p\u00e9)\n'
+             f'+ 2 tubos quadrados de a\u00e7o colados (refor\u00e7o central)\n'
+             f'Total: 8 paraf. M10\u00d7{BOLT_LENGTH} {BOLT_MATERIAL}, {SHIM_QTY} juntas inox 304, 4 c\u00e9lulas, 4 p\u00e9s, 2 tubos a\u00e7o\n'
+             f'Stack: {TOP_THICK}+{SHIM_T}+{ROD_LENGTH}+{SHIM_T}+{BOT_THICK} = {STACK_HEIGHT:.2f}mm | '
+             f'Torque: {TORQUE_TARGET_MIN}\u2013{TORQUE_TARGET_MAX} N\u00b7m',
+             fontsize=5.5, color=MID_GRAY, transform=ax2.transAxes,
              va='bottom', style='italic')
 
     add_title_block(fig, 'Montagem', 'Conjunto completo',
-                    'N/A', u'Refer\u00eancia',
-                    u'Parafusos DIN 7991 M10 escareados')
+                    f'Stack {STACK_HEIGHT:.2f}mm', u'Refer\u00eancia',
+                    f'M10\u00d7{BOLT_LENGTH} A2-70; {SHIM_QTY} juntas inox 304; configura\u00e7\u00e3o espelho')
 
     fig.savefig(str(OUT_DIR / 'fab_assembly.pdf'), bbox_inches='tight', facecolor='white')
     plt.close(fig)
