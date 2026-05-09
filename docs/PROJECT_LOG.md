@@ -6,6 +6,53 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-05-08 — Rev 3.0 trigger: components received + fastening redesign
+
+### Components received from AL Usinagem (machine shop)
+
+- 4× turned foot pieces (M12 thread + collar + base + rubber pad)
+  - **Spec deviation noted:** turned bar Ø55 mm (was specified Ø60 mm in Rev 2.0) — machine shop preference for available material stock
+  - **Spec addition noted:** base vertical wall (Ø55 mm cylindrical surface) knurled (recartilhado) — facilitates operator grip when threading the foot piece M12 into the load cell
+- 4× aluminum plates (top + bottom, both Al 5052-F) — drilled (8× Ø11 mm thru-holes each, with countersinking on top plate) + perimeter chamfer
+  - **Acabamento (chamfer) details:**
+    - Top plate (6.35 mm): 45° × 2.12 mm chamfer on **both faces** (1/3 of thickness)
+    - Bottom plate (3 mm): 45° × 1.5 mm chamfer on **bottom face only** (1/2 of thickness)
+  - Documented from AL Usinagem hand-sketch (lateral cross-section view)
+
+### Costs (AL Usinagem)
+
+- Foot pieces machining: R$ 1,120 (R$ 280 each × 4)
+- Plate finishing (drilling + chamfer): R$ 360
+- **Subtotal AL Usinagem (received): R$ 1,480**
+
+### Hardware purchased today (MercadoLivre)
+
+- M10×60 DIN 7991 inox 304 (kit 10 un) — **MIXPARAFUSOS** — R$ 76,05 (frete grátis)
+- M10 Parlock all-metal locknut inox 304 (2× kit 10 un) — **EMAIFIX** — R$ 37,14 (16% off, frete grátis)
+- M10 plain washer inox A2/304 (2× kit 10 un) — **USINIK** (loja oficial) — R$ 23,00 (frete grátis)
+- **Subtotal ML hardware: R$ 136,19** — awaiting delivery
+
+### Design decisions (this session) → trigger Rev 3.0
+
+- Switch fastening from class 8.8 carbon steel to **inox 304 throughout** (parafuso + porca + arruela + shim) for galvanic compatibility with Al 5052-F plates and reusable anti-vibration locking (Parlock)
+- **Add 4 bottom shims** (mirror configuration: 4 top + 4 bottom = 8 total). Bearing FS analysis: direct nut-on-aluminum (without bottom shim) gives FS ≈ 1.05 → unsafe; mirror shim brings FS ≈ 11
+- Bolt length 50 → 60 mm to accommodate added bottom shim in stack (top plate 6.35 + top shim 1.5 + cell 32 + bottom shim 1.5 + bottom plate 3 = 44.35 mm + nut + washer)
+- Shim thickness 2 → 1.5 mm nominal (final TBD empirical — see `COMPONENT_SPECS.md` §2.3.1 process gate)
+- Torque target reduced 50–60 → 20–25 N·m (lower preload of A2-70 vs cl 8.8) + anti-seize on DIN 7991 cone face
+- Discarded purchase: parafuso M10×40 DIN 7991 (Belenus, LUTEC) — incorrect length (would not reach nut after stack)
+
+### Pending (next steps — see Rev 3.0 plan)
+
+- Steel tubes 35×35×2 mm 1020 carbon — confirm arrival + dimensions with caliper
+- Bond plates+tubes with structural epoxy (24 h cure)
+- Measure bonded box section height + cell H actual at 4 corner positions
+- Quote 8 new shims (inox 304, thickness from measurement) — AL Usinagem
+- Hardware ML delivery
+- Test-fit single corner before mass assembly (torque 20–25 N·m, no visible Al deformation)
+- First calibration → triggers `v3.0.0-rc1` → `v3.0.0` final tag promotion
+
+---
+
 ## 2026-04-25 — AL Usinagem kickoff: measurements verified, machining started
 
 - Meeting with AL Usinagem (machine shop) — measurement check on aluminum plates and discussion of fabrication scope

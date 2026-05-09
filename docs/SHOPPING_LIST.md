@@ -1,8 +1,15 @@
 # Shopping List — Mechanical Assembly
 
-**Date:** 2026-04-06 (last updated 2026-04-25)
-**Status:** Aluminum plates purchased (Casa dos Metais). AL Usinagem started machining plates (corner finishing + drilling + countersinking) and 4× turned feet on 2026-04-25. AliExpress received except DYX-301 load cells. Pending: load cells + steel shims + steel tubes + local fasteners/materials.
-**Total budget:** ~R$ 875
+**Date:** 2026-04-06 (last updated 2026-05-08 — Rev 3.0 fastening redesign)
+**Status:** Aluminum plates + 4 turned foot pieces received from AL Usinagem (R$ 1,480 total — 2026-05-08). MercadoLivre hardware ordered (R$ 136,19, awaiting delivery): M10×60 inox 304 + Parlock 304 + arruela 304. Pending: 8 stainless 304 shims (1.5 mm nominal — empirical, AL Usinagem quote) + 1020 steel tubes 35×35×2 mm + structural epoxy + DYX-301 load cells (received).
+**Total spent so far:** R$ 2,166 (R$ 550 plates + R$ 1,480 AL Usinagem + R$ 136 ML hardware)
+
+> **Rev 3.0 changes (2026-05-08):**
+> - Fastening: M10×50 class 8.8 → **M10×60 inox 304** + Parlock + arruela 304 (galvanic compatibility + cyclic durability)
+> - Shims: 4 → **8 units** (mirror top + bottom, bearing distribution on both Al 5052-F faces)
+> - Material: shims now mandatory **inox 304** (was "carbon or stainless")
+> - Foot piece: bar Ø60 → Ø55 + base vertical wall knurled (AL Usinagem fab choices)
+> - Plate chamfer: perimeter chamfer added (top 2.12 mm both faces, bottom 1.5 mm bottom face only)
 
 ---
 
@@ -33,19 +40,20 @@
 
 ---
 
-## Machine Shop / Turner (~R$ 160)
+## Machine Shop / Turner — AL Usinagem (R$ 1,480 — RECEIVED 2026-05-08)
 
-| # | Item | Specification | Qty | Est. (R$) |
+| # | Item | Specification | Qty | Cost (R$) |
 |---|------|--------------|:---:|----------:|
-| 4 | Turned foot piece with collar | Carbon steel or stainless, Ø60 mm bar stock | 4 | ~160 |
+| 4 | Turned foot piece with collar | Bar stock **Ø55 mm** (Rev 3.0 — was Ø60), base vertical wall **knurled** | 4 | **1,120** (R$ 280 each) |
+| 4b | Plate finishing service | Drilling 8× Ø11mm + countersinking 8× Ø20×5.5mm + corner R30/chamfer + perimeter chamfer | 1 lot | **360** |
 
-**Part dimensions (bottom to top):**
+**Part dimensions (bottom to top) — Rev 3.0:**
 
 | Section | Dimension |
 |---------|-----------|
-| Rubber | Ø60 mm × 1 mm neoprene (glued after machining) |
-| Base | Ø60 mm × 8 mm |
-| Chamfer | Ø60→Ø20, 6 mm height (~17°) |
+| Rubber | **Ø55 mm** × 1 mm neoprene (glued after machining) — Rev 3.0 |
+| Base | **Ø55 mm** × 8 mm — vertical wall knurled (Rev 3.0) |
+| Chamfer | **Ø55→Ø20**, 6 mm height (~16°) — Rev 3.0 |
 | Collar | Ø20 mm × 5 mm (mechanical stop) |
 | Thread | M12×1.75, Ø12 mm, 32 mm length |
 | **Total height** | **52 mm** |
@@ -54,25 +62,29 @@
 
 ---
 
-## Metalwork / Machining (~R$ 20)
+## Stainless Steel Shims — AL Usinagem (Rev 3.0 — quote pending)
 
 | # | Item | Specification | Qty | Est. (R$) |
 |---|------|--------------|:---:|----------:|
-| 5 | Steel shim | Carbon steel, 56×32 mm, 2 mm thick, 2 through holes Ø11 mm, 25 mm center-to-center | 4 | ~20 |
+| 5 | Stainless 304 shim | **Inox 304** (Rev 3.0 — galvanic), 56×32 mm, **1.5 mm nominal** thickness (final empirical — see [`COMPONENT_SPECS.md`](./COMPONENT_SPECS.md) §2.3.1), 2 through holes Ø11 mm, 25 mm center-to-center | **8** (4 top + 4 bottom mirror — Rev 3.0) | TBD (AL Usinagem quote — fab after empirical box section height measurement) |
 
-**Bring PDF:** `hardware/cad/fab_shim.pdf`
+**Bring PDF:** `hardware/cad/fab_shim.pdf` (after re-render with Rev 3.0 dimensions)
+
+> **⚠️ Process gate (Rev 3.0):** Do NOT order shims at 1.5 mm before measuring the bonded box section. Tube + epoxy + cell tolerance can shift stack ±0.5 mm. See COMPONENT_SPECS §2.3.1 for the 7-step empirical derivation procedure.
 
 ---
 
-## Fasteners / Hardware (~R$ 50)
+## Fasteners / Hardware — MercadoLivre (R$ 136,19 — ORDERED 2026-05-08, awaiting delivery)
 
-| # | Item | Specification | Qty | Est. (R$) |
-|---|------|--------------|:---:|----------:|
-| 6 | Flat-head Allen bolt | M10×50, DIN 7991 (countersunk/conical) | 8 | ~20 |
-| 7 | M10 hex nut | DIN 934 (standard) or DIN 439 (thin) | 8 | ~5 |
-| 8 | M10 flat washer | DIN 125 | 8 | ~5 |
-| 9 | HSS metal drill bit | Ø11 mm | 1 | ~10 |
-| 10 | 90° conical countersink | For M10, diameter Ø20 mm | 1 | ~10 |
+| # | Item | Specification | Qty (kit) | Cost (R$) | Loja |
+|---|------|--------------|:---:|----------:|------|
+| 6 | Flat-head Allen bolt | **M10×60** DIN 7991 **inox 304 A2** passivated (Rev 3.0 — was M10×50 cl 8.8), full thread, chave Allen 6 mm | 1 kit (10 un) | **76,05** | MIXPARAFUSOS |
+| 7 | Locknut M10 Parlock | **All-metal locknut** (Rev 3.0 — was hex nut DIN 934), inox 304, chave 17 mm | 2 kits (20 un) | **37,14** (16% off) | EMAIFIX |
+| 8 | M10 plain washer | **Inox 304** (Rev 3.0 — was unspec), polido | 2 kits (20 un) | **23,00** | USINIK (loja oficial) |
+| 9 | HSS metal drill bit Ø11 mm | (already in toolkit, not re-ordered) | — | — | — |
+| 10 | 90° conical countersink Ø20 | (drilling done by AL Usinagem, not needed local) | — | — | — |
+
+> **All 3 ML purchases:** frete grátis. Subtotal R$ 136,19. Spare quantities (2 bolts + 12 nuts + 12 washers) for maintenance over device lifetime.
 
 ---
 
@@ -91,28 +103,33 @@
 
 | Supplier | Items | Subtotal | Status |
 |----------|:-----:|----------:|--------|
-| Casa dos Metais (Al plates) | 1–2 | **R$ 550** | Purchased |
-| AL Usinagem (plate finishing + turned feet) | 1–2 finishing + 4 | TBD | Machining started 2026-04-25 |
-| Metal supplier (steel tubes) | 3 | ~R$ 20 | Pending gap measurement |
-| Metalwork shop | 5 | ~R$ 20 | To estimate |
-| Fastener shop | 6–10 | ~R$ 50 | To estimate |
-| Materials | 11–14 | ~R$ 45 | To estimate |
-| **Total** | **14 items** | **~R$ 875** | |
+| Casa dos Metais (Al plates) | 1–2 | **R$ 550** | ✅ Purchased 2026-04-16 |
+| AL Usinagem (plate finishing + turned feet) | 1–2 finishing + 4 | **R$ 1,480** | ✅ Received 2026-05-08 |
+| AL Usinagem (8 stainless 304 shims, Rev 3.0) | 5 | TBD | ⏳ Quote pending — fab after empirical measurement |
+| Metal supplier (steel tubes) | 3 | ~R$ 20 | ⏳ Pending |
+| MercadoLivre (fasteners inox 304, Rev 3.0) | 6–8 | **R$ 136,19** | 🚚 Ordered 2026-05-08, awaiting delivery |
+| Materials (epoxy etc) | 11–14 | ~R$ 45 | ⏳ To estimate |
+| **Total spent so far** | | **R$ 2,166** | |
+| **Pending estimate** | | ~R$ 65 + AL shims | |
 
 ---
 
 ## Purchase Checklist
 
 - [x] Casa dos Metais — close purchase of 2 Al plates (R$ 550) — picked up 2026-04-16
-- [x] AL Usinagem — measurement check + plates finishing (R30/chamfer + drilling + countersinking) + 4 foot pieces — started 2026-04-25
-- [ ] Metal supplier — steel tubes (after gap measurement)
-- [ ] Metalwork shop — 4 steel shims (bring `fab_shim.pdf`)
-- [ ] Fastener shop — M10×50 DIN 7991 bolts + nuts + washers + drill bit + countersink
-- [ ] Materials — epoxy + rubber + sandpaper + alcohol
+- [x] AL Usinagem — measurement check + plates finishing (R30/chamfer + drilling + countersinking + perimeter chamfer Rev 3.0) + 4 foot pieces (Ø55 + base wall knurled) — received 2026-05-08, R$ 1,480
+- [x] MercadoLivre fastening (Rev 3.0) — M10×60 inox 304 + Parlock + arruela 304 — ordered 2026-05-08, R$ 136,19, awaiting delivery
+- [ ] Metal supplier — steel tubes 35×35×2 mm 1020 carbon
+- [ ] AL Usinagem — 8 stainless 304 shims (1.5 mm nominal — empirical, see process gate below)
+- [ ] Materials — epoxy + sandpaper + alcohol
 
-> **⚠️ Before purchasing steel tubes**
+> **⚠️ Process gate before ordering shims (Rev 3.0):**
 >
 > 1. ~~Wait for load cells to arrive (AliExpress)~~ ✅ Received 2026-04-23 (4 units, no damage)
-> 2. Assemble 1 test corner to confirm the gap between plates (after AL Usinagem returns plates + feet)
-> 3. Steel tube: 35×35×2 mm (preferred) or 30×30×2 mm based on measured gap
-> 4. Confirm M10×50 bolt length in actual stack assembly
+> 2. Receive steel tubes 35×35×2 mm + measure dimensions with caliper
+> 3. Bond plates+tubes with structural epoxy (24 h cure)
+> 4. Measure bonded box section height at 4 corners + cell H actual (DYX-301)
+> 5. Compute final shim thickness: `(box_height − cell_H) / 2`
+> 6. If ≠ 1.5 mm: update `COMPONENT_SPECS.md` §2.3 + `fabrication_drawings.py` + re-render `fab_shim.pdf` (additional commits on Rev 3.0 branch)
+> 7. **Then** order 8 inox 304 shims at measured thickness from AL Usinagem
+> 8. Test-fit single corner with M10×60 + Parlock + arruela at torque 20–25 N·m before assembly of 4 cantos

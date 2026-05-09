@@ -357,6 +357,96 @@ Cyclic stress at steel shim: 0.82 MPa, well below the fatigue limit of carbon st
 
 ---
 
+## 8.4 Rev 3.0 Fastening Analysis (added 2026-05-08)
+
+Rev 3.0 changes the fastening system from class 8.8 carbon steel (M10×50, single shim per cell on top side only) to stainless steel 304 throughout (M10×60 DIN 7991 + Parlock + DIN 125, mirror shim configuration with 8 units total). This section recalculates preload, bearing, and galvanic considerations for the new design.
+
+### 8.4.1 Bolt material change: class 8.8 → A2-70 inox 304
+
+| Property | Class 8.8 (Rev 2.0) | A2-70 / Inox 304 (Rev 3.0) |
+|----------|:-------------------:|:--------------------------:|
+| Tensile strength σ_ut | 800 MPa | 700 MPa |
+| Yield strength σ_y | 640 MPa | 450 MPa |
+| Recommended preload (~75% σ_y) | ~480 MPa | ~330 MPa |
+| Preload force (M10 stress area 58 mm²) | ~28 kN max | ~19 kN max |
+| Target torque (k = 0.2 dry, k = 0.15 lubed) | 50–60 N·m | 25–30 N·m |
+| **Adopted target** | — | **20–25 N·m** (conservative, with anti-seize on cone) |
+| **Effective preload (target torque)** | — | **~12 kN** |
+
+The reduced preload of A2-70 vs class 8.8 lowers bearing stress on aluminum interfaces by ~50% — beneficial given soft Al 5052-F (σ_y = 90 MPa).
+
+### 8.4.2 Bolt shear update (Rev 3.0)
+
+Recalculation of §8.3.4 with A2-70:
+
+| Parameter | Value |
+|-----------|-------|
+| Horizontal GRF (~10–15% of vertical, DJ 7× scenario) | ~310 N/cell |
+| Bolts per cell | 2 |
+| Shear per bolt | 155 N |
+| M10 A2-70 shear capacity (A_s × 0.6 × σ_ut) | ~24,400 N |
+| **Safety factor** | **> 150** |
+
+Reduced from > 250 (cl 8.8) but still amply safe.
+
+### 8.4.3 Mirror shim configuration — bearing stress on bottom plate
+
+§8.3 analyzed bearing under shim from the JUMP FORCE (face-to-face contact path). Rev 3.0 mirror configuration addresses a separate failure mode: **bearing under the nut+washer on the bottom plate from BOLT PRELOAD**.
+
+Without bottom shim (Rev 2.0 implicit configuration — bolt clamps directly onto Al 5052-F bottom plate via DIN 125 washer):
+
+```
+Bearing area (DIN 125 plain washer M10): ~140 mm²
+Preload force per bolt (Rev 3.0 A2-70 at 25 N·m): ~12,000 N
+Bearing stress on Al 5052-F bottom plate = 12,000 / 140 ≈ 86 MPa
+σ_y of Al 5052-F = 90 MPa
+FS_bearing = 90 / 86 ≈ 1.05 → marginal/unsafe
+```
+
+With bottom shim (Rev 3.0 mirror configuration — same 56×32 mm shim mirroring the top side):
+
+```
+Bearing area (shim 56×32 mm): 1,792 mm²
+Effective load distribution from M10 hole (conservative): ~1,500 mm²
+Bearing stress on Al 5052-F = 12,000 / 1,500 ≈ 8 MPa
+FS_bearing = 90 / 8 ≈ 11 ✓
+```
+
+**Mirror shim brings preload-induced bearing FS from 1.05 to 11.** Without it, Rev 3.0's adoption of inox A2-70 (with no upper bound on torque-induced over-preload during assembly) plus the soft 3 mm bottom plate would risk progressive yielding around the nut over assembly/disassembly cycles.
+
+### 8.4.4 Stack height update
+
+Rev 2.0 nominal: 6.35 (top plate) + 2 (top shim) + 32 (cell) + 3 (bottom plate) = **43.35 mm** (M10×50 sufficient, marginal nut engagement).
+
+Rev 3.0 nominal: 6.35 + 1.5 (top shim) + 32 + 1.5 (bottom shim) + 3 = **44.35 mm** (M10×60 required for 1×D nut engagement).
+
+Final shim thickness derived empirically post-bonding — see `docs/COMPONENT_SPECS.md` §2.3.1.
+
+### 8.4.5 Galvanic compatibility
+
+Rev 3.0 stack uses inox 304 contínuo across all fasteners + shims. Interfaces with Al 5052-F at:
+- Top plate ↔ top shim (304)
+- Bottom plate ↔ bottom shim (304)
+- Bottom plate ↔ DIN 125 washer (304)
+- Top plate countersink ↔ DIN 7991 bolt cone (304)
+
+Al 5052-F (anodic) ↔ inox 304 (cathodic) is a **moderate galvanic pair** (vs Al ↔ carbon steel, which is severe). In dry indoor environment (lab/gym), galvanic creep is negligible over years. Acceptable without isolation.
+
+### 8.4.6 Acceptance criteria (Rev 3.0 fastening)
+
+| Criterion | Limit | Result | Status |
+|-----------|:-----:|:------:|:------:|
+| Bolt shear FS (DJ 7×, A2-70) | ≥ 3.0 | > 150 | ✅ |
+| Preload bearing FS on bottom plate (with mirror shim) | ≥ 3.0 | 11 | ✅ |
+| Preload bearing FS on bottom plate (WITHOUT mirror shim) | ≥ 3.0 | 1.05 | ❌ — mirror config required |
+| Preload bearing FS on top plate (existing top shim) | ≥ 3.0 | 11 | ✅ |
+| Galvanic compatibility (indoor dry) | acceptable | moderate pair | ✅ |
+| Stack height vs M10×60 bolt | engagement ≥ 1×D | 10 mm = 1×D | ✅ |
+
+> **Rev 3.0 trigger summary:** Bottom plate originally clamped directly by nut+washer against Al 5052-F (preload bearing FS < 1.1). Adding 4 bottom shims (mirror of top) + switching to inox 304 throughout provides FS > 11 on preload bearing + galvanic compatibility + reusable anti-vibration locking (Parlock).
+
+---
+
 ## 9. Acceptance Criteria
 
 | Criterion | Limit | Result | Status |
@@ -424,3 +514,4 @@ The 6 mm aluminum top plate without reinforcement deflects 12.7 mm under DJ load
 | 1.0 | 2026-04-04 | Full analysis: unreinforced plate, material comparison, box section solution (Al 6061-T6, Al tubes) |
 | 1.1 | 2026-04-04 | Added Section 8.3 — bearing stress verification at supports (plate↔shim↔cell) |
 | 2.0 | 2026-04-06 | Material update for local availability: Al 5052-F 6.35 mm plates (replaces 6061-T6 6 mm), 1020 steel tubes (replaces Al). Full recalculation with transformed section. All criteria met with comfortable margin (FS ≥ 4.2). |
+| 3.0 | 2026-05-08 | Added Section 8.4 — Rev 3.0 fastening analysis (inox 304 A2-70 + mirror shim configuration). Preload reduced ~12 kN (vs ~28 kN cl 8.8); bolt shear FS > 150; mirror shim brings preload bearing FS on bottom plate from 1.05 to 11; galvanic compatibility for Al 5052-F + inox 304 acceptable indoor. Stack height bumped 43.35 → 44.35 mm (M10×60 required). |

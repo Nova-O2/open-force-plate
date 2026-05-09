@@ -49,38 +49,56 @@ Single piece that covers the load cell mounting holes. Does not touch the floor 
 | 2-Ø | **Ø13 mm** | **Cell hole diameter** (plate holes: Ø11 mm for M10) |
 | I | 56 mm | Base length (bearing surface) |
 
-#### Steel shims (4 units — 1 per cell)
+#### Stainless 304 shims (8 units — Rev 3.0 mirror config: 4 top + 4 bottom)
 
-Spacer between the cell and the top plate. Exact size of the cell base.
+Spacer between the cell and the plate, BOTH faces. Exact size of the cell base.
 
 | Parameter | Value |
 |-----------|-------|
-| Material | Carbon steel or stainless steel |
-| Thickness | 2 mm |
+| Material | **Stainless steel 304** (Rev 3.0 — galvanic compatibility with Al 5052-F) |
+| Thickness | **1.5 mm nominal** (Rev 3.0 — empirical, see [`COMPONENT_SPECS.md`](./COMPONENT_SPECS.md) §2.3.1) |
 | Dimensions | **56 × 32 mm** (= cell base, dims I × W) |
 | Holes | 2× Ø11 mm, 25 mm center-to-center |
+| Quantity | **8 (4 top + 4 bottom mirror configuration)** — Rev 3.0 |
 
-**Function:** Distribute load and prevent the cell from digging into the aluminum (steel > aluminum in hardness). Do not use rubber — it dampens the signal at 1000 Hz.
+**Function:** Distribute load and prevent the cell from digging into the aluminum (steel > aluminum in hardness). **Mirror config (Rev 3.0)** distributes preload bearing on BOTH faces of the aluminum stack — without bottom shim, FS_bearing on Al 5052-F bottom plate ≈ 1.05 (unsafe); with mirror, FS ≈ 11. Do not use rubber — it dampens the signal at 1000 Hz.
 
-#### Fastening — Assembly per cell
+#### Fastening — Assembly per cell (Rev 3.0)
 
 ```
-Allen bolt M10×50 DIN 7991 (flat countersunk head)
-        ↓
+Allen bolt M10×60 DIN 7991 inox 304 A2-70 (flat countersunk head)
+        ↓ (anti-seize on cone face)
 [TOP plate — aluminum 6.35mm (1/4in), 600×500mm, R30]  ← Ø11mm hole countersunk Ø20 (5.5mm depth)
         ↓
-[Shim — steel 2mm, 56×32mm]                             ← Ø11mm hole
+[Top shim — inox 304, 1.5mm, 56×32mm]                  ← Ø11mm hole
         ↓
 [DYX-301 cell — at ~62°]                                ← Ø13mm hole (cell)
         ↓
+[Bottom shim — inox 304, 1.5mm, 56×32mm]               ← Ø11mm hole  ← Rev 3.0 ADDITION
+        ↓
 [BOTTOM plate — aluminum 3mm, 527×396mm]                ← Ø11mm hole
         ↓
-M10 nut + washer
+M10 plain washer DIN 125 inox 304
         ↓
-[Foot bolt M12×1.75 with collar]  ← threaded into cell, outside bottom plate, rests on floor
+M10 Parlock all-metal locknut inox 304
+        ↓
+[Foot bolt M12×1.75 with collar]  ← threaded into cell from BELOW (separate path), outside bottom plate, rests on floor
 ```
 
-**Fasteners required:** 8× M10×50 DIN 7991 + 8× M10 nuts + 8× washers (2 per cell)
+**Stack height nominal (Rev 3.0):** 6.35 + 1.5 + 32 + 1.5 + 3 = **44.35 mm** + nut + washer + thread engagement = M10×60 required.
+
+**Fasteners required (Rev 3.0):** 8× M10×60 DIN 7991 inox 304 + 8× Parlock M10 inox 304 + 8× DIN 125 plain washers inox 304 (2 per cell). All purchased 2026-05-08 from MercadoLivre (R$ 136,19 total — see `SHOPPING_LIST.md`).
+
+**Torque target:** 20–25 N·m with calibrated torque wrench, **3 progressive passes** (10 → 18 → 25 N·m), **cross-pattern** across 4 corners (snug all 4 before final torque on any). Anti-seize compound (Cu-based or Ni-based) on the DIN 7991 cone face: reduces friction, distributes load, prevents local yielding of Al 5052-F countersink (σ_y = 90 MPa).
+
+After full assembly: **visual check** — no visible deformation/indentation of Al 5052-F countersink (top) or around nut (bottom). If indentation visible, reduce torque on that fastener and reassess.
+
+> **Rev 3.0 design rationale (vs Rev 2.0):**
+> - **Inox 304 throughout:** galvanic compatible with Al 5052-F (vs class 8.8 carbon steel which corrodes in contact)
+> - **Mirror shim (4 top + 4 bottom):** brings preload bearing FS on bottom plate from 1.05 → 11
+> - **Parlock all-metal:** anti-vibration locking without nylon degradation, reusable >50 cycles, suitable for cyclic athlete impact loading
+> - **Reduced torque (20–25 vs 50–60 N·m):** A2-70 yield is ~70% of class 8.8; lower preload also reduces bearing stress on aluminum
+> - **Bolt length 60 vs 50 mm:** +10 mm to accommodate added bottom shim in stack
 
 #### Cell layout — ~62° (Phase 5 diagonal angle)
 
@@ -121,37 +139,48 @@ All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to 
 
 **Fabrication drawings:** regenerate via `python3 hardware/cad/fabrication_drawings.py` → 5 PDFs in `hardware/cad/` (plates, foot bolt, shim, assembly)
 
-#### Turned foot bolt with collar (×4) — single machined part
+#### Turned foot bolt with collar (×4) — single machined part (Rev 3.0)
 
 | Part | Dimension |
 |------|:---------:|
 | Thread | M12×1.75, Ø12mm, **32 mm** length (= cell height) |
 | Collar | **Ø20mm, 5 mm** height (stop — rests against cell) |
-| Chamfer | Ø20→Ø60, 6 mm height (~17°) |
-| Base | Ø60mm, **8 mm** thickness |
-| Rubber pad | Ø60mm, 1 mm neoprene (glued after machining) |
-| Material | Carbon steel or stainless steel (Ø60mm bar stock) |
+| Chamfer | Ø20→**Ø55**, 6 mm height (~16°) — Rev 3.0 (was Ø20→Ø60) |
+| Base | **Ø55mm**, 8 mm thickness — Rev 3.0 (was Ø60); **vertical wall knurled** for operator grip |
+| Rubber pad | **Ø55mm**, 1 mm neoprene (glued after machining) — Rev 3.0 |
+| Material | Carbon steel or stainless steel (**Ø55mm bar stock** — Rev 3.0) |
 | Total height | **52 mm** (thread + collar + chamfer + base + rubber) |
 
-**No lock nut.** The collar acts as a mechanical stop — prevents the foot from threading beyond the cell height and reinforces the thread/chamfer transition. Height adjusted by threading. Platform weight locks position.
+**No lock nut.** The collar acts as a mechanical stop — prevents the foot from threading beyond the cell height and reinforces the thread/chamfer transition. Height adjusted by threading. Platform weight locks position. **Knurled base wall (Rev 3.0)** improves grip when threading the foot piece M12 into the load cell.
 
-**Fabrication:** order from a machinist. Drawing: `hardware/cad/fab_foot_piece.pdf`
+**Fabrication:** ordered from AL Usinagem (Jacareí), received 2026-05-08, R$ 1,120 (R$ 280 each). Drawing: `hardware/cad/fab_foot_piece.pdf` (re-render with Rev 3.0 dimensions in commit c7).
 
-#### Mechanical assembly checklist
+#### Mechanical assembly checklist (Rev 3.0)
 
-- [ ] Source top plate aluminum 5052-F, 600×500 mm, 6.35mm (1/4in), R30 corners
-- [ ] Source bottom plate aluminum, 527×396 mm, 3 mm, 15×15 chamfers
-- [ ] Source/fabricate 4 steel shims 56×32 mm, 2 mm (2× Ø11, 25 mm center-to-center)
-- [ ] Order 4 turned foot bolts with collar (see specs above + `hardware/cad/fab_foot_piece.pdf`)
-- [ ] Source Allen bolts M10×50 DIN 7991 (flat head) + M10 nuts + washers (8+8+8)
-- [ ] Source Ø11 mm drill bit + 90° countersink for M10 (Ø20)
-- [ ] Cut/source 4 rubber discs Ø60mm × 1mm (neoprene)
-- [ ] Drill 8 holes Ø11 mm in plates (2 per corner, 25 mm spacing)
-- [ ] Countersink the 8 holes in the top plate (Ø20, 90°, 5.5 mm depth)
-- [ ] Deburr holes
-- [ ] Glue rubber to foot bolts
-- [ ] Assemble: DIN 7991 bolt → top plate (countersunk) → shim → cell → bottom plate → M10 nut + washer
-- [ ] Thread foot bolts into cells (until collar contacts)
+**Procurement:**
+
+- [x] Source top plate aluminum 5052-F, 600×500 mm, 6.35mm (1/4in), R30 corners — Casa dos Metais 2026-04-16, R$ 410
+- [x] Source bottom plate aluminum, 527×396 mm, 3 mm, 15×15 chamfers — Casa dos Metais 2026-04-16, R$ 140
+- [x] Plate finishing service (drilling Ø11 + countersinking Ø20×5.5 + corner cuts + perimeter chamfer Rev 3.0) — AL Usinagem 2026-05-08, R$ 360
+- [x] Order 4 turned foot bolts with collar (Rev 3.0: bar Ø55, base wall knurled) — AL Usinagem 2026-05-08, R$ 1,120
+- [x] Order Allen bolts **M10×60 DIN 7991 inox 304** + Parlock M10 inox 304 + arruela DIN 125 inox 304 — MercadoLivre 2026-05-08, R$ 136,19 (3 lojas)
+- [ ] Source 1020 steel tubes 35×35×2 mm (2 pieces ~527 mm each)
+- [ ] Source structural epoxy (Araldite Pro / Loctite EA 9461 / equiv.)
+- [ ] After bonding: measure box section height empirically + order 8 inox 304 shims at measured thickness from AL Usinagem (see process gate in `COMPONENT_SPECS.md` §2.3.1)
+- [ ] Cut/source 4 rubber discs **Ø55 mm × 1 mm** neoprene (Rev 3.0)
+- [ ] Anti-seize compound (Cu-based or Ni-based)
+
+**Assembly (after components in hand):**
+
+- [ ] Glue rubber discs Ø55 to foot bolt bases
+- [ ] Bond steel tubes to plates with structural epoxy (24 h cure under clamping)
+- [ ] **Empirical measurement:** caliper bonded box section height at 4 corners + cell H (DYX-301)
+- [ ] Compute final shim thickness, fab 8 shims (AL Usinagem)
+- [ ] Apply thin layer of anti-seize on each DIN 7991 cone face
+- [ ] **Test-fit single corner first:** assemble stack [top plate → top shim → cell → bottom shim → bottom plate → arruela → Parlock]; torque progressively 10 → 18 → 25 N·m
+- [ ] Visual check: no deformation of Al 5052-F countersink (top) or around nut (bottom). If indented, reduce torque on that fastener and reassess
+- [ ] Replicate to remaining 3 corners with cross-pattern tightening (snug all 4 → final torque)
+- [ ] Thread foot bolts into cells from below (until collar contacts; gripping the knurled Ø55 base)
 - [ ] Set on rigid, flat floor
 - [ ] Level (adjust foot bolts by threading) — use bubble level
 - [ ] Test rigidity — platform must not deflect under load

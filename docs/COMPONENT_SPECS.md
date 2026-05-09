@@ -245,6 +245,7 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 | Material | Al 5052-F |
 | Corners | R30 rounded |
 | Holes | 8× Ø11 mm, countersunk Ø20 mm × 5.5 mm depth (90°) |
+| Perimeter chamfer | 45° × 2.12 mm on **both faces** (1/3 of thickness) — added Rev 3.0 for safe handling |
 | Weight | ~5.11 kg |
 | Technical drawing | `hardware/cad/fab_top_plate.pdf` |
 
@@ -267,22 +268,38 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 | Material | Al 5052-F |
 | Corners | 15 × 15 mm chamfers at 45° |
 | Holes | 8× Ø11 mm |
+| Perimeter chamfer | 45° × 1.5 mm on **bottom face only** (1/2 of thickness) — added Rev 3.0 for safe handling |
 | Weight | ~1.67 kg |
 | Technical drawing | `hardware/cad/fab_bottom_plate.pdf` |
 
 ---
 
-### 2.3 Steel shims (×4)
+### 2.3 Stainless steel shims (×8) — mirror configuration top + bottom
 
 | Parameter | Value |
 |-----------|-------|
-| Material | Carbon steel or stainless steel |
-| Dimensions | 56 × 32 × 2 mm |
+| Material | **Stainless steel 304** (Rev 3.0 — was "carbon or stainless"; inox 304 mandatory to avoid galvanic pair with Al 5052-F plates) |
+| Dimensions | 56 × 32 × **1.5 mm nominal** (Rev 3.0 — was 2 mm; final thickness empirical, see §2.3.1) |
 | Holes | 2× Ø11 mm, 25 mm center-to-center |
-| Function | Spacer between cell and top plate (distributes load, prevents aluminum crushing) |
+| Function | Spacer between cell and plate (distributes load, prevents Al 5052-F crushing under bolt clamping) |
+| Quantity | **8 (4 top + 4 bottom)** — Rev 3.0 mirror configuration (was 4 top only) |
 | Technical drawing | `hardware/cad/fab_shim.pdf` |
 
 **Note:** do not use rubber — it dampens the dynamic signal at 1000 Hz.
+
+#### 2.3.1 Empirical thickness derivation (Rev 3.0)
+
+The 1.5 mm nominal value comes from arithmetic: box section height (35 mm steel tube) − cell H (32 mm) = 3 mm budget, divided by 2 mirror positions = 1.5 mm each. **Final shim thickness must be derived empirically** after structural bonding:
+
+1. Confirm steel tube actual dimensions with caliper (35 × 35 × 2 mm spec, ±tolerance)
+2. Bond plates + tubes with structural epoxy (24 h cure)
+3. Measure bonded box section height at the 4 corner positions
+4. Measure cell H actual with caliper (DYX-301 spec is 32 mm, tolerance unspecified)
+5. Compute: `shim_total_budget = box_height_actual − cell_H_actual`
+6. Divide by 2 → individual shim thickness (top = bottom)
+7. If ≠ 1.5 mm: update this spec + `hardware/cad/fabrication_drawings.py` with measured value before fabrication (additional commits on the Rev 3.0 branch before promoting `v3.0.0-rc1` → `v3.0.0`)
+
+**Reasoning:** epoxy layer adds 0.1–0.5 mm depending on application technique; cell H tolerance not specified in DYX-301 datasheet; tube commercial tolerance ±0.2 mm. Cumulative error can shift stack ±0.5 mm. Fabricating shims at nominal 1.5 mm without measurement risks rework (wrong parts → cost + delay).
 
 ---
 
@@ -292,14 +309,19 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 |------|:---------:|
 | Thread | M12 × 1.75, Ø12 mm, 32 mm length (= cell height) |
 | Collar | Ø20 mm, 5 mm height (stop — rests against cell) |
-| Chamfer | Ø20 → Ø60 mm, 6 mm height (~17°) |
-| Base | Ø60 mm, 8 mm thickness |
-| Rubber pad | Ø60 mm × 1 mm neoprene (glued after machining) |
+| Chamfer | Ø20 → **Ø55** mm, 6 mm height (~16°) — Rev 3.0 (was Ø20 → Ø60) |
+| Base | **Ø55 mm**, 8 mm thickness — Rev 3.0 (was Ø60); **vertical wall (cylindrical surface) knurled** for operator grip when threading into sensor |
+| Rubber pad | **Ø55 mm** × 1 mm neoprene (glued after machining) — Rev 3.0 (was Ø60) |
 | Total height | 52 mm |
-| Material | Carbon steel or stainless steel (Ø60 mm bar stock) |
+| Material | Carbon steel or stainless steel (**Ø55 mm bar stock** — Rev 3.0) |
 | Technical drawing | `hardware/cad/fab_foot_piece.pdf` |
 
 **Function:** Support/leveling. No lock nut — collar acts as mechanical stop; platform weight locks position.
+
+> **Rev 3.0 changes (post-fabrication received from AL Usinagem 2026-05-08):**
+> - Bar stock diameter: Ø60 → **Ø55 mm** (machine shop preference for available material). All Ø60 dimensions cascade to Ø55 (base + chamfer end + rubber pad).
+> - Base vertical wall (Ø55 mm cylindrical surface, 8 mm tall): **knurled (recartilhado)** — improves operator grip when threading the foot piece M12 into the load cell during assembly/leveling.
+> - Chamfer angle effective: ~16° (was ~17°) due to cascade.
 
 ---
 
@@ -318,15 +340,31 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 
 ---
 
-### 2.6 Bolts — M10 × 50 DIN 7991 (×8)
+### 2.6 Bolts, nuts, washers — Stainless steel 304 (Rev 3.0)
 
 | Parameter | Value |
 |-----------|-------|
-| Standard | DIN 7991 (flat countersunk Allen head) |
-| Dimension | M10 × 50 mm |
-| Class | 8.8 (minimum) |
-| Head | Ø20 mm (matches top plate countersink) |
-| Includes | M10 nut + washer (×8 each) |
+| Bolt | M10 × **60 mm** DIN 7991 (countersunk Allen head) — Rev 3.0 (was M10 × 50) |
+| Bolt material | **Stainless steel 304 (A2-70)** passivated — Rev 3.0 (was class 8.8 carbon steel) |
+| Bolt head | Ø20 mm × 5.5 mm (matches top plate countersink) |
+| Bolt thread | M10 × 1.5 (full thread length) |
+| Nut | M10 **Parlock all-metal locknut** — Rev 3.0 (was standard hex nut) |
+| Nut material | Stainless steel 304 |
+| Nut height | ~10 mm (provides ≥ 1 × D thread engagement) |
+| Washer | M10 plain washer DIN 125-A |
+| Washer material | Stainless steel 304 |
+| Quantity | 8 of each (1 per corner mounting hole, 4 corners × 2 bolts) |
+
+**Stack height nominal (Rev 3.0):** top plate 6.35 + top shim 1.5 + cell 32 + bottom shim 1.5 + bottom plate 3 = **44.35 mm**
+
+**Bolt body below head:** 60 − 5.5 = 54.5 mm. Available for washer + nut after stack: 54.5 − 38.85 = 15.65 mm. Engagement in nut: ~10 mm = 1 × D ✓.
+
+**Torque target:** 20–25 N·m with calibrated torque wrench, progressive tightening. Anti-seize (Cu or Ni-based) recommended on the DIN 7991 cone face to reduce friction and prevent local yielding of Al 5052-F countersink (σ_y = 90 MPa).
+
+**Why stainless 304 throughout:**
+- Galvanic compatibility with Al 5052-F plates (Rev 3.0 design rule — avoids Al ↔ carbon steel pair which is severely active)
+- Parlock all-metal locknut: anti-vibration without nylon degradation, reusable >50 cycles, suitable for cyclic loading from athlete impacts
+- Lower preload of A2-70 (~12 kN at 25 N·m) vs class 8.8 (~25 kN at equivalent) keeps bearing stress on aluminum well below yield, even with the 1.5 mm shim distribution
 
 ---
 
