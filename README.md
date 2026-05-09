@@ -10,15 +10,16 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 
 ## Status
 
-- **Status:** 🚧
-- **Próximo passo:** Aguardando AL Usinagem retornar peças (chapas + 4 pézinhos); montar canto teste; encomendar tubos aço + shims
-- **Trigger:** AL Usinagem entregar peças
-- **Aguardando:** AL Usinagem (fornecedor)
-- **Updated:** 2026-05-06
+- **Status:** 🚧 **Rev 3.0-rc1** — fastening redesign (release candidate, awaiting physical validation)
+- ✅ Mechanical components received: 4× turned foot pieces (Ø55 + base wall serrilhada) + 2× chamfered plates (AL Usinagem 2026-05-08, R$ 1.480)
+- ✅ Hardware ordered: M10×60 DIN 7991 inox 304 + Parlock + arruela inox 304 (MercadoLivre 2026-05-08, R$ 136,19, frete grátis)
+- 🔄 **Pending:** 1020 steel tubes 35×35×2mm delivery → bond plates+tubes with structural epoxy → measure box section height empirically → AL Usinagem quote for 8 stainless 304 mirror shims (1.5mm nominal — empirical) → ML hardware delivery
+- ⏳ **Validation gate:** assembly of 4 corners + first calibration to promote `v3.0.0-rc1` → `v3.0.0` final
+- **Updated:** 2026-05-09
 
 ### Engenharia
-- **Sprint:** hardware MVP — montagem mecânica V1
-- **Version:** v0 (pré-MVP)
+- **Sprint:** hardware MVP — Rev 3.0 fastening redesign + assembly
+- **Version:** `v3.0.0-rc1` (release candidate)
 - **Deploy:** N/A (hardware physical)
 
 ## Specifications
@@ -74,28 +75,34 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 
 ## Project Status
 
-**Current phase:** Hardware — mechanical assembly
+**Current phase:** Hardware — Rev 3.0 mechanical assembly
 
 - ✅ Component selection and procurement
-- ✅ Structural analysis and fabrication drawings
+- ✅ Structural analysis and fabrication drawings (Rev 3.0)
 - ✅ Electronics received (ADC, MCU, power, connectors)
 - ✅ Load cells received (4× DYX-301, 2026-04-23)
-- 🔄 Aluminum plates acquired; machining of plates and turned feet in progress (AL Usinagem, started 2026-04-25)
+- ✅ Aluminum plates acquired (Casa dos Metais 2026-04-16) + machining received (AL Usinagem 2026-05-08, R$ 1,480: feet + plate finishing + perimeter chamfer)
+- ✅ Fastening hardware ordered (Rev 3.0): M10×60 DIN 7991 inox 304 + Parlock + arruela 304 (MercadoLivre 2026-05-08, R$ 136,19)
+- 🔄 Pending: steel tubes 35×35×2mm + epoxy bonding + box section measurement + 8 stainless 304 mirror shims (AL Usinagem quote)
 - 🔲 Firmware development
 - 🔲 Software development
 - 🔲 Scientific validation
 
-## Cost Breakdown
+## Cost Breakdown (Rev 3.0)
 
 | Category | Cost (BRL) | Cost (USD) |
 |----------|-----------|-----------|
-| Imported components (AliExpress) | R$2,009 | ~$400 |
-| Local components (aluminum, steel, hardware) | ~R$500 | ~$100 |
-| **Total (single platform)** | **~R$2,500** | **~$500** |
+| Imported electronics (AliExpress: cells + ADC + MCU + power) | ~R$1,300 | ~$260 |
+| Battery replacement (ML 2026-04-04: 1S2P 5200mAh × 2) | ~R$55 | ~$11 |
+| Aluminum plates (Casa dos Metais) | R$550 | ~$110 |
+| AL Usinagem services (foot pieces + plate finishing) | R$1,480 | ~$295 |
+| Inox 304 fastening (M10×60 + Parlock + washer, ML 2026-05-08) | R$136 | ~$27 |
+| Pending (tubes + epoxy + 8 stainless 304 shims) | ~R$210 | ~$42 |
+| **Total Rev 3.0 (single platform)** | **~R$3,750** | **~$745** |
 
-*Unit cost excludes tools and backup components. See [Components Selected](docs/COMPONENTS_SELECTED.md) for the detailed breakdown.*
+*Unit cost excludes tools and backup components. Cost increase vs Rev 2.0 estimate (~R$2,500) reflects the shift from "self-fab + carbon steel hardware" to "outsourced precision machining (AL Usinagem) + corrosion-resistant inox 304 fastening" — see [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md) for rationale. See [Components Selected](docs/COMPONENTS_SELECTED.md) for the detailed breakdown.*
 
-Commercial force plates range from R$30,000–R$100,000 ($6,000–$20,000 USD).
+Commercial force plates range from R$30,000–R$100,000 ($6,000–$20,000 USD) — Rev 3.0 still 8–27× cheaper.
 
 See [Components Selected](docs/COMPONENTS_SELECTED.md) for the full bill of materials.
 
@@ -184,7 +191,7 @@ Uma plataforma de força uniaxial (vertical) open-source para ciência do esport
 | Alimentação | Bateria Li-ion recarregável + USB-C |
 | Dimensões da plataforma | 600 × 500 mm |
 | Peso estimado | ~13 kg |
-| Custo estimado | ~R$2.500 / ~$500 USD |
+| Custo estimado | ~R$3.750 / ~$745 USD (Rev 3.0) |
 
 ## Arquitetura de Hardware
 
@@ -224,28 +231,34 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 
 ## Status do Projeto
 
-**Fase atual:** Hardware — montagem mecânica
+**Fase atual:** Hardware — montagem mecânica Rev 3.0
 
 - ✅ Seleção e compra dos componentes
-- ✅ Análise estrutural e desenhos de fabricação
+- ✅ Análise estrutural e desenhos de fabricação (Rev 3.0)
 - ✅ Eletrônica recebida (ADC, MCU, alimentação, conectores)
 - ✅ Células de carga recebidas (4× DYX-301, 2026-04-23)
-- 🔄 Chapas de alumínio adquiridas; usinagem das chapas e pés torneados em andamento (AL Usinagem, iniciada 2026-04-25)
+- ✅ Chapas de alumínio adquiridas (Casa dos Metais 2026-04-16) + usinagem recebida (AL Usinagem 2026-05-08, R$ 1.480: pezinhos + acabamento das chapas + chanfro perimetral)
+- ✅ Hardware de fixação encomendado (Rev 3.0): M10×60 DIN 7991 inox 304 + Parlock + arruela 304 (MercadoLivre 2026-05-08, R$ 136,19)
+- 🔄 Pendente: tubos aço 35×35×2mm + colagem epóxi + medição da seção caixão + 8 juntas inox 304 espelho (orçamento AL Usinagem)
 - 🔲 Desenvolvimento de firmware
 - 🔲 Desenvolvimento de software
 - 🔲 Validação científica
 
-## Custo Estimado
+## Custo Estimado (Rev 3.0)
 
 | Categoria | Custo (BRL) | Custo (USD) |
 |----------|-----------|-----------|
-| Componentes importados (AliExpress) | R$2.009 | ~$400 |
-| Componentes locais (alumínio, aço, fixadores) | ~R$500 | ~$100 |
-| **Total (plataforma única)** | **~R$2.500** | **~$500** |
+| Eletrônica importada (AliExpress: células + ADC + MCU + alimentação) | ~R$1.300 | ~$260 |
+| Bateria substituta (ML 2026-04-04: 1S2P 5200mAh × 2) | ~R$55 | ~$11 |
+| Chapas de alumínio (Casa dos Metais) | R$550 | ~$110 |
+| Serviços AL Usinagem (pezinhos + acabamento das chapas) | R$1.480 | ~$295 |
+| Fixação inox 304 (M10×60 + Parlock + arruela, ML 2026-05-08) | R$136 | ~$27 |
+| Pendente (tubos + epóxi + 8 juntas inox 304) | ~R$210 | ~$42 |
+| **Total Rev 3.0 (plataforma única)** | **~R$3.750** | **~$745** |
 
-*Custo unitário exclui ferramentas e componentes de backup. Veja os [Componentes Selecionados](docs/COMPONENTS_SELECTED.md) para o detalhamento completo.*
+*Custo unitário exclui ferramentas e componentes de backup. Aumento vs estimativa Rev 2.0 (~R$2.500) reflete migração de "self-fab + fixação aço carbono" para "usinagem precisão (AL Usinagem) + fixação inox 304" — ver [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md). Veja [Componentes Selecionados](docs/COMPONENTS_SELECTED.md) para o detalhamento completo.*
 
-Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20.000 USD).
+Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20.000 USD) — Rev 3.0 ainda 8–27× mais barata.
 
 ## Roadmap
 
