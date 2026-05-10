@@ -35,7 +35,7 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 | Power | Rechargeable Li-ion battery + USB-C |
 | Platform dimensions | 600 × 500 mm |
 | Estimated weight | ~13 kg |
-| Estimated cost | ~$500 USD / ~R$2,500 BRL |
+| Estimated cost | ~$745 USD / ~R$3,750 BRL (Rev 3.0) |
 
 ## Hardware Architecture
 
