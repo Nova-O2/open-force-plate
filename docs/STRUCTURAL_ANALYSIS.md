@@ -2,7 +2,7 @@
 
 **Date:** 2026-04-04
 **Revision:** 1.0
-**Author:** Aldo Seffrin + Claude Code (assisted analysis)
+**Author:** Aldo Seffrin
 
 ---
 
