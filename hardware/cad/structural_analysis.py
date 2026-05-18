@@ -13,10 +13,13 @@ Referencias:
 - Roark's Formulas for Stress and Strain, 8th Ed.
 """
 
-# NOTE: This script reflects the Rev 1.0 analysis (Al 6061-T6, 6mm top plate,
-# aluminum tubes). The current design (Rev 2.0) uses Al 5052-F, 6.35mm top plate,
-# and 1020 carbon steel tubes. Updated calculations are documented in
-# docs/STRUCTURAL_ANALYSIS.md. Script update to Rev 2.0 values is planned.
+# ARCHIVED — Rev 1.0 reference script (Al 6061-T6, 6mm top plate, aluminum tubes).
+# SUPERSEDED. The current design is Rev 3.1 (Al 5052-F 6.35mm plates + stainless
+# steel 304 box-section tubes 35x35x1.5mm). This script was never updated past
+# Rev 1.0 and does not implement the composite transformed-section method.
+# The analysis SSOT is docs/STRUCTURAL_ANALYSIS.md (§7 transformed section,
+# recomputed by hand for Rev 3.1). Kept only as a historical record of the
+# Rev 1.0 all-aluminum analysis — do NOT use its numbers for the current design.
 
 import numpy as np
 
