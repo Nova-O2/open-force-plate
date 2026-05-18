@@ -6,6 +6,42 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-05-18 — Rev 3.1: stainless steel 304 structural tube acquired
+
+### Tube purchased
+
+- **Real Fortaleza Hidráulica Industrial** (D.A. Coutinho & Cia Ltda), Praça Independência 107, São João, Jacareí-SP
+- TUBO QUADRADO 304 35×35×1,50 mm — 1,00 m — **R$ 103,67** (cartão de crédito, NFC-e nº 3014, 2026-05-18 13:22)
+- Cut plan: 1 m bar → 2 pieces of 500 mm
+
+### Spec deviations from Rev 3.0 (all validated, accepted as Rev 3.1)
+
+1. **Material:** 1020 carbon steel → **stainless steel 304** — upgrade. Galvanic compatibility with Al 5052-F, no anti-corrosion coating needed. Completes the "inox 304 throughout" rule from Rev 3.0 (the tube was the last carbon-steel exception).
+2. **Wall:** 2 mm → **1.5 mm** — the off-the-shelf stainless square tube. Transformed inertia recomputed: I_tr 1,305,342 → 1,234,842 mm⁴ (−5%). DJ 5× deflection 0.143 → 0.151 mm; structural FS 5.9 → 5.5; bond τ 0.95 → 0.98 MPa (FS ≈ 14–16×). All STRUCTURAL_ANALYSIS §9 acceptance criteria still met.
+3. **Length:** 527 mm → **500 mm** (2 pieces from a 1 m bar) — covers the 475 mm support span with ~12.5 mm cantilever each side.
+
+### Adhesive decision
+
+- **Araldite Professional 90 min** (Tekbond, code BRAP000) selected for the MVP prototype — 2× 23 g bisnaga (≈ 42 mL, 25% headroom over the 25–35 mL effective need).
+- On stainless, ambient cure: ~14–16 MPa shear → bond FS ≈ 14–16×. Design is dominated by stiffness, not bond strength.
+- DP460 (≥ 20 MPa, FS > 20×) noted as the upgrade path for a continuously-used production v2 — overkill for the prototype.
+- Surface prep: P40–P60 grit (coarse — stainless 304 passive Cr₂O₃ layer; P80 too fine).
+
+### Documentation
+
+- Transformed-section recalculation done by hand — the CAD scripts (`hardware/cad/*.py`) remain Rev 1.0 archaeological: they never implemented the composite transformed section, so `STRUCTURAL_ANALYSIS.md` §7 is the analysis SSOT. Recompute verified by reproducing the Rev 2.0 baseline.
+- Cascade: STRUCTURAL_ANALYSIS, COMPONENT_SPECS, COMPONENTS_SELECTED, SHOPPING_LIST, README (EN+PT), DEVELOPMENT_PLAN updated to Rev 3.1.
+
+### Pending (next steps)
+
+- Buy Araldite Professional (2× 23 g) + consumables (P40–P60 sandpaper, isopropyl alcohol, bar clamps)
+- Cut tube into 2× 500 mm
+- Bond plates + tubes with structural epoxy (24 h cure under clamping)
+- Measure bonded box section height empirically → quote 8 inox 304 shims (AL Usinagem)
+- Test-fit single corner → first calibration → promote `v3.1.0-rc1` → `v3.1.0`
+
+---
+
 ## 2026-05-08 — Rev 3.0 trigger: components received + fastening redesign
 
 ### Components received from AL Usinagem (machine shop)

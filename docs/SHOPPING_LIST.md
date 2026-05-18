@@ -1,8 +1,8 @@
 # Shopping List — Mechanical Assembly
 
-**Date:** 2026-04-06 (last updated 2026-05-08 — Rev 3.0 fastening redesign)
-**Status:** Aluminum plates + 4 turned foot pieces received from AL Usinagem (R$ 1,480 total — 2026-05-08). MercadoLivre hardware ordered (R$ 136,19, awaiting delivery): M10×60 inox 304 + Parlock 304 + arruela 304. Pending: 8 stainless 304 shims (1.5 mm nominal — empirical, AL Usinagem quote) + 1020 steel tubes 35×35×2 mm + structural epoxy + DYX-301 load cells (received).
-**Total spent so far:** R$ 2,166 (R$ 550 plates + R$ 1,480 AL Usinagem + R$ 136 ML hardware)
+**Date:** 2026-04-06 (last updated 2026-05-18 — Rev 3.1 inox 304 tube)
+**Status:** Aluminum plates + 4 turned foot pieces received from AL Usinagem (R$ 1,480 — 2026-05-08). MercadoLivre hardware ordered (R$ 136,19, awaiting delivery): M10×60 inox 304 + Parlock 304 + arruela 304. Stainless 304 tube received (R$ 103,67 — Real Fortaleza Hidráulica, 2026-05-18). Pending: 8 stainless 304 shims (1.5 mm nominal — empirical, AL Usinagem quote) + structural epoxy (Araldite Professional) + consumables.
+**Total spent so far:** R$ 2,270 (R$ 550 plates + R$ 1,480 AL Usinagem + R$ 136 ML hardware + R$ 104 tube)
 
 > **Rev 3.0 changes (2026-05-08):**
 > - Fastening: M10×50 class 8.8 → **M10×60 inox 304** + Parlock + arruela 304 (galvanic compatibility + cyclic durability)
@@ -10,6 +10,11 @@
 > - Material: shims now mandatory **inox 304** (was "carbon or stainless")
 > - Foot piece: bar Ø60 → Ø55 + base vertical wall knurled (AL Usinagem fab choices)
 > - Plate chamfer: perimeter chamfer added (top 2.12 mm both faces, bottom 1.5 mm bottom face only)
+
+> **Rev 3.1 changes (2026-05-18):**
+> - Structural tube: 1020 carbon steel 35×35×2 mm → **stainless steel 304 35×35×1.5 mm**, 500 mm length (off-the-shelf at Real Fortaleza Hidráulica, Jacareí). Completes "inox 304 throughout" — the tube was the last carbon-steel exception.
+> - Epoxy: specified **Araldite Professional 90 min, 2× 23 g** (Tekbond BRAP000)
+> - Surface prep: sandpaper P80 → **P40–P60** (coarse abrasion for stainless passive layer)
 
 ---
 
@@ -19,7 +24,7 @@
 |---|------|--------------|:---:|----------:|
 | 1 | Top plate | Al 5052-F, 603×503 mm, 6.35 mm (1/4"), rounded corners R30 | 1 | **410.00** |
 | 2 | Bottom plate | Al 5052-F, 530×399 mm, 3 mm, chamfered corners 15×15 at 45° | 1 | **140.00** |
-| 3 | Square tube | 1020 carbon steel, 35×35×2 mm, 2 pieces of 527 mm | 2 | ~20 |
+| 3 | Square tube ✅ | **Stainless steel 304, 35×35×1.5 mm**, 2 pieces of 500 mm (from 1 m bar) — Rev 3.1, Real Fortaleza Hidráulica 2026-05-18 | 2 | 103,67 |
 
 > **💡 Quote received (2026-04-06)**
 >
@@ -88,14 +93,15 @@
 
 ---
 
-## Materials and Consumables (~R$ 45)
+## Materials and Consumables (~R$ 110)
 
 | # | Item | Specification | Qty | Est. (R$) |
 |---|------|--------------|:---:|----------:|
-| 11 | Structural epoxy adhesive | Araldite Professional 24 ml (or Loctite EA, Devcon equiv.) | 1 | ~25 |
+| 11 | Structural epoxy adhesive | **Araldite Professional 90 min, 23 g bisnaga** (Tekbond BRAP000) — NOT Hobby/Massa/Fix/Transparente | 2 | ~50 |
 | 12 | Neoprene rubber | Ø60 mm × 1 mm disc (cut from sheet if needed) | 4 | ~10 |
-| 13 | Metal sandpaper | 80 grit (surface preparation for bonding) | 2 | ~5 |
+| 13 | Metal sandpaper | **P40–P60 grit** (coarse — stainless 304 passive layer; not P80) | 2 | ~5 |
 | 14 | Isopropyl alcohol | Degrease surfaces before bonding | 1 | ~5 |
+| 15 | Bar clamps (grampo sargento) | For 24 h clamping pressure during epoxy cure | 4–6 | ~40 |
 
 ---
 
@@ -106,11 +112,11 @@
 | Casa dos Metais (Al plates) | 1–2 | **R$ 550** | ✅ Purchased 2026-04-16 |
 | AL Usinagem (plate finishing + turned feet) | 1–2 finishing + 4 | **R$ 1,480** | ✅ Received 2026-05-08 |
 | AL Usinagem (8 stainless 304 shims, Rev 3.0) | 5 | TBD | ⏳ Quote pending — fab after empirical measurement |
-| Metal supplier (steel tubes) | 3 | ~R$ 20 | ⏳ Pending |
+| Real Fortaleza Hidráulica (stainless 304 tube, Rev 3.1) | 3 | **R$ 103,67** | ✅ Purchased 2026-05-18 |
 | MercadoLivre (fasteners inox 304, Rev 3.0) | 6–8 | **R$ 136,19** | 🚚 Ordered 2026-05-08, awaiting delivery |
-| Materials (epoxy etc) | 11–14 | ~R$ 45 | ⏳ To estimate |
-| **Total spent so far** | | **R$ 2,166** | |
-| **Pending estimate** | | ~R$ 65 + AL shims | |
+| Materials (epoxy + consumables) | 11–15 | ~R$ 110 | ⏳ To buy |
+| **Total spent so far** | | **R$ 2,270** | |
+| **Pending estimate** | | ~R$ 110 + AL shims | |
 
 ---
 
@@ -119,14 +125,14 @@
 - [x] Casa dos Metais — close purchase of 2 Al plates (R$ 550) — picked up 2026-04-16
 - [x] AL Usinagem — measurement check + plates finishing (R30/chamfer + drilling + countersinking + perimeter chamfer Rev 3.0) + 4 foot pieces (Ø55 + base wall knurled) — received 2026-05-08, R$ 1,480
 - [x] MercadoLivre fastening (Rev 3.0) — M10×60 inox 304 + Parlock + arruela 304 — ordered 2026-05-08, R$ 136,19, awaiting delivery
-- [ ] Metal supplier — steel tubes 35×35×2 mm 1020 carbon
+- [x] Real Fortaleza Hidráulica — stainless 304 tube 35×35×1.5 mm (1 m bar) — purchased 2026-05-18, R$ 103,67
 - [ ] AL Usinagem — 8 stainless 304 shims (1.5 mm nominal — empirical, see process gate below)
-- [ ] Materials — epoxy + sandpaper + alcohol
+- [ ] Materials — Araldite Professional 90 min (2× 23 g) + P40–P60 sandpaper + isopropyl alcohol + bar clamps
 
 > **⚠️ Process gate before ordering shims (Rev 3.0):**
 >
 > 1. ~~Wait for load cells to arrive (AliExpress)~~ ✅ Received 2026-04-23 (4 units, no damage)
-> 2. Receive steel tubes 35×35×2 mm + measure dimensions with caliper
+> 2. ✅ Stainless 304 tube received (2026-05-18) — cut into 2× 500 mm + measure dimensions with caliper
 > 3. Bond plates+tubes with structural epoxy (24 h cure)
 > 4. Measure bonded box section height at 4 corners + cell H actual (DYX-301)
 > 5. Compute final shim thickness: `(box_height − cell_H) / 2`
