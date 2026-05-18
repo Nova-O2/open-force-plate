@@ -95,11 +95,11 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 | 5 | **Stainless 304 shims** 56×32 mm × **1.5 mm nominal** (Rev 3.0 — empirical, see COMPONENT_SPECS §2.3.1), 8 units (4 top + 4 bottom mirror) | 8 | ⏳ AL Usinagem quote (Rev 3.0) | TBD (~150–200) |
 | 6 | **M10×60 DIN 7991 inox 304** + Parlock 304 + arruela 304 (Rev 3.0) | 8+8+8 | 🚚 ML 2026-05-08 awaiting | 136 |
 | 7 | Neoprene rubber discs Ø55 mm × 1 mm (Rev 3.0 — was Ø60) | 4 | ⏳ TBD | ~10 |
-| 8 | 1020 carbon steel square tube, 35×35×2mm, ~527mm | 2 | ⏳ Pending | ~25 |
-| 9 | Structural epoxy adhesive (Araldite Professional 24ml or equiv.) | 1 | ⏳ Pending | ~25 |
-| | | **Spent + committed** | | **R$ 2,166** |
+| 8 | **Stainless 304 square tube, 35×35×1.5mm**, 2× 500mm (cut from 1 m bar) — Rev 3.1 | 2 | ✅ Real Fortaleza Hidráulica 2026-05-18 | 103,67 |
+| 9 | Structural epoxy — **Araldite Professional 90 min, 2× 23 g** (Tekbond BRAP000) — Rev 3.1 | 2 | ⏳ Pending | ~50 |
+| | | **Spent + committed** | | **R$ 2,270** |
 | | | **+ Pending estimate** | | ~R$ 60 + AL shims (~150–200) |
-| | | **Mechanical total Rev 3.0** | | **~R$ 2,376–2,426** |
+| | | **Mechanical total Rev 3.1** | | **~R$ 2,480–2,530** |
 
 > **Cost increase vs Rev 2.0 estimate (was ~R$ 500 mechanical):** ~+R$ 1,876. Drivers: (a) AL Usinagem services R$ 1,480 — first contracted machining, replaces self-fab estimate of ~R$ 180 (feet + shims); (b) inox 304 hardware R$ 136 (vs ~R$ 30 cl 8.8 estimate); (c) shim quantity 4 → 8 (mirror config) + material upgrade to inox 304. Trade-off accepted: precision/durability/galvanic compatibility from professional machining + corrosion-resistant fastening justify the cost vs hand-fab + carbon steel.
 
@@ -111,8 +111,8 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 |----------|----------:|
 | Electronics (AliExpress 2026-04-01: cells + ADS1256 + ESP32 + power) | ~1,300 |
 | Battery replacement (ML 2026-04-04: 1S2P 5200 mAh × 2) | ~55 |
-| Mechanical (Rev 3.0 — see breakdown above) | ~2,376–2,426 |
-| **Total Rev 3.0 unit cost** | **~R$ 3,731–3,781** |
+| Mechanical (Rev 3.1 — see breakdown above) | ~2,480–2,530 |
+| **Total Rev 3.1 unit cost** | **~R$ 3,835–3,885** |
 
 > **Vs Rev 2.0 estimate (R$ 1,858):** +R$ 1,873–1,923 (≈ +100%). The increase reflects the shift from "self-fab everything" (Rev 2.0 estimate assumed home drilling/countersinking + carbon steel hardware + machinist quote ~R$ 160) to "outsource precision work + use corrosion-resistant materials" (Rev 3.0 actual: AL Usinagem R$ 1,480 + inox 304 R$ 136). Decision rationale documented in `PROJECT_LOG.md` 2026-05-08 entry.
 
@@ -120,7 +120,7 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 
 | | Nova O2 | VALD FDMini | VALD FDLite |
 |---|------:|----------:|----------:|
-| Cost | ~R$ 3,750 (Rev 3.0) | ~R$ 30,000 | ~R$ 60,000 |
+| Cost | ~R$ 3,860 (Rev 3.1) | ~R$ 30,000 | ~R$ 60,000 |
 | Capacity | 2000 kg | 1000 kg | 2000 kg |
 | Resolution | ~0.075–0.15 N | ~0.15 N | ~0.15 N |
 | Connectivity | USB-C + BLE | USB | USB |

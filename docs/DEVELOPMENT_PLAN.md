@@ -164,8 +164,8 @@ All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to 
 - [x] Plate finishing service (drilling Ø11 + countersinking Ø20×5.5 + corner cuts + perimeter chamfer Rev 3.0) — AL Usinagem 2026-05-08, R$ 360
 - [x] Order 4 turned foot bolts with collar (Rev 3.0: bar Ø55, base wall knurled) — AL Usinagem 2026-05-08, R$ 1,120
 - [x] Order Allen bolts **M10×60 DIN 7991 inox 304** + Parlock M10 inox 304 + arruela DIN 125 inox 304 — MercadoLivre 2026-05-08, R$ 136,19 (3 lojas)
-- [ ] Source 1020 steel tubes 35×35×2 mm (2 pieces ~527 mm each)
-- [ ] Source structural epoxy (Araldite Pro / Loctite EA 9461 / equiv.)
+- [x] Source stainless 304 tube 35×35×1.5 mm (1 m bar → 2 pieces of 500 mm) — Real Fortaleza Hidráulica 2026-05-18, R$ 103,67
+- [ ] Source structural epoxy — Araldite Professional 90 min, 2× 23 g (Tekbond BRAP000)
 - [ ] After bonding: measure box section height empirically + order 8 inox 304 shims at measured thickness from AL Usinagem (see process gate in `COMPONENT_SPECS.md` §2.3.1)
 - [ ] Cut/source 4 rubber discs **Ø55 mm × 1 mm** neoprene (Rev 3.0)
 - [ ] Anti-seize compound (Cu-based or Ni-based)
@@ -173,7 +173,7 @@ All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to 
 **Assembly (after components in hand):**
 
 - [ ] Glue rubber discs Ø55 to foot bolt bases
-- [ ] Bond steel tubes to plates with structural epoxy (24 h cure under clamping)
+- [ ] Bond stainless 304 tubes to plates with structural epoxy (24 h cure under clamping)
 - [ ] **Empirical measurement:** caliper bonded box section height at 4 corners + cell H (DYX-301)
 - [ ] Compute final shim thickness, fab 8 shims (AL Usinagem)
 - [ ] Apply thin layer of anti-seize on each DIN 7991 cone face
@@ -187,17 +187,17 @@ All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to 
 
 #### Structural reinforcement — Box section (2 square tubes)
 
-The 6.35mm (1/4in) top plate alone deflects ~21 mm under drop jump load (120 kg, 5×BW) — unacceptable for a force platform. The solution is a **box section**: the two plates (top and bottom) act as flanges of a beam, connected by 2 carbon steel 1020 square tubes bonded with structural epoxy.
+The 6.35mm (1/4in) top plate alone deflects ~21 mm under drop jump load (120 kg, 5×BW) — unacceptable for a force platform. The solution is a **box section**: the two plates (top and bottom) act as flanges of a beam, connected by 2 stainless steel 304 square tubes bonded with structural epoxy.
 
 | Parameter | Value |
 |-----------|-------|
-| Tube | 1020 carbon steel square 35×35×2 mm |
-| Quantity | 2 tubes, ~527 mm each (= bottom plate length) |
+| Tube | Stainless steel 304 square 35×35×1.5 mm (Rev 3.1) |
+| Quantity | 2 tubes, 500 mm each (cut from a 1 m bar) |
 | Position | Longitudinal (X-axis), at Y=194 mm and Y=306 mm from top plate |
-| Bonding | Structural epoxy (Araldite Professional or equivalent) |
-| Shims | If tube < gap between plates, use aluminum shims to match height |
+| Bonding | Structural epoxy (Araldite Professional 90 min) |
+| Shims | If tube < gap between plates, use stainless shims to match height |
 
-**Result:** I increases from ~9,000 mm⁴ (plate alone) to ~1,305,000 mm⁴ (~150× stiffer). Deflection drops from 21 mm to **<0.2 mm** across all scenarios.
+**Result:** I_transformed ≈ 1,234,842 mm⁴ (~190× stiffer than the plate alone). Deflection drops from 21 mm to ~0.15 mm at the critical DJ 5× load (~0.21 mm at the extreme 7× worst case).
 
 ```
 Cross-section view (box section):
@@ -212,9 +212,9 @@ Cross-section view (box section):
 **Tube assembly:**
 
 - [ ] Assemble one corner (1 cell + bolts + plates) to measure the actual gap between plates
-- [ ] Source 2 carbon steel 1020 square tubes (~527 mm each). Ideal size: measured gap ±1 mm
-- [ ] If tube is smaller than gap: fabricate shims (thin aluminum strips cut to 35×527 mm)
-- [ ] Sand bonding faces (80-grit, matte surfaces)
+- [x] Source stainless 304 tube 35×35×1.5 mm — Real Fortaleza Hidráulica 2026-05-18 (cut into 2× 500 mm)
+- [ ] If tube is smaller than gap: fabricate shims (thin stainless strips cut to 35×500 mm)
+- [ ] Sand bonding faces (P40–P60 grit, matte surfaces — coarse for stainless passive layer)
 - [ ] Degrease with isopropyl alcohol
 - [ ] Apply structural epoxy to all 4 bonding faces (top and bottom of each tube)
 - [ ] Position tubes at Y=194 mm and Y=306 mm (ref. top plate), parallel to long axis

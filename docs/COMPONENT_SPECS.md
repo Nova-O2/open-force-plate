@@ -329,14 +329,15 @@ The 1.5 mm nominal value comes from arithmetic: box section height (35 mm steel 
 
 | Parameter | Value |
 |-----------|-------|
-| Material | 1020 carbon steel |
-| Section | 35×35×2 mm |
-| Length | ~527 mm each |
+| Material | **Stainless steel 304** (Rev 3.1 — was 1020 carbon steel; completes "inox 304 throughout", galvanic compatibility with Al 5052-F) |
+| Section | 35×35×**1.5 mm** (Rev 3.1 — was 2 mm wall) |
+| Length | **500 mm** each (Rev 3.1 — was ~527 mm; cut from a 1 m bar into 2 pieces) |
 | Quantity | 2 tubes |
 | Position | Longitudinal (X-axis), at Y=194 mm and Y=306 mm from top plate |
-| Bonding | Structural epoxy |
+| Bonding | Structural epoxy (Araldite Professional — see §2.7) |
+| Supplier | Real Fortaleza Hidráulica Industrial, Jacareí — R$ 103,67 (1 m bar, 2026-05-18) |
 
-**Function:** Creates box section with both plates (flanges). I_total ≈ 1,305,342 mm⁴ (~150× the rigidity of the plate alone).
+**Function:** Creates box section with both plates (flanges). I_transformed ≈ 1,234,842 mm⁴ (~190× the rigidity of the plate alone). See [STRUCTURAL_ANALYSIS.md](./STRUCTURAL_ANALYSIS.md) §7 for the Rev 3.1 recalculation.
 
 ---
 
@@ -373,10 +374,19 @@ The 1.5 mm nominal value comes from arithmetic: box section height (35 mm steel 
 | Parameter | Value |
 |-----------|-------|
 | Type | Two-part structural epoxy |
-| Compatible brands | Araldite Professional, Loctite EA 9461, or equivalent |
-| Shear strength | ≥ 20 MPa (typically 20–30 MPa) |
+| Selected product | **Araldite Professional 90 min** (Tekbond, code BRAP000) |
+| Shear strength on stainless (ambient cure) | ≈ 14–16 MPa → bond FS ≈ 14–16× (see [STRUCTURAL_ANALYSIS.md](./STRUCTURAL_ANALYSIS.md) §8) |
 | Cure | 24 h under pressure (clamps) |
-| Preparation | Sand surfaces (80-grit), degrease (isopropyl alcohol) |
+| Surface preparation | Sand surfaces **P40–P60 grit** — coarse abrasion (stainless 304 carries a passive Cr₂O₃ layer; P80 is too fine), degrease (isopropyl alcohol) |
+| Quantity | 2× 23 g bisnaga (≈ 46 g / 42 mL — 25% headroom over the 25–35 mL effective need) |
+
+> **⚠️ Identify the right product**
+>
+> Buy the line marked **"Profissional"** (90 min initial / 24 h full cure). NOT Araldite Hobby, Massa, Fix, or Transparente. Tekbond product code: **BRAP000**. Buy 23 g bisnagas — not 234 g / 1.8 kg (short shelf life once opened).
+
+> **🌡️ FYI — hot cure variant**
+>
+> A 100 °C / 20 min cure (heat gun) raises Araldite Professional shear strength on stainless to ~22.5 MPa (Tekbond technical sheet). Not used for the prototype — ambient cure already gives FS ≈ 14–16×. For a continuously-used v2, 3M Scotch-Weld DP460 (≥ 20 MPa) is the upgrade path.
 
 ---
 
@@ -447,3 +457,4 @@ USB-C 5V ──► TP4056 ──┐  │
 | Rev. | Date | Description |
 |:----:|:----:|-------------|
 | 1.0 | 2026-04-04 | Initial consolidation of all specs — recovered from git (commit 3f66aa7^) + integration of mechanical dimensions from DEVELOPMENT_PLAN and structural properties from STRUCTURAL_ANALYSIS |
+| 3.1 | 2026-05-18 | §2.5 reinforcement tubes: 1020 carbon steel → stainless steel 304, 35×35×1.5 mm wall, 500 mm length (Real Fortaleza Hidráulica, R$ 103,67). §2.7 epoxy: Araldite Professional 90 min selected (Tekbond BRAP000), 2× 23 g, surface prep P40–P60 (stainless passive layer). |

@@ -10,16 +10,17 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 
 ## Status
 
-- **Status:** 🚧 **Rev 3.0-rc1** — fastening redesign (release candidate, awaiting physical validation)
+- **Status:** 🚧 **Rev 3.1-rc1** — inox 304 throughout, incl. structural tube (release candidate, awaiting physical validation)
 - ✅ Mechanical components received: 4× turned foot pieces (Ø55 + base wall serrilhada) + 2× chamfered plates (AL Usinagem 2026-05-08, R$ 1.480)
 - ✅ Hardware ordered: M10×60 DIN 7991 inox 304 + Parlock + arruela inox 304 (MercadoLivre 2026-05-08, R$ 136,19, frete grátis)
-- 🔄 **Pending:** 1020 steel tubes 35×35×2mm delivery → bond plates+tubes with structural epoxy → measure box section height empirically → AL Usinagem quote for 8 stainless 304 mirror shims (1.5mm nominal — empirical) → ML hardware delivery
-- ⏳ **Validation gate:** assembly of 4 corners + first calibration to promote `v3.0.0-rc1` → `v3.0.0` final
-- **Updated:** 2026-05-09
+- ✅ Structural tube acquired: inox 304 35×35×1.5mm, 1 m bar (Real Fortaleza Hidráulica, Jacareí — 2026-05-18, R$ 103,67)
+- 🔄 **Pending:** buy Araldite Professional 90 min (2× 23 g) → cut tube into 2× 500mm → bond plates+tubes with structural epoxy (24 h cure) → measure box section height empirically → AL Usinagem quote for 8 stainless 304 mirror shims (1.5mm nominal — empirical) → ML hardware delivery
+- ⏳ **Validation gate:** assembly of 4 corners + first calibration to promote `v3.1.0-rc1` → `v3.1.0` final
+- **Updated:** 2026-05-18
 
 ### Engenharia
-- **Sprint:** hardware MVP — Rev 3.0 fastening redesign + assembly
-- **Version:** `v3.0.0-rc1` (release candidate)
+- **Sprint:** hardware MVP — Rev 3.1 inox 304 throughout + assembly
+- **Version:** `v3.1.0-rc1` (release candidate)
 - **Deploy:** N/A (hardware physical)
 
 ## Specifications
@@ -35,7 +36,7 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 | Power | Rechargeable Li-ion battery + USB-C |
 | Platform dimensions | 600 × 500 mm |
 | Estimated weight | ~13 kg |
-| Estimated cost | ~$745 USD / ~R$3,750 BRL (Rev 3.0) |
+| Estimated cost | ~$770 USD / ~R$3,860 BRL (Rev 3.1) |
 
 ## Hardware Architecture
 
@@ -43,8 +44,8 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
        ┌──────────────────────────────┐
        │  Top plate — Al 5052-F 6.35mm │  ← stepping surface
        ├══════════════════════════════┤
-       ║  2× steel 1020 square tubes  ║  ← box section reinforcement
-       ║       35×35×2 mm             ║
+       ║  2× inox 304 square tubes    ║  ← box section reinforcement
+       ║       35×35×1.5 mm           ║
        ├══════════════════════════════┤
        │  Bottom plate — Al 5052-F 3mm │
        └────┬────┬────────┬────┬─────┘
@@ -60,7 +61,7 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
           [Python/Web App]     ← real-time analysis
 ```
 
-The platform uses 4 shear-beam load cells (DYX-301, 500 kg each) mounted between two aluminum plates (5052-F alloy). A box-section reinforcement (2× steel 1020 square tubes, 35×35×2 mm) bonded with structural epoxy reduces deflection from 21 mm to <0.2 mm under worst-case drop jump loads (7× body weight).
+The platform uses 4 shear-beam load cells (DYX-301, 500 kg each) mounted between two aluminum plates (5052-F alloy). A box-section reinforcement (2× stainless steel 304 square tubes, 35×35×1.5 mm) bonded with structural epoxy reduces deflection from 21 mm to ~0.15 mm at the critical drop-jump load (~0.21 mm at the extreme 7× body-weight worst case).
 
 See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](docs/COMPONENT_SPECS.md) for full engineering details.
 
@@ -75,20 +76,21 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 
 ## Project Status
 
-**Current phase:** Hardware — Rev 3.0 mechanical assembly
+**Current phase:** Hardware — Rev 3.1 mechanical assembly
 
 - ✅ Component selection and procurement
-- ✅ Structural analysis and fabrication drawings (Rev 3.0)
+- ✅ Structural analysis recalculated (Rev 3.1) + fabrication drawings (Rev 3.0)
 - ✅ Electronics received (ADC, MCU, power, connectors)
 - ✅ Load cells received (4× DYX-301, 2026-04-23)
 - ✅ Aluminum plates acquired (Casa dos Metais 2026-04-16) + machining received (AL Usinagem 2026-05-08, R$ 1,480: feet + plate finishing + perimeter chamfer)
 - ✅ Fastening hardware ordered (Rev 3.0): M10×60 DIN 7991 inox 304 + Parlock + arruela 304 (MercadoLivre 2026-05-08, R$ 136,19)
-- 🔄 Pending: steel tubes 35×35×2mm + epoxy bonding + box section measurement + 8 stainless 304 mirror shims (AL Usinagem quote)
+- ✅ Structural tube acquired (Rev 3.1): inox 304 35×35×1.5mm (Real Fortaleza Hidráulica 2026-05-18, R$ 103,67)
+- 🔄 Pending: Araldite Professional purchase + epoxy bonding + box section measurement + 8 stainless 304 mirror shims (AL Usinagem quote)
 - 🔲 Firmware development
 - 🔲 Software development
 - 🔲 Scientific validation
 
-## Cost Breakdown (Rev 3.0)
+## Cost Breakdown (Rev 3.1)
 
 | Category | Cost (BRL) | Cost (USD) |
 |----------|-----------|-----------|
@@ -97,12 +99,13 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 | Aluminum plates (Casa dos Metais) | R$550 | ~$110 |
 | AL Usinagem services (foot pieces + plate finishing) | R$1,480 | ~$295 |
 | Inox 304 fastening (M10×60 + Parlock + washer, ML 2026-05-08) | R$136 | ~$27 |
-| Pending (tubes + epoxy + 8 stainless 304 shims) | ~R$210 | ~$42 |
-| **Total Rev 3.0 (single platform)** | **~R$3,750** | **~$745** |
+| Structural tube (inox 304 35×35×1.5mm, Real Fortaleza 2026-05-18) | R$104 | ~$21 |
+| Pending (epoxy + consumables + 8 stainless 304 shims) | ~R$235 | ~$47 |
+| **Total Rev 3.1 (single platform)** | **~R$3,860** | **~$770** |
 
-*Unit cost excludes tools and backup components. Cost increase vs Rev 2.0 estimate (~R$2,500) reflects the shift from "self-fab + carbon steel hardware" to "outsourced precision machining (AL Usinagem) + corrosion-resistant inox 304 fastening" — see [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md) for rationale. See [Components Selected](docs/COMPONENTS_SELECTED.md) for the detailed breakdown.*
+*Unit cost excludes tools and backup components. Cost increase vs Rev 2.0 estimate (~R$2,500) reflects the shift from "self-fab + carbon steel hardware" to "outsourced precision machining (AL Usinagem) + corrosion-resistant inox 304 fastening" — see [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md) for rationale. The Rev 3.1 stainless tube came at R$104 (vs ~R$20 budgeted for carbon steel) — stainless premium + 1 m minimum bar length. See [Components Selected](docs/COMPONENTS_SELECTED.md) for the detailed breakdown.*
 
-Commercial force plates range from R$30,000–R$100,000 ($6,000–$20,000 USD) — Rev 3.0 still 8–27× cheaper.
+Commercial force plates range from R$30,000–R$100,000 ($6,000–$20,000 USD) — Rev 3.1 still 8–26× cheaper.
 
 See [Components Selected](docs/COMPONENTS_SELECTED.md) for the full bill of materials.
 
@@ -191,7 +194,7 @@ Uma plataforma de força uniaxial (vertical) open-source para ciência do esport
 | Alimentação | Bateria Li-ion recarregável + USB-C |
 | Dimensões da plataforma | 600 × 500 mm |
 | Peso estimado | ~13 kg |
-| Custo estimado | ~R$3.750 / ~$745 USD (Rev 3.0) |
+| Custo estimado | ~R$3.860 / ~$770 USD (Rev 3.1) |
 
 ## Arquitetura de Hardware
 
@@ -199,8 +202,8 @@ Uma plataforma de força uniaxial (vertical) open-source para ciência do esport
        ┌──────────────────────────────┐
        │  Top plate — Al 5052-F 6.35mm │  ← stepping surface
        ├══════════════════════════════┤
-       ║  2× steel 1020 square tubes  ║  ← box section reinforcement
-       ║       35×35×2 mm             ║
+       ║  2× inox 304 square tubes    ║  ← box section reinforcement
+       ║       35×35×1.5 mm           ║
        ├══════════════════════════════┤
        │  Bottom plate — Al 5052-F 3mm │
        └────┬────┬────────┬────┬─────┘
@@ -216,7 +219,7 @@ Uma plataforma de força uniaxial (vertical) open-source para ciência do esport
           [Python/Web App]     ← real-time analysis
 ```
 
-A plataforma utiliza 4 células de carga do tipo shear beam (DYX-301, 500 kg cada) montadas entre duas chapas de alumínio (liga 5052-F). Um reforço em seção caixão (2× tubos quadrados de aço 1020, 35×35×2 mm) colado com epóxi estrutural reduz a deflexão de 21 mm para menos de 0,2 mm sob cargas de pior caso em drop jump (7× o peso corporal).
+A plataforma utiliza 4 células de carga do tipo shear beam (DYX-301, 500 kg cada) montadas entre duas chapas de alumínio (liga 5052-F). Um reforço em seção caixão (2× tubos quadrados de aço inox 304, 35×35×1,5 mm) colado com epóxi estrutural reduz a deflexão de 21 mm para ~0,15 mm na carga crítica de drop jump (~0,21 mm no pior caso extremo de 7× o peso corporal).
 
 Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações de Componentes](docs/COMPONENT_SPECS.md) para detalhes completos de engenharia.
 
@@ -231,20 +234,21 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 
 ## Status do Projeto
 
-**Fase atual:** Hardware — montagem mecânica Rev 3.0
+**Fase atual:** Hardware — montagem mecânica Rev 3.1
 
 - ✅ Seleção e compra dos componentes
-- ✅ Análise estrutural e desenhos de fabricação (Rev 3.0)
+- ✅ Análise estrutural recalculada (Rev 3.1) + desenhos de fabricação (Rev 3.0)
 - ✅ Eletrônica recebida (ADC, MCU, alimentação, conectores)
 - ✅ Células de carga recebidas (4× DYX-301, 2026-04-23)
 - ✅ Chapas de alumínio adquiridas (Casa dos Metais 2026-04-16) + usinagem recebida (AL Usinagem 2026-05-08, R$ 1.480: pezinhos + acabamento das chapas + chanfro perimetral)
 - ✅ Hardware de fixação encomendado (Rev 3.0): M10×60 DIN 7991 inox 304 + Parlock + arruela 304 (MercadoLivre 2026-05-08, R$ 136,19)
-- 🔄 Pendente: tubos aço 35×35×2mm + colagem epóxi + medição da seção caixão + 8 juntas inox 304 espelho (orçamento AL Usinagem)
+- ✅ Tubo estrutural adquirido (Rev 3.1): inox 304 35×35×1,5mm (Real Fortaleza Hidráulica 2026-05-18, R$ 103,67)
+- 🔄 Pendente: compra do Araldite Profissional + colagem epóxi + medição da seção caixão + 8 juntas inox 304 espelho (orçamento AL Usinagem)
 - 🔲 Desenvolvimento de firmware
 - 🔲 Desenvolvimento de software
 - 🔲 Validação científica
 
-## Custo Estimado (Rev 3.0)
+## Custo Estimado (Rev 3.1)
 
 | Categoria | Custo (BRL) | Custo (USD) |
 |----------|-----------|-----------|
@@ -253,12 +257,13 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 | Chapas de alumínio (Casa dos Metais) | R$550 | ~$110 |
 | Serviços AL Usinagem (pezinhos + acabamento das chapas) | R$1.480 | ~$295 |
 | Fixação inox 304 (M10×60 + Parlock + arruela, ML 2026-05-08) | R$136 | ~$27 |
-| Pendente (tubos + epóxi + 8 juntas inox 304) | ~R$210 | ~$42 |
-| **Total Rev 3.0 (plataforma única)** | **~R$3.750** | **~$745** |
+| Tubo estrutural (inox 304 35×35×1,5mm, Real Fortaleza 2026-05-18) | R$104 | ~$21 |
+| Pendente (epóxi + consumíveis + 8 juntas inox 304) | ~R$235 | ~$47 |
+| **Total Rev 3.1 (plataforma única)** | **~R$3.860** | **~$770** |
 
-*Custo unitário exclui ferramentas e componentes de backup. Aumento vs estimativa Rev 2.0 (~R$2.500) reflete migração de "self-fab + fixação aço carbono" para "usinagem precisão (AL Usinagem) + fixação inox 304" — ver [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md). Veja [Componentes Selecionados](docs/COMPONENTS_SELECTED.md) para o detalhamento completo.*
+*Custo unitário exclui ferramentas e componentes de backup. Aumento vs estimativa Rev 2.0 (~R$2.500) reflete migração de "self-fab + fixação aço carbono" para "usinagem precisão (AL Usinagem) + fixação inox 304" — ver [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md). O tubo inox da Rev 3.1 saiu R$104 (vs ~R$20 orçado para aço carbono) — prêmio do inox + barra mínima de 1 m. Veja [Componentes Selecionados](docs/COMPONENTS_SELECTED.md) para o detalhamento completo.*
 
-Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20.000 USD) — Rev 3.0 ainda 8–27× mais barata.
+Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20.000 USD) — Rev 3.1 ainda 8–26× mais barata.
 
 ## Roadmap
 

@@ -1,7 +1,7 @@
 # Calculation Report — Structural Analysis of the Force Platform
 
-**Date:** 2026-04-04
-**Revision:** 1.0
+**Date:** 2026-05-18
+**Revision:** 3.1
 **Author:** Aldo Seffrin
 
 ---
@@ -29,18 +29,20 @@ Verify the structural integrity of the force platform's top plate under operatin
 >
 > Original alloy: 6061-T6 (σ_y = 276 MPa). Replaced by 5052-F due to local availability. The modulus of elasticity is practically the same (~70 GPa), so **deflection does not change**. The reduction in yield strength is offset by the structural margin of the box section (FS > 4 in all scenarios).
 
-#### Reinforcement tubes — 1020 carbon steel
+#### Reinforcement tubes — stainless steel 304
 
 | Property | Value |
 |----------|-------|
-| Modulus of elasticity (E) | 200,000 MPa |
-| Yield strength (σ_y) | 250 MPa |
-| Density (ρ) | 7,850 kg/m³ |
-| Modular ratio (n = E_steel/E_al) | 2.845 |
+| Modulus of elasticity (E) | ≈ 193–200 GPa |
+| Yield strength (σ_y) | ≈ 215 MPa |
+| Density (ρ) | 7,900 kg/m³ |
+| Modular ratio (n = E_steel/E_al) | 2.845 (retained from Rev. 2.0) |
 
-> **ℹ️ Material change (Rev. 2.0)**
+> **ℹ️ Material change (Rev. 2.0 → Rev. 3.1)**
 >
-> Original tubes: aluminum 35×35×2 mm. Replaced by carbon steel due to local availability. Square aluminum tubes are difficult to find in the regional market; steel is standard in any metal supply shop. The substitution adds +1.4 kg to the total weight but **increases box section stiffness by ~23%**.
+> Rev. 2.0 replaced the original aluminum tubes with 1020 carbon steel (local availability). **Rev. 3.1** replaces the 1020 steel with **stainless steel 304**, 35×35×**1.5 mm** wall (vs 2 mm) and **500 mm** length (vs 527 mm): the stainless square tube available off-the-shelf at the local supplier (Real Fortaleza Hidráulica, Jacareí). This completes the "inox 304 throughout" design rule started in Rev. 3.0 — the structural tube was the last carbon-steel exception. Stainless 304 is galvanically compatible with Al 5052-F and removes the need for an anti-corrosion coating.
+>
+> The modular ratio n = 2.845 (from E = 200 GPa) is retained: 304's elastic modulus spans ≈ 193–200 GPa by product temper, and recomputing with the lower bound shifts the transformed inertia by < 2% — negligible against the 1.8× point-support correction factor, with no change to any acceptance verdict.
 
 ### 2.2 Geometry
 
@@ -48,7 +50,7 @@ Verify the structural integrity of the force platform's top plate under operatin
 |-----------|------------|
 | Top plate | 600 × 500 × 6.35 mm (1/4"), Al 5052-F, corners R30 |
 | Bottom plate | 527 × 396 × 3 mm, Al 5052-F, chamfered corners 15×15 |
-| Reinforcement tube | 35×35 × 2 mm, 1020 carbon steel, 527 mm length, ×2 |
+| Reinforcement tube | 35×35 × 1.5 mm, stainless steel 304, 500 mm length, ×2 |
 | Holes | Ø11 mm (M10 DIN 7991), countersunk Ø20 on top plate |
 
 ### 2.3 Supports (Load Cells)
@@ -151,20 +153,20 @@ Comparative evaluation for the critical scenario (DJ 5×BW, 120 kg):
 | Al ribs 3×50×6 mm | Bars bonded under plate | +1.5 kg | ~R$ 78 | 0.27 mm |
 | Steel tube frame 30×30 | Welded frame | +6.2 kg | ~R$ 124 | 0.43 mm |
 | Box section 2 Al tubes | Al plates + Al tubes bonded | +0.75 kg | ~R$ 50 | 0.18 mm |
-| **Box section 2 steel tubes** | **Al plates + steel tubes bonded** | **+2.18 kg** | **~R$ 25** | **0.14 mm** |
+| **Box section 2 inox 304 tubes** | **Al plates + stainless tubes bonded** | **+1.6 kg** | **~R$ 104** | **0.15 mm** |
 
-> **ℹ️ Design evolution (Rev. 2.0)**
+> **ℹ️ Design evolution (Rev. 1.0 → 2.0 → 3.1)**
 >
-> The original design used 35×35×2 mm aluminum tubes — the lightest solution (+0.75 kg). In practice, square aluminum tubes are difficult to find in the Brazilian regional market. Steel tubes are an off-the-shelf product at any metal supply shop. The substitution adds 1.4 kg but **increases stiffness by 23%** and **reduces cost** (steel is cheaper than aluminum per meter).
+> Rev. 1.0 used 35×35×2 mm aluminum tubes — the lightest solution (+0.75 kg) — but square aluminum tubes are difficult to source in the Brazilian regional market. Rev. 2.0 substituted 1020 carbon steel (off-the-shelf, stiffer, cheaper). **Rev. 3.1** substitutes stainless steel 304 (35×35×1.5 mm, 500 mm): galvanically compatible with Al 5052-F, completing the "inox throughout" rule from Rev. 3.0. The 1.5 mm wall (vs 2 mm) lowers the transformed inertia ~5% — all acceptance criteria still met with comfortable margin.
 
 ### 6.2 Adopted solution — Box section (steel tubes)
 
-The two 5052-F aluminum plates (top 6.35 mm + bottom 3 mm) act as flanges of a box beam, connected by **2 square 1020 carbon steel tubes** bonded with structural epoxy.
+The two 5052-F aluminum plates (top 6.35 mm + bottom 3 mm) act as flanges of a box beam, connected by **2 square stainless steel 304 tubes** bonded with structural epoxy.
 
 ```
 ╔══════════════════════════╗  ← top plate Al 5052-F 6.35 mm (flange)
 ║    ┌────┐        ┌────┐  ║
-║    │tube│        │tube│  ║  ← 2 steel tubes 1020 35×35×2 mm (web)
+║    │tube│        │tube│  ║  ← 2 inox 304 tubes 35×35×1.5 mm (web)
 ║    │ 1  │        │ 2  │  ║
 ║    └────┘        └────┘  ║
 ╚══════════════════════════╝  ← bottom plate Al 5052-F 3 mm (flange)
@@ -173,7 +175,7 @@ The two 5052-F aluminum plates (top 6.35 mm + bottom 3 mm) act as flanges of a b
 **Tube positions (ref. top plate):**
 - Tube 1: Y = 194 mm (longitudinal, X-axis)
 - Tube 2: Y = 306 mm (longitudinal, X-axis)
-- Length: 527 mm (= bottom plate width)
+- Length: 500 mm (covers the 475 mm support span with ~12.5 mm cantilever each side)
 - Minimum clearance to load cells: ~100 mm (no interference)
 
 ---
@@ -182,7 +184,7 @@ The two 5052-F aluminum plates (top 6.35 mm + bottom 3 mm) act as flanges of a b
 
 ### 7.1 Method — Transformed section
 
-Since the box section combines two materials (aluminum plates + steel tubes), the **transformed section method** is used: steel areas are converted to equivalent aluminum areas using the modular ratio n = E_steel / E_al = 200,000 / 70,300 = **2.845**.
+Since the box section combines two materials (aluminum plates + stainless steel tubes), the **transformed section method** is used: steel areas are converted to equivalent aluminum areas using the modular ratio n = E_steel / E_al = 200,000 / 70,300 = **2.845** (retained from Rev. 2.0 — see §2.1 note on the inox 304 modulus range).
 
 > **ℹ️ Calculation evolution (Rev. 2.0)**
 >
@@ -196,96 +198,104 @@ Total height: 3 + 35 + 6.35 = **44.35 mm**
 | Component | Material | Real area (mm²) | n | Transf. area (mm²) | Centroid y (mm) |
 |-----------|----------|:---------------:|:---:|:------------------:|:---------------:|
 | Bottom plate (300×3 mm) | Al 5052-F | 900 | 1.0 | 900 | 1.50 |
-| Tube 1 (35×35×2 mm) | Steel 1020 | 264 | 2.845 | 751 | 20.50 |
-| Tube 2 (35×35×2 mm) | Steel 1020 | 264 | 2.845 | 751 | 20.50 |
+| Tube 1 (35×35×1.5 mm) | Inox 304 | 201 | 2.845 | 572 | 20.50 |
+| Tube 2 (35×35×1.5 mm) | Inox 304 | 201 | 2.845 | 572 | 20.50 |
 | Top plate (300×6.35 mm) | Al 5052-F | 1,905 | 1.0 | 1,905 | 41.18 |
-| **Total** | — | **3,333** | — | **4,307** | — |
+| **Total** | — | **3,207** | — | **3,949** | — |
 
 **Effective width adopted:** 300 mm (conservative — plate effective width)
 
 ### 7.3 Centroid of transformed section
 
-$$\bar{y} = \frac{\sum A_{tr,i} \cdot y_i}{\sum A_{tr,i}} = \frac{900 \times 1.5 + 2 \times 751 \times 20.5 + 1905 \times 41.18}{4307} = \frac{110,584}{4,307} = 25.7 \text{ mm}$$
+$$\bar{y} = \frac{\sum A_{tr,i} \cdot y_i}{\sum A_{tr,i}} = \frac{900 \times 1.5 + 2 \times 572 \times 20.5 + 1905 \times 41.18}{3949} = \frac{103,250}{3,949} = 26.1 \text{ mm}$$
 
 ### 7.4 Transformed moment of inertia (Steiner's theorem)
 
 | Component | Own transf. I (mm⁴) | A_tr·d² (mm⁴) | Total I (mm⁴) |
 |-----------|:-------------------:|:--------------:|:-------------:|
-| Al bottom plate | 675 | 526,203 | 526,878 |
-| Steel tube 1 (×n) | 136,822 | 20,076 | 156,898 |
-| Steel tube 2 (×n) | 136,822 | 20,076 | 156,898 |
-| Al top plate | 6,401 | 458,267 | 464,668 |
-| **TOTAL** | — | — | **1,305,342** |
+| Al bottom plate | 675 | 546,394 | 547,069 |
+| Inox tube 1 (×n) | 107,173 | 18,189 | 125,362 |
+| Inox tube 2 (×n) | 107,173 | 18,189 | 125,362 |
+| Al top plate | 6,401 | 430,648 | 437,049 |
+| **TOTAL** | — | — | **1,234,842** |
 
-**Comparison Rev. 1.0 → Rev. 2.0:**
+**Comparison Rev. 1.0 → Rev. 2.0 → Rev. 3.1:**
 
 | Version | I_total (mm⁴) | EI (×10⁹ N·mm²) | Gain |
 |---------|:-------------:|:----------------:|:----:|
 | Rev. 1.0 — all Al, 6 mm | 1,062,162 | 73.2 | reference |
-| **Rev. 2.0 — Al 5052-F 6.35 mm + steel** | **1,305,342** | **91.8** | **+25%** |
+| Rev. 2.0 — Al 5052-F 6.35 mm + 1020 steel | 1,305,342 | 91.8 | +25% |
+| **Rev. 3.1 — Al 5052-F 6.35 mm + inox 304 (1.5 mm wall)** | **1,234,842** | **86.8** | **+16%** |
 
-**Stiffness gain vs. plate alone:** I_box / I_plate_6.35mm = 1,305,342 / 6,401×(300/300) ≈ **~150×**
+**Stiffness gain vs. plate alone:** I_box / I_plate_6.35mm = 1,234,842 / 6,401 ≈ **~190×**
 
-### 7.5 Results — Box section Rev. 2.0 (Al 5052-F + steel tubes)
+### 7.5 Results — Box section Rev. 3.1 (Al 5052-F + inox 304 tubes)
 
 | Scenario | P (N) | Deflection (mm) | Al stress (MPa) | FS (σ_y = 90 MPa) |
 |----------|:-----:|:---------------:|:---------------:|:-----------------:|
-| 70 kg standing | 687 | 0.017 | 1.7 | 53 |
-| 85 kg standing | 834 | 0.020 | 2.2 | 41 |
-| 120 kg standing | 1,177 | 0.029 | 3.1 | 29 |
-| 85 kg CMJ 3× | 2,502 | 0.061 | 6.5 | 14 |
-| 120 kg CMJ 3× | 3,532 | 0.086 | 9.2 | 9.8 |
-| **120 kg DJ 5×** | **5,886** | **0.143** | **15.3** | **5.9** |
-| 120 kg DJ 7× (extreme) | 8,240 | 0.200 | 21.4 | 4.2 |
+| 70 kg standing | 687 | 0.018 | 1.8 | 50 |
+| 85 kg standing | 834 | 0.021 | 2.4 | 38 |
+| 120 kg standing | 1,177 | 0.031 | 3.3 | 27 |
+| 85 kg CMJ 3× | 2,502 | 0.064 | 7.0 | 13 |
+| 120 kg CMJ 3× | 3,532 | 0.091 | 9.9 | 9.1 |
+| **120 kg DJ 5×** | **5,886** | **0.151** | **16.5** | **5.5** |
+| 120 kg DJ 7× (extreme) | 8,240 | 0.211 | 23.0 | 3.9 |
 
 > **ℹ️ Info**
 >
-> Maximum deflection < 0.2 mm in all scenarios, including extreme DJ. FS > 4 in all conditions — even with the 5052-F alloy (σ_y = 90 MPa), the box section provides ample safety margin.
+> Deflection at the critical DJ 5× scenario is **0.151 mm** — well within the < 0.5 mm criterion (and below the conservative 0.2 mm research target). The extreme DJ 7× worst case (7×BW, beyond typical jump loads) reaches 0.211 mm with FS 3.9 — still above the FS ≥ 2 impact criterion. All formal acceptance criteria (§9) are met with comfortable margin even with the 5052-F alloy (σ_y = 90 MPa) and the 1.5 mm tube wall.
 
-**Comparison Rev. 1.0 → Rev. 2.0 (critical scenario DJ 5×, 120 kg):**
+**Comparison Rev. 1.0 → Rev. 2.0 → Rev. 3.1 (critical scenario DJ 5×, 120 kg):**
 
-| Parameter | Rev. 1.0 (Al 6061-T6, Al tubes) | Rev. 2.0 (Al 5052-F, steel tubes) |
-|-----------|:--------------------------------:|:----------------------------------:|
-| Deflection | 0.180 mm | **0.143 mm** (−21%) |
-| Al stress | 17.5 MPa | **15.3 MPa** (−13%) |
-| FS | 15.7 | **5.9** (lower σ_y) |
-| Tube weight | 0.75 kg | **2.18 kg** (+1.4 kg) |
+| Parameter | Rev. 1.0 (Al tubes) | Rev. 2.0 (1020 steel) | Rev. 3.1 (inox 304, 1.5 mm) |
+|-----------|:-------------------:|:---------------------:|:----------------------------:|
+| Deflection | 0.180 mm | 0.143 mm | **0.151 mm** |
+| Al stress | 17.5 MPa | 15.3 MPa | **16.5 MPa** |
+| FS | 15.7 | 5.9 | **5.5** |
+| Tube weight | 0.75 kg | 2.18 kg | **1.6 kg** |
 
 ### 7.6 Sensitivity to tube size
 
 | Tube | Transf. I (mm⁴) | DJ 5× deflection | Difference |
 |------|:---------------:|:----------------:|:----------:|
-| Steel 35×35×2 mm | 1,305,342 | 0.143 mm | reference |
-| Steel 30×30×2 mm | ~1,240,000 | ~0.150 mm | +5% |
+| Inox 304 35×35×1.5 mm (adopted) | 1,234,842 | 0.151 mm | reference |
+| 1020 steel 35×35×2 mm (Rev 2.0) | 1,305,342 | 0.143 mm | −5% |
 
-Negligible difference — both sizes comply with comfortable margin. Prefer 35×35 if available.
+Negligible difference — the ~5% inertia reduction from the 1.5 mm stainless wall (vs the 2 mm steel of Rev 2.0) is well within the design margin. All criteria still met.
 
 ---
 
 ## 8. Bond Verification
 
-### 8.1 Shear at tube-plate interface (steel→aluminum)
+### 8.1 Shear at tube-plate interface (stainless→aluminum)
 
 | Parameter | Value |
 |-----------|-------|
-| Maximum shear (V = P/2) | 2,943 N |
-| Transformed first moment of area (Q_top) | 29,537 mm³ |
-| Shear flow (q = VQ/I_tr) | 66.6 N/mm |
+| Maximum shear (V = P/2, DJ 5×) | 2,943 N |
+| Transformed first moment of area (Q_top) | 28,634 mm³ |
+| Shear flow (q = VQ/I_tr) | 68.2 N/mm |
 | Bond width (2 tubes × 35 mm) | 70 mm |
-| Adhesive stress (τ = q/b) | **0.95 MPa** |
-| Structural epoxy strength | 20–30 MPa |
-| **Bond safety factor** | **> 21** |
+| Adhesive stress (τ = q/b) | **0.98 MPa** |
+| Adhesive shear strength (Araldite Professional, stainless, ambient cure) | ≈ 14–16 MPa |
+| **Bond safety factor** | **≈ 14–16×** |
+
+At the extreme DJ 7× scenario (V = 4,120 N), τ rises to 1.37 MPa → bond FS ≈ 10× — still ample. The design is governed by stiffness (deflection), not bond strength.
 
 > **📝 Note**
 >
-> The steel↔aluminum interface via epoxy is well established in engineering practice. Steel has natural roughness that promotes mechanical adhesion. Preparation: sand both surfaces (80 grit), degrease with isopropyl alcohol, apply epoxy, and cure 24 h under clamp pressure.
+> The stainless↔aluminum interface via structural epoxy is well established in engineering practice. Stainless 304 carries a passive Cr₂O₃ layer, so surface preparation uses **coarser abrasion than carbon steel**: sand both surfaces with **P40–P60 grit** (not P80), degrease with isopropyl alcohol, apply epoxy, and cure 24 h under clamp pressure. See `COMPONENT_SPECS.md` §2.7.
 
 ### 8.2 Adhesive specification
 
-- Type: two-part structural epoxy (Araldite Professional, Loctite EA 9461, or equivalent)
-- Shear strength: ≥ 20 MPa
-- Preparation: sand surfaces (80 grit), degrease (isopropyl alcohol)
+- Type: two-part structural epoxy — **Araldite Professional (Tekbond, 90 min initial / 24 h full cure)**, selected for the MVP prototype
+- Shear strength on stainless (ambient cure): ≈ 14–16 MPa → bond FS ≈ 14–16×
+- Preparation: sand surfaces **P40–P60 grit** (coarse — stainless passive layer), degrease (isopropyl alcohol)
 - Cure: 24 h under pressure (clamps)
+- Production upgrade path: for a continuously-used v2, 3M Scotch-Weld DP460 (≥ 20 MPa, FS > 20×) — overkill for the prototype
+
+> **🌡️ FYI — hot cure variant**
+>
+> A 100 °C / 20 min cure (heat gun) raises Araldite Professional shear strength on stainless to ~22.5 MPa (Tekbond technical sheet). Not used here — ambient cure already gives FS ≈ 14–16×, and controlled heating adds process complexity not justified for the prototype.
 
 ---
 
@@ -432,6 +442,10 @@ Rev 3.0 stack uses inox 304 contínuo across all fasteners + shims. Interfaces w
 
 Al 5052-F (anodic) ↔ inox 304 (cathodic) is a **moderate galvanic pair** (vs Al ↔ carbon steel, which is severe). In dry indoor environment (lab/gym), galvanic creep is negligible over years. Acceptable without isolation.
 
+> **Rev 3.1 update — structural tube**
+>
+> Rev 3.0 left the structural reinforcement tube as the last carbon-steel (1020) component. Rev 3.1 replaces it with stainless steel 304, so the design is now **inox 304 throughout**. The tube↔plate interface is epoxy-bonded — the adhesive layer already acts as a galvanic insulator regardless of tube material — but stainless removes the residual Al↔carbon-steel pair and the need for any anti-corrosion coating on the tube.
+
 ### 8.4.6 Acceptance criteria (Rev 3.0 fastening)
 
 | Criterion | Limit | Result | Status |
@@ -454,7 +468,7 @@ Al 5052-F (anodic) ↔ inox 304 (cathodic) is a **moderate galvanic pair** (vs A
 | Maximum deflection (DJ 5×BW) | < 0.5 mm | 0.14 mm | ✅ |
 | Maximum deflection (CMJ 3×BW) | < 0.2 mm | 0.06 mm | ✅ |
 | Safety factor (DJ 5×) | ≥ 2.0 | 5.9 | ✅ |
-| Bond FS (DJ 5×) | ≥ 3.0 | > 21 | ✅ |
+| Bond FS (DJ 5×) | ≥ 3.0 | ≈ 14–16 | ✅ |
 
 ---
 
@@ -469,22 +483,23 @@ The 6 mm aluminum top plate without reinforcement deflects 12.7 mm under DJ load
 3. Steel tube frame — good but heavy (+6 kg) and requires welding
 4. **Box section with square tubes** — best cost-weight-stiffness ratio
 
-### Adopted solution (Rev. 2.0)
-2 square **1020 carbon steel** tubes (35×35×2 mm) bonded with structural epoxy between the two 5052-F aluminum plates, creating a box section with I_transformed = 1,305,342 mm⁴ (~150× the plate alone).
+### Adopted solution (Rev. 3.1)
+2 square **stainless steel 304** tubes (35×35×1.5 mm, 500 mm) bonded with structural epoxy between the two 5052-F aluminum plates, creating a box section with I_transformed = 1,234,842 mm⁴ (~190× the plate alone).
 
 > **ℹ️ Design evolution**
 >
 > Rev. 1.0: aluminum tubes (I = 1,062,000 mm⁴, +0.75 kg, ~R$50).
-> Rev. 2.0: steel tubes (I_tr = 1,305,000 mm⁴, +2.18 kg, ~R$25). Driven by local availability — aluminum tubes are difficult to find in the regional market, while steel is an off-the-shelf product.
+> Rev. 2.0: 1020 carbon steel tubes (I_tr = 1,305,000 mm⁴, +2.18 kg, ~R$25). Driven by local availability — aluminum tubes are difficult to find in the regional market, while steel is an off-the-shelf product.
+> Rev. 3.1: stainless steel 304 tubes (I_tr = 1,235,000 mm⁴, +1.6 kg, R$104). Completes the "inox 304 throughout" rule from Rev. 3.0 — galvanic compatibility with Al 5052-F, no anti-corrosion coating needed.
 
-### Impact (Rev. 2.0)
+### Impact (Rev. 3.1)
 
-| Parameter | Unreinforced | With reinforcement Rev. 2.0 | Improvement |
+| Parameter | Unreinforced | With reinforcement Rev. 3.1 | Improvement |
 |-----------|:-----------:|:---------------------------:|:-----------:|
-| DJ 5× deflection | 10.52 mm | 0.14 mm | **75×** |
-| Structural FS (5052-F) | 0.1 | 5.9 | **59×** |
-| Additional weight | — | +2.18 kg | — |
-| Additional cost | — | ~R$ 25 | — |
+| DJ 5× deflection | 10.52 mm | 0.151 mm | **70×** |
+| Structural FS (5052-F) | 0.1 | 5.5 | **55×** |
+| Additional weight | — | +1.6 kg | — |
+| Additional cost | — | R$ 104 | — |
 
 ---
 
@@ -495,7 +510,7 @@ The 6 mm aluminum top plate without reinforcement deflects 12.7 mm under DJ load
 3. **Effective width** — adopted as 300 mm (conservative). The actual contribution of the plates may be greater.
 4. **Ideal bond** — assumes perfect shear transfer through the adhesive. Surface preparation is critical, especially at the steel↔aluminum interface.
 5. **Dynamic effects not considered** — impact loads (DJ) are transient and system inertia attenuates peaks.
-6. **Galvanic corrosion** — steel↔aluminum contact can cause galvanic corrosion in humid environments. Mitigation: the epoxy layer between surfaces acts as an insulator. For indoor lab/gym use, risk is negligible.
+6. **Galvanic corrosion** — with Rev 3.1 the tubes are stainless steel 304, galvanically compatible with Al 5052-F (moderate pair, vs the severe Al↔carbon-steel pair of Rev 2.0). The epoxy bond layer additionally acts as an insulator. For indoor lab/gym use, risk is negligible.
 
 ---
 
@@ -515,3 +530,4 @@ The 6 mm aluminum top plate without reinforcement deflects 12.7 mm under DJ load
 | 1.1 | 2026-04-04 | Added Section 8.3 — bearing stress verification at supports (plate↔shim↔cell) |
 | 2.0 | 2026-04-06 | Material update for local availability: Al 5052-F 6.35 mm plates (replaces 6061-T6 6 mm), 1020 steel tubes (replaces Al). Full recalculation with transformed section. All criteria met with comfortable margin (FS ≥ 4.2). |
 | 3.0 | 2026-05-08 | Added Section 8.4 — Rev 3.0 fastening analysis (inox 304 A2-70 + mirror shim configuration). Preload reduced ~12 kN (vs ~28 kN cl 8.8); bolt shear FS > 150; mirror shim brings preload bearing FS on bottom plate from 1.05 to 11; galvanic compatibility for Al 5052-F + inox 304 acceptable indoor. Stack height bumped 43.35 → 44.35 mm (M10×60 required). |
+| 3.1 | 2026-05-18 | Structural reinforcement tube migrated from 1020 carbon steel to stainless steel 304, 35×35×1.5 mm wall (was 2 mm), 500 mm length (was 527 mm) — off-the-shelf stainless from local supplier (Real Fortaleza Hidráulica, Jacareí). Completes "inox 304 throughout". Transformed section recomputed: I_tr 1,305,342 → 1,234,842 mm⁴ (−5%); DJ 5× deflection 0.143 → 0.151 mm; structural FS 5.9 → 5.5; bond τ 0.95 → 0.98 MPa, FS ≈ 14–16×. All acceptance criteria met. Adhesive specified: Araldite Professional (Tekbond). |
