@@ -1,8 +1,8 @@
 # Shopping List — Mechanical Assembly
 
-**Date:** 2026-04-06 (last updated 2026-05-18 — Rev 3.1 inox 304 tube)
-**Status:** Aluminum plates + 4 turned foot pieces received from AL Usinagem (R$ 1,480 — 2026-05-08). MercadoLivre hardware ordered (R$ 136,19, awaiting delivery): M10×60 inox 304 + Parlock 304 + arruela 304. Stainless 304 tube received (R$ 103,67 — Real Fortaleza Hidráulica, 2026-05-18). Pending: 8 stainless 304 shims (1.5 mm nominal — empirical, AL Usinagem quote) + structural epoxy (Araldite Professional) + consumables.
-**Total spent so far:** R$ 2,270 (R$ 550 plates + R$ 1,480 AL Usinagem + R$ 136 ML hardware + R$ 104 tube)
+**Date:** 2026-04-06 (last updated 2026-05-19 — Araldite Profissional adquirido)
+**Status:** Aluminum plates + 4 turned foot pieces received from AL Usinagem (R$ 1,480 — 2026-05-08). MercadoLivre hardware ordered (R$ 136,19, awaiting delivery): M10×60 inox 304 + Parlock 304 + arruela 304. Stainless 304 tube received (R$ 103,67 — Real Fortaleza Hidráulica, 2026-05-18). Structural epoxy received (R$ 62,00 — Araldite Profissional 2× 23 g, Real Fortaleza Hidráulica, 2026-05-19). Pending: 8 stainless 304 shims (1.5 mm nominal — empirical, AL Usinagem quote) + remaining consumables (sandpaper P40–P60 + isopropyl alcohol + bar clamps).
+**Total spent so far:** R$ 2,332 (R$ 550 plates + R$ 1,480 AL Usinagem + R$ 136 ML hardware + R$ 104 tube + R$ 62 epoxy)
 
 > **Rev 3.0 changes (2026-05-08):**
 > - Fastening: M10×50 class 8.8 → **M10×60 inox 304** + Parlock + arruela 304 (galvanic compatibility + cyclic durability)
@@ -97,7 +97,7 @@
 
 | # | Item | Specification | Qty | Est. (R$) |
 |---|------|--------------|:---:|----------:|
-| 11 | Structural epoxy adhesive | **Araldite Professional 90 min, 23 g bisnaga** (Tekbond BRAP000) — NOT Hobby/Massa/Fix/Transparente | 2 | ~50 |
+| 11 | Structural epoxy adhesive ✅ | **Araldite Profissional 90 min, 23 g bisnaga** (Tekbond BRAP000) — NOT Hobby/Massa/Fix/Transparente — Real Fortaleza Hidráulica 2026-05-19 | 2 | **62,00** (R$ 31 cada) |
 | 12 | Neoprene rubber | Ø60 mm × 1 mm disc (cut from sheet if needed) | 4 | ~10 |
 | 13 | Metal sandpaper | **P40–P60 grit** (coarse — stainless 304 passive layer; not P80) | 2 | ~5 |
 | 14 | Isopropyl alcohol | Degrease surfaces before bonding | 1 | ~5 |
@@ -113,10 +113,11 @@
 | AL Usinagem (plate finishing + turned feet) | 1–2 finishing + 4 | **R$ 1,480** | ✅ Received 2026-05-08 |
 | AL Usinagem (8 stainless 304 shims, Rev 3.0) | 5 | TBD | ⏳ Quote pending — fab after empirical measurement |
 | Real Fortaleza Hidráulica (stainless 304 tube, Rev 3.1) | 3 | **R$ 103,67** | ✅ Purchased 2026-05-18 |
+| Real Fortaleza Hidráulica (Araldite Profissional 2× 23 g) | 11 | **R$ 62,00** | ✅ Purchased 2026-05-19 |
 | MercadoLivre (fasteners inox 304, Rev 3.0) | 6–8 | **R$ 136,19** | 🚚 Ordered 2026-05-08, awaiting delivery |
-| Materials (epoxy + consumables) | 11–15 | ~R$ 110 | ⏳ To buy |
-| **Total spent so far** | | **R$ 2,270** | |
-| **Pending estimate** | | ~R$ 110 + AL shims | |
+| Materials (remaining consumables) | 12–15 | ~R$ 60 | ⏳ To buy |
+| **Total spent so far** | | **R$ 2,332** | |
+| **Pending estimate** | | ~R$ 60 + AL shims | |
 
 ---
 
@@ -126,8 +127,9 @@
 - [x] AL Usinagem — measurement check + plates finishing (R30/chamfer + drilling + countersinking + perimeter chamfer Rev 3.0) + 4 foot pieces (Ø55 + base wall knurled) — received 2026-05-08, R$ 1,480
 - [x] MercadoLivre fastening (Rev 3.0) — M10×60 inox 304 + Parlock + arruela 304 — ordered 2026-05-08, R$ 136,19, awaiting delivery
 - [x] Real Fortaleza Hidráulica — stainless 304 tube 35×35×1.5 mm (1 m bar) — purchased 2026-05-18, R$ 103,67
+- [x] Real Fortaleza Hidráulica — Araldite Profissional 90 min, 2× 23 g — purchased 2026-05-19, R$ 62,00
 - [ ] AL Usinagem — 8 stainless 304 shims (1.5 mm nominal — empirical, see process gate below)
-- [ ] Materials — Araldite Professional 90 min (2× 23 g) + P40–P60 sandpaper + isopropyl alcohol + bar clamps
+- [ ] Materials — P40–P60 sandpaper + isopropyl alcohol + bar clamps
 
 > **⚠️ Process gate before ordering shims (Rev 3.0):**
 >

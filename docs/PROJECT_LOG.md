@@ -6,6 +6,23 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-05-19 — Structural epoxy acquired (Araldite Professional)
+
+- **Real Fortaleza Hidráulica Industrial** (same supplier as the Rev 3.1 inox 304 tube), Praça Independência 107, São João, Jacareí-SP
+- **Araldite Profissional bicomponente** (Tekbond BRAP000), 23 g bisnaga — **2 unidades × R$ 31,00 = R$ 62,00**
+- Estimate was ~R$ 50 → actual R$ 62 (+R$ 12 / +24%): single-supplier convenience over hunting hardware stores
+- Unblocks bonding step (chapas + tubos inox 304 com epóxi estrutural, 24 h cura) once tube is cut into 2× 500 mm
+
+### Pending (next steps)
+
+- Cut tube into 2× 500 mm
+- Buy remaining consumables (P40–P60 sandpaper, isopropyl alcohol, bar clamps)
+- Bond plates + tubes with structural epoxy (24 h cure under clamping)
+- Measure bonded box section height empirically → quote 8 inox 304 shims (AL Usinagem)
+- Test-fit single corner → first calibration → promote `v3.1.0-rc1` → `v3.1.0`
+
+---
+
 ## 2026-05-18 — Rev 3.1: stainless steel 304 structural tube acquired
 
 ### Tube purchased

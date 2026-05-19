@@ -96,10 +96,10 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 | 6 | **M10×60 DIN 7991 inox 304** + Parlock 304 + arruela 304 (Rev 3.0) | 8+8+8 | 🚚 ML 2026-05-08 awaiting | 136 |
 | 7 | Neoprene rubber discs Ø55 mm × 1 mm (Rev 3.0 — was Ø60) | 4 | ⏳ TBD | ~10 |
 | 8 | **Stainless 304 square tube, 35×35×1.5mm**, 2× 500mm (cut from 1 m bar) — Rev 3.1 | 2 | ✅ Real Fortaleza Hidráulica 2026-05-18 | 103,67 |
-| 9 | Structural epoxy — **Araldite Professional 90 min, 2× 23 g** (Tekbond BRAP000) — Rev 3.1 | 2 | ⏳ Pending | ~50 |
-| | | **Spent + committed** | | **R$ 2,270** |
-| | | **+ Pending estimate** | | ~R$ 60 + AL shims (~150–200) |
-| | | **Mechanical total Rev 3.1** | | **~R$ 2,480–2,530** |
+| 9 | Structural epoxy — **Araldite Profissional 90 min, 2× 23 g** (Tekbond BRAP000) — Rev 3.1 | 2 | ✅ Real Fortaleza Hidráulica 2026-05-19 | 62,00 |
+| | | **Spent + committed** | | **R$ 2,332** |
+| | | **+ Pending estimate** | | ~R$ 10 (consumables) + AL shims (~150–200) |
+| | | **Mechanical total Rev 3.1** | | **~R$ 2,490–2,540** |
 
 > **Cost increase vs Rev 2.0 estimate (was ~R$ 500 mechanical):** ~+R$ 1,876. Drivers: (a) AL Usinagem services R$ 1,480 — first contracted machining, replaces self-fab estimate of ~R$ 180 (feet + shims); (b) inox 304 hardware R$ 136 (vs ~R$ 30 cl 8.8 estimate); (c) shim quantity 4 → 8 (mirror config) + material upgrade to inox 304. Trade-off accepted: precision/durability/galvanic compatibility from professional machining + corrosion-resistant fastening justify the cost vs hand-fab + carbon steel.
 

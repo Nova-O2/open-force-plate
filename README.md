@@ -14,9 +14,10 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 - ✅ Mechanical components received: 4× turned foot pieces (Ø55 + base wall serrilhada) + 2× chamfered plates (AL Usinagem 2026-05-08, R$ 1.480)
 - ✅ Hardware ordered: M10×60 DIN 7991 inox 304 + Parlock + arruela inox 304 (MercadoLivre 2026-05-08, R$ 136,19, frete grátis)
 - ✅ Structural tube acquired: inox 304 35×35×1.5mm, 1 m bar (Real Fortaleza Hidráulica, Jacareí — 2026-05-18, R$ 103,67)
-- 🔄 **Pending:** buy Araldite Professional 90 min (2× 23 g) → cut tube into 2× 500mm → bond plates+tubes with structural epoxy (24 h cure) → measure box section height empirically → AL Usinagem quote for 8 stainless 304 mirror shims (1.5mm nominal — empirical) → ML hardware delivery
+- ✅ Structural epoxy acquired: Araldite Profissional 90 min, 2× 23 g (Real Fortaleza Hidráulica — 2026-05-19, R$ 62,00)
+- 🔄 **Pending:** cut tube into 2× 500mm → bond plates+tubes with structural epoxy (24 h cure) → measure box section height empirically → AL Usinagem quote for 8 stainless 304 mirror shims (1.5mm nominal — empirical) → ML hardware delivery → remaining consumables (P40–P60 sandpaper, isopropyl alcohol, bar clamps)
 - ⏳ **Validation gate:** assembly of 4 corners + first calibration to promote `v3.1.0-rc1` → `v3.1.0` final
-- **Updated:** 2026-05-18
+- **Updated:** 2026-05-19
 
 ### Engenharia
 - **Sprint:** hardware MVP — Rev 3.1 inox 304 throughout + assembly
@@ -85,7 +86,8 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 - ✅ Aluminum plates acquired (Casa dos Metais 2026-04-16) + machining received (AL Usinagem 2026-05-08, R$ 1,480: feet + plate finishing + perimeter chamfer)
 - ✅ Fastening hardware ordered (Rev 3.0): M10×60 DIN 7991 inox 304 + Parlock + arruela 304 (MercadoLivre 2026-05-08, R$ 136,19)
 - ✅ Structural tube acquired (Rev 3.1): inox 304 35×35×1.5mm (Real Fortaleza Hidráulica 2026-05-18, R$ 103,67)
-- 🔄 Pending: Araldite Professional purchase + epoxy bonding + box section measurement + 8 stainless 304 mirror shims (AL Usinagem quote)
+- ✅ Structural epoxy acquired: Araldite Profissional 90 min, 2× 23 g (Real Fortaleza Hidráulica 2026-05-19, R$ 62,00)
+- 🔄 Pending: epoxy bonding + box section measurement + 8 stainless 304 mirror shims (AL Usinagem quote) + remaining consumables
 - 🔲 Firmware development
 - 🔲 Software development
 - 🔲 Scientific validation
@@ -100,8 +102,9 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 | AL Usinagem services (foot pieces + plate finishing) | R$1,480 | ~$295 |
 | Inox 304 fastening (M10×60 + Parlock + washer, ML 2026-05-08) | R$136 | ~$27 |
 | Structural tube (inox 304 35×35×1.5mm, Real Fortaleza 2026-05-18) | R$104 | ~$21 |
-| Pending (epoxy + consumables + 8 stainless 304 shims) | ~R$235 | ~$47 |
-| **Total Rev 3.1 (single platform)** | **~R$3,860** | **~$770** |
+| Structural epoxy (Araldite Profissional 2× 23 g, Real Fortaleza 2026-05-19) | R$62 | ~$12 |
+| Pending (remaining consumables + 8 stainless 304 shims) | ~R$185 | ~$37 |
+| **Total Rev 3.1 (single platform)** | **~R$3,870** | **~$770** |
 
 *Unit cost excludes tools and backup components. Cost increase vs Rev 2.0 estimate (~R$2,500) reflects the shift from "self-fab + carbon steel hardware" to "outsourced precision machining (AL Usinagem) + corrosion-resistant inox 304 fastening" — see [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md) for rationale. The Rev 3.1 stainless tube came at R$104 (vs ~R$20 budgeted for carbon steel) — stainless premium + 1 m minimum bar length. See [Components Selected](docs/COMPONENTS_SELECTED.md) for the detailed breakdown.*
 
@@ -243,7 +246,8 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 - ✅ Chapas de alumínio adquiridas (Casa dos Metais 2026-04-16) + usinagem recebida (AL Usinagem 2026-05-08, R$ 1.480: pezinhos + acabamento das chapas + chanfro perimetral)
 - ✅ Hardware de fixação encomendado (Rev 3.0): M10×60 DIN 7991 inox 304 + Parlock + arruela 304 (MercadoLivre 2026-05-08, R$ 136,19)
 - ✅ Tubo estrutural adquirido (Rev 3.1): inox 304 35×35×1,5mm (Real Fortaleza Hidráulica 2026-05-18, R$ 103,67)
-- 🔄 Pendente: compra do Araldite Profissional + colagem epóxi + medição da seção caixão + 8 juntas inox 304 espelho (orçamento AL Usinagem)
+- ✅ Epóxi estrutural adquirido: Araldite Profissional 90 min, 2× 23 g (Real Fortaleza Hidráulica 2026-05-19, R$ 62,00)
+- 🔄 Pendente: colagem epóxi + medição da seção caixão + 8 juntas inox 304 espelho (orçamento AL Usinagem) + consumíveis restantes (lixa P40–P60, álcool isopropílico, grampos sargento)
 - 🔲 Desenvolvimento de firmware
 - 🔲 Desenvolvimento de software
 - 🔲 Validação científica
@@ -258,8 +262,9 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 | Serviços AL Usinagem (pezinhos + acabamento das chapas) | R$1.480 | ~$295 |
 | Fixação inox 304 (M10×60 + Parlock + arruela, ML 2026-05-08) | R$136 | ~$27 |
 | Tubo estrutural (inox 304 35×35×1,5mm, Real Fortaleza 2026-05-18) | R$104 | ~$21 |
-| Pendente (epóxi + consumíveis + 8 juntas inox 304) | ~R$235 | ~$47 |
-| **Total Rev 3.1 (plataforma única)** | **~R$3.860** | **~$770** |
+| Epóxi estrutural (Araldite Profissional 2× 23 g, Real Fortaleza 2026-05-19) | R$62 | ~$12 |
+| Pendente (consumíveis restantes + 8 juntas inox 304) | ~R$185 | ~$37 |
+| **Total Rev 3.1 (plataforma única)** | **~R$3.870** | **~$770** |
 
 *Custo unitário exclui ferramentas e componentes de backup. Aumento vs estimativa Rev 2.0 (~R$2.500) reflete migração de "self-fab + fixação aço carbono" para "usinagem precisão (AL Usinagem) + fixação inox 304" — ver [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md). O tubo inox da Rev 3.1 saiu R$104 (vs ~R$20 orçado para aço carbono) — prêmio do inox + barra mínima de 1 m. Veja [Componentes Selecionados](docs/COMPONENTS_SELECTED.md) para o detalhamento completo.*
 
