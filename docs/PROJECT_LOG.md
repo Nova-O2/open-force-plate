@@ -6,6 +6,39 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-05-20 — Bonding session 2: bottom plate + foot zincagem encaminhada
+
+### Aquisição
+
+- **2× 23 g Araldite Profissional** comprados hoje na **Real Fortaleza Hidráulica Industrial** (mesmo fornecedor, mesmo preço — R$ 62 total). Lote novo para Sessão 2.
+
+### Execução
+
+- **Re-prep das faces remanescentes:** tubos inox 304 (face oposta, que mateia com chapa inferior) re-lixados P24 — Cr₂O₃ já re-passivou desde Sessão 1
+- **Chapa inferior Al 5052-F:** prep nova P24
+- **Degrease:** acetona pura
+- **Aplicação:** Araldite Profissional 2× 23 g misturado 1:1 → aplicado nas 2 faces (bottom plate + faces remanescentes dos tubos) → assentado → carga aplicada
+- **Cura:** 24 h+ em curso, atravessa toda a viagem Belém (21-24/05). Retorno seg 25/05 para inspeção da junta.
+
+### Pezinhos — tratamento zincagem anti-corrosão (paralelo)
+
+- Pezinhos deixados na **terça 19/05** em serviço de zincagem anti-corrosão (fornecedor confirmou prazo: prontos segunda)
+- **Custo meio banho: R$ 105** (despesa nova, ainda não refletida em SHOPPING/COMPONENTS — cascade no fechamento)
+- **Retirada agendada seg 25/05 antes do almoço**
+
+### Próximos passos — seg 25/05 (pós-viagem)
+
+- Buscar pezinhos zincados antes do almoço
+- Inspecionar junta da Sessão 2 após cura completa
+- Colar borracha (retalho disponível) nos pezinhos
+- Apenas então: medir altura real da seção caixão + cotar 8 shims inox 304 + checar entrega ML hardware
+
+### Cascade pendente (mantido do log da Sessão 1)
+
+Cascade write-through (README EN+PT, SHOPPING_LIST, COMPONENTS_SELECTED, `00-core/priorities.md`) fica adiado até inspeção pós-cura na seg 25/05 — decisão Aldo, evita atualizar várias vezes. Incluir nesta cascade: Araldite total (4× 23 g = R$ 124), zincagem pezinhos (R$ 105).
+
+---
+
 ## 2026-05-19 (tarde) — Bonding session 1: top plate + tubes (parcial — 2ª sessão pendente)
 
 ### Execução
