@@ -6,6 +6,36 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-05-25 — Pezinhos zincados retirados + Sessão 2 curada + medições do dia
+
+### Pezinhos — zincagem concluída
+
+- **Retirados hoje pela manhã** (antes do almoço, conforme planejado no log de 20/05)
+- **Pagamento: R$ 105** (meio banho zincagem anti-corrosão) — despesa registrada, fica para a cascade
+- Próximo passo imediato: colar borracha (retalho disponível) na base dos pezinhos — execução prevista para hoje
+
+### Bonding Sessão 2 — cura completa, junta íntegra
+
+- Cura concluída após 5 dias (20/05 → 25/05, mais que os 24 h mínimos do Araldite Profissional)
+- Inspeção visual da junta: íntegra, sem desalinhamento ou bolha visível
+- Estrutura aprovada para próxima fase (medição + assembly)
+
+### Próximas execuções de hoje
+
+- Colar borracha nos pezinhos zincados (retalho disponível, adesivo de contato)
+- **Medir altura real da seção caixão empiricamente** (com paquímetro nos 4 cantos — base para shim final)
+- **Cotar 8 shims inox 304** com AL Usinagem (espessura definida pela medição acima)
+
+### Cascade write-through — ainda adiada
+
+Decisão Aldo: cascade write-through (README EN+PT, SHOPPING_LIST, COMPONENTS_SELECTED, `00-core/priorities.md`) **continua adiada** — será executada em batch quando o ciclo de medição + cotação + assembly avançar mais. Itens acumulados para a cascade:
+
+- Araldite total (4× 23 g = R$ 124)
+- Zincagem pezinhos (R$ 105)
+- Hardware ML entregue (ver entrada 12-13/05)
+
+---
+
 ## 2026-05-20 — Bonding session 2: bottom plate + foot zincagem encaminhada
 
 ### Aquisição
@@ -128,6 +158,17 @@ Cascade write-through será feito de uma vez no fechamento da 2ª sessão (decis
 - Bond plates + tubes with structural epoxy (24 h cure under clamping)
 - Measure bonded box section height empirically → quote 8 inox 304 shims (AL Usinagem)
 - Test-fit single corner → first calibration → promote `v3.1.0-rc1` → `v3.1.0`
+
+---
+
+## 2026-05-12 a 13 — Hardware MercadoLivre entregue
+
+- Entrega dos itens comprados em 08/05 (ver entrada daquela data):
+  - 10× M10×60 DIN 7991 inox 304 (MIXPARAFUSOS)
+  - 20× porca Parlock M10 inox 304 all-metal (EMAIFIX)
+  - 20× arruela plana M10 inox A2/304 (USINIK)
+- Total R$ 136,19 — todos os itens em mãos, prontos para o assembly após medição da seção caixão
+- Desbloqueia: assembly de teste em 1 canto assim que shims novos chegarem
 
 ---
 
