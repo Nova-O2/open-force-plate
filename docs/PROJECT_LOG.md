@@ -6,6 +6,54 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-05-26 — Borracha colada (Tekbond 793) + medição seção caixão + pivot shim fabrication
+
+### Borracha dos pezinhos — colada
+
+- Adesivo de contato neoprene (cola preta de reparo de wetsuit, policloropreno) — bond **parcial / inconsistente** (pegou em algumas regiões, não em outras), insuficiente pra confiar em uso cíclico
+- Solução adotada: **Tekbond Adesivo Instantâneo 793 (100 g, cianoacrilato)** — colou bem, pezinhos prontos
+- Trade-off aceito: cianoacrilato é bond rígido sob compressão cíclica → risco de peel failure no médio prazo. Aceitável para o protótipo MVP; refazer com adesivo flexível na v2 caso descole
+- Hipóteses pra falha do contato (não verificadas, p/ futura referência): selo cromatado do zincado branco deixa superfície mais inerte que metal nu; surface prep com lixa P150-220 + álcool pode ter sido insuficiente — lixa mais agressiva (P80) ou etch químico leve poderia ter ajudado
+
+### Medição empírica da seção caixão (pós-cura Sessão 2)
+
+- Espaço interno entre as chapas: **~36 mm**
+- Cell DYX-301 H: 32 mm
+- **Gap total a vencer pelos shims: 4 mm**
+- Configuração espelhada confirmada: 2 mm de shim em cima + 2 mm em baixo
+- **Shim thickness final: 2 mm** (Rev 3.0 previa 1.5 mm nominal — empírico ficou 0,5 mm acima, dentro da tolerância da bondline Araldite)
+
+### Shim sourcing — material self-sourced, machining ainda na AL Usinagem
+
+- Decisão: comprar a chapa stock diretamente (sem markup intermediário) e enviar para AL Usinagem fazer **corte + furação** dos 8 shims
+- **Chapa adquirida hoje:** aço inox 304, **300 × 100 × 2 mm**, MALUCOMERCIAL (MercadoLivre) — **R$ 79,90**
+- **Previsão de entrega: qua-qui 27-28/05/2026**
+- Yield: 30.000 mm² disponíveis → folga confortável para 8 shims (geometria final a definir antes da ordem na AL)
+- **AL Usinagem (cut + drill 8 shims):** custo TBD — pode ser cobrado ou cortesia ("talvez cobrem, talvez não") dado o relacionamento já estabelecido + serviço de baixa complexidade
+
+### Próximos passos
+
+- Aguardar chegada da chapa (27-28/05)
+- Definir geometria final dos 8 shims (dimensões + furação) — alinhada com hardware ML já em mãos (M10×60)
+- Levar chapa + spec para AL Usinagem
+- Receber shims cortados e furados
+- Test-fit em 1 canto: alinhamento + torque 20–25 N·m sem deformação visível na chapa Al
+- First calibration → trigger `v3.1.0-rc1` → `v3.1.0` tag promotion
+
+### Cascade pendente — acumulada (mantida adiada por decisão Aldo)
+
+Itens a refletir no cascade write-through quando disparar:
+- Araldite total (4× 23 g = R$ 124)
+- Zincagem pezinhos (R$ 105 — TL Tratamento Superficial)
+- Hardware ML entregue (R$ 136,19 — ver entrada 12-13/05)
+- **Chapa inox 304 stock 300×100×2 mm (R$ 79,90 — MALUCOMERCIAL/MercadoLivre) [novo hoje]**
+- **AL Usinagem cut + drill 8 shims (custo TBD — pode ser cortesia)** [novo hoje]
+- Mudança de plano: material da chapa shim self-sourced (era "AL Usinagem cota tudo"); machining (corte + furação) permanece na AL Usinagem
+- Shim thickness final empírico: 2 mm (era 1.5 mm nominal no Rev 3.0)
+- Borracha pezinhos: colada com Tekbond 793 (adesivo já em estoque doméstico — custo zero p/ projeto)
+
+---
+
 ## 2026-05-25 — Pezinhos zincados retirados + Sessão 2 curada + medições do dia
 
 ### Pezinhos — zincagem concluída
