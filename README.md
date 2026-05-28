@@ -24,6 +24,20 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 - **Version:** `v3.1.0-rc1` (release candidate)
 - **Deploy:** N/A (hardware physical)
 
+## Strategy
+
+Força-plate é o **primeiro produto do pilar Tecnologia Nova O2** (casa de hardware open sport-tech BR). Strategy formal em:
+
+- [`01-content/marketing/nova-o2/strategy/pilar_tecnologia.md`](../../../01-content/marketing/nova-o2/strategy/pilar_tecnologia.md) — visão pilar + sequenciamento produtos + roadmap captação 4 fases (PIPE → Embrapii → VC) + networking priorizado + armadilhas
+- [`05-strategy/nova-o2/README.md`](../../../05-strategy/nova-o2/README.md) — índice de pointers strategy Nova O2
+
+Próximas etapas estratégicas (cascade do pilar Tecnologia, OKRs Q2 2026 sub-pilar 2.T):
+
+1. Rev 3.1 final + primeira calibração (em curso — KR 2.T.1)
+2. Lab acadêmico parceiro pra paper validação concorrente vs força-plate comercial (Q3/26 — KR 2.T.2)
+3. Primeiros 2-3 clientes em clube (Portuguesa, São José FC via Daniel) — Set-Dez 2026
+4. Pacote comercial formal (preço, garantia, suporte, treinamento) — Out-Dez 2026
+
 ## Specifications
 
 | Parameter | Value |
