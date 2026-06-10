@@ -279,7 +279,7 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 | Parameter | Value |
 |-----------|-------|
 | Material | **Stainless steel 304** (Rev 3.0 — was "carbon or stainless"; inox 304 mandatory to avoid galvanic pair with Al 5052-F plates) |
-| Dimensions | 56 × 32 × **1.5 mm nominal** (Rev 3.0 — was 2 mm; final thickness empirical, see §2.3.1) |
+| Dimensions | 56 × 32 × **2 mm final** (empirical 2026-05-26, see §2.3.1 — was 1.5 mm nominal Rev 3.0; fabricated 2026-06-03) |
 | Holes | 2× Ø11 mm, 25 mm center-to-center |
 | Function | Spacer between cell and plate (distributes load, prevents Al 5052-F crushing under bolt clamping) |
 | Quantity | **8 (4 top + 4 bottom)** — Rev 3.0 mirror configuration (was 4 top only) |
@@ -300,6 +300,8 @@ The 1.5 mm nominal value comes from arithmetic: box section height (35 mm steel 
 7. If ≠ 1.5 mm: update this spec + `hardware/cad/fabrication_drawings.py` with measured value before fabrication (additional commits on the Rev 3.0 branch before promoting `v3.0.0-rc1` → `v3.0.0`)
 
 **Reasoning:** epoxy layer adds 0.1–0.5 mm depending on application technique; cell H tolerance not specified in DYX-301 datasheet; tube commercial tolerance ±0.2 mm. Cumulative error can shift stack ±0.5 mm. Fabricating shims at nominal 1.5 mm without measurement risks rework (wrong parts → cost + delay).
+
+> **✅ Closed (measured 2026-05-26 → fabricated 2026-06-03):** post-cure box section measured **~36 mm** internal; cell H 32 mm → 4 mm total budget → **2 mm per shim** (mirror 2+2). Empirical came 0.5 mm above nominal, as the reasoning above anticipated. 8 shims cut + drilled by AL Usinagem from self-sourced 304 sheet (300×100×2 mm), delivered 2026-06-03. Pending debt: re-render `fabrication_drawings.py` + `fab_shim.pdf` at 2 mm.
 
 ---
 

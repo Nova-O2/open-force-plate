@@ -6,6 +6,35 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-06-08 — Montagem mecânica concluída
+
+### Assembly final — 4 cantos montados
+
+- Montagem completa da plataforma: 4 cantos com célula DYX-301 + 2× shim inox 304 2 mm (espelhado) + M10×60 DIN 7991 + arruela 304 + Parlock, sobre a estrutura colada (chapas Al 5052-F + seção caixão inox 304)
+- **Sem torquímetro** — aperto manual por sensibilidade; spec de 20–25 N·m **não verificada instrumentalmente**. Aceito para o MVP; re-torque instrumentado opcional antes da primeira calibração se houver acesso a torquímetro
+- **Fase de montagem mecânica ENCERRADA** — estrutura física da plataforma completa
+
+### Próximos passos
+
+- Bancada eletrônica: ADS1256 + ESP32-S3 + alimentação + cabeamento das 4 células
+- First calibration → trigger `v3.1.0-rc1` → `v3.1.0` tag promotion
+- Debt registrado: `COMPONENT_SPECS.md` §2.3 atualizado para 2 mm final; re-render de `fabrication_drawings.py` + `fab_shim.pdf` com 2 mm ainda pendente
+
+### Cascade executada 2026-06-10
+
+Cascade write-through acumulada desde 19/05 aplicada em batch nesta data (README EN+PT, SHOPPING_LIST, COMPONENTS_SELECTED, COMPONENT_SPECS §2.3, `00-core/priorities.md`): Araldite 4× 23 g (R$ 124), zincagem pezinhos (R$ 105), hardware ML entregue (R$ 136,19), chapa inox shim (R$ 79,90), corte+furação shims AL Usinagem (R$ 180), shim 2 mm final, borracha Tekbond 793.
+
+---
+
+## 2026-05-29 a 2026-06-03 — Shims fabricados: chapa recebida → AL Usinagem → 8 shims entregues
+
+- **29/05:** chapa inox 304 300×100×2 mm (MALUCOMERCIAL/ML, R$ 79,90) **chegou** (previsão era 27-28/05) — **entregue no mesmo dia à AL Usinagem** com as medidas previstas
+- **03/06:** AL Usinagem **entregou os 8 shims** cortados e furados nas medidas previstas, 2 mm de espessura
+- **Custo do serviço: R$ 180** (não foi cortesia — corte + furação dos 8 shims)
+- Custo total dos shims: R$ 259,90 (chapa R$ 79,90 + serviço R$ 180) — dentro da estimativa de R$ 150–200 só do serviço
+
+---
+
 ## 2026-05-26 — Borracha colada (Tekbond 793) + medição seção caixão + pivot shim fabrication
 
 ### Borracha dos pezinhos — colada

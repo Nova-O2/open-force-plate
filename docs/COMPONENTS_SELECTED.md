@@ -84,6 +84,21 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 
 ---
 
+## Services + final mechanical purchases (2026-05-19 → 2026-06-03)
+
+| # | Item | Supplier | Date | Cost (R$) |
+|---|------|----------|------|----------:|
+| 1 | Araldite Profissional 90 min, 2× 23 g (bonding session 1) | Real Fortaleza Hidráulica | 2026-05-19 | **62,00** |
+| 2 | Araldite Profissional 90 min, 2× 23 g (bonding session 2) | Real Fortaleza Hidráulica | 2026-05-20 | **62,00** |
+| 3 | Foot zincagem anti-corrosão (meio banho, 4 feet) | TL Tratamento Superficial | delivered 2026-05-25 | **105,00** |
+| 4 | 304 sheet stock 300×100×2 mm (shim material, self-sourced) | MALUCOMERCIAL (MercadoLivre) | received 2026-05-29 | **79,90** |
+| 5 | Cut + drill 8 shims 56×32×2 mm | AL Usinagem | delivered 2026-06-03 | **180,00** |
+| | | | **Subtotal** | **488,90** |
+
+**Shim sourcing pivot (2026-05-26):** sheet bought directly (no intermediary markup), AL Usinagem did machining only. Total shims: R$ 259,90 — within the R$ 150–200 estimate for the service alone.
+
+---
+
 ## Mechanical Components (Rev 3.0 baseline)
 
 | # | Item | Qty | Status | Cost (R$) |
@@ -92,14 +107,15 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 | 2 | 5052-F aluminum bottom plate, 527×396mm, 3mm | 1 | ✅ Casa dos Metais 2026-04-16 | 140 |
 | 3 | Plate finishing service (drilling + countersinking + corner cut + perimeter chamfer Rev 3.0) | 1 lot | ✅ AL Usinagem 2026-05-08 | 360 |
 | 4 | Turned feet with collar (Rev 3.0: bar Ø55 + base wall knurled) | 4 | ✅ AL Usinagem 2026-05-08 | 1,120 |
-| 5 | **Stainless 304 shims** 56×32 mm × **1.5 mm nominal** (Rev 3.0 — empirical, see COMPONENT_SPECS §2.3.1), 8 units (4 top + 4 bottom mirror) | 8 | ⏳ AL Usinagem quote (Rev 3.0) | TBD (~150–200) |
-| 6 | **M10×60 DIN 7991 inox 304** + Parlock 304 + arruela 304 (Rev 3.0) | 8+8+8 | 🚚 ML 2026-05-08 awaiting | 136 |
-| 7 | Neoprene rubber discs Ø55 mm × 1 mm (Rev 3.0 — was Ø60) | 4 | ⏳ TBD | ~10 |
+| 5 | **Stainless 304 shims** 56×32 mm × **2 mm final** (empirical 2026-05-26, see COMPONENT_SPECS §2.3.1), 8 units (4 top + 4 bottom mirror) | 8 | ✅ Sheet self-sourced (ML 2026-05-29) + AL Usinagem cut/drill (2026-06-03) | 259,90 |
+| 6 | **M10×60 DIN 7991 inox 304** + Parlock 304 + arruela 304 (Rev 3.0) | 8+8+8 | ✅ ML delivered 2026-05-12/13 | 136,19 |
+| 7 | Rubber feet pads — household scrap glued with Tekbond 793 (contact adhesive failed; see LOG 2026-05-26) | 4 | ✅ Done 2026-05-26 | 0 |
 | 8 | **Stainless 304 square tube, 35×35×1.5mm**, 2× 500mm (cut from 1 m bar) — Rev 3.1 | 2 | ✅ Real Fortaleza Hidráulica 2026-05-18 | 103,67 |
-| 9 | Structural epoxy — **Araldite Profissional 90 min, 2× 23 g** (Tekbond BRAP000) — Rev 3.1 | 2 | ✅ Real Fortaleza Hidráulica 2026-05-19 | 62,00 |
-| | | **Spent + committed** | | **R$ 2,332** |
-| | | **+ Pending estimate** | | ~R$ 10 (consumables) + AL shims (~150–200) |
-| | | **Mechanical total Rev 3.1** | | **~R$ 2,490–2,540** |
+| 9 | Structural epoxy — **Araldite Profissional 90 min, 4× 23 g** (Tekbond BRAP000) — sessions 1+2 | 4 | ✅ Real Fortaleza Hidráulica 2026-05-19 + 05-20 | 124,00 |
+| 10 | Foot zincagem anti-corrosão (meio banho) | 1 lot | ✅ TL Tratamento Superficial 2026-05-25 | 105,00 |
+| | | **Mechanical total Rev 3.1 (final)** | | **R$ 2.758,76** |
+
+> **✅ Mechanical assembly complete 2026-06-08** — all 4 corners assembled (cell + 2× shim 2 mm + M10×60 + arruela + Parlock) on the bonded structure. No torque wrench used — 20–25 N·m spec not instrumentally verified (accepted for MVP). Next: electronics bench-up + first calibration → `v3.1.0-rc1` → `v3.1.0`.
 
 > **Cost increase vs Rev 2.0 estimate (was ~R$ 500 mechanical):** ~+R$ 1,876. Drivers: (a) AL Usinagem services R$ 1,480 — first contracted machining, replaces self-fab estimate of ~R$ 180 (feet + shims); (b) inox 304 hardware R$ 136 (vs ~R$ 30 cl 8.8 estimate); (c) shim quantity 4 → 8 (mirror config) + material upgrade to inox 304. Trade-off accepted: precision/durability/galvanic compatibility from professional machining + corrosion-resistant fastening justify the cost vs hand-fab + carbon steel.
 
@@ -111,8 +127,8 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 |----------|----------:|
 | Electronics (AliExpress 2026-04-01: cells + ADS1256 + ESP32 + power) | ~1,300 |
 | Battery replacement (ML 2026-04-04: 1S2P 5200 mAh × 2) | ~55 |
-| Mechanical (Rev 3.1 — see breakdown above) | ~2,480–2,530 |
-| **Total Rev 3.1 unit cost** | **~R$ 3,835–3,885** |
+| Mechanical (Rev 3.1 final — see breakdown above) | 2.758,76 |
+| **Total Rev 3.1 unit cost** | **~R$ 4.115** |
 
 > **Vs Rev 2.0 estimate (R$ 1,858):** +R$ 1,873–1,923 (≈ +100%). The increase reflects the shift from "self-fab everything" (Rev 2.0 estimate assumed home drilling/countersinking + carbon steel hardware + machinist quote ~R$ 160) to "outsource precision work + use corrosion-resistant materials" (Rev 3.0 actual: AL Usinagem R$ 1,480 + inox 304 R$ 136). Decision rationale documented in `PROJECT_LOG.md` 2026-05-08 entry.
 
@@ -120,7 +136,7 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 
 | | Nova O2 | VALD FDMini | VALD FDLite |
 |---|------:|----------:|----------:|
-| Cost | ~R$ 3,860 (Rev 3.1) | ~R$ 30,000 | ~R$ 60,000 |
+| Cost | ~R$ 4,115 (Rev 3.1 final) | ~R$ 30,000 | ~R$ 60,000 |
 | Capacity | 2000 kg | 1000 kg | 2000 kg |
 | Resolution | ~0.075–0.15 N | ~0.15 N | ~0.15 N |
 | Connectivity | USB-C + BLE | USB | USB |

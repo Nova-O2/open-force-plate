@@ -10,14 +10,14 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 
 ## Status
 
-- **Status:** 🚧 **Rev 3.1-rc1** — inox 304 throughout, incl. structural tube (release candidate, awaiting physical validation)
-- ✅ Mechanical components received: 4× turned foot pieces (Ø55 + base wall serrilhada) + 2× chamfered plates (AL Usinagem 2026-05-08, R$ 1.480)
-- ✅ Hardware ordered: M10×60 DIN 7991 inox 304 + Parlock + arruela inox 304 (MercadoLivre 2026-05-08, R$ 136,19, frete grátis)
-- ✅ Structural tube acquired: inox 304 35×35×1.5mm, 1 m bar (Real Fortaleza Hidráulica, Jacareí — 2026-05-18, R$ 103,67)
-- ✅ Structural epoxy acquired: Araldite Profissional 90 min, 2× 23 g (Real Fortaleza Hidráulica — 2026-05-19, R$ 62,00)
-- 🔄 **Pending:** cut tube into 2× 500mm → bond plates+tubes with structural epoxy (24 h cure) → measure box section height empirically → AL Usinagem quote for 8 stainless 304 mirror shims (1.5mm nominal — empirical) → ML hardware delivery → remaining consumables (P40–P60 sandpaper, isopropyl alcohol, bar clamps)
-- ⏳ **Validation gate:** assembly of 4 corners + first calibration to promote `v3.1.0-rc1` → `v3.1.0` final
-- **Updated:** 2026-05-19
+- **Status:** 🚧 **Rev 3.1-rc1** — **mechanical assembly COMPLETE (2026-06-08)**; awaiting electronics bench-up + first calibration
+- ✅ Structural bonding done: plates + inox 304 box section, 2 epoxy sessions (2026-05-19/20), cure inspected OK (2026-05-25)
+- ✅ Feet finished: zincagem anti-corrosão (TL Tratamento Superficial, R$ 105) + rubber pads glued (Tekbond 793)
+- ✅ 8 shims fabricated at **2 mm final** (empirical box-section measurement 2026-05-26): self-sourced 304 sheet (R$ 79,90) + AL Usinagem cut/drill (R$ 180, delivered 2026-06-03)
+- ✅ **Full assembly 2026-06-08:** 4 corners — cell + mirror shims + M10×60/arruela/Parlock inox 304 (no torque wrench; 20–25 N·m spec not instrumentally verified — accepted for MVP)
+- 🔄 **Pending:** electronics bench-up (ADS1256 + ESP32-S3 + power + 4-cell wiring) → first calibration
+- ⏳ **Validation gate:** first calibration promotes `v3.1.0-rc1` → `v3.1.0` final
+- **Updated:** 2026-06-10
 
 ### Engenharia
 - **Sprint:** hardware MVP — Rev 3.1 inox 304 throughout + assembly
@@ -51,7 +51,7 @@ Próximas etapas estratégicas (cascade do pilar Tecnologia, OKRs Q2 2026 sub-pi
 | Power | Rechargeable Li-ion battery + USB-C |
 | Platform dimensions | 600 × 500 mm |
 | Estimated weight | ~13 kg |
-| Estimated cost | ~$770 USD / ~R$3,860 BRL (Rev 3.1) |
+| Estimated cost | ~$820 USD / ~R$4,115 BRL (Rev 3.1) |
 
 ## Hardware Architecture
 
@@ -91,7 +91,7 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 
 ## Project Status
 
-**Current phase:** Hardware — Rev 3.1 mechanical assembly
+**Current phase:** Hardware — Rev 3.1 electronics bench-up (mechanical assembly ✅ 2026-06-08)
 
 - ✅ Component selection and procurement
 - ✅ Structural analysis recalculated (Rev 3.1) + fabrication drawings (Rev 3.0)
@@ -100,8 +100,11 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 - ✅ Aluminum plates acquired (Casa dos Metais 2026-04-16) + machining received (AL Usinagem 2026-05-08, R$ 1,480: feet + plate finishing + perimeter chamfer)
 - ✅ Fastening hardware ordered (Rev 3.0): M10×60 DIN 7991 inox 304 + Parlock + arruela 304 (MercadoLivre 2026-05-08, R$ 136,19)
 - ✅ Structural tube acquired (Rev 3.1): inox 304 35×35×1.5mm (Real Fortaleza Hidráulica 2026-05-18, R$ 103,67)
-- ✅ Structural epoxy acquired: Araldite Profissional 90 min, 2× 23 g (Real Fortaleza Hidráulica 2026-05-19, R$ 62,00)
-- 🔄 Pending: epoxy bonding + box section measurement + 8 stainless 304 mirror shims (AL Usinagem quote) + remaining consumables
+- ✅ Structural epoxy bonding done: Araldite Profissional 4× 23 g, 2 sessions (2026-05-19/20, R$ 124), cure OK 2026-05-25
+- ✅ Feet zincagem (TL Tratamento Superficial, R$ 105) + rubber pads (Tekbond 793)
+- ✅ 8 stainless 304 shims at 2 mm final (sheet R$ 79,90 + AL Usinagem cut/drill R$ 180, 2026-06-03)
+- ✅ **Mechanical assembly complete (2026-06-08)** — 4 corners assembled
+- 🔄 Electronics bench-up + first calibration
 - 🔲 Firmware development
 - 🔲 Software development
 - 🔲 Scientific validation
@@ -114,15 +117,16 @@ See [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) and [Component Specs](doc
 | Battery replacement (ML 2026-04-04: 1S2P 5200mAh × 2) | ~R$55 | ~$11 |
 | Aluminum plates (Casa dos Metais) | R$550 | ~$110 |
 | AL Usinagem services (foot pieces + plate finishing) | R$1,480 | ~$295 |
-| Inox 304 fastening (M10×60 + Parlock + washer, ML 2026-05-08) | R$136 | ~$27 |
+| Inox 304 fastening (M10×60 + Parlock + washer, ML — delivered 2026-05-12/13) | R$136 | ~$27 |
 | Structural tube (inox 304 35×35×1.5mm, Real Fortaleza 2026-05-18) | R$104 | ~$21 |
-| Structural epoxy (Araldite Profissional 2× 23 g, Real Fortaleza 2026-05-19) | R$62 | ~$12 |
-| Pending (remaining consumables + 8 stainless 304 shims) | ~R$185 | ~$37 |
-| **Total Rev 3.1 (single platform)** | **~R$3,870** | **~$770** |
+| Structural epoxy (Araldite Profissional 4× 23 g, 2 bonding sessions) | R$124 | ~$25 |
+| Foot zincagem (TL Tratamento Superficial, 2026-05-25) | R$105 | ~$21 |
+| 8 stainless 304 shims, 2 mm (sheet self-sourced + AL Usinagem cut/drill, 2026-06-03) | R$260 | ~$52 |
+| **Total Rev 3.1 (single platform — mechanical complete)** | **~R$4,115** | **~$820** |
 
 *Unit cost excludes tools and backup components. Cost increase vs Rev 2.0 estimate (~R$2,500) reflects the shift from "self-fab + carbon steel hardware" to "outsourced precision machining (AL Usinagem) + corrosion-resistant inox 304 fastening" — see [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md) for rationale. The Rev 3.1 stainless tube came at R$104 (vs ~R$20 budgeted for carbon steel) — stainless premium + 1 m minimum bar length. See [Components Selected](docs/COMPONENTS_SELECTED.md) for the detailed breakdown.*
 
-Commercial force plates range from R$30,000–R$100,000 ($6,000–$20,000 USD) — Rev 3.1 still 8–26× cheaper.
+Commercial force plates range from R$30,000–R$100,000 ($6,000–$20,000 USD) — Rev 3.1 still 7–24× cheaper.
 
 See [Components Selected](docs/COMPONENTS_SELECTED.md) for the full bill of materials.
 
@@ -130,7 +134,7 @@ See [Components Selected](docs/COMPONENTS_SELECTED.md) for the full bill of mate
 
 | Phase | Scope | Status |
 |-------|-------|--------|
-| 1 | Hardware — mechanical and electronic assembly | 🔄 In progress |
+| 1 | Hardware — mechanical and electronic assembly | 🔄 Mechanical ✅ (2026-06-08); electronics next |
 | 2 | Firmware — ESP32 + ADS1256 @ 1000 Hz + USB-C/BLE | Planned |
 | 3 | Software — Python app, real-time visualization, jump analysis | Planned |
 | 4 | Validation — technical + scientific (N≥20, comparison with commercial platforms) | Planned |
@@ -211,7 +215,7 @@ Uma plataforma de força uniaxial (vertical) open-source para ciência do esport
 | Alimentação | Bateria Li-ion recarregável + USB-C |
 | Dimensões da plataforma | 600 × 500 mm |
 | Peso estimado | ~13 kg |
-| Custo estimado | ~R$3.860 / ~$770 USD (Rev 3.1) |
+| Custo estimado | ~R$4.115 / ~$820 USD (Rev 3.1) |
 
 ## Arquitetura de Hardware
 
@@ -251,7 +255,7 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 
 ## Status do Projeto
 
-**Fase atual:** Hardware — montagem mecânica Rev 3.1
+**Fase atual:** Hardware — bancada eletrônica Rev 3.1 (montagem mecânica ✅ 08/06/2026)
 
 - ✅ Seleção e compra dos componentes
 - ✅ Análise estrutural recalculada (Rev 3.1) + desenhos de fabricação (Rev 3.0)
@@ -260,8 +264,11 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 - ✅ Chapas de alumínio adquiridas (Casa dos Metais 2026-04-16) + usinagem recebida (AL Usinagem 2026-05-08, R$ 1.480: pezinhos + acabamento das chapas + chanfro perimetral)
 - ✅ Hardware de fixação encomendado (Rev 3.0): M10×60 DIN 7991 inox 304 + Parlock + arruela 304 (MercadoLivre 2026-05-08, R$ 136,19)
 - ✅ Tubo estrutural adquirido (Rev 3.1): inox 304 35×35×1,5mm (Real Fortaleza Hidráulica 2026-05-18, R$ 103,67)
-- ✅ Epóxi estrutural adquirido: Araldite Profissional 90 min, 2× 23 g (Real Fortaleza Hidráulica 2026-05-19, R$ 62,00)
-- 🔄 Pendente: colagem epóxi + medição da seção caixão + 8 juntas inox 304 espelho (orçamento AL Usinagem) + consumíveis restantes (lixa P40–P60, álcool isopropílico, grampos sargento)
+- ✅ Colagem estrutural concluída: Araldite Profissional 4× 23 g, 2 sessões (19-20/05/2026, R$ 124), cura inspecionada OK 25/05
+- ✅ Pezinhos finalizados: zincagem anti-corrosão (TL Tratamento Superficial, R$ 105) + borracha colada (Tekbond 793)
+- ✅ 8 shims inox 304 com 2 mm final (medição empírica 26/05): chapa self-sourced (R$ 79,90) + corte/furação AL Usinagem (R$ 180, entregue 03/06)
+- ✅ **Montagem mecânica concluída (08/06/2026)** — 4 cantos montados
+- 🔄 Bancada eletrônica + primeira calibração
 - 🔲 Desenvolvimento de firmware
 - 🔲 Desenvolvimento de software
 - 🔲 Validação científica
@@ -274,21 +281,22 @@ Veja a [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) e as [Especificações
 | Bateria substituta (ML 2026-04-04: 1S2P 5200mAh × 2) | ~R$55 | ~$11 |
 | Chapas de alumínio (Casa dos Metais) | R$550 | ~$110 |
 | Serviços AL Usinagem (pezinhos + acabamento das chapas) | R$1.480 | ~$295 |
-| Fixação inox 304 (M10×60 + Parlock + arruela, ML 2026-05-08) | R$136 | ~$27 |
+| Fixação inox 304 (M10×60 + Parlock + arruela, ML — entregue 12-13/05) | R$136 | ~$27 |
 | Tubo estrutural (inox 304 35×35×1,5mm, Real Fortaleza 2026-05-18) | R$104 | ~$21 |
-| Epóxi estrutural (Araldite Profissional 2× 23 g, Real Fortaleza 2026-05-19) | R$62 | ~$12 |
-| Pendente (consumíveis restantes + 8 juntas inox 304) | ~R$185 | ~$37 |
-| **Total Rev 3.1 (plataforma única)** | **~R$3.870** | **~$770** |
+| Epóxi estrutural (Araldite Profissional 4× 23 g, 2 sessões de colagem) | R$124 | ~$25 |
+| Zincagem pezinhos (TL Tratamento Superficial, 25/05/2026) | R$105 | ~$21 |
+| 8 shims inox 304, 2 mm (chapa self-sourced + corte/furação AL Usinagem, 03/06) | R$260 | ~$52 |
+| **Total Rev 3.1 (plataforma única — mecânica completa)** | **~R$4.115** | **~$820** |
 
 *Custo unitário exclui ferramentas e componentes de backup. Aumento vs estimativa Rev 2.0 (~R$2.500) reflete migração de "self-fab + fixação aço carbono" para "usinagem precisão (AL Usinagem) + fixação inox 304" — ver [PROJECT_LOG 2026-05-08](docs/PROJECT_LOG.md). O tubo inox da Rev 3.1 saiu R$104 (vs ~R$20 orçado para aço carbono) — prêmio do inox + barra mínima de 1 m. Veja [Componentes Selecionados](docs/COMPONENTS_SELECTED.md) para o detalhamento completo.*
 
-Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20.000 USD) — Rev 3.1 ainda 8–26× mais barata.
+Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20.000 USD) — Rev 3.1 ainda 7–24× mais barata.
 
 ## Roadmap
 
 | Fase | Escopo | Status |
 |-------|-------|--------|
-| 1 | Hardware — montagem mecânica e eletrônica | 🔄 Em andamento |
+| 1 | Hardware — montagem mecânica e eletrônica | 🔄 Mecânica ✅ (08/06/2026); eletrônica a seguir |
 | 2 | Firmware — ESP32 + ADS1256 @ 1000 Hz + USB-C/BLE | Planejado |
 | 3 | Software — app Python, visualização em tempo real, análise de saltos | Planejado |
 | 4 | Validação — técnica + científica (N≥20, comparação com plataformas comerciais) | Planejado |
