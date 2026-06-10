@@ -145,7 +145,7 @@ See [Components Selected](docs/COMPONENTS_SELECTED.md) for the full bill of mate
 
 | Milestone | What gets added |
 |-----------|----------------|
-| Phase 1 complete | First release `v0.1-alpha`, assembly photos, assembly guide |
+| Phase 1 complete | Release `v3.1.0` (hardware validated by first calibration), assembly photos, assembly guide |
 | Phase 2 | GitHub Actions (PlatformIO build + lint), `firmware/` directory |
 | Phase 3 | GitHub Actions (pytest, mypy, ruff), `software/` directory |
 | Phase 4 | Release `v1.0`, DOI via Zenodo, `CITATION.cff` for academic citation |
@@ -307,7 +307,7 @@ Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20
 
 | Marco | O que será adicionado |
 |-----------|----------------|
-| Fase 1 concluída | Primeiro release `v0.1-alpha`, fotos da montagem, guia de montagem |
+| Fase 1 concluída | Release `v3.1.0` (hardware validado pela primeira calibração), fotos da montagem, guia de montagem |
 | Fase 2 | GitHub Actions (build + lint PlatformIO), diretório `firmware/` |
 | Fase 3 | GitHub Actions (pytest, mypy, ruff), diretório `software/` |
 | Fase 4 | Release `v1.0`, DOI via Zenodo, `CITATION.cff` para citação acadêmica |
