@@ -24,6 +24,10 @@ Auditoria de conformidade as-built em toda a documentação (3 agentes paralelos
 
 - Peso total ~13 kg (estimado); torque 20-25 N·m não verificado (sem torquímetro); scripts Rev 1.0 (`structural_analysis.py` etc.) seguem arquivados como histórico — SSOT é o STRUCTURAL_ANALYSIS.md
 
+### Tag `v3.1.0-rc1` criada (governança git)
+
+Gap de rotulagem detectado e fechado: a Rev 3.1 (18/05) tinha substituído a Rev 3.0 sem tag — README declarava "Rev 3.1-rc1" sem âncora no git. Tag anotada `v3.1.0-rc1` criada em `d9cd823` seguindo o precedente da `v3.0.0-rc1` (que nunca será promovida — design superado antes da validação): registra estado as-built, caveat do torque e checklist de promoção a `v3.1.0` (visual check + piso/nível + rigidez + 1ª calibração <0.5% erro). Ponteiro do submodule no workspace também estava stale (2 pushes sem bump) — corrigido; naming do release Fase 1 no README alinhado ao semver (`v0.1-alpha` → `v3.1.0`).
+
 ---
 
 ## 2026-06-08 — Montagem mecânica concluída
