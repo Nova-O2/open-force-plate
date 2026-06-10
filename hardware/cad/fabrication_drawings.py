@@ -12,7 +12,7 @@ Generates 5 fabrication PDFs:
                            Rev 3.0: perimeter chamfer 1.5mm × 45° on BOTTOM face only
 3. fab_foot_piece.pdf — Turned foot piece with collar (x4)
                          Rev 3.0: Ø55mm base disc (was Ø60), knurled vertical wall (BASE_H=8mm)
-4. fab_shim.pdf — Stainless steel shim (x8, 4 top + 4 bottom mirror), 1.5mm nominal
+4. fab_shim.pdf — Stainless steel shim (x8, 4 top + 4 bottom mirror), 2mm final (as-built)
 5. fab_assembly.pdf — Exploded assembly view, 5-layer stack, mirror shim configuration
 
 Revision history:
@@ -30,6 +30,11 @@ Revision history:
     - Washer: DIN 125-A plain inox 304
     - Torque: 20–25 N·m
     - Stack height: 6.35 + 1.5 + 32 + 1.5 + 3 = 44.35mm total
+  Rev 3.1 (2026-05-18 → as-built 2026-06-08) — Stainless tube + empirical shim closure:
+    - Structural tube: 1020 carbon steel 35x35x2mm → stainless 304 35x35x1.5mm (2x 500mm)
+    - Shim thickness: 1.5mm nominal → 2mm FINAL (empirical 2026-05-26: box ~36mm − cell 32mm = 4mm / 2)
+    - Stack height as-built: 6.35 + 2 + 32 + 2 + 3 = 45.35mm total (M10×60 engagement still ≥ 1×D)
+    - Mechanical assembly completed 2026-06-08
 """
 
 import matplotlib.pyplot as plt
@@ -78,8 +83,8 @@ HOLE_DIA = 11  # M10
 HOLE_SPACING = 25.0
 COUNTERSINK_DIA = 20  # escareamento DIN 7991 M10
 
-# Junta
-SHIM_L, SHIM_W, SHIM_T = 56, 32, 1.5
+# Junta — Rev 3.1 as-built: 2mm final (medicao empirica 2026-05-26: caixao ~36mm - cell 32mm = 4mm / 2)
+SHIM_L, SHIM_W, SHIM_T = 56, 32, 2
 
 # Pezinho (com colar)
 ROD_DIA = 12
@@ -92,8 +97,8 @@ BASE_H = 8
 RUBBER_H = 1
 TOTAL_FOOT = ROD_LENGTH + COLLAR_H + CHAMFER_H + BASE_H + RUBBER_H  # 52mm
 
-# --- Rev 3.0 — Fastening redesign constants ---
-DESIGN_REV = "3.0"
+# --- Rev 3.0/3.1 — Fastening redesign constants ---
+DESIGN_REV = "3.1"
 TOP_PLATE_PERIM_CHAMFER = 2.12   # mm at 45°, BOTH faces (perimeter edge, handling safety)
 BOT_PLATE_PERIM_CHAMFER = 1.5    # mm at 45°, BOTTOM face only (top face stays sharp)
 BASE_KNURLED = True              # knurl on base vertical wall (Ø55 × BASE_H=8mm cylindrical surface)
@@ -105,8 +110,8 @@ NUT_TYPE = "Parlock all-metal locknut inox 304"
 WASHER_TYPE = "DIN 125-A plain inox 304"
 TORQUE_TARGET_MIN = 20           # N·m
 TORQUE_TARGET_MAX = 25           # N·m
-# Stack height Rev 3.0: 6.35 + 1.5 + 32 + 1.5 + 3 = 44.35mm
-STACK_HEIGHT = TOP_THICK + SHIM_T + ROD_LENGTH + SHIM_T + BOT_THICK  # 44.35mm
+# Stack height as-built (shim 2mm): 6.35 + 2 + 32 + 2 + 3 = 45.35mm (Rev 3.0 nominal era 44.35 com shim 1.5)
+STACK_HEIGHT = TOP_THICK + SHIM_T + ROD_LENGTH + SHIM_T + BOT_THICK  # 45.35mm
 
 
 # =============================================================================
@@ -806,7 +811,7 @@ def draw_junta():
         [u'Fun\u00e7\u00e3o', u'Distribuir carga entre c\u00e9lula e chapa'],
         ['Material', f'{SHIM_MATERIAL} (mais duro que alum\u00ednio)'],
         [u'Posi\u00e7\u00e3o', u'4 superiores + 4 inferiores'],
-        ['Espessura', f'{SHIM_T}mm nominal (final emp\u00edrica)'],
+        ['Espessura', f'{SHIM_T}mm final (emp\u00edrica 26/05/2026)'],
         ['Furos', f'2\u00d7 \u00d8{HOLE_DIA}mm passante, {HOLE_SPACING}mm entre centros'],
         ['Acabamento', u'Superf\u00edcies planas, sem rebarbas'],
     ]
@@ -826,7 +831,7 @@ def draw_junta():
             table[i, j].set_facecolor(color)
 
     add_title_block(fig, u'Junta de a\u00e7o', SHIM_MATERIAL,
-                    f'{SHIM_T}mm nominal', f'{SHIM_QTY} unidades (4 sup + 4 inf)',
+                    f'{SHIM_T}mm final', f'{SHIM_QTY} unidades (4 sup + 4 inf)',
                     u'Impede esmagamento do alum\u00ednio; configura\u00e7\u00e3o espelho')
 
     fig.savefig(str(OUT_DIR / 'fab_shim.pdf'), bbox_inches='tight', facecolor='white')

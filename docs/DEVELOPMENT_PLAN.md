@@ -56,7 +56,7 @@ Spacer between the cell and the plate, BOTH faces. Exact size of the cell base.
 | Parameter | Value |
 |-----------|-------|
 | Material | **Stainless steel 304** (Rev 3.0 — galvanic compatibility with Al 5052-F) |
-| Thickness | **1.5 mm nominal** (Rev 3.0 — empirical, see [`COMPONENT_SPECS.md`](./COMPONENT_SPECS.md) §2.3.1) |
+| Thickness | **2 mm final** (empirical 2026-05-26, see [`COMPONENT_SPECS.md`](./COMPONENT_SPECS.md) §2.3.1 — was 1.5 mm nominal Rev 3.0; fabricated 2026-06-03) |
 | Dimensions | **56 × 32 mm** (= cell base, dims I × W) |
 | Holes | 2× Ø11 mm, 25 mm center-to-center |
 | Quantity | **8 (4 top + 4 bottom mirror configuration)** — Rev 3.0 |
@@ -70,11 +70,11 @@ Allen bolt M10×60 DIN 7991 inox 304 A2-70 (flat countersunk head)
         ↓ (anti-seize on cone face)
 [TOP plate — aluminum 6.35mm (1/4in), 600×500mm, R30]  ← Ø11mm hole countersunk Ø20 (5.5mm depth)
         ↓
-[Top shim — inox 304, 1.5mm, 56×32mm]                  ← Ø11mm hole
+[Top shim — inox 304, 2mm, 56×32mm]                    ← Ø11mm hole
         ↓
 [DYX-301 cell — at ~62°]                                ← Ø13mm hole (cell)
         ↓
-[Bottom shim — inox 304, 1.5mm, 56×32mm]               ← Ø11mm hole  ← Rev 3.0 ADDITION
+[Bottom shim — inox 304, 2mm, 56×32mm]                 ← Ø11mm hole  ← Rev 3.0 ADDITION
         ↓
 [BOTTOM plate — aluminum 3mm, 527×396mm]                ← Ø11mm hole
         ↓
@@ -85,13 +85,15 @@ M10 Parlock all-metal locknut inox 304
 [Foot bolt M12×1.75 with collar]  ← threaded into cell from BELOW (separate path), outside bottom plate, rests on floor
 ```
 
-**Stack height nominal (Rev 3.0):** 6.35 + 1.5 + 32 + 1.5 + 3 = **44.35 mm** + nut + washer + thread engagement = M10×60 required.
+**Stack height as-built (shim 2 mm final):** 6.35 + 2 + 32 + 2 + 3 = **45.35 mm** + nut + washer + thread engagement = M10×60 required (engagement still ≥ 1×D — see COMPONENT_SPECS §2.6; Rev 3.0 nominal was 44.35 mm with 1.5 mm shims).
 
 **Fasteners required (Rev 3.0):** 8× M10×60 DIN 7991 inox 304 + 8× Parlock M10 inox 304 + 8× DIN 125 plain washers inox 304 (2 per cell). All purchased 2026-05-08 from MercadoLivre (R$ 136,19 total — see `SHOPPING_LIST.md`).
 
 **Torque target:** 20–25 N·m with calibrated torque wrench, **3 progressive passes** (10 → 18 → 25 N·m), **cross-pattern** across 4 corners (snug all 4 before final torque on any). Anti-seize compound (Cu-based or Ni-based) on the DIN 7991 cone face: reduces friction, distributes load, prevents local yielding of Al 5052-F countersink (σ_y = 90 MPa).
 
 After full assembly: **visual check** — no visible deformation/indentation of Al 5052-F countersink (top) or around nut (bottom). If indentation visible, reduce torque on that fastener and reassess.
+
+> **⚠️ As-built (2026-06-08):** full assembly done **without torque wrench** — tightened by feel; 20–25 N·m and the 3-pass progressive scheme not instrumentally executed. Accepted for the MVP; instrumented re-torque + countersink visual check recommended before first calibration.
 
 > **Rev 3.0 design rationale (vs Rev 2.0):**
 > - **Inox 304 throughout:** galvanic compatible with Al 5052-F (vs class 8.8 carbon steel which corrodes in contact)
@@ -147,8 +149,8 @@ All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to 
 | Collar | **Ø20mm, 5 mm** height (stop — rests against cell) |
 | Chamfer | Ø20→**Ø55**, 6 mm height (~16°) — Rev 3.0 (was Ø20→Ø60) |
 | Base | **Ø55mm**, 8 mm thickness — Rev 3.0 (was Ø60); **vertical wall knurled** for operator grip |
-| Rubber pad | **Ø55mm**, 1 mm neoprene (glued after machining) — Rev 3.0 |
-| Material | Carbon steel or stainless steel (**Ø55mm bar stock** — Rev 3.0) |
+| Rubber pad | Ø55mm × ~1 mm — as-built: household rubber scrap glued with Tekbond 793 (2026-05-26) |
+| Material | **Ø55mm bar stock** (Rev 3.0) — **zinc-plated as-built** (zincagem 2026-05-25, TL Tratamento Superficial) |
 | Total height | **52 mm** (thread + collar + chamfer + base + rubber) |
 
 **No lock nut.** The collar acts as a mechanical stop — prevents the foot from threading beyond the cell height and reinforces the thread/chamfer transition. Height adjusted by threading. Platform weight locks position. **Knurled base wall (Rev 3.0)** improves grip when threading the foot piece M12 into the load cell.
@@ -165,25 +167,25 @@ All plate holes: **Ø11 mm** (M10 clearance). Top plate: countersunk at 90° to 
 - [x] Order 4 turned foot bolts with collar (Rev 3.0: bar Ø55, base wall knurled) — AL Usinagem 2026-05-08, R$ 1,120
 - [x] Order Allen bolts **M10×60 DIN 7991 inox 304** + Parlock M10 inox 304 + arruela DIN 125 inox 304 — MercadoLivre 2026-05-08, R$ 136,19 (3 lojas)
 - [x] Source stainless 304 tube 35×35×1.5 mm (1 m bar → 2 pieces of 500 mm) — Real Fortaleza Hidráulica 2026-05-18, R$ 103,67
-- [ ] Source structural epoxy — Araldite Professional 90 min, 2× 23 g (Tekbond BRAP000)
-- [ ] After bonding: measure box section height empirically + order 8 inox 304 shims at measured thickness from AL Usinagem (see process gate in `COMPONENT_SPECS.md` §2.3.1)
-- [ ] Cut/source 4 rubber discs **Ø55 mm × 1 mm** neoprene (Rev 3.0)
-- [ ] Anti-seize compound (Cu-based or Ni-based)
+- [x] Source structural epoxy — Araldite Professional 90 min, 4× 23 g total (2026-05-19 + 05-20, Real Fortaleza Hidráulica, R$ 124)
+- [x] After bonding: box section measured 2026-05-26 (~36 mm internal → shim 2 mm) + 8 shims fabricated (self-sourced 304 sheet R$ 79,90 + AL Usinagem cut/drill R$ 180, delivered 2026-06-03)
+- [x] Foot rubber: household scrap glued with Tekbond 793 (2026-05-26) — purchased neoprene discs not needed
+- [ ] ~~Anti-seize compound~~ — not used in as-built assembly (2026-06-08, no torque wrench); revisit only if instrumented re-torque happens
 
-**Assembly (after components in hand):**
+**Assembly (✅ completed 2026-06-08 — see PROJECT_LOG):**
 
-- [ ] Glue rubber discs Ø55 to foot bolt bases
-- [ ] Bond stainless 304 tubes to plates with structural epoxy (24 h cure under clamping)
-- [ ] **Empirical measurement:** caliper bonded box section height at 4 corners + cell H (DYX-301)
-- [ ] Compute final shim thickness, fab 8 shims (AL Usinagem)
-- [ ] Apply thin layer of anti-seize on each DIN 7991 cone face
-- [ ] **Test-fit single corner first:** assemble stack [top plate → top shim → cell → bottom shim → bottom plate → arruela → Parlock]; torque progressively 10 → 18 → 25 N·m
-- [ ] Visual check: no deformation of Al 5052-F countersink (top) or around nut (bottom). If indented, reduce torque on that fastener and reassess
-- [ ] Replicate to remaining 3 corners with cross-pattern tightening (snug all 4 → final torque)
-- [ ] Thread foot bolts into cells from below (until collar contacts; gripping the knurled Ø55 base)
-- [ ] Set on rigid, flat floor
-- [ ] Level (adjust foot bolts by threading) — use bubble level
-- [ ] Test rigidity — platform must not deflect under load
+- [x] Glue rubber to foot bolt bases — household scrap + Tekbond 793 (2026-05-26)
+- [x] Bond stainless 304 tubes to plates with structural epoxy — sessions 1+2 (2026-05-19/20), cure inspected OK 2026-05-25
+- [x] **Empirical measurement:** box section ~36 mm internal, cell H 32 mm (2026-05-26)
+- [x] Compute final shim thickness (2 mm) + fab 8 shims (AL Usinagem, delivered 2026-06-03)
+- [ ] ~~Anti-seize on DIN 7991 cone faces~~ — not used as-built (no torque wrench)
+- [x] Assemble 4 corners: stack [top plate → top shim → cell → bottom shim → bottom plate → arruela → Parlock] — done 2026-06-08, **tightened by feel (no torque wrench; 20–25 N·m not verified)**
+- [ ] Visual check: no deformation of Al 5052-F countersink (top) or around nut (bottom) — **do before first calibration**
+- [x] Replicate to remaining 3 corners — done 2026-06-08
+- [x] Thread foot bolts into cells from below — done 2026-06-08 (mechanical assembly closed)
+- [ ] Set on rigid, flat floor — pre-calibration step
+- [ ] Level (adjust foot bolts by threading) — use bubble level — pre-calibration step
+- [ ] Test rigidity — platform must not deflect under load — pre-calibration step
 
 #### Structural reinforcement — Box section (2 square tubes)
 
@@ -209,17 +211,17 @@ Cross-section view (box section):
 ╚══════════════════════════╝  ← bottom plate 3mm (flange)
 ```
 
-**Tube assembly:**
+**Tube assembly (✅ completed 2026-05-25):**
 
-- [ ] Assemble one corner (1 cell + bolts + plates) to measure the actual gap between plates
+- [x] ~~Assemble one corner to measure gap~~ — superseded: gap measured post-bonding with caliper (2026-05-26)
 - [x] Source stainless 304 tube 35×35×1.5 mm — Real Fortaleza Hidráulica 2026-05-18 (cut into 2× 500 mm)
-- [ ] If tube is smaller than gap: fabricate shims (thin stainless strips cut to 35×500 mm)
-- [ ] Sand bonding faces (P40–P60 grit, matte surfaces — coarse for stainless passive layer)
-- [ ] Degrease with isopropyl alcohol
-- [ ] Apply structural epoxy to all 4 bonding faces (top and bottom of each tube)
-- [ ] Position tubes at Y=194 mm and Y=306 mm (ref. top plate), parallel to long axis
-- [ ] Clamp for 24 h (epoxy cure)
-- [ ] Verify alignment and flatness after cure
+- [x] ~~Tube-to-gap strips 35×500 mm~~ — not needed (gap handled by the 8 cell shims at 2 mm)
+- [x] Sand bonding faces — **as-built: P24 grit** (spec was P40–P60; coarser, fine for the passive layer)
+- [x] Degrease — **as-built: acetone** (spec was isopropyl alcohol)
+- [x] Apply structural epoxy to all 4 bonding faces — session 1 top (2026-05-19), session 2 bottom (2026-05-20), Araldite Profissional 4× 23 g
+- [x] Position tubes at Y=194 mm and Y=306 mm (ref. top plate), parallel to long axis
+- [x] Clamp/load for 24 h+ (session 2 cured 5 days over the Belém trip)
+- [x] Verify alignment and flatness after cure — inspected 2026-05-25: joint intact, no misalignment or visible bubbles
 
 > **ℹ️ Complete structural analysis**
 >

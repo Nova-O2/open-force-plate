@@ -301,7 +301,7 @@ The 1.5 mm nominal value comes from arithmetic: box section height (35 mm steel 
 
 **Reasoning:** epoxy layer adds 0.1–0.5 mm depending on application technique; cell H tolerance not specified in DYX-301 datasheet; tube commercial tolerance ±0.2 mm. Cumulative error can shift stack ±0.5 mm. Fabricating shims at nominal 1.5 mm without measurement risks rework (wrong parts → cost + delay).
 
-> **✅ Closed (measured 2026-05-26 → fabricated 2026-06-03):** post-cure box section measured **~36 mm** internal; cell H 32 mm → 4 mm total budget → **2 mm per shim** (mirror 2+2). Empirical came 0.5 mm above nominal, as the reasoning above anticipated. 8 shims cut + drilled by AL Usinagem from self-sourced 304 sheet (300×100×2 mm), delivered 2026-06-03. Pending debt: re-render `fabrication_drawings.py` + `fab_shim.pdf` at 2 mm.
+> **✅ Closed (measured 2026-05-26 → fabricated 2026-06-03):** post-cure box section measured **~36 mm** internal; cell H 32 mm → 4 mm total budget → **2 mm per shim** (mirror 2+2). Empirical came 0.5 mm above nominal, as the reasoning above anticipated. 8 shims cut + drilled by AL Usinagem from self-sourced 304 sheet (300×100×2 mm), delivered 2026-06-03. Drawings re-rendered at 2 mm (Rev 3.1) on 2026-06-10 — `fab_shim.pdf` + all 5 PDFs current.
 
 ---
 
@@ -313,9 +313,10 @@ The 1.5 mm nominal value comes from arithmetic: box section height (35 mm steel 
 | Collar | Ø20 mm, 5 mm height (stop — rests against cell) |
 | Chamfer | Ø20 → **Ø55** mm, 6 mm height (~16°) — Rev 3.0 (was Ø20 → Ø60) |
 | Base | **Ø55 mm**, 8 mm thickness — Rev 3.0 (was Ø60); **vertical wall (cylindrical surface) knurled** for operator grip when threading into sensor |
-| Rubber pad | **Ø55 mm** × 1 mm neoprene (glued after machining) — Rev 3.0 (was Ø60) |
+| Rubber pad | Ø55 mm × ~1 mm — **as-built: household rubber scrap glued with Tekbond 793 cyanoacrylate (2026-05-26)**; contact neoprene adhesive failed first (design intent was a neoprene disc — see PROJECT_LOG 2026-05-26 for the trade-off) |
+| Surface finish | **Zinc-plated (as-built)** — anti-corrosion zincagem meio banho, TL Tratamento Superficial, delivered 2026-05-25 |
 | Total height | 52 mm |
-| Material | Carbon steel or stainless steel (**Ø55 mm bar stock** — Rev 3.0) |
+| Material | **Ø55 mm bar stock** (Rev 3.0), zinc-plated as-built |
 | Technical drawing | `hardware/cad/fab_foot_piece.pdf` |
 
 **Function:** Support/leveling. No lock nut — collar acts as mechanical stop; platform weight locks position.
@@ -358,16 +359,18 @@ The 1.5 mm nominal value comes from arithmetic: box section height (35 mm steel 
 | Washer material | Stainless steel 304 |
 | Quantity | 8 of each (1 per corner mounting hole, 4 corners × 2 bolts) |
 
-**Stack height nominal (Rev 3.0):** top plate 6.35 + top shim 1.5 + cell 32 + bottom shim 1.5 + bottom plate 3 = **44.35 mm**
+**Stack height as-built (shim 2 mm final):** top plate 6.35 + top shim 2 + cell 32 + bottom shim 2 + bottom plate 3 = **45.35 mm** (Rev 3.0 nominal was 44.35 mm with 1.5 mm shims).
 
-**Bolt body below head:** 60 − 5.5 = 54.5 mm. Available for washer + nut after stack: 54.5 − 38.85 = 15.65 mm. Engagement in nut: ~10 mm = 1 × D ✓.
+**Bolt body below head:** 60 − 5.5 = 54.5 mm. In-stack length below head (head sits inside the 5.5 mm countersink): 0.85 + 2 + 32 + 2 + 3 = 39.85 mm. Available for washer + nut: 54.5 − 39.85 = **14.65 mm** → washer (~2 mm) + Parlock (~10 mm) + ~2.6 mm thread protrusion. Engagement in nut: ~10 mm = 1 × D ✓ (margin 1 mm tighter than the 1.5 mm-shim nominal, still compliant — confirmed in practice by the 2026-06-08 assembly).
 
 **Torque target:** 20–25 N·m with calibrated torque wrench, progressive tightening. Anti-seize (Cu or Ni-based) recommended on the DIN 7991 cone face to reduce friction and prevent local yielding of Al 5052-F countersink (σ_y = 90 MPa).
+
+> **⚠️ As-built (2026-06-08):** assembly was done **without a torque wrench** — bolts tightened by feel; the 20–25 N·m spec was not instrumentally verified. Accepted for the MVP. Recommended before first calibration: instrumented re-torque if a torque wrench becomes available + visual check for Al 5052-F countersink deformation.
 
 **Why stainless 304 throughout:**
 - Galvanic compatibility with Al 5052-F plates (Rev 3.0 design rule — avoids Al ↔ carbon steel pair which is severely active)
 - Parlock all-metal locknut: anti-vibration without nylon degradation, reusable >50 cycles, suitable for cyclic loading from athlete impacts
-- Lower preload of A2-70 (~12 kN at 25 N·m) vs class 8.8 (~25 kN at equivalent) keeps bearing stress on aluminum well below yield, even with the 1.5 mm shim distribution
+- Lower preload of A2-70 (~12 kN at 25 N·m) vs class 8.8 (~25 kN at equivalent) keeps bearing stress on aluminum well below yield, even more so with the 2 mm shim distribution (as-built)
 
 ---
 
@@ -379,8 +382,8 @@ The 1.5 mm nominal value comes from arithmetic: box section height (35 mm steel 
 | Selected product | **Araldite Professional 90 min** (Tekbond, code BRAP000) |
 | Shear strength on stainless (ambient cure) | ≈ 14–16 MPa → bond FS ≈ 14–16× (see [STRUCTURAL_ANALYSIS.md](./STRUCTURAL_ANALYSIS.md) §8) |
 | Cure | 24 h under pressure (clamps) |
-| Surface preparation | Sand surfaces **P40–P60 grit** — coarse abrasion (stainless 304 carries a passive Cr₂O₃ layer; P80 is too fine), degrease (isopropyl alcohol) |
-| Quantity | 2× 23 g bisnaga (≈ 46 g / 42 mL — 25% headroom over the 25–35 mL effective need) |
+| Surface preparation | Spec: sand **P40–P60 grit** — coarse abrasion (stainless 304 carries a passive Cr₂O₃ layer; P80 is too fine), degrease (isopropyl alcohol). **As-built (sessions 1–2, 2026-05-19/20): P24 sandpaper + acetone degrease** — coarser grit and acetone substitution, both functionally equivalent or better for this bond |
+| Quantity | **4× 23 g bisnaga as-built** (2 per bonding session, 2026-05-19 + 2026-05-20; total R$ 124) — original estimate was 2× 23 g, doubled because bonding was split into two sessions (top plate first, bottom plate after) |
 
 > **⚠️ Identify the right product**
 >

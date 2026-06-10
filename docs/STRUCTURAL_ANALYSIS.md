@@ -195,6 +195,8 @@ Since the box section combines two materials (aluminum plates + stainless steel 
 Reference: bottom of bottom plate (y = 0)
 Total height: 3 + 35 + 6.35 = **44.35 mm**
 
+> **📐 As-built note (2026-06-10):** post-cure measurement (2026-05-26) found the internal box height at **~36 mm** (vs 35 mm tube nominal) — the epoxy bondlines add ~0.5 mm per joint, giving an as-built structure height of ~45.35 mm. The +1 mm shifts section geometry by <3% and slightly *increases* I (greater flange separation), so all deflection/stress results below remain valid and conservative. Cell-to-plate gap closed with **2 mm shims** (final, fabricated 2026-06-03 — see COMPONENT_SPECS §2.3.1); shims sit in the load path of the fastening stack, not in the bending section, so they don't enter this calculation.
+
 | Component | Material | Real area (mm²) | n | Transf. area (mm²) | Centroid y (mm) |
 |-----------|----------|:---------------:|:---:|:------------------:|:---------------:|
 | Bottom plate (300×3 mm) | Al 5052-F | 900 | 1.0 | 900 | 1.50 |

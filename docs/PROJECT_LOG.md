@@ -6,6 +6,26 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-06-10 — Auditoria as-built completa + desenhos re-renderizados (Rev 3.1)
+
+Auditoria de conformidade as-built em toda a documentação (3 agentes paralelos), corrigindo tudo que ainda representava valores previstos em vez dos reais:
+
+### Correções aplicadas
+
+- **`fabrication_drawings.py` + 5 PDFs re-renderizados:** `SHIM_T` 1.5 → **2 mm**, `DESIGN_REV` 3.0 → **3.1**, header com histórico Rev 3.1. `fab_shim.pdf` agora cota 2 mm final (debt do log 08/06 quitado)
+- **Stack height corrigido em 3 docs:** 44.35 → **45.35 mm** as-built (shim 2 mm). Engajamento M10×60 reverificado: trecho em stack abaixo da cabeça escareada 39.85 mm → 14.65 mm livres = arruela + Parlock + ~2.6 mm de sobra — **≥ 1×D mantido** ✓ (margem 1 mm menor que o nominal)
+- **COMPONENT_SPECS:** pezinho as-built (zincado 25/05; borracha = retalho + Tekbond 793, não neoprene comprado), epóxi 2× → **4× 23 g**, prep as-built **P24 + acetona** (spec era P40-P60 + isopropílico), nota as-built de torque não instrumentado em §2.6
+- **DEVELOPMENT_PLAN:** checklists de procurement/assembly/tube bonding fechadas com datas reais (13 itens [ ] → [x]); itens restantes anotados como pré-calibração (visual check escareado, nivelamento, teste de rigidez); anti-seize marcado como não usado as-built
+- **CONTRIBUTING:** tabela de revisões ganhou linha **Rev 3.1** (tubo inox 304 1.5 mm + shim 2 mm + assembly 08/06)
+- **STRUCTURAL_ANALYSIS §7.2:** nota as-built — caixão interno medido ~36 mm (bondlines ~0.5 mm/junta), efeito <3% e conservador; shims fora da seção de flexão, cálculos inalterados
+- **SHOPPING_LIST:** dims das chapas esclarecidas (603×503/530×399 = stock +3 mm → 600×500/527×396 finais)
+
+### Permanece previsto (não medido — honesto)
+
+- Peso total ~13 kg (estimado); torque 20-25 N·m não verificado (sem torquímetro); scripts Rev 1.0 (`structural_analysis.py` etc.) seguem arquivados como histórico — SSOT é o STRUCTURAL_ANALYSIS.md
+
+---
+
 ## 2026-06-08 — Montagem mecânica concluída
 
 ### Assembly final — 4 cantos montados

@@ -14,7 +14,7 @@
 > **Rev 3.1 changes (2026-05-18):**
 > - Structural tube: 1020 carbon steel 35×35×2 mm → **stainless steel 304 35×35×1.5 mm**, 500 mm length (off-the-shelf at Real Fortaleza Hidráulica, Jacareí). Completes "inox 304 throughout" — the tube was the last carbon-steel exception.
 > - Epoxy: specified **Araldite Professional 90 min, 2× 23 g** (Tekbond BRAP000)
-> - Surface prep: sandpaper P80 → **P40–P60** (coarse abrasion for stainless passive layer)
+> - Surface prep: sandpaper P80 → **P40–P60** (coarse abrasion for stainless passive layer). **As-built: P24 + acetone** (household stock, sessions 2026-05-19/20) — coarser grit, acetone substituted isopropyl; functionally equivalent
 
 ---
 
@@ -22,8 +22,8 @@
 
 | # | Item | Specification | Qty | Budget (R$) |
 |---|------|--------------|:---:|----------:|
-| 1 | Top plate | Al 5052-F, 603×503 mm, 6.35 mm (1/4"), rounded corners R30 | 1 | **410.00** |
-| 2 | Bottom plate | Al 5052-F, 530×399 mm, 3 mm, chamfered corners 15×15 at 45° | 1 | **140.00** |
+| 1 | Top plate | Al 5052-F, 603×503 mm stock (+3 mm allowance → **600×500 mm final** after finishing), 6.35 mm (1/4"), rounded corners R30 | 1 | **410.00** |
+| 2 | Bottom plate | Al 5052-F, 530×399 mm stock (+3 mm allowance → **527×396 mm final** after finishing), 3 mm, chamfered corners 15×15 at 45° | 1 | **140.00** |
 | 3 | Square tube ✅ | **Stainless steel 304, 35×35×1.5 mm**, 2 pieces of 500 mm (from 1 m bar) — Rev 3.1, Real Fortaleza Hidráulica 2026-05-18 | 2 | 103,67 |
 
 > **💡 Quote received (2026-04-06)**
@@ -74,7 +74,7 @@
 | 5a | 304 sheet stock ✅ | Inox 304, 300×100×**2 mm** (final empirical thickness — see [`COMPONENT_SPECS.md`](./COMPONENT_SPECS.md) §2.3.1) — MALUCOMERCIAL/MercadoLivre, received 2026-05-29 | 1 | **79,90** |
 | 5b | Cut + drill service ✅ | 8 shims 56×32×2 mm, 2 through holes Ø11 mm each, 25 mm center-to-center — AL Usinagem, sheet delivered 2026-05-29, parts received 2026-06-03 | 8 | **180,00** |
 
-> **✅ Process gate (Rev 3.0) honored:** shims fabricated only after empirical box section measurement (2026-05-26: ~36 mm − cell 32 mm → 2+2 mm mirror). Sourcing pivoted on 2026-05-26 from "AL Usinagem quotes everything" to self-sourced sheet + AL machining only. Drawing re-render (`fab_shim.pdf` at 2 mm) still pending — documentation debt, parts already made to correct spec.
+> **✅ Process gate (Rev 3.0) honored:** shims fabricated only after empirical box section measurement (2026-05-26: ~36 mm − cell 32 mm → 2+2 mm mirror). Sourcing pivoted on 2026-05-26 from "AL Usinagem quotes everything" to self-sourced sheet + AL machining only. Drawings re-rendered at 2 mm (Rev 3.1) on 2026-06-10.
 
 ---
 

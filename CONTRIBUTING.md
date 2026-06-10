@@ -91,8 +91,9 @@ The `hardware/cad/` directory contains Python scripts that compute structural an
 | Rev 1.0 (2026-04-01) | Al 6061-T6 | 6 mm | Aluminum tubes | M10 class 8.8, single shim per cell |
 | Rev 2.0 (2026-04-06) | Al 5052-F | 6.35 mm (1/4 in) | 1020 carbon steel tubes 35×35×2 mm | M10×50 class 8.8, 4 shims (top only, 2mm) |
 | Rev 3.0 (2026-05-08) | Al 5052-F | 6.35 mm (1/4 in) | 1020 carbon steel tubes 35×35×2 mm | Inox 304 throughout (M10×60 DIN 7991 + Parlock + DIN 125), mirror shims (8 units, 1.5mm nominal), perimeter chamfer top plate (45°×2.12mm both faces) + bottom plate (45°×1.5mm bottom face) |
+| **Rev 3.1 (2026-05-18; as-built 2026-06-08)** | Al 5052-F | 6.35 mm (1/4 in) | **Stainless 304 tubes 35×35×1.5 mm, 2× 500 mm** (completes "inox 304 throughout") | Shims **2 mm final** (empirical 2026-05-26); mechanical assembly completed 2026-06-08 |
 
-Scripts targeting Rev 1.0 or Rev 2.0 are marked with a disclaimer comment. Rev 3.0 scripts are the current default.
+Scripts targeting Rev 1.0 or Rev 2.0 are marked with a disclaimer comment. Rev 3.1 scripts are the current default (`fabrication_drawings.py`).
 
 ---
 
