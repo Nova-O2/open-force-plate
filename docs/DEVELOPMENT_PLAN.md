@@ -250,6 +250,10 @@ USB-C 5V ──► TP4056 ──┐  │
 **USB-C mode (primary):** 5V direct from USB powers everything. MT3608 inactive.
 **Battery mode (BLE):** MT3608 converts 3.7V→5V. Everything works without a cable.
 
+> **⚠️ Power path not yet defined (open item, #5):** the diagram does not say how USB 5V and the MT3608 output share the bus. Both must **never** drive the 5V bus at the same time (one back-feeds the other). On the bench, test one source at a time. For the enclosed version, choose an OR-ing scheme (Schottky diodes or a power-path switch) — decision deferred to Phase 6.
+>
+> **Excitation noise:** the load cells are excited from the same 5V bus. In battery mode that bus comes from a switching converter (MT3608); compare the resting noise in both modes during S3 (#3).
+
 **⚠️ MT3608 — BEFORE FIRST USE:** Turn the blue trimpot ~20 turns counterclockwise to start at low output voltage. Connect a multimeter to VOUT+/VOUT− and turn slowly clockwise until reading **5.0V**. Only then connect to the circuit. High output can damage the ESP32 or ADS1256.
 
 #### Signal diagram
@@ -263,15 +267,29 @@ Cell 4 (E+,E-,S+,S-)──┘     1000 Hz
 
 **Configuration:** 4 differential channels (1 per cell). PGA=64 (range ±78 mV).
 
-#### SPI connections (ADS1256 → ESP32-S3)
+> **⚠️ Sampling-rate budget (main S3 risk):** the ADS1256 has a single converter behind an input mux. When cycling channels, each conversion pays a settling time, so the multiplexed throughput is much lower than the DRATE setting — about **4.4 ksps aggregate at DRATE = 30 ksps** (datasheet, multiplexed-throughput table). 4 channels × 1000 Hz = 4 ksps therefore fits, but only at the fastest (noisiest) data rate. Real rate and effective bits must be **measured** in S3 (#3); the 17–18 effective-bit figure in §1.4 is an estimate.
+>
+> **Fallback if the budget does not hold:** wire the 4 cells in parallel through a summing junction (standard in platform scales) and read **one** differential channel without mux switching — higher rate and lower noise, at the cost of per-cell signals (not needed for a uniaxial Fz plate; the S4 corner-load test then checks that cell sensitivities match).
 
-| ADS1256 | ESP32 GPIO |
-|---------|:----------:|
-| SCLK | 18 |
-| MOSI (DIN) | 23 |
-| MISO (DOUT) | 19 |
-| CS | 5 |
-| DRDY | 4 |
+#### Pin map (ESP32-S3-DevKitC-1 N16R8)
+
+| Function | ESP32-S3 GPIO | Notes |
+|----------|:-------------:|-------|
+| ADS1256 SCLK | 12 | FSPI default pins |
+| ADS1256 DIN (MOSI) | 11 | |
+| ADS1256 DOUT (MISO) | 13 | |
+| ADS1256 CS | 10 | |
+| ADS1256 DRDY | 9 | Input, falling-edge interrupt |
+| ADS1256 RESET | 8 | Optional — otherwise tie high |
+| ADS1256 PDWN | — | Tie high (DVDD) |
+| Battery sense | 4 | ADC1 (works alongside BLE), via 2:1 divider |
+| LED green / yellow / red | 14 / 15 / 16 | Standard 5 mm LEDs + 330 Ω series resistor |
+
+**Pins to avoid on this board:** 0, 3, 45, 46 (strapping) · 19/20 (native USB D−/D+) · 26–32 (SPI flash) · 33–37 (octal PSRAM, the "R8") · 38/48 (on-board RGB LED, depending on board revision). **GPIO 22–25 do not exist on the ESP32-S3.** Confirm against the board silkscreen before wiring.
+
+> **History:** until 2026-11-10 this section listed a classic-ESP32 pinout (SCLK 18, MOSI 23, MISO 19, CS 5, DRDY 4; battery on GPIO34; LEDs on 21/22/25), which is invalid on the S3 (#5).
+
+**Before the first SPI connection:** measure the ADS1256 module's **DVDD**. Most modules regulate DVDD to 3.3 V on board (logic compatible with the ESP32-S3). If DVDD is 5 V, DOUT/DRDY swing to 5 V and need level shifting — the ESP32-S3 is not 5 V tolerant.
 
 #### Electronics assembly checklist
 
@@ -280,11 +298,13 @@ Cell 4 (E+,E-,S+,S-)──┘     1000 Hz
 - [ ] Connect on/off button between MT3608 and bus
 - [ ] Connect ESP32-S3 to breadboard (5V pin + GND)
 - [ ] Connect ADS1256 to breadboard (AVDD 5V + GND)
-- [ ] Connect ADS1256 to ESP32-S3 via SPI (5 wires — see table above)
+- [ ] Measure ADS1256 module DVDD (must be 3.3 V for direct connection — see pin map note)
+- [ ] Connect ADS1256 to ESP32-S3 via SPI (SCLK, DIN, DOUT, CS, DRDY — see pin map)
 - [ ] Solder/connect 4 load cells to ADS1256 (E+, E−, S+, S− per cell)
 - [ ] Connect EPB 1S2P battery to TP4056 (B+, B−) — **adapt connector JST-XH-2P → JST-PH 2.0mm** (use PH kit already purchased)
-- [ ] Connect resistor voltage divider (2× 100kΩ) from battery B+ to ESP32 GPIO34 (voltage monitoring)
-- [ ] Connect 3 battery indicator LEDs (green/yellow/red) to GPIOs 21/22/25
+- [ ] Connect resistor voltage divider (2× 100kΩ) from battery B+ to ESP32 GPIO4 (voltage monitoring)
+- [ ] Connect 3 battery indicator LEDs (green/yellow/red) to GPIOs 14/15/16 — standard LEDs + 330 Ω (the pre-wired 12 V LED kit has series resistors sized for 12 V and will be dim or dark at 3.3 V)
+- [ ] Never connect USB 5V and the MT3608 output to the bus at the same time (power path still open — see above)
 - [ ] Connect on/off button with integrated LED (already indicates "power on")
 - [ ] Test power in both modes (USB-C and battery)
 - [ ] **Measure actual battery capacity** (EPB 1S2P 5200 mAh, honest density 432 Wh/L) — controlled discharge 4.2V→3.0V with logger/coulomb counter
@@ -310,16 +330,18 @@ Cell 4 (E+,E-,S+,S-)──┘     1000 Hz
 
 **4-layer monitoring:**
 
-**1. Voltage reading via ESP32 ADC (GPIO34)**
+**1. Voltage reading via ESP32 ADC (GPIO4)**
 
 ```
 Battery B+ (up to 4.2V)
       │
-      ├─[ R1 = 100kΩ ]──┬──► ESP32 GPIO34 (ADC)
-      │                 │
-      ├─[ R2 = 100kΩ ]──┤
-      │                 │
-     GND ──────────────┘
+  [ R1 = 100kΩ ]
+      │
+      ├──────────► ESP32 GPIO4 (ADC1)
+      │
+  [ R2 = 100kΩ ]
+      │
+     GND
 ```
 
 2:1 divider protects ADC (3.3V max). Software multiplies reading by 2.
@@ -340,10 +362,10 @@ Battery B+ (up to 4.2V)
 
 | LED | GPIO | Behavior |
 |-----|:----:|---------|
-| Green | 21 | SoC > 50% — solid on |
-| Yellow | 22 | SoC 20–50% — solid on |
-| Red | 25 | SoC < 20% — slow blink (1 Hz) |
-| Red | 25 | SoC < 10% — fast blink (4 Hz) |
+| Green | 14 | SoC > 50% — solid on |
+| Yellow | 15 | SoC 20–50% — solid on |
+| Red | 16 | SoC < 20% — slow blink (1 Hz) |
+| Red | 16 | SoC < 10% — fast blink (4 Hz) |
 
 **4. Exposed via BLE/USB-C**
 
