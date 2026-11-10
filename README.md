@@ -15,28 +15,19 @@ An open-source, single-axis (vertical) force plate for sport science. Measures g
 - ✅ Feet finished: zincagem anti-corrosão (TL Tratamento Superficial, R$ 105) + rubber pads glued (Tekbond 793)
 - ✅ 8 shims fabricated at **2 mm final** (empirical box-section measurement 2026-05-26): self-sourced 304 sheet (R$ 79,90) + AL Usinagem cut/drill (R$ 180, delivered 2026-06-03)
 - ✅ **Full assembly 2026-06-08:** 4 corners — cell + mirror shims + M10×60/arruela/Parlock inox 304 (no torque wrench; 20–25 N·m spec not instrumentally verified — accepted for MVP)
-- 🔄 **Pending:** electronics bench-up (ADS1256 + ESP32-S3 + power + 4-cell wiring) → first calibration
+- 🔄 **Resumed 2026-11-10** after a five-month pause: electronics bench-up in four steps (#1 power → #2 SPI → #3 4-cell acquisition → #4 first calibration)
 - ⏳ **Validation gate:** first calibration promotes `v3.1.0-rc1` → `v3.1.0` final
-- **Updated:** 2026-06-10
+- **Current state, next steps and open risks:** [`docs/estado.md`](docs/estado.md) · **Changes:** [`CHANGELOG.md`](CHANGELOG.md)
+- **Updated:** 2026-11-10
 
 ### Engenharia
-- **Sprint:** hardware MVP — Rev 3.1 inox 304 throughout + assembly
+- **Sprint:** Phase 1 electronics — S1–S4 (#1–#4)
 - **Version:** `v3.1.0-rc1` (release candidate)
 - **Deploy:** N/A (hardware physical)
 
-## Strategy
+## About
 
-Força-plate é o **primeiro produto do pilar Tecnologia Nova O2** (casa de hardware open sport-tech BR). Strategy formal em:
-
-- [`01-content/marketing/nova-o2/strategy/pilar_tecnologia.md`](../../../01-content/marketing/nova-o2/strategy/pilar_tecnologia.md) — visão pilar + sequenciamento produtos + roadmap captação 4 fases (PIPE → Embrapii → VC) + networking priorizado + armadilhas
-- [`05-strategy/nova-o2/README.md`](../../../05-strategy/nova-o2/README.md) — índice de pointers strategy Nova O2
-
-Próximas etapas estratégicas (cascade do pilar Tecnologia, OKRs Q2 2026 sub-pilar 2.T):
-
-1. Rev 3.1 final + primeira calibração (em curso — KR 2.T.1)
-2. Lab acadêmico parceiro pra paper validação concorrente vs força-plate comercial (Q3/26 — KR 2.T.2)
-3. Primeiros 2-3 clientes em clube (Portuguesa, São José FC via Daniel) — Set-Dez 2026
-4. Pacote comercial formal (preço, garantia, suporte, treinamento) — Out-Dez 2026
+Open-hardware project maintained under [Nova O2](https://novao2.com.br).
 
 ## Specifications
 
@@ -161,6 +152,8 @@ See [Components Selected](docs/COMPONENTS_SELECTED.md) for the full bill of mate
 | [Structural Analysis](docs/STRUCTURAL_ANALYSIS.md) | Engineering calculations — deflection, stress, safety factors |
 | [Shopping List](docs/SHOPPING_LIST.md) | Local procurement guide with vendor categories |
 | [Project Log](docs/PROJECT_LOG.md) | Chronological development history |
+| [Current State](docs/estado.md) | Where the project stands, next steps, open risks (pt-BR) |
+| [Changelog](CHANGELOG.md) | Changes per tagged revision |
 
 ## Project Structure
 
@@ -323,6 +316,8 @@ Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20
 | [Análise Estrutural](docs/STRUCTURAL_ANALYSIS.md) | Cálculos de engenharia — deflexão, tensão, fatores de segurança |
 | [Lista de Compras](docs/SHOPPING_LIST.md) | Guia de compras locais com categorias de fornecedores |
 | [Diário do Projeto](docs/PROJECT_LOG.md) | Histórico cronológico de desenvolvimento |
+| [Estado Atual](docs/estado.md) | Onde o projeto está, próximos passos, riscos em aberto |
+| [Changelog](CHANGELOG.md) | Mudanças por revisão marcada |
 
 ## Estrutura do Projeto
 
