@@ -161,8 +161,10 @@ See [Components Selected](docs/COMPONENTS_SELECTED.md) for the full bill of mate
 open-force-plate/
 ├── hardware/
 │   └── cad/            # Analysis scripts and fabrication drawings (PDF)
+├── firmware/           # ESP32-S3 + ADS1256 firmware (PlatformIO)
 ├── docs/               # Technical documentation
 ├── .github/            # Issue and PR templates
+├── CHANGELOG.md        # Changes per tagged revision
 ├── CONTRIBUTING.md     # How to contribute
 ├── LICENSE-HARDWARE    # CERN-OHL-S v2
 └── LICENSE-SOFTWARE    # GPL v3
@@ -325,8 +327,10 @@ Plataformas de força comerciais custam entre R$30.000 e R$100.000 ($6.000–$20
 open-force-plate/
 ├── hardware/
 │   └── cad/            # Scripts de análise e desenhos de fabricação (PDF)
+├── firmware/           # Firmware ESP32-S3 + ADS1256 (PlatformIO)
 ├── docs/               # Documentação técnica
 ├── .github/            # Templates de issues e PRs
+├── CHANGELOG.md        # Mudanças por revisão marcada
 ├── CONTRIBUTING.md     # Como contribuir
 ├── LICENSE-HARDWARE    # CERN-OHL-S v2
 └── LICENSE-SOFTWARE    # GPL v3

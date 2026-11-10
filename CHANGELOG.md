@@ -8,6 +8,7 @@ Day-by-day history (purchases, fabrication sessions, measurements) lives in [`do
 
 ### Added
 - `docs/estado.md` (current state, next steps, open risks) and this changelog; changes go through pull requests (#6).
+- `firmware/`: PlatformIO project for the ESP32-S3 N16R8 with the S2 SPI bring-up sketch (ADS1256 chip ID + raw single-channel readings) (#2).
 - Electronics: ADS1256 multiplexed-throughput budget with a summing-junction fallback, power-path and logic-level checks (#5).
 
 ### Changed
