@@ -12,6 +12,8 @@ Open Force Plate is an open-source force plate for sport science. Contributions 
 4. Commit following our conventions (see below)
 5. Push and open a Pull Request
 
+All changes to `main` — maintainers included — go through a pull request linked to an issue. Each tagged revision gets an entry in [`CHANGELOG.md`](CHANGELOG.md); where the project stands right now is in [`docs/estado.md`](docs/estado.md) (pt-BR, kept current by the maintainer).
+
 ---
 
 ## Areas for Contribution
@@ -65,7 +67,7 @@ Commit messages in English.
 | Scope | Convention | Example |
 |-------|-----------|---------|
 | Root governance files | UPPERCASE (OSS standard) | `README.md`, `CONTRIBUTING.md`, `LICENSE-*` |
-| Documentation | UPPER_SNAKE_CASE | `DEVELOPMENT_PLAN.md`, `PROJECT_LOG.md` |
+| Documentation | UPPER_SNAKE_CASE (exception: `docs/estado.md`, the maintainer's state file) | `DEVELOPMENT_PLAN.md`, `PROJECT_LOG.md` |
 | Code (scripts, firmware, software) | snake_case | `structural_analysis.py` |
 | Generated artifacts (PDFs, images) | snake_case, English | `fab_top_plate.pdf` |
 | GitHub templates | snake_case (GitHub default) | `bug_report.md` |

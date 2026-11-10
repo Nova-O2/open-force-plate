@@ -178,7 +178,7 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 
 #### History
 
-- **01/04:** purchased BGB Energy 3.7V battery labeled 3000 mAh (Karina Mayumi, ML) — identified capacity overclaim (implied density 720 Wh/L, above theoretical limit). Estimated actual capacity: 1,000–1,500 mAh.
+- **01/04:** purchased BGB Energy 3.7V battery labeled 3000 mAh (Mercado Livre) — identified capacity overclaim (implied density 720 Wh/L, above theoretical limit). Estimated actual capacity: 1,000–1,500 mAh.
 - **04/04:** initiated BGB return + purchased 2 EPB 1S2P 5200 mAh packs with verified honest specs.
 
 **Lesson learned:** for Li-ion/LiPo batteries, always calculate energy density before buying (capacity × voltage / volume). A pack with >400 Wh/L in LiPo pouch or >700 Wh/L in cylindrical Li-ion is very likely an overclaim.
