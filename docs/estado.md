@@ -9,6 +9,7 @@ Fonte única do estado atual. O histórico dia a dia fica no [`PROJECT_LOG.md`](
 - **Mecânica pronta** desde 2026-06-08: estrutura colada (chapas Al 5052-F + seção caixão inox 304), 4 cantos montados, calços de 2 mm. Montada sem torquímetro.
 - **Retomado em 2026-11-10**, depois de cinco meses parado. Os componentes eletrônicos estão todos em mãos desde abril.
 - **Revisão pré-eletrônica (2026-11-10):** a pinagem dos documentos era do ESP32 clássico e foi refeita para o ESP32-S3 (#5).
+- **Firmware do S2 pronto, sem teste em placa:** projeto PlatformIO em `firmware/` (PR #9), compila. O merge espera o teste na bancada.
 
 ## Próximos passos (milestone `v3.1.0`)
 
