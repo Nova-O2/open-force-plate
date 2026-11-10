@@ -86,7 +86,7 @@ Consolidated reference sheet for all project components. Original manufacturer s
 #### Planned configuration
 
 - Mode: 4 differential channels (1 per load cell)
-- Effective rate: 1000 Hz per channel (4 ksps multiplexed, within the 30 ksps limit)
+- Effective rate: 1000 Hz per channel = 4 ksps aggregate. **Tight:** with mux cycling the ADS1256 delivers only ~4.4 ksps aggregate even at DRATE = 30 ksps (datasheet, multiplexed-throughput table), so this runs at the fastest, noisiest setting. To be measured in S3 — budget and summing-junction fallback in [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) §1.3
 - PGA: 64 (range ±78 mV, ideal for the ~10 mV cell signal)
 
 **Assessment:** Module with ADR03 reference is a differentiator — precision reference reduces noise compared to generic modules. Non-linearity of ±0.0010% is 30× better than the cells (0.03%), so the ADC will never be the precision bottleneck.
@@ -110,7 +110,7 @@ Consolidated reference sheet for all project components. Original manufacturer s
 | SPI | 4× SPI (+ Dual SPI, Quad SPI, Octal SPI, QPI, OPI) |
 | I2C | 2× |
 | UART | 3× |
-| Internal ADC | 2× 12-bit SAR, 20 channels (not used — we have external ADS1256) |
+| Internal ADC | 2× 12-bit SAR, 20 channels (force signal goes through the external ADS1256; ADC1 used only for battery voltage) |
 | Internal temp sensor | 1× |
 | Timers | 4× 54-bit universal + 1× 52-bit system + 3× Watchdog |
 | DMA | Universal (5 RX + 5 TX channels) |
@@ -120,13 +120,15 @@ Consolidated reference sheet for all project components. Original manufacturer s
 
 #### SPI connections (ADS1256 ↔ ESP32-S3)
 
-| ADS1256 | ESP32 GPIO |
-|---------|:----------:|
-| SCLK | 18 |
-| MOSI (DIN) | 23 |
-| MISO (DOUT) | 19 |
-| CS | 5 |
-| DRDY | 4 |
+| ADS1256 | ESP32-S3 GPIO |
+|---------|:-------------:|
+| SCLK | 12 |
+| MOSI (DIN) | 11 |
+| MISO (DOUT) | 13 |
+| CS | 10 |
+| DRDY | 9 |
+
+Full pin map (battery sense, LEDs, pins to avoid on the N16R8) in [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) §1.3. The pinout listed here until 2026-11-10 was for the classic ESP32 and is invalid on the S3 (#5).
 
 **Verified via vendor spec sheet (2026-04-01):** CPU, BLE, and peripherals confirmed compatible with all project requirements.
 
@@ -137,7 +139,7 @@ Consolidated reference sheet for all project components. Original manufacturer s
 **Model:** Rectangular Li-ion 1S2P pack (2× 18650 cells in parallel) with integrated BMS
 **Vendor:** EPB Energia Portátil Brasil (official store — ENERGIAPORTATILBRASIL, Mercado Livre)
 **Purchase:** 2026-04-04 — 2 units × R$ 26.71 = R$ 53.42
-**Status:** awaiting delivery
+**Status:** received 2026-04-11
 
 | Parameter | Value |
 |-----------|-------|
