@@ -31,3 +31,6 @@ Thumbs.db
 # CAD intermediate files
 *.FCStd1
 *.bak
+
+# Photos with order labels / supplier data
+docs/photos/_private/

@@ -34,6 +34,12 @@ Primeira sessão de eletrônica, em casa, na protoboard. **Gate atingido sem car
 - Modo bateria: MT3608 VOUT± nos trilhos da direita. Modo USB: VOUT+ fora do trilho, TP4056 IN± nos trilhos da direita. Nunca os dois.
 - Sem botão, a bancada parada fica com o OUT+ da TP4056 fora do trilho.
 
+### Fotos
+
+- [MT3608 (HW-045): pads VIN±/VOUT± e trimpot 3296](./photos/2026-11-11_s1/mt3608_hw045_pads.jpg)
+- [Botão de 12 mm com os fios de fábrica (verde LED+, amarelo LED−, vermelho/preto chave)](./photos/2026-11-11_s1/power_button_leads.jpg)
+- Fotos com etiqueta de pedido (TP4056 com a placa, embalagem do MT3608) ficam só no clone local, em `docs/photos/_private/` (gitignored).
+
 ### Em aberto
 
 - **Medição sob carga:** o gate foi medido sem carga. Repetir com o ESP32-S3 ligado (~215 mA com o ADS1256) no começo do S2 (#2).
