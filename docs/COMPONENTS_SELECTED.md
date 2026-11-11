@@ -17,11 +17,11 @@ Purchase dates: 2026-04-01 (main order), 2026-04-04 (battery replacement)
 | 3 | ESP32-S3-DevKitC-1 N16R8 (with pin headers) | 2 |
 | 4 | TP4056 Type-C with protection (kit of 5) | 1 |
 | 5 | MT3608 boost converter (standard) | 2 |
-| 6 | 12mm metal self-locking LED button 3-9V | 1 |
+| 6 | 12mm metal self-locking LED button 3-9V — **received momentary, not latching** (S1, 2026-11-11; #10) | 1 |
 | 7 | 830-point breadboard (kit of 3) | 1 |
 | 8 | Dupont jumper wires 20cm flexible 24AWG | 1 |
 | 9 | XH 2.54mm 4-pin connectors 20cm (F5+M5) | 1 |
-| 10 | PH 2.0mm connectors (battery→TP4056) | 1 |
+| 10 | PH 2.0mm connectors (battery→TP4056) — not needed: the TP4056 board has pads only | 1 |
 | 11 | 300-piece resistor kit 1/4W 1% metal film | 1 |
 | 12 | Pre-wired 5mm LED kit 12V (30pcs, 6 colors) | 1 |
 

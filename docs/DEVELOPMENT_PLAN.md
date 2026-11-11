@@ -242,10 +242,10 @@ USB-C 5V ──► TP4056 ──┐  │
          Battery 3.7V ─┘  │
               │            └──► ADS1256 (AVDD 5V)
               ▼
-         MT3608 (3.7V→5V) ──► same 5V bus
-                                    │
-                               [On/off button] ──► bus
+       TP4056 OUT+ ──► [On/off button] ──► MT3608 (3.7V→5V) ──► same 5V bus
 ```
+
+**Button position (decided in S1, 2026-11-11):** between the battery (TP4056 OUT+) and the MT3608 input, so that "off" leaves the boost unpowered and the pack is not drained while the platform is stored. It does not switch USB mode (see power path below). The unit received was momentary, not latching — replacement in #10.
 
 **USB-C mode (primary):** 5V direct from USB powers everything. MT3608 inactive.
 **Battery mode (BLE):** MT3608 converts 3.7V→5V. Everything works without a cable.
@@ -254,7 +254,7 @@ USB-C 5V ──► TP4056 ──┐  │
 >
 > **Excitation noise:** the load cells are excited from the same 5V bus. In battery mode that bus comes from a switching converter (MT3608); compare the resting noise in both modes during S3 (#3).
 
-**⚠️ MT3608 — BEFORE FIRST USE:** Turn the blue trimpot ~20 turns counterclockwise to start at low output voltage. Connect a multimeter to VOUT+/VOUT− and turn slowly clockwise until reading **5.0V**. Only then connect to the circuit. High output can damage the ESP32 or ADS1256.
+**⚠️ MT3608 — BEFORE FIRST USE:** Power the input with **nothing on the output but a multimeter**. Read VOUT+/VOUT− before touching the trimpot (factory setting is arbitrary; a reading slightly *below* VIN means it sits at minimum and is not switching yet). Find the direction with the meter: on the HW-045 module used here, **counterclockwise raises** the voltage (verified in S1). The 3296 trimpot has ~25 turns and no end stop, and may need many turns before the output moves. Adjust to **5.0 V** (4.95–5.05 V), then connect the circuit. High output can damage the ESP32 or ADS1256.
 
 #### Signal diagram
 
@@ -293,20 +293,20 @@ Cell 4 (E+,E-,S+,S-)──┘     1000 Hz
 
 #### Electronics assembly checklist
 
-- [ ] Assemble power circuit on breadboard (TP4056 → MT3608 → 5V bus)
-- [ ] Adjust MT3608 to 5.0V (use multimeter!)
-- [ ] Connect on/off button between MT3608 and bus
+- [x] Assemble power circuit on breadboard (TP4056 → MT3608 → 5V bus) — S1, 2026-11-11
+- [x] Adjust MT3608 to 5.0V (use multimeter!) — 5.01 V, no load
+- [ ] Connect on/off button between battery (TP4056 OUT+) and MT3608 input — needs a latching button (#10)
 - [ ] Connect ESP32-S3 to breadboard (5V pin + GND)
 - [ ] Connect ADS1256 to breadboard (AVDD 5V + GND)
 - [ ] Measure ADS1256 module DVDD (must be 3.3 V for direct connection — see pin map note)
 - [ ] Connect ADS1256 to ESP32-S3 via SPI (SCLK, DIN, DOUT, CS, DRDY — see pin map)
 - [ ] Solder/connect 4 load cells to ADS1256 (E+, E−, S+, S− per cell)
-- [ ] Connect EPB 1S2P battery to TP4056 (B+, B−) — **adapt connector JST-XH-2P → JST-PH 2.0mm** (use PH kit already purchased)
+- [x] Connect EPB 1S2P battery to TP4056 (B+, B−) — the TP4056 board has pads only, no connector: pack leads soldered directly to B+/B− (S1, 2026-11-11)
 - [ ] Connect resistor voltage divider (2× 100kΩ) from battery B+ to ESP32 GPIO4 (voltage monitoring)
 - [ ] Connect 3 battery indicator LEDs (green/yellow/red) to GPIOs 14/15/16 — standard LEDs + 330 Ω (the pre-wired 12 V LED kit has series resistors sized for 12 V and will be dim or dark at 3.3 V)
 - [ ] Never connect USB 5V and the MT3608 output to the bus at the same time (power path still open — see above)
-- [ ] Connect on/off button with integrated LED (already indicates "power on")
-- [ ] Test power in both modes (USB-C and battery)
+- [ ] Connect on/off button with integrated LED (already indicates "power on") — #10
+- [x] Test power in both modes (USB-C and battery) — 4.99 V / 5.01 V, no load (S1); re-check under load at the start of S2
 - [ ] **Measure actual battery capacity** (EPB 1S2P 5200 mAh, honest density 432 Wh/L) — controlled discharge 4.2V→3.0V with logger/coulomb counter
 - [ ] Validate readings from all 4 cells (raw value on serial monitor)
 - [ ] Validate battery voltage reading (compare ADC vs multimeter)

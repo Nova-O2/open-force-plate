@@ -174,9 +174,9 @@ Full pin map (battery sense, LEDs, pins to avoid on the N16R8) in [DEVELOPMENT_P
 
 #### Connector adaptation
 
-Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two options:
-1. Swap connector: desolder JST-XH from pack, solder JST-PH (PH 2.0mm kit already purchased on AliExpress, item #10)
-2. Solder wires directly to B+/B− pads on TP4056 (more robust)
+Pack ships with **JST-XH-2P (2.54 mm)**. The TP4056 board received has **pads only** (IN±, B±, OUT±), no connector.
+
+**As-built (S1, 2026-11-11):** JST-XH cut off (one lead at a time, to avoid shorting the pack), leads soldered directly to B+/B−. The JST-PH kit (AliExpress item #10) was not needed.
 
 #### History
 
@@ -219,7 +219,7 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 
 > **🔴 BEFORE FIRST USE**
 >
-> Turn the blue trimpot ~20 turns counterclockwise to start with low output voltage. Connect a multimeter to VOUT+/VOUT− pins and turn slowly clockwise until reading **5.0 V**. Only then connect to the circuit. High output can damage the ESP32 or ADS1256.
+> Power the input with nothing on the output but a multimeter, and read VOUT+/VOUT− before touching the trimpot. Find the direction with the meter: on the HW-045 module, **counterclockwise raises** the voltage (verified in S1, 2026-11-11). The 3296 trimpot has ~25 turns and no end stop; the output may not move for several turns. Adjust to **5.0 V**, then connect the circuit. High output can damage the ESP32 or ADS1256.
 
 ---
 
@@ -228,12 +228,14 @@ Pack ships with **JST-XH-2P (2.54 mm)**; TP4056 uses **JST-PH (2.0 mm)**. Two op
 | Parameter | Value |
 |-----------|-------|
 | Type | Metal push button, 12 mm |
-| Mode | Fixed self-locking (latching — stays on/off) |
+| Mode | Specified: self-locking (latching — stays on/off). **Received: momentary** (S1, 2026-11-11) — replacement in #10 |
 | LED voltage | 3–9 V (compatible with circuit 3.7–5V) |
 | Material | Metal |
 | LED | Integrated (lights when on) |
 
-**Function:** Main platform switch. Cuts power between MT3608 and the rest of the circuit.
+**Leads (pre-wired unit):** green = LED+, yellow = LED−, red/black = switch.
+
+**Function:** Main platform switch. Cuts the battery feed to the MT3608 input (decided in S1, 2026-11-11), so the boost draws nothing when off.
 
 ---
 
@@ -427,9 +429,7 @@ USB-C 5V ──► TP4056 ──┐  │
          Battery 3.7V ─┘  │
               │            └──► ADS1256 (AVDD 5V)
               ▼
-         MT3608 (3.7V→5V) ──► same 5V bus
-                                    │
-                               [On/off button] ──► bus
+       TP4056 OUT+ ──► [On/off button] ──► MT3608 (3.7V→5V) ──► same 5V bus
 ```
 
 - **USB-C mode (primary):** 5V direct from USB powers everything. MT3608 inactive.
