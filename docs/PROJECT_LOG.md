@@ -6,6 +6,41 @@ For technical specs: [COMPONENT_SPECS.md](./COMPONENT_SPECS.md) | For costs: [CO
 
 ---
 
+## 2026-11-11 — S1: bancada de alimentação (#1)
+
+Primeira sessão de eletrônica, em casa, na protoboard. **Gate atingido sem carga:** barramento a 5,0 V estáveis nos dois modos, uma fonte por vez.
+
+### Medições
+
+| Item | Valor |
+|---|---|
+| Pack 1 / pack 2 (EPB 1S2P, em repouso desde abril) | 3,86 V / **4,07 V** (usado o de 4,07 V) |
+| Polaridade do pack | fio vermelho = + (confere com a spec) |
+| TP4056 B+/B− e OUT+/OUT− depois da solda | 4,07 V nos dois; LED vermelho com USB (carga não levada ao fim) |
+| MT3608 de fábrica | 3,8 V na saída com 4,08 V na entrada: trimpot no fim do curso, sem chavear |
+| MT3608 ajustado | 4,98 V → **5,01 V** estável, frio, sem carga |
+| USB-C (pads IN+/IN− da TP4056) | 4,99 V nos pads; **4,99 V** estável no barramento |
+
+### O que a bancada mostrou (e corrigiu nos docs)
+
+- **TP4056 não tem conector:** a placa tem só pads (IN±, B±, OUT±). O pack foi soldado direto em B+/B− (conector JST-XH cortado, um fio de cada vez); o kit JST-PH não foi usado.
+- **Sentido do trimpot (HW-045):** **anti-horário sobe** a tensão; a instrução antiga ("20 voltas anti-horário para começar baixo") estava invertida. O módulo veio no mínimo, e foram precisas várias voltas antes de a saída sair de 3,8 V: é a zona morta do 3296, não defeito. Instrução nova: medir a saída primeiro e achar o sentido pelo multímetro.
+- **Botão veio momentâneo**, não com trava: S1 fechado sem botão, troca em #10. Decisão do Aldo: o botão fica **entre a bateria e o VIN+ do MT3608** (desligado, o boost não drena o pack), não entre o MT3608 e o barramento.
+
+### Montagem na protoboard (para o S2)
+
+- Trilhos da esquerda = bateria (TP4056 OUT±). Trilhos da direita = barramento 5 V.
+- Rabichos: jumpers macho soldados pelo pino nos furos. ⚠️ **Cores fora do padrão:** no MT3608, **VOUT+ é marrom** e VOUT− é laranja; na TP4056, IN+ amarelo e **IN− também marrom**. O VOUT+ do MT3608 está marcado com fita. Conferir pela placa, não pela cor.
+- Modo bateria: MT3608 VOUT± nos trilhos da direita. Modo USB: VOUT+ fora do trilho, TP4056 IN± nos trilhos da direita. Nunca os dois.
+- Sem botão, a bancada parada fica com o OUT+ da TP4056 fora do trilho.
+
+### Em aberto
+
+- **Medição sob carga:** o gate foi medido sem carga. Repetir com o ESP32-S3 ligado (~215 mA com o ADS1256) no começo do S2 (#2).
+- Botão com trava (#10). Carga completa do pack e medição de capacidade seguem no checklist do plano.
+
+---
+
 ## 2026-06-10 — Auditoria as-built completa + desenhos re-renderizados (Rev 3.1)
 
 Auditoria de conformidade as-built em toda a documentação (3 agentes paralelos), corrigindo tudo que ainda representava valores previstos em vez dos reais:

@@ -9,12 +9,16 @@ Day-by-day history (purchases, fabrication sessions, measurements) lives in [`do
 ### Added
 - `docs/estado.md` (current state, next steps, open risks) and this changelog; changes go through pull requests (#6).
 - Electronics: ADS1256 multiplexed-throughput budget with a summing-junction fallback, power-path and logic-level checks (#5).
+- S1 power bench passed: 5.0 V bus in battery and USB modes, no load (#1).
 
 ### Changed
+- On/off button moved to the battery side of the MT3608 (cuts the boost input), so the pack is not drained while off (#1, #10).
 - README "Strategy" section reduced to a one-line "About" (#6).
 
 ### Fixed
 - Electronics pinout rewritten for the ESP32-S3-DevKitC-1 N16R8; the previous table was for the classic ESP32 (#5).
+- MT3608 setup note: on the HW-045 module counterclockwise *raises* the output; the old "20 turns counterclockwise to start low" was inverted (#1).
+- Battery connection: the TP4056 board has pads only, so the pack is soldered to B+/B−; no JST-PH adapter (#1).
 
 ## [3.1.0-rc1] — 2026-06-10
 
